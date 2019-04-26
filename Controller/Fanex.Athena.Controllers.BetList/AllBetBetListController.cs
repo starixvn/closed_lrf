@@ -6,7 +6,6 @@
 
 namespace Fanex.Athena.Controllers.BetList
 {
-    using System;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using DataAccess.Core.Configuration.Interfaces;
@@ -39,11 +38,6 @@ namespace Fanex.Athena.Controllers.BetList
             return await ProcessDefaultRequest(metaModel, "~/Views/Desktop/BetList/AGCasinoDetail/Main.cshtml", "Lrf_BetList_LC_Detail").ConfigureAwait(false);
         }
 
-        protected override void AssignViewBag(BetListMetaModel model)
-        {
-            ViewBag.BetListTitle = GetTitle(model.Date);
-        }
-
         protected override async Task<ActionResult> ExportExcel(BetListExcelMetaModel metaModel)
         {
             metaModel.ShowingOption = new BetListShowingOption
@@ -53,14 +47,9 @@ namespace Fanex.Athena.Controllers.BetList
             };
 
             metaModel.HiddenColumns = new[] { ExternalIdColumn, SystemIdColumn, BetEffectiveColumn, LicenseeWLColumn };
-            metaModel.Title = GetTitle(metaModel.Date);
+            metaModel.Title = GetBetListDetailTitle(ViewResources.ProductAB, metaModel.Date);
 
             return await ProcessExportExcel(metaModel, "AllBetDetail").ConfigureAwait(false);
-        }
-
-        private static string GetTitle(DateTime date)
-        {
-            return ViewResources.ProductAB + " - " + ViewResources.DetailedBetlist + " - " + date.ToString("MM/dd/yyyy");
         }
     }
 }

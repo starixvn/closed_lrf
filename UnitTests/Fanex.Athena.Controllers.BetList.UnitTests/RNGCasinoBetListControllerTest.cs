@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Athena.Controllers.BetList.UnitTests
 {
     using System;
-    using System.Collections;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Model.BetList.MetaModel;
@@ -11,20 +10,6 @@
 
     public class RNGCasinoBetListControllerTest : BetListBaseControllerHelperTest
     {
-        private static IEnumerable BetListTitleTestCase
-        {
-            get
-            {
-                const long TransTypeYesterday = 0;
-                const long TransTypeTodayRunning = 3;
-                var title = $"{ViewResources.ProductCS} - {ViewResources.BetList} - {ViewResources.DetailTickets} - ";
-
-                yield return new TestCaseData(TransTypeYesterday, title + ViewResources.Yesterday);
-                yield return new TestCaseData(TransTypeTodayRunning, title + ViewResources.Today + " - " + ViewResources.Running);
-                yield return new TestCaseData(1, title + ViewResources.Today + " - " + ViewResources.Settled);
-            }
-        }
-
         [OneTimeSetUp]
         public override void FixtureSetUp()
         {
@@ -68,25 +53,6 @@
             }
         }
 
-        [TestCaseSource(nameof(BetListTitleTestCase))]
-        public async Task Detail_WhenCall_ReturnCorrectViewBag(long transType, string expectedTitle)
-        {
-            using (var controller = CreateController())
-            {
-                // Arrange
-                var metaModel = new BetListExcelMetaModel
-                {
-                    TransType = transType
-                };
-
-                // Action
-                var result = await controller.Detail(metaModel) as ViewResult;
-
-                // Assert
-                Assert.That(result.ViewBag.BetListTitle, Is.EqualTo(expectedTitle));
-            }
-        }
-
         [Test]
         public async Task Detail_ExportExcel_InvalidCurrency_ReturnEmptyResult()
         {
@@ -109,20 +75,20 @@
             }
         }
 
-        [TestCaseSource(nameof(BetListTitleTestCase))]
-        public async Task Detail_ExportExcel_PassCorrectParam(long transType, string expectedTitle)
+        [Test]
+        public async Task Detail_ExportExcel_PassCorrectParam()
         {
             using (var controller = CreateController())
             {
                 // Arrange
                 const string AgentListXml = "<xml/>";
-
                 var metaModel = new BetListExcelMetaModel
                 {
-                    TransType = transType,
+                    Date = new DateTime(2018, 2, 5),
                     IsExportExcel = true,
                     CurrencyId = 0
                 };
+                var expectedTitle = $"{ViewResources.ProductCS} - {ViewResources.DetailedBetlist} - {metaModel.Date.ToString("MM/dd/yyyy")}";
 
                 SessionService.GenerateAgentListXml(metaModel.CurrencyId, false).Returns(AgentListXml);
 

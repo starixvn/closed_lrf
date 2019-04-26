@@ -77,30 +77,6 @@
             get { return _betListApiClient; }
         }
 
-        protected static string GetTitleByTransType(string productTitle, long transType)
-        {
-            const int TransTypeYesterday = 0;
-            const int TransTypeTodayRunning = 3;
-
-            var title = productTitle + ViewResources.BetList + " - " + ViewResources.DetailTickets + " - ";
-            switch (transType)
-            {
-                case TransTypeYesterday:
-                    title += ViewResources.Yesterday;
-                    break;
-
-                case TransTypeTodayRunning:
-                    title += ViewResources.Today + " - " + ViewResources.Running;
-                    break;
-
-                default:
-                    title += ViewResources.Today + " - " + ViewResources.Settled;
-                    break;
-            }
-
-            return title;
-        }
-
         protected static string GetViewInCurrency(BetListMetaModel metaModel)
         {
             return string.Format(
@@ -146,6 +122,11 @@
                  metaModel.ExternalId,
                  metaModel.IsFakeLicensee ? string.Empty : $"({metaModel.SystemId})",
                  currencyTitle);
+        }
+
+        protected static string GetBetListDetailTitle(string productCode, DateTime date)
+        {
+            return $"{productCode} - {ViewResources.DetailedBetlist} - {date.ToString("MM/dd/yyyy")}";
         }
 
         protected BalanceUp GetBalanceUp()
@@ -198,10 +179,6 @@
             return Task.FromResult<ActionResult>(null);
         }
 
-        protected virtual void AssignViewBag(BetListMetaModel model)
-        {
-        }
-
         protected virtual bool IsValidExportExcel(BetListMetaModel model)
         {
             return IsValidCurrency(model.CurrencyId);
@@ -220,7 +197,6 @@
         {
             if (!model.IsExportExcel)
             {
-                AssignViewBag(model);
                 return View(viewPath, model);
             }
 

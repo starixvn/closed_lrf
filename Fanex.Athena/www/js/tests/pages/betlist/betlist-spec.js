@@ -801,10 +801,11 @@
                     setFixtures('<input id="BetListMetaModel" value="{&quot;BaseCurrency&quot;:&quot;eur&quot;}" />');
                     spyOn(Popup, 'openPopupWithIframe');
                     spyOn($.fn, 'height').and.returnValue(300);
-                    BetList.showAGCasinoDetails(0, new Date('2015/2/1'), 0, 0);
-                    var url = 'AGCasinoBetList/Detail?transid=0&custid=0&transType=0&basecurrency=eur';
+                    var winlostDate = "01/05/2017";
+                    BetList.showAGCasinoDetails(0, winlostDate, 0, 0);
+                    var url = 'AGCasinoBetList/Detail?transid=0&date=01/05/2017&custid=0&transType=0&basecurrency=eur';
                     var expectedUrl = transformQueryParamNameToLowerCase(url);
-                    var title = 'AGCasino - DetailedBetlist - 02/01/2015';
+                    var title = 'AGCasino - DetailedBetlist - 01/05/2017';
 
                     expect(Popup.openPopupWithIframe).toHaveBeenCalledWith(expectedUrl, { width: 870, height: 250, title: title, id: 'betlist-popup-detail' });
                 });
@@ -912,7 +913,7 @@
                 it("shows showResultPopUp with correct params", function () {
                     setFixtures('<input id="BetListMetaModel" value="{&quot;BaseCurrency&quot;:&quot;eur&quot;}" />');
                     var transId = 1, winlostDate = "01/05/2017", custId = 2, transType = 3;
-                    var url = "RnGCasinoBetList/Detail?transId=" + transId + "&winlostDate=" + winlostDate + "&custId=" + custId + "&transType=" + transType + "&basecurrency=eur";
+                    var url = "RnGCasinoBetList/Detail?transId=" + transId + "&date=" + winlostDate + "&custId=" + custId + "&transType=" + transType + "&basecurrency=eur";
                     var expectedUrl = transformQueryParamNameToLowerCase(url);
                     spyOn(Popup, "openPopupWithIframe");
                     spyOn($.fn, "height").and.returnValue(700);
@@ -927,7 +928,7 @@
                 it("shows showResultPopUp with correct params", function () {
                     setFixtures('<input id="BetListMetaModel" value="{&quot;BaseCurrency&quot;:&quot;eur&quot;}" />');
                     var transId = 1, winlostDate = "01/05/2017", custId = 2, transType = 3;
-                    var url = "VoidbridgeBetList/Detail?transId=" + transId + "&winlostDate=" + winlostDate + "&custId=" + custId + "&transType=" + transType + "&basecurrency=eur";
+                    var url = "VoidbridgeBetList/Detail?transId=" + transId + "&date=" + winlostDate + "&custId=" + custId + "&transType=" + transType + "&basecurrency=eur";
                     var expectedUrl = transformQueryParamNameToLowerCase(url);
                     spyOn(Popup, "openPopupWithIframe");
                     spyOn($.fn, "height").and.returnValue(700);
@@ -1159,7 +1160,7 @@
                     spyOn($.fn, "height").and.returnValue(700);
                     var transId = "transId", winlostDate = "06/01/2017", custId = "custId", transType = "transType";
                     var url = "GlobalGamingBetList/Detail?transId=" + transId +
-                        "&winlostDate=" + winlostDate +
+                        "&date=" + winlostDate +
                         "&custId=" + custId +
                         "&transType=" + transType +
                         "&BaseCurrency=usd";
@@ -1181,7 +1182,7 @@
                     spyOn($.fn, "height").and.returnValue(700);
                     var transId = "transId", winlostDate = "06/01/2017", custId = "custId", transType = "transType";
                     var url = "PragmaticPlayBetList/Detail?transId=" + transId +
-                        "&winlostDate=" + winlostDate +
+                        "&date=" + winlostDate +
                         "&custId=" + custId +
                         "&transType=" + transType +
                         "&BaseCurrency=usd";

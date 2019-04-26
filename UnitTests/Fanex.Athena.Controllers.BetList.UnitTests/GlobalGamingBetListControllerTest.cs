@@ -54,24 +54,6 @@
         }
 
         [Test]
-        public async Task Detail_WhenCall_ReturnCorrectViewBag()
-        {
-            using (var controller = CreateController())
-            {
-                // Arrange
-                var metaModel = new BetListExcelMetaModel();
-
-                var expectedTitle = $"{ViewResources.ProductFW} - {ViewResources.BetList} - {ViewResources.DetailTickets}";
-
-                // Action
-                var result = await controller.Detail(metaModel) as ViewResult;
-
-                // Assert
-                Assert.That(result.ViewBag.BetListTitle, Is.EqualTo(expectedTitle));
-            }
-        }
-
-        [Test]
         public async Task Detail_ExportExcel_InvalidCurrency_ReturnEmptyResult()
         {
             using (var controller = CreateController())
@@ -104,9 +86,10 @@
                 var metaModel = new BetListExcelMetaModel
                 {
                     IsExportExcel = true,
-                    CurrencyId = 0
+                    CurrencyId = 0,
+                    Date = new DateTime(2019, 2, 1)
                 };
-                var expectedTitle = ViewResources.ProductFW + " - " + ViewResources.BetList + " - " + ViewResources.DetailTickets;
+                var expectedTitle = $"{ViewResources.ProductFW} - {ViewResources.DetailedBetlist} - {metaModel.Date.ToString("MM/dd/yyyy")}";
 
                 SessionService.GenerateAgentListXml(metaModel.CurrencyId, false).Returns(AgentListXml);
 

@@ -42,8 +42,7 @@ namespace Fanex.Athena.Controllers.BetList
 
         protected override async Task<ActionResult> ExportExcel(BetListExcelMetaModel metaModel)
         {
-            metaModel.Title = ViewResources.ProductCS + " - " +
-                    ViewResources.DetailedBetlist + " - " + metaModel.WinLostDate.ToString("MM/dd/yyyy");
+            metaModel.Title = GetBetListDetailTitle(ViewResources.ProductCS, metaModel.Date);
 
             metaModel.ShowingOption = new BetListShowingOption
             {

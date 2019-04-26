@@ -15,9 +15,6 @@
     {
         private static readonly int[] HiddenColumns = new[] { ExternalIdColumn, SystemIdColumn, BetEffectiveColumn };
 
-        private readonly string _title =
-            ViewResources.ProductFW + " - " + ViewResources.BetList + " - " + ViewResources.DetailTickets;
-
         public GlobalGamingBetListController(
             ILanguageService languageService,
             ISessionService sessionService,
@@ -37,15 +34,11 @@
             return await ProcessDefaultRequest(metaModel, "~/Views/Desktop/BetList/GlobalGamingDetail/Main.cshtml", "Lrf_BetList_RNG_Detail").ConfigureAwait(false);
         }
 
-        protected override void AssignViewBag(BetListMetaModel model)
-        {
-            ViewBag.BetListTitle = _title;
-        }
-
         protected override async Task<ActionResult> ExportExcel(BetListExcelMetaModel metaModel)
         {
             metaModel.ShowingOption = new BetListShowingOption { CustomerCommVisible = metaModel.HasPlayerCom };
-            metaModel.Title = _title;
+            metaModel.Title = GetBetListDetailTitle(ViewResources.ProductFW, metaModel.Date);
+
             metaModel.HiddenColumns = HiddenColumns;
             return await ProcessExportExcel(metaModel, "GlobalGamingDetail").ConfigureAwait(false);
         }

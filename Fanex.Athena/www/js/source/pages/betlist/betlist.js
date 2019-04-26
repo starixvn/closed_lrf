@@ -550,6 +550,7 @@
             showAGCasinoDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('AGCasinoBetList/Detail');
                 url = QueryString.setParam(url, 'transid', transId);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custid', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -564,7 +565,7 @@
             showRnGCasinoDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('RnGCasinoBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -579,7 +580,7 @@
             showVoidBridgeDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('VoidbridgeBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -621,7 +622,7 @@
             showGlobalGamingDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('GlobalGamingBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -635,7 +636,7 @@
             showPPDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('PragmaticPlayBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());

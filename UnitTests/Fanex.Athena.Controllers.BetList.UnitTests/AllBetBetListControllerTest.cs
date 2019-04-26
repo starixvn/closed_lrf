@@ -54,26 +54,6 @@
         }
 
         [Test]
-        public async Task Detail_WhenCall_ReturnCorrectViewBag()
-        {
-            using (var controller = CreateController())
-            {
-                // Arrange
-                var metaModel = new BetListExcelMetaModel
-                {
-                    Date = new DateTime(2018, 2, 5)
-                };
-                var expectedTitle = $"{ViewResources.ProductAB} - {ViewResources.DetailedBetlist} - {metaModel.Date.ToString("MM/dd/yyyy")}";
-
-                // Action
-                var result = await controller.Detail(metaModel) as ViewResult;
-
-                // Assert
-                Assert.That(result.ViewBag.BetListTitle, Is.EqualTo(expectedTitle));
-            }
-        }
-
-        [Test]
         public async Task Detail_ExportExcel_InvalidCurrency_ReturnEmptyResult()
         {
             using (var controller = CreateController())
