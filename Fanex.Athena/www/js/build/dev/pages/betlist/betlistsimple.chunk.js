@@ -4054,6 +4054,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
             showAGCasinoDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('AGCasinoBetList/Detail');
                 url = QueryString.setParam(url, 'transid', transId);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custid', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -4068,7 +4069,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
             showRnGCasinoDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('RnGCasinoBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -4083,7 +4084,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
             showVoidBridgeDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('VoidbridgeBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -4125,7 +4126,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
             showGlobalGamingDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('GlobalGamingBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());
@@ -4139,7 +4140,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
             showPPDetails: function (transId, winlostDate, custId, transType) {
                 let url = Site.resolveClientUrl('PragmaticPlayBetList/Detail');
                 url = QueryString.setParam(url, 'transId', transId);
-                url = QueryString.setParam(url, 'winlostDate', winlostDate);
+                url = QueryString.setParam(url, 'date', winlostDate);
                 url = QueryString.setParam(url, 'custId', custId);
                 url = QueryString.setParam(url, 'transType', transType);
                 url = QueryString.setParam(url, 'BaseCurrency', getBaseCurrency());

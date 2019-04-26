@@ -1131,6 +1131,7 @@ ul.ui-multiselect-checkboxes {
     font-weight: bold;
     font-size: 15px;
     padding: 5px 0 10px 0;
+    min-height: 30px;
     min-width: 650px;
     color: #D2592D; }
   .betlist-container a {
