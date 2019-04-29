@@ -660,6 +660,8 @@
     <Content Include="App_Data\UserGuide\CustomerList\pdf\zh-Hans\Odds Group Feature_Licensee_BA.pdf" />
     <Content Include="Views\Desktop\Module\PlayerAdmin\Main.cshtml" />
     <Content Include="Views\Desktop\Module\PlayerAdmin\PlayerAccountInfo\Index.cshtml" />
+    <Content Include="Views\Desktop\Module\PlayerAdmin\PlayerStatement\Index.cshtml" />
+    <Content Include="Views\Desktop\Module\PlayerAdmin\PlayerBetList\Index.cshtml" />
     <None Include="www\css\source\reactpages\components\custom3rd\react-toastify.scss" />
     <None Include="www\css\source\pages\betlist\result\result.happy5.scss" />
     <Content Include="www\css\source\reactpages\pages\betlist\images\bonus.png" />

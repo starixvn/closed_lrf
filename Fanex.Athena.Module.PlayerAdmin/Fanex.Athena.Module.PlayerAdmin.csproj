@@ -78,6 +78,8 @@
   <ItemGroup>
     <Compile Include="Controllers\PlayerAccountInfoController.cs" />
     <Compile Include="Controllers\PlayerAdminController.cs" />
+    <Compile Include="Controllers\PlayerBetListController.cs" />
+    <Compile Include="Controllers\PlayerStatementController.cs" />
     <Compile Include="DTO\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Interfaces\IPlayerAdminService.cs" />

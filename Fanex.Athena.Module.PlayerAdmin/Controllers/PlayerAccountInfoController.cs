@@ -6,7 +6,7 @@ namespace Fanex.Athena.Module.PlayerAdmin.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/Desktop/Module/PlayerAdmin/PlayerAccountInfo/Index.cshtml");
         }
     }
 }

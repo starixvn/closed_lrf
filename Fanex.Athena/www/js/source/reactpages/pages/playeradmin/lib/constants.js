@@ -1,14 +1,34 @@
 export const mode = {
     self: 'Self',
-    appraisal: 'Appraisal'
+    parasitic: 'Parasitic'
 }
 
 export const currentMode = window.__lrf && window.__lrf.modules &&
     window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
 
-export const playerMenuList = [
-    { key: 'playerAccountInfo', text: 'Account Info', url: 'PlayerAdmin/PlayerAccountInfo' },
-    { key: 'playerStatement', text: 'Statement', url: 'PlayerAdmin/PlayerStatement' },
-    { key: 'playerBetList', text: 'Bet List', url: 'PlayerAdmin/PlayerBetList' },
-    { key: 'playerTransferFund', text: 'Transfer Funds', url: 'PlayerAdmin/PlayerTransferFund' },
+export const systemType = {
+    internal: 0,
+    lrf: 1,
+    affiliate: 2,
+    newAdmin: 3
+}
+
+export const playerMenuList = [{
+        Name: 'AccountInfo',
+        Text: 'Account Info',
+        Action: 'PlayerAccountInfo',
+        SystemType: systemType.newAdmin
+    },
+    {
+        Name: 'Statement',
+        Text: 'Statement',
+        Action: 'PlayerStatement',
+        SystemType: systemType.lrf
+    },
+    {
+        Name: 'BetList',
+        Text: 'Bet List',
+        Action: 'PlayerBetList',
+        SystemType: systemType.lrf
+    }
 ]

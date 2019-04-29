@@ -8,6 +8,18 @@ export class DataGrid extends PureComponent {
         super(props);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const { param } = this.props;
+        if (param !== prevProps.param) {
+            this._fetchData();
+        }
+    }
+
+    _fetchData() {
+
+    }
+
+
     submit = (event) => {
         event.preventDefault();
     }
@@ -15,18 +27,19 @@ export class DataGrid extends PureComponent {
     render() {
         return (
             <div>
-            Data Grid
+                Data Grid
             </div>
         );
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({  }, dispatch);
+    return bindActionCreators({}, dispatch);
 }
 
 function mapStateToProps(state) {
-    return Object.assign({}, { });
+    const { param } = state;
+    return Object.assign({}, { param });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataGrid);
