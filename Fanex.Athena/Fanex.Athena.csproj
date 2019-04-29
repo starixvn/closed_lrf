@@ -1058,6 +1058,7 @@
     <Content Include="www\js\tests\extensions\prototype-spec.js" />
     <Content Include="www\js\tests\helpers\downloader-spec.js" />
     <Content Include="www\js\tests\pages\customer\betsetting\products\exchange-spec.js" />
+    <Content Include="www\webpackconfig\build\webpack.react.devbypage.conf.js" />
     <Content Include="www\webpackconfig\config\aliasReact.js" />
     <Content Include="www\webpackconfig\config\pathReact.js" />
     <Content Include="www\webpackconfig\config\pluginReact.js" />

@@ -1,7 +1,26 @@
-﻿
-@{
-    ViewBag.Title = "Main";
+﻿@{
+    ViewBag.Title = "LAP - Customer Administration";
+    Layout = "~/Views/Desktop/Shared/_ReactPageLayout.cshtml";
 }
 
-<h2>Main</h2>
+@section pagecss {
+    @*<link href="@Url.ContentLinkByEnv("/www/css/build/reactpages/playeradmin/index.css")" rel="stylesheet" type="text/css" />*@
+}
+@section pagejs {
+    <script src="@Url.ContentLinkByEnv("/www/js/build/reactpages/playeradmin/playeradmin.chunk.js")"></script>
+}
 
+@section globaljscode{
+    window.__lrf = {
+        modules: {
+            playerAdmin: {
+                mode: 'Self'
+            }
+        }
+    }
+    window.initialState = {
+        isLoading: false
+    }
+}
+<div id="app-container">
+</div>

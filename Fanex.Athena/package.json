@@ -77,7 +77,8 @@
     "test-react-watch": "jest --watch --setupTestFrameworkScriptFile=raf/polyfill",
     "jest-install": "npm install jest-cli -g",
     "jest-uss": "jest --updateSnapshot",
-    "lint": "eslint ./www/js/source/reactpages"
+    "lint": "eslint ./www/js/source/reactpages",
+    "build-react-devbypage": "webpack --config www/webpackconfig/build/webpack.react.devbypage.conf.js"
   },
   "author": "Sparta",
   "license": "vn",

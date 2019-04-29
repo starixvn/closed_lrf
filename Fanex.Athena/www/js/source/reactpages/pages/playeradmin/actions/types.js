@@ -1,0 +1,1 @@
+export const SET_PARAM = 'PLAYER_ADMIN/SET_PARAM';
