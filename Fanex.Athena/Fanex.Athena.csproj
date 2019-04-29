@@ -611,6 +611,8 @@
     <Content Include="www\css\build\dev\reactpages\notification\index.chunk.js.map" />
     <Content Include="www\css\build\dev\reactpages\notification\index.css" />
     <Content Include="www\css\build\dev\reactpages\notification\index.css.map" />
+    <Content Include="www\css\build\dev\reactpages\playeradmin\index.chunk.js" />
+    <Content Include="www\css\build\dev\reactpages\playeradmin\index.css" />
     <Content Include="www\css\build\dev\reactpages\speciallicenseewl\index.chunk.js" />
     <Content Include="www\css\build\dev\reactpages\speciallicenseewl\index.css" />
     <Content Include="www\css\build\dev\reactpages\subsidiaryperformance\index.chunk.js" />
@@ -644,6 +646,7 @@
     <Content Include="www\css\build\pro\reactpages\licenseewlbytimezone\index.css" />
     <Content Include="www\css\build\pro\reactpages\notification\index.chunk.js" />
     <Content Include="www\css\build\pro\reactpages\notification\index.css" />
+    <Content Include="www\css\build\pro\reactpages\playeradmin\index.css" />
     <Content Include="www\css\build\pro\reactpages\speciallicenseewl\index.chunk.js" />
     <Content Include="www\css\build\pro\reactpages\speciallicenseewl\index.css" />
     <Content Include="www\css\build\pro\reactpages\subsidiaryperformance\index.css" />
@@ -662,6 +665,8 @@
     <Content Include="Views\Desktop\Module\PlayerAdmin\PlayerAccountInfo\Index.cshtml" />
     <Content Include="Views\Desktop\Module\PlayerAdmin\PlayerStatement\Index.cshtml" />
     <Content Include="Views\Desktop\Module\PlayerAdmin\PlayerBetList\Index.cshtml" />
+    <Content Include="www\css\build\dev\reactpages\playeradmin\index.chunk.js.map" />
+    <Content Include="www\css\build\dev\reactpages\playeradmin\index.css.map" />
     <None Include="www\css\source\reactpages\components\custom3rd\react-toastify.scss" />
     <None Include="www\css\source\pages\betlist\result\result.happy5.scss" />
     <Content Include="www\css\source\reactpages\pages\betlist\images\bonus.png" />
@@ -685,6 +690,7 @@
     <Content Include="www\js\build\dev\reactpages\lib\lang-zh-Hans.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\lib\lang-zh-TW.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\lib\xlsx-style-sparta.chunk.js" />
+    <Content Include="www\js\build\dev\reactpages\playeradmin\playeradmin.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\report\casinoturnover.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\report\licenseewlbytimezone.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\notification\notification.chunk.js" />
@@ -708,6 +714,7 @@
     <Content Include="www\js\build\pro\reactpages\lib\lang-zh-TW.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\lib\langHelper.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\lib\xlsx-style-sparta.chunk.js" />
+    <Content Include="www\js\build\pro\reactpages\playeradmin\playeradmin.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\casinoturnover.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\licenseewlbytimezone.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\notification\notification.chunk.js" />
@@ -2485,6 +2492,7 @@
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\index.jsx" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\DataGrid.jsx" />
     <Content Include="www\css\source\reactpages\pages\playeradmin\index.scss" />
+    <Content Include="www\js\build\dev\reactpages\playeradmin\playeradmin.chunk.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteConfig\WebConfigTransforms\SIT.config">
