@@ -41,7 +41,8 @@ function generateConfig(environment) {
             [`${cssPath}/speciallicenseewl/index`]: pathConfig.cssPaths.speciallicenseewl,
             [`${cssPath}/bettingticketscenter/index`]: pathConfig.cssPaths.bettingticketscenter,
             [`${cssPath}/betlist/index`]: pathConfig.cssPaths.betlist,
-            [`${cssPath}/casinoturnover/index`]: pathConfig.cssPaths.casinoturnover
+            [`${cssPath}/casinoturnover/index`]: pathConfig.cssPaths.casinoturnover,
+            [`${cssPath}/playeradmin/index`]: pathConfig.cssPaths.playeradmin
         },
         output: {
             path: pathConfig.projectRoot,

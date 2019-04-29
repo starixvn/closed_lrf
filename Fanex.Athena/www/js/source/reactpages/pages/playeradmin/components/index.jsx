@@ -8,9 +8,6 @@ import Store from '../../../lib/store'
 const defaultState = {...window.initialState};
 const store = Store.createStore(reducer, defaultState);
 
-const mode = window.__lrf && window.__lrf.modules && window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
-console.log(mode);
-
 const App = React.memo(() => {
     return (
         <Provider store={store}>

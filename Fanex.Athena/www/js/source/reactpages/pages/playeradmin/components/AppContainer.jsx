@@ -6,6 +6,7 @@ import DataGrid from './DataGrid'
 import FormFilter from './FormFilter'
 import Loader from '../../../components/Loader'
 import AppLayout from '../../../layouts/AppLayout'
+import PlayerDetail from './PlayerDetail';
 
 const AppContainer = (props) => {
     return (
@@ -15,6 +16,7 @@ const AppContainer = (props) => {
             <div className="result-content">
                 <DataGrid />
             </div>
+            <PlayerDetail />
         </AppLayout>
     );
 }

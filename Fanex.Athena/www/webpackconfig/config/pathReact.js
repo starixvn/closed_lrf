@@ -12,7 +12,8 @@ var cssPaths = {
     speciallicenseewl: "./www/css/source/reactpages/pages/speciallicenseewl/index.scss",
     bettingticketscenter: "./www/css/source/reactpages/pages/bettingticketscenter/index.scss",
     betlist: "./www/css/source/reactpages/pages/betlist/index.scss",
-    casinoturnover: "./www/css/source/reactpages/pages/casinoturnover/index.scss"
+    casinoturnover: "./www/css/source/reactpages/pages/casinoturnover/index.scss",
+    playeradmin: "./www/css/source/reactpages/pages/playeradmin/index.scss"
 };
 
 var scriptPaths = {
