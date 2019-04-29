@@ -1,0 +1,6 @@
+﻿Each module contain all its layer (controller,service,data...vv.)
+Controller
+Service
+Data //if needed
+DTO
+ViewModel

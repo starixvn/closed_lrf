@@ -658,6 +658,7 @@
     <Content Include="SiteConfig\Web.UATTW.config" />
     <Content Include="App_Data\UserGuide\CustomerList\pdf\zh-Hans\Odds Group Feature_Licensee.pdf" />
     <Content Include="App_Data\UserGuide\CustomerList\pdf\zh-Hans\Odds Group Feature_Licensee_BA.pdf" />
+    <Content Include="Views\Desktop\Module\PlayerAdmin\Main.cshtml" />
     <None Include="www\css\source\reactpages\components\custom3rd\react-toastify.scss" />
     <None Include="www\css\source\pages\betlist\result\result.happy5.scss" />
     <Content Include="www\css\source\reactpages\pages\betlist\images\bonus.png" />
@@ -5445,6 +5446,10 @@
     <ProjectReference Include="..\Fanex.Athena.Module.Dashboard\Fanex.Athena.Module.Dashboard.csproj">
       <Project>{b5c8656b-6c30-4c82-bdb9-85b1c71b00c3}</Project>
       <Name>Fanex.Athena.Module.Dashboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Athena.Module.PlayerAdmin\Fanex.Athena.Module.PlayerAdmin.csproj">
+      <Project>{19150cd4-08fc-4bec-800a-57abd7744c41}</Project>
+      <Name>Fanex.Athena.Module.PlayerAdmin</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Fanex.Athena.Model.BetList\Fanex.Athena.Model.BetList.csproj">
       <Project>{4956fbd7-5f68-4e7b-af6c-db5fb1f255f0}</Project>
