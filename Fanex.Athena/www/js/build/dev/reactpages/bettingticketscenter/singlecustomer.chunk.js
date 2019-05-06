@@ -4293,6 +4293,15 @@ function (_Component) {
         }
 
         _this2._showNewParlayDetail.apply(_this2, args);
+      }; // expand choice content
+
+
+      window.showSingleMatchParlayDetail = function () {
+        for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+          args[_key3] = arguments[_key3];
+        }
+
+        _this2._showSingleMatchParlayDetail.apply(_this2, args);
       }; // show detail popup (in choice column)
 
 
@@ -4333,6 +4342,7 @@ function (_Component) {
       window.showCombMPDetail = undefined;
       window.ViewCashOutHistory = undefined;
       window.ShowBonusDetails = undefined;
+      window.showSingleMatchParlayDetail = undefined;
     }
   }, {
     key: "_showMixParlayDetail",
@@ -4395,6 +4405,30 @@ function (_Component) {
       }
     }
   }, {
+    key: "_showSingleMatchParlayDetail",
+    value: function _showSingleMatchParlayDetail(transId, custId, transIndex) {
+      var _this5 = this;
+
+      var divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
+
+      if (divEvent.style.display == "none") {
+        var url = _lib_BetList__WEBPACK_IMPORTED_MODULE_10__["default"].getSingleMatchParlayDetailUrl(transId, custId);
+        this.props.toggleLoader(true);
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(url).then(function (result) {
+          var selection = _lib_BetList__WEBPACK_IMPORTED_MODULE_10__["default"].buildSingleMatchParlayDetail(result.data);
+          divEvent.innerHTML = selection;
+          divEvent.style.display = 'block';
+
+          _this5.props.toggleLoader(false);
+        }).catch(function (error) {
+          console.log(error);
+        });
+      } else {
+        divEvent.style.display = 'none';
+        divEvent.innerHTML = "";
+      }
+    }
+  }, {
     key: "_openPopup",
     value: function _openPopup(url, title) {
       this.setState({
@@ -4413,7 +4447,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_jsroot_layouts_AppLayout__WEBPACK_IMPORTED_MODULE_5__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_jsroot_components_Loader__WEBPACK_IMPORTED_MODULE_6__["default"], {
         isLoading: this.props.isLoading
@@ -4440,7 +4474,7 @@ function (_Component) {
         width: 900,
         height: 600,
         onClose: function onClose() {
-          return _this5._closePopup();
+          return _this6._closePopup();
         }
       }));
     }
@@ -4620,6 +4654,24 @@ function () {
       return choice;
     }
   }, {
+    key: "buildSingleMatchParlayDetail",
+    value: function buildSingleMatchParlayDetail(data) {
+      var selection = "";
+      var length = data === null ? 0 : data.length;
+
+      if (length > 0) {
+        selection = "<div class='single-match-parlay-detail'>";
+
+        for (var i = 0; i < data.length; i++) {
+          selection += data[i];
+        }
+
+        selection += "</div>";
+      }
+
+      return selection;
+    }
+  }, {
     key: "getParlayDetailUrl",
     value: function getParlayDetailUrl(transId, refNo, betId, custId, betTeam, baseCurrency) {
       if (Number(transId) === 0) {
@@ -4655,6 +4707,18 @@ function () {
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "RefCode", refCode);
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "TransId", transId);
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "BaseCurrency", baseCurrency);
+      return url;
+    }
+  }, {
+    key: "getSingleMatchParlayDetailUrl",
+    value: function getSingleMatchParlayDetailUrl(transId, custId) {
+      if (Number(transId) === 0) {
+        return;
+      }
+
+      var url = _jsroot_lib_site__WEBPACK_IMPORTED_MODULE_0__["default"].resolveClientUrl('api/SingleMatchParlayBetList/Detail');
+      url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "transId", transId);
+      url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "custId", custId);
       return url;
     }
   }]);
