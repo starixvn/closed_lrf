@@ -43,6 +43,11 @@ namespace Fanex.Athena.Common.Utility.Services
                 Convert.ToInt32(handicap1), Convert.ToInt32(handicap2), GetCurrentIBCLanguageCode());
         }
 
+        public string[] GetBetBuilderSelectionNames(int[] selectionIds)
+        {
+            return RemotingRefService.GetBetBuilderSelectionNames(selectionIds, GetCurrentIBCLanguageCode());
+        }
+
         private static bool IsValidId(object id)
         {
             return id != null && id.ToString() != string.Empty && id.ToString() != "0";

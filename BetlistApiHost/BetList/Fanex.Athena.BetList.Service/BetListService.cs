@@ -7,6 +7,7 @@
 namespace Fanex.Athena.BetList.Service
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Common.Constant;
@@ -62,6 +63,11 @@ namespace Fanex.Athena.BetList.Service
         public async Task<SystemParlayData> GetSystemParlayDetail(SystemParlayDetailMetaModel metaModel)
         {
             return await _betlistDataAccess.GetSystemParlayDetail(metaModel).ConfigureAwait(false);
+        }
+
+        public async Task<IList<SingleMatchParlayDetail>> GetSingleMatchParlayDetail(SingleMatchParlayDetailMetaModel metaModel)
+        {
+            return await _betlistDataAccess.GetSingleMatchParlayDetail(metaModel);
         }
 
         public async Task<TicketResult> GetBetListData(BetListMetaModel metaModel)

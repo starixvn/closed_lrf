@@ -109,6 +109,7 @@
     <Compile Include="MetaModel\NewParlayDetailMetaModel.cs" />
     <Compile Include="MetaModel\RefNoBetListMetaModel.cs" />
     <Compile Include="MetaModel\SingleCustomersBetListMetaModel.cs" />
+    <Compile Include="MetaModel\SingleMatchParlayDetailMetaModel.cs" />
     <Compile Include="MetaModel\SystemParlayDetailMetaModel.cs" />
     <Compile Include="MetaModel\WinLossByLeagueBetListMetaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

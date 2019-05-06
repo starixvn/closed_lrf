@@ -72,6 +72,8 @@
 
         Task<IList<Happy5>> GetPopUpHappy5Matches(int matchId);
 
+        Task<Sportsbook> GetPopUpSingleMatchParlay(int matchId, string marketId);
+
         #endregion Popup
     }
 }

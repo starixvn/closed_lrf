@@ -237,6 +237,31 @@ namespace Fanex.Athena.Result.DataAccess
             }
         }
 
+        public async Task<Sportsbook> GetPopUpSingleMatchParlay(int matchId, string marketId)
+        {
+            const string UspName = "Lrf_TicketResult_BetBuilder";
+
+            using (var db = this.GetObjectDb(UspName))
+            {
+                db.SetParameterValue("matchId", matchId);
+                db.SetParameterValue("marketId", marketId);
+
+                using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                {
+                    if (reader.Read())
+                    {
+                        var result = BindSportsbook(reader);
+
+                        result.BetBuilderDetails = GetBetBuilderDetails(reader);
+
+                        return result;
+                    }
+
+                    return null;
+                }
+            }
+        }
+
         private static void AddGameDetails(IDataReader reader, IEnumerable<Parlay> results)
         {
             var gameDetails = GetGameDetails(reader);
@@ -377,6 +402,25 @@ namespace Fanex.Athena.Result.DataAccess
             }
 
             return gameDetails;
+        }
+
+        private static List<BetBuilderDetail> GetBetBuilderDetails(IDataReader reader)
+        {
+            var betBuilderDetail = new List<BetBuilderDetail>();
+
+            if (reader.NextResult())
+            {
+                while (reader.Read())
+                {
+                    betBuilderDetail.Add(new BetBuilderDetail
+                    {
+                        SelectionType = int.Parse(reader["SelectionType"].ToString()),
+                        Result = reader["Result"].ToString(),
+                    });
+                }
+            }
+
+            return betBuilderDetail;
         }
 
         /// <summary>

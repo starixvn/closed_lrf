@@ -96,6 +96,31 @@ namespace Fanex.Athena.BetList.DataAccess
             }
         }
 
+        public async Task<IList<SingleMatchParlayDetail>> GetSingleMatchParlayDetail(SingleMatchParlayDetailMetaModel metaModel)
+        {
+            const string UspName = "Lrf_BetList_BetBuilder_Detail";
+            var result = new List<SingleMatchParlayDetail>();
+
+            using (var db = this.GetObjectDb(UspName))
+            {
+                db.SetParameterValue("TransId", metaModel.TransId);
+                db.SetParameterValue("CustId", metaModel.CustId);
+                using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(new SingleMatchParlayDetail
+                        {
+                            SelectionType = reader.ToInt("SelectionType"),
+                            Result = reader.ToString("Result")
+                        });
+                    }
+                }
+            }
+
+            return result;
+        }
+
         public async Task<TicketResult> GetBetListData(BetListMetaModel metaModel)
         {
             var ticketResult = new TicketResult();

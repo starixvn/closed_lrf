@@ -23,6 +23,8 @@ namespace Fanex.Athena.BetList.Service.Interfaces
 
         Task<TicketResult> GetBetListData(BetListMetaModel metaModel);
 
+        Task<IList<SingleMatchParlayDetail>> GetSingleMatchParlayDetail(SingleMatchParlayDetailMetaModel metaModel);
+
         List<TicketText> BuildTicketTextList(
             TicketResult ticketResult,
             BetListMetaModel metaModel = null,

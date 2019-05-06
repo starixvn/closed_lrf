@@ -253,6 +253,8 @@
 
         VirtualBasketballFirstHalfHandicap = 2806,
 
-        NumberGameHappy5OddEven = 8102
+        NumberGameHappy5OddEven = 8102,
+
+        SingleMatchParlay = 38
     }
 }

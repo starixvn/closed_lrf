@@ -87,6 +87,20 @@ class BetList {
         return choice;
     }
 
+    buildSingleMatchParlayDetail(data){
+        let selection = "";
+        let length = data === null ? 0 : data.length;
+        if (length > 0) {
+            selection = "<div class='single-match-parlay-detail'>";
+            for(let i = 0; i < data.length; i++){
+                selection += data[i];
+            }
+            selection += "</div>";
+        }
+
+        return selection;
+    }
+
     getParlayDetailUrl (transId, refNo, betId, custId, betTeam, baseCurrency) {
         if (Number(transId) === 0) { return; }
 
@@ -118,6 +132,16 @@ class BetList {
         url = QueryString.setParam(url, "RefCode", refCode);
         url = QueryString.setParam(url, "TransId", transId);
         url = QueryString.setParam(url, "BaseCurrency", baseCurrency);
+
+        return url;
+    }
+
+    getSingleMatchParlayDetailUrl (transId, custId) {
+        if (Number(transId) === 0) { return; }
+
+        var url = Site.resolveClientUrl('api/SingleMatchParlayBetList/Detail');
+        url = QueryString.setParam(url, "transId", transId);
+        url = QueryString.setParam(url, "custId", custId);
 
         return url;
     }

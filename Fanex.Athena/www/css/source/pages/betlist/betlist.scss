@@ -302,4 +302,21 @@
     .bonus-icon:hover {
         cursor: pointer;
     }
+
+    .single-match-parlay-detail {
+        border-right: solid 2px #666666;
+        margin: 0 8px 3px 0;
+        padding-right: 5px;
+
+        .single-match-parlay-selection {
+            .selection {
+                font-weight: normal;
+                color: #000000;
+            }
+
+            .status {
+                color: #003399;
+            }
+        }
+    }
 }

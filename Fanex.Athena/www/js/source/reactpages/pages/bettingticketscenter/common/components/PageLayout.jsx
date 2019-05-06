@@ -50,6 +50,11 @@ export class PageLayout extends Component {
             this._showNewParlayDetail.apply(this, args);
         };
 
+        // expand choice content
+        window.showSingleMatchParlayDetail = (...args) => {
+            this._showSingleMatchParlayDetail.apply(this, args);
+        };
+
         // show detail popup (in choice column)
         window.showCombMPDetail = (transId, refNo, betId, custId, betTeam) => {
             const baseCurrency =  this.props.isConvertAll ? this.props.selectedBaseCurrency : '';
@@ -80,6 +85,7 @@ export class PageLayout extends Component {
         window.showCombMPDetail = undefined;
         window.ViewCashOutHistory = undefined;
         window.ShowBonusDetails = undefined;
+        window.showSingleMatchParlayDetail = undefined;
     }
     
     _showMixParlayDetail(transId, divEvent) {
@@ -134,6 +140,29 @@ export class PageLayout extends Component {
             divEvent.style.display = 'none';
             divEvent.innerHTML = "";
             nameDiv.style.display = 'block';
+        }
+    }
+
+    _showSingleMatchParlayDetail (transId, custId, transIndex) {
+        let divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
+        
+        if (divEvent.style.display == "none") {
+            let url = BetList.getSingleMatchParlayDetailUrl(transId, custId);
+            this.props.toggleLoader(true);
+            axios.get(url)
+               .then((result) => {       
+                   let selection = BetList.buildSingleMatchParlayDetail(result.data);
+                   
+                   divEvent.innerHTML = selection;
+                   divEvent.style.display = 'block';
+                   this.props.toggleLoader(false);
+               }).catch(function (error) {
+                   console.log(error);
+               });
+        }
+        else {
+            divEvent.style.display = 'none';
+            divEvent.innerHTML = "";
         }
     }
 

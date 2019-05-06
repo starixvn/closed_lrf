@@ -169,7 +169,9 @@ namespace Fanex.Athena.Result.Controller
 
         private static bool IsPalayBetType(int betType)
         {
-            return betType == ParlayBetType || betType == SystemParlayBetType || betType == (int)Common.Constant.BetType.VirtualSports2MixParlay;
+            return betType == ParlayBetType
+                || betType == SystemParlayBetType
+                || betType == (int)Common.Constant.BetType.VirtualSports2MixParlay;
         }
 
         private static IEnumerable<Sport> RemoveNotAllowedSports(IEnumerable<Sport> sports, IEnumerable<string> productCodes)
@@ -221,6 +223,15 @@ namespace Fanex.Athena.Result.Controller
                 {
                     var parlayData = await _resultService.GetPopUpParlayMatch(metalModel.RefNo.Value).ConfigureAwait(false);
                     _htmlResult = _resultService.HtmlParser(parlayData, setting);
+                }
+            }
+            else if (metalModel.Bettype == (int)Common.Constant.BetType.SingleMatchParlay)
+            {
+                var singleMatchParlayData = await _resultService.GetPopUpSingleMatchParlay(metalModel.MatchId, "100057769").ConfigureAwait(false);
+                if (singleMatchParlayData != null)
+                {
+                    setting.IsPopupOpenFromBetList = true;
+                    _htmlResult = _resultService.HtmlParser(new List<Sportsbook> { singleMatchParlayData }, setting);
                 }
             }
             else
