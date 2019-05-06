@@ -1,3 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelRunningByBettypeList" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_Monitor_MatchSel" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelWinloss_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelWinLossByDate_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_MatchWL_Bettype" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_WinlostByLeague_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelWinLossByBetType" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_LiveReport_SelWinlossByMatch" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_Licensee" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_RefNo_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_Running" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelRunningByDate_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_CustomerList_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelByDayAll_Mem" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_SelByDayAll_Mem_Old" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_BetBuilder_Detail" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_TicketResult_BetBuilder" EnvironmentText="_xtest"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_BetList_PlatformWinLoss_Mem" EnvironmentText="_xtest"></SpNameConfig>
 </Root>
