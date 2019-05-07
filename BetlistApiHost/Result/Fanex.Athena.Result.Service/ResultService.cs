@@ -110,12 +110,12 @@
             return this._dataAccess.GetPopUpParalayMatch(refNo);
         }
 
-        public async Task<Sportsbook> GetPopUpSingleMatchParlay(int matchId, string marketId)
+        public Task<Sportsbook> GetPopUpSingleMatchParlay(int matchId, string marketId)
         {
-            return await this._dataAccess.GetPopUpSingleMatchParlay(matchId, marketId).ConfigureAwait(false);
+            return this._dataAccess.GetPopUpSingleMatchParlay(matchId, marketId);
         }
 
-        public async Task<IList<NumberGame>> GetPopUpNumberGameMatchs(int matchId)
+        public Task<IList<NumberGame>> GetPopUpNumberGameMatchs(int matchId)
         {
             return this._numberGameDataAccess.GetPopUpNumberGameMatch(matchId);
         }
