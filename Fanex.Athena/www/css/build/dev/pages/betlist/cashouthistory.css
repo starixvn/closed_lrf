@@ -673,6 +673,15 @@ table tbody tr.row-group-level1 td {
     width: 18px; }
   .betlist-container .bonus-icon:hover {
     cursor: pointer; }
+  .betlist-container .single-match-parlay-detail {
+    border-right: solid 2px #666666;
+    margin: 0 8px 3px 0;
+    padding-right: 5px; }
+    .betlist-container .single-match-parlay-detail .single-match-parlay-selection .selection {
+      font-weight: normal;
+      color: #000000; }
+    .betlist-container .single-match-parlay-detail .single-match-parlay-selection .status {
+      color: #003399; }
 
 .table > thead > tr > th {
   background: #4C6375;

@@ -4039,6 +4039,43 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
                     $('.ui-jqgrid-bdiv').css('height', 'auto');
                 }
             },
+            showSingleMatchParlayDetail: function (transId, custId, transIndex) {
+                var $divEvent = $('#divEvent_' + transId + "" + transIndex);
+
+                if ($divEvent.is(":hidden")) {
+                    var url = Site.resolveClientUrl('api/SingleMatchParlayBetList/Detail');
+                    url = QueryString.setParam(url, "transId", transId);
+                    url = QueryString.setParam(url, "custId", custId);
+
+                    $.ajax({
+                        type: "GET",
+                        contentType: 'application/json',
+                        dataType: "json",
+                        cache: false,
+                        url: url,
+                        success: function (response) {
+                            var length = response.Data === null ? 0 : response.Data.length;
+                            if (length > 0) {
+                                var choice = "<div class='single-match-parlay-detail'>";
+                                $.each(response.Data, function (index, item) {
+                                    choice += item;
+                                });
+
+                                choice += "</div>";
+                                $divEvent.html(choice).show();
+                                $nameDiv.hide();
+                            }
+                        },
+                        beforeSend: Site.blockUI,
+                        complete: Site.unBlockUI
+                    });
+                }
+                else {
+                    $divEvent.hide().html("");
+                    $nameDiv.show();
+                    $(".ui-jqgrid-bdiv").css("height", "auto");
+                }
+            },
 
             showSystemParlayDetail: function (transId, refNo, betId, custId, betTeam, baseCurrency) {
                 if (Number(transId) === 0) { return; }
