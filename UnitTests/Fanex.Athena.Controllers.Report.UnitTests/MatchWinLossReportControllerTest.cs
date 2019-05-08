@@ -97,10 +97,11 @@
                     ProductCode = x
                 });
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.MatchWinLoss).Returns(new ProductAccess(productList.ToList()));
+                FunctionNames.MatchWinLoss,
+                true).Returns(new ProductAccess(productList.ToList()));
             var controller = Substitute.ForPartsOf<MatchWinLossReportController>(
                 LangService,
                 SessionService,

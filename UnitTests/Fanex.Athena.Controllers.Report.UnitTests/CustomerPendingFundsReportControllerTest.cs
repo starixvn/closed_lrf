@@ -44,10 +44,11 @@
         private CustomerPendingFundsReportController CreateController()
         {
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.CustomerPendingFunds).Returns(new ProductAccess(new List<Product>()));
+                FunctionNames.CustomerPendingFunds,
+                true).Returns(new ProductAccess(new List<Product>()));
             return new CustomerPendingFundsReportController(
                 LangService,
                 SessionService,

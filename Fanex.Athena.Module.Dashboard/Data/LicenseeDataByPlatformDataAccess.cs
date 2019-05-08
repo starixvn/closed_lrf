@@ -9,7 +9,7 @@
     using Fanex.Athena.Module.Dashboard.MetaModel;
     using Fanex.Athena.Module.Dashboard.ViewModel;
     using Fanex.Common.Extensions;
-
+  
     public class LicenseeDataByPlatformDataAccess : BaseDataAccess, ILicenseeDataByPlatformDataAccess
     {
         public Task<WidgetByPlatformViewModel> GetWinLoss(DashboardBaseModel metaModel)

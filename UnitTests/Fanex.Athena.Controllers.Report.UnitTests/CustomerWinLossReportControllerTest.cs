@@ -67,10 +67,11 @@
             reportSettingService.GetSetting(PermissionKeys.ReportCustomerWinLoss).Returns(new ReportSetting());
 
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.CustomerWinLoss).Returns(new ProductAccess(new List<Product>()));
+                FunctionNames.CustomerWinLoss,
+                true).Returns(new ProductAccess(new List<Product>()));
 
             return new CustomerWinLossReportController(
                 LangService,

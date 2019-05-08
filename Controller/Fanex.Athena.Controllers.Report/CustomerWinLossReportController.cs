@@ -56,10 +56,11 @@ namespace Fanex.Athena.Controllers.Report
             };
 
             SetConvetedUSDCurrencyName(metaModel);
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.CustomerWinLoss);
+                FunctionNames.CustomerWinLoss,
+                true);
 
             metaModel.ProductOptions = ToProductOptions(productAccess.ProductList);
 

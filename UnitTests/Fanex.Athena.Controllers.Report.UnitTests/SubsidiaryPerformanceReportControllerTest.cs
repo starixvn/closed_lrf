@@ -125,11 +125,11 @@
         private SubsidiaryPerformanceReportController CreateController()
         {
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.SubsidiaryPerformance)
-                .Returns(new ProductAccess(new List<Product> { new Product { ProductCode = FakeProductCode, ProductName = FakeProductName } }));
+                FunctionNames.SubsidiaryPerformance,
+                true).Returns(new ProductAccess(new List<Product> { new Product { ProductCode = FakeProductCode, ProductName = FakeProductName } }));
 
             return new SubsidiaryPerformanceReportController(
                 LangService,

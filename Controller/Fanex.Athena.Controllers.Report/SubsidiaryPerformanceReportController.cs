@@ -34,10 +34,11 @@
         {
             var licenseeSession = SessionService.LicenseeSession;
             var userSession = SessionService.UserSession;
-            var productAccess = this.ProductService.GetSingleWalletProductAccess(
+            var productAccess = this.ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.SubsidiaryPerformance);
+                FunctionNames.SubsidiaryPerformance,
+                true);
             var subsidiaryNames = userSession.IsManageableSubsidiary ? _subsidiaryService.GetSubsidiaryNames() : null;
 
             var model = new SubsidiaryPerformanceViewModel

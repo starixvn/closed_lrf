@@ -220,7 +220,7 @@
             SetUpForGetProductListFromCache(expectedResult);
 
             // Action
-            var result = _productService.GetSingleWalletProductAccess(_licenseeId, _languageCode);
+            var result = _productService.GetProductAccess(_licenseeId, _languageCode, null, true);
 
             // Assert
             Assert.Multiple(() =>
@@ -258,7 +258,7 @@
             SetUpForGetProductListFromCache(productList);
 
             // Action
-            var result = _productService.GetSingleWalletProductAccess(_licenseeId, _languageCode, FunctionKey);
+            var result = _productService.GetProductAccess(_licenseeId, _languageCode, FunctionKey, true);
 
             // Assert
             Assert.Multiple(() =>

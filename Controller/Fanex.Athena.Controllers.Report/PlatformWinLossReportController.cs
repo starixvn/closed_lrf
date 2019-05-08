@@ -35,10 +35,11 @@ namespace Fanex.Athena.Controllers.Report
             var userSession = SessionService.UserSession;
             var licenseeId = licenseeSession.LicenseeId;
             var metaModel = new PlatformWinLossMetaModel { LicenseeId = licenseeId };
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeId,
                 userSession.Language,
-                FunctionNames.PlatformWinloss);
+                FunctionNames.PlatformWinloss,
+                true);
 
             SetConvetedUSDCurrencyId(metaModel);
             SetConvetedUSDCurrencyName(metaModel);

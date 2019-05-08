@@ -104,7 +104,7 @@
         public async Task Index_InvalidProductCode_ReturnEmptyData()
         {
             // Arrange
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>())
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), true)
                 .Returns(new ProductAccess(
                     new List<Product>
                         {
@@ -136,7 +136,7 @@
         public async Task Index_InvalidCurrency_ReturnEmptyData()
         {
             // Arrange
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>())
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), true)
                 .Returns(new ProductAccess(
                     new List<Product>
                         {
@@ -172,7 +172,7 @@
         public async Task Index_ValidRequest_CallServiceWithCorrectParameters(int licenseeId, string expectedSiteName)
         {
             // Arrange
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>())
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), true)
                 .Returns(new ProductAccess(
                     new List<Product>
                         {
@@ -212,7 +212,7 @@
         public async Task Index_ValidRequest_ReturnCorrectData()
         {
             // Arrange
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>())
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), true)
                 .Returns(new ProductAccess(
                     new List<Product>
                         {

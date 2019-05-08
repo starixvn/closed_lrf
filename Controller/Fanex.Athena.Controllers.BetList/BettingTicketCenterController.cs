@@ -146,10 +146,11 @@
 
         private IEnumerable<ProductOption> GetProductOptionList(string functionConfigKey = FunctionNames.BettingTicketCenter)
         {
-            var productAccess = _productService.GetSingleWalletProductAccess(
+            var productAccess = _productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                functionConfigKey);
+                functionConfigKey,
+                true);
 
             return productAccess.ProductList.Select(i => new ProductOption
             {

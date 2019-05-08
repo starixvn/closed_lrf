@@ -72,10 +72,11 @@
 
             SetConvetedUSDCurrencyName(metaModel);
 
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.MatchWinLoss);
+                FunctionNames.MatchWinLoss,
+                true);
             metaModel.ProductOptions = ToProductOptions(productAccess.ProductList);
 
             var model = new MatchWinLossViewModel
@@ -118,10 +119,11 @@
 
             var total = GetTotal(reportData);
             var grandTotal = GetGrandTotal(reportDataOutrightParlay, total);
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId, 
                 userSession.Language, 
-                FunctionNames.MatchWinLoss);
+                FunctionNames.MatchWinLoss,
+                true);
             var model = new MatchWinLossViewModel
             {
                 Param = metaModel,
@@ -148,10 +150,11 @@
             var model = new MatchWinLossViewModel
             {
                 MainResult = reportData,
-                ProductAccess = ProductService.GetSingleWalletProductAccess(
+                ProductAccess = ProductService.GetProductAccess(
                     licenseeSession.LicenseeId, 
                     SessionService.UserSession.Language, 
-                    FunctionNames.MatchWinLoss),
+                    FunctionNames.MatchWinLoss,
+                    true),
                 IsAllowedCustomerCommission = licenseeSession.IsAllowedCustomerComm
             };
 
@@ -168,10 +171,11 @@
             var licenseeSession = SessionService.LicenseeSession;
             metaModel.AgentListXml = SessionService.GenerateAgentListXml(metaModel.CurrencyId);
             var templatePath = HostingEnvironment.MapPath(@"~/App_Data/Template/Reports/MatchWinLoss.xls");
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.MatchWinLoss);
+                FunctionNames.MatchWinLoss,
+                true);
             var showingOption = new ShowingOption
             {
                 BAVisible = productAccess.IsAllowBA,

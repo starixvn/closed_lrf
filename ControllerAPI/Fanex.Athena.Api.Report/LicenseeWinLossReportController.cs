@@ -293,8 +293,8 @@ namespace Fanex.Athena.Api.Report
                 metaModel.DrillDownCurrencyId = currencyId;
                 metaModel.DrillDownCurrencyName = currencyName;
                 metaModel.DrillDownCustomerId = custId;
-
                 metaModel.AgentListXml = SessionService.GenerateAgentListXml(level == 0 ? metaModel.CurrencyId : currencyId, metaModel.IsExcludedTestData);
+
                 var result = await GetData(metaModel);
 
                 if (metaModel.IsExportExcel)

@@ -44,10 +44,11 @@
         private CustomerBalanceReportController CreateController()
         {
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.CustomerBalance).Returns(new ProductAccess(new List<Product>()));
+                FunctionNames.CustomerBalance,
+                true).Returns(new ProductAccess(new List<Product>()));
             return new CustomerBalanceReportController(
                 LangService,
                 SessionService,

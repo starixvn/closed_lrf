@@ -82,10 +82,11 @@
                 AppSettings.HistoryDate.Returns(historyDate);
 
                 var productCodes = FakeHelper.CreateMany<Product>(3).ToList();
-                _productService.GetSingleWalletProductAccess(
+                _productService.GetProductAccess(
                     DefaultLicenseeSession.LicenseeId,
                     DefaultUserSession.Language,
-                    FunctionNames.BettingTicketCenterRunning).Returns(new ProductAccess(productCodes));
+                    FunctionNames.BettingTicketCenterRunning,
+                    true).Returns(new ProductAccess(productCodes));
 
                 // Action
                 var result = controller.Running() as ViewResult;
@@ -102,10 +103,11 @@
             {
                 // Arrange
                 var productCodes = FakeHelper.CreateMany<Product>(3).ToList();
-                _productService.GetSingleWalletProductAccess(
+                _productService.GetProductAccess(
                     DefaultLicenseeSession.LicenseeId,
                     DefaultUserSession.Language,
-                    FunctionNames.BettingTicketCenterRunning).Returns(new ProductAccess(productCodes));
+                    FunctionNames.BettingTicketCenterRunning,
+                    true).Returns(new ProductAccess(productCodes));
 
                 // Action
                 var result = controller.Running() as ViewResult;
@@ -131,10 +133,11 @@
                 AppSettings.HistoryDate.Returns(historyDate);
 
                 var productCodes = FakeHelper.CreateMany<Product>(3).ToList();
-                _productService.GetSingleWalletProductAccess(
+                _productService.GetProductAccess(
                     DefaultLicenseeSession.LicenseeId,
                     DefaultUserSession.Language,
-                    FunctionNames.BettingTicketCenter).Returns(new ProductAccess(productCodes));
+                    FunctionNames.BettingTicketCenter,
+                    true).Returns(new ProductAccess(productCodes));
 
                 // Action
                 var result = controller.SingleCustomer() as ViewResult;
@@ -151,10 +154,11 @@
             {
                 // Arrange
                 var productCodes = FakeHelper.CreateMany<Product>(3).ToList();
-                _productService.GetSingleWalletProductAccess(
+                _productService.GetProductAccess(
                     DefaultLicenseeSession.LicenseeId,
                     DefaultUserSession.Language,
-                    FunctionNames.BettingTicketCenter).Returns(new ProductAccess(productCodes));
+                    FunctionNames.BettingTicketCenter,
+                    true).Returns(new ProductAccess(productCodes));
 
                 // Action
                 var result = controller.SingleCustomer() as ViewResult;
@@ -182,10 +186,11 @@
                 AppSettings.HistoryDate.Returns(historyDate);
 
                 var productCodes = FakeHelper.CreateMany<Product>(3).ToList();
-                _productService.GetSingleWalletProductAccess(
+                _productService.GetProductAccess(
                     DefaultLicenseeSession.LicenseeId,
                     DefaultUserSession.Language,
-                    FunctionNames.BettingTicketCenterMultiCustomers).Returns(new ProductAccess(productCodes));
+                    FunctionNames.BettingTicketCenterMultiCustomers,
+                    true).Returns(new ProductAccess(productCodes));
 
                 // Action
                 var result = controller.MultipleCustomers() as ViewResult;
@@ -202,10 +207,11 @@
             {
                 // Arrange
                 var productCodes = FakeHelper.CreateMany<Product>(3).ToList();
-                _productService.GetSingleWalletProductAccess(
+                _productService.GetProductAccess(
                     DefaultLicenseeSession.LicenseeId,
                     DefaultUserSession.Language,
-                    FunctionNames.BettingTicketCenterMultiCustomers).Returns(new ProductAccess(productCodes));
+                    FunctionNames.BettingTicketCenterMultiCustomers,
+                    true).Returns(new ProductAccess(productCodes));
 
                 // Action
                 var result = controller.MultipleCustomers() as ViewResult;

@@ -69,7 +69,7 @@
                 new Product { ProductCode = "NGX" }
             };
             var productAccess = new ProductAccess(productList);
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), FunctionKey).Returns(productAccess);
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), FunctionKey, true).Returns(productAccess);
 
             // Action
             TestDelegate testDelegate = () => _controller.CheckValidProducts(FunctionKey, productCodeList);
@@ -92,7 +92,7 @@
                 new Product { ProductCode = "NGX" }
             };
             var productAccess = new ProductAccess(productList);
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), FunctionKey).Returns(productAccess);
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), FunctionKey, true).Returns(productAccess);
 
             // Action
             TestDelegate testDelegate = () => _controller.CheckValidProducts(FunctionKey, productCodeList);

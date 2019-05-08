@@ -150,10 +150,11 @@
                     ProductCode = x
                 });
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.Turnover).Returns(new ProductAccess(productList.ToList()));
+                FunctionNames.Turnover,
+                true).Returns(new ProductAccess(productList.ToList()));
             var controller = Substitute.ForPartsOf<TurnoverReportController>(
                 LangService,
                 SessionService,

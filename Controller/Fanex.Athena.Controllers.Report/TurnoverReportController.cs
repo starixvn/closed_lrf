@@ -56,10 +56,11 @@ namespace Fanex.Athena.Controllers.Report
             SetConvetedUSDCurrencyName(metaModel);
             SetConvetedUSDCurrencyId(metaModel);
 
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.Turnover);
+                FunctionNames.Turnover,
+                true);
             metaModel.ProductOptions = ToProductOptions(productAccess.ProductList.Where(a => !a.ProductCode.Equals(Product.BA)));
 
             var model = new TurnoverViewModel
@@ -94,10 +95,11 @@ namespace Fanex.Athena.Controllers.Report
                 DataList = dataList,
                 TotalData = _turnoverService.SumTotalData(dataList),
                 Param = metaModel,
-                ProductAccess = ProductService.GetSingleWalletProductAccess(
+                ProductAccess = ProductService.GetProductAccess(
                     licenseeSession.LicenseeId,
                     userSession.Language,
-                    FunctionNames.Turnover),
+                    FunctionNames.Turnover,
+                    true),
                 IsAllowedCustomerCommission = licenseeSession.IsAllowedCustomerComm,
                 CurrencyList = GetCurrenciesForTurnoverReport(licenseeSession.LicenseeId),
                 IsAllowedCasinoTransfer = licenseeSession.LicenseeId == 1
@@ -114,10 +116,11 @@ namespace Fanex.Athena.Controllers.Report
 
             var licenseeId = SessionService.LicenseeSession.LicenseeId;
 
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.Turnover);
+                FunctionNames.Turnover,
+                true);
 
             var showingOption = new ShowingOption
             {

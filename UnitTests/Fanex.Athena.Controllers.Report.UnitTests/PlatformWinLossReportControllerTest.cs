@@ -44,10 +44,11 @@
         private PlatformWinLossReportController CreateController()
         {
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.PlatformWinloss).Returns(new ProductAccess(new List<Product>()));
+                FunctionNames.PlatformWinloss,
+                true).Returns(new ProductAccess(new List<Product>()));
             return new PlatformWinLossReportController(
                 LangService,
                 SessionService,

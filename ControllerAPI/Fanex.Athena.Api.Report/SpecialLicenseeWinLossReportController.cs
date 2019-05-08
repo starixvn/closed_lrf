@@ -147,10 +147,11 @@
                 return false;
             }
 
-            var productAccess = this.ProductService.GetSingleWalletProductAccess(
+            var productAccess = this.ProductService.GetProductAccess(
                SessionService.LicenseeSession.LicenseeId,
                SessionService.UserSession.Language,
-               FunctionNames.LicenseeWinLoss);
+               FunctionNames.LicenseeWinLoss,
+               true);
             var productList = productAccess.ProductList.Select(x => x.ProductCode);
 
             return productList.Intersect(metaModel.ProductCodeList).Count() == metaModel.ProductCodeList.Count();

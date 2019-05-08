@@ -33,10 +33,11 @@
         [HttpGet]
         public ActionResult Index()
         {
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.CasinoTurnover);
+                FunctionNames.CasinoTurnover,
+                true);
             var setting = _reportSettingService.GetSetting(PermissionKeys.ReportCasinoTurnover);
 
             var viewModel = new CasinoTurnoverViewModel

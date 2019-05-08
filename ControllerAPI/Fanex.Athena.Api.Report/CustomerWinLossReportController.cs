@@ -71,10 +71,11 @@
             var templatePath = HostingEnvironment.MapPath(TemplatePath);
 
             var licenseeSession = SessionService.LicenseeSession;
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId, 
                 SessionService.UserSession.Language, 
-                FunctionNames.CustomerBalance);
+                FunctionNames.CustomerBalance,
+                true);
 
             var convertingOption = new ConvertingOption
             {

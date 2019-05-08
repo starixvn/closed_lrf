@@ -25,10 +25,11 @@ namespace Fanex.Athena.Controllers.Report
         {
             var licenseeSession = SessionService.LicenseeSession;
             var userSession = SessionService.UserSession;
-            var productAccess = this.ProductService.GetSingleWalletProductAccess(
+            var productAccess = this.ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.WinLossByTimeZone);
+                FunctionNames.WinLossByTimeZone,
+                true);
 
             var model = new LicenseeWinLossByTimeZoneViewModel
             {

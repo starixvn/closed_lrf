@@ -42,10 +42,11 @@ namespace Fanex.Athena.Controllers.Report
                 CurrencyId = 0
             };
 
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.CustomerBalance);
+                FunctionNames.CustomerBalance,
+                true);
             var productOption = ToProductOptions(productAccess.ProductList.Where(i => i.ProductCode != Product.BA));
 
             metaModel.ProductOptions = productOption;

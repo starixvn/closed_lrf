@@ -89,7 +89,8 @@
                 productList.Add(new Product { ProductCode = productCode[i] });
             }
 
-            ProductService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), functionConfigKey: Arg.Any<string>()).Returns(new ProductAccess(productList));
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), functionConfigKey: Arg.Any<string>(), isSingleWalletOnly: true)
+                .Returns(new ProductAccess(productList));
         }
 
         protected void StubProductAccess(string[] productCode)

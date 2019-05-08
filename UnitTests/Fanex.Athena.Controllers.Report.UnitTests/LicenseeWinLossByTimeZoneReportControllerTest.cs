@@ -53,7 +53,7 @@
                     }
                 };
 
-                _productService.GetSingleWalletProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>())
+                _productService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>(), true)
                     .Returns(new ProductAccess(productList));
 
                 // Action

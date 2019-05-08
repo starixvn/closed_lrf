@@ -72,10 +72,11 @@ namespace Fanex.Athena.Controllers.Report
 
         private ProductAccess GetProducts(int licenseeId, string lang)
         {
-            return ProductService.GetSingleWalletProductAccess(
+            return ProductService.GetProductAccess(
                 licenseeId,
                 lang,
-                FunctionNames.LicenseeWinLoss);
+                FunctionNames.LicenseeWinLoss,
+                true);
         }
 
         private ActionResult MapToView()

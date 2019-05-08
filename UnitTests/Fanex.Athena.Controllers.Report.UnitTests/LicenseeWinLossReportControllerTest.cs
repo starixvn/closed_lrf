@@ -80,10 +80,11 @@
         private LicenseeWinLossReportController CreateController(IReportSettingService reportSettingService)
         {           
             var productService = Substitute.For<IProductService>();
-            productService.GetSingleWalletProductAccess(
+            productService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                FunctionNames.LicenseeWinLoss).Returns(new ProductAccess(new List<Product>()));
+                FunctionNames.LicenseeWinLoss,
+                true).Returns(new ProductAccess(new List<Product>()));
             return new LicenseeWinLossReportController(
                 LangService,
                 SessionService,

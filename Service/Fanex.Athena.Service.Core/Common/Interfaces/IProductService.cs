@@ -5,12 +5,10 @@
 
     public interface IProductService
     {
-        ProductAccess GetProductAccess(int licenseeId, string languageCode, string functionConfigKey = null);
+        ProductAccess GetProductAccess(int licenseeId, string languageCode, string functionConfigKey = null, bool isSingleWalletOnly = false);
 
         IList<Product> GetProductList(int licenseeId, string languageCode);
 
         ProductAccess GetProductAccessForActiveCustomerSummary(int licenseeId, string languageCode);
-
-        ProductAccess GetSingleWalletProductAccess(int licenseeId, string languageCode, string functionConfigKey = null);
     }
 }

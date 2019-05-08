@@ -34,10 +34,11 @@ namespace Fanex.Athena.Controllers.Report
         {
             var licenseeSession = this.SessionService.LicenseeSession;
             var userSession = SessionService.UserSession;
-            var productAccess = this.ProductService.GetSingleWalletProductAccess(
+            var productAccess = this.ProductService.GetProductAccess(
                 licenseeSession.LicenseeId,
                 userSession.Language,
-                FunctionNames.WinLossByProduct);
+                FunctionNames.WinLossByProduct,
+                true);
             var metaModel = new WinLossByProductMetaModel
             {
                 FromDate = DateTime.Now,

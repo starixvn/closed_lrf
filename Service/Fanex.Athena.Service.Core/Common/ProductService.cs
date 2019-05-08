@@ -62,26 +62,21 @@ namespace Fanex.Athena.Service.Core.Common
             return productList;
         }
 
-        public ProductAccess GetProductAccess(int licenseeId, string languageCode, string functionConfigKey = null)
+        public ProductAccess GetProductAccess(int licenseeId, string languageCode, string functionConfigKey = null, bool isSingleWalletOnly = false)
         {
             var allowedProducts = GetAllowedProducts(functionConfigKey);
 
             var originalProducts = GetProductList(licenseeId, languageCode);
 
-            var productList = allowedProducts.Any() ? originalProducts.Where(i => allowedProducts.Contains(i.ProductCode)).ToList()
-                : originalProducts;
-            return new ProductAccess(productList);
-        }
+           if (!allowedProducts.Any())
+            {
+                return new ProductAccess(originalProducts);
+            }
 
-        public ProductAccess GetSingleWalletProductAccess(int licenseeId, string languageCode, string functionConfigKey = null)
-        {
-            var allowedProducts = GetAllowedProducts(functionConfigKey);
+            var productList = isSingleWalletOnly ? originalProducts.Where(i => i.IsOfferedSingleWallet && allowedProducts.Contains(i.ProductCode))
+                : originalProducts.Where(i => allowedProducts.Contains(i.ProductCode));
 
-            var originalProducts = GetProductList(licenseeId, languageCode);
-
-            var productList = allowedProducts.Any() ? originalProducts.Where(i => i.IsOfferedSingleWallet && allowedProducts.Contains(i.ProductCode)).ToList()
-                : originalProducts;
-            return new ProductAccess(productList);
+            return new ProductAccess(productList.ToList());
         }
 
         public ProductAccess GetProductAccessForActiveCustomerSummary(int licenseeId, string languageCode)

@@ -48,10 +48,11 @@
                 throw new ArgumentNullException(nameof(productCodes));
             }
 
-            var productAccess = ProductService.GetSingleWalletProductAccess(
+            var productAccess = ProductService.GetProductAccess(
                 SessionService.LicenseeSession.LicenseeId,
                 SessionService.UserSession.Language,
-                functionKey);
+                functionKey,
+                true);
             var allowedProductCodes = productAccess.ProductList.Select(x => x.ProductCode);
 
             var invalidProduct = productCodes.FirstOrDefault(x => !allowedProductCodes.Contains(x));
