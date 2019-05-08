@@ -6,7 +6,10 @@ export const mode = {
 export const currentMode = window.__lrf && window.__lrf.modules &&
     window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
 
-export const tokenUrlTemplate = window.__siteConfig && window.__siteConfig.tokenUrl;
+const pageConfig = window.__pageConfig;
+export const tokenUrlTemplate = pageConfig && pageConfig.tokenUrl;
+
+export const apiInfo = pageConfig && pageConfig.apiInfo;
 
 export const systemType = {
     internal: 0,

@@ -4,7 +4,7 @@ import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
 import DataService from '../../../lib/DataService';
 import { getApiActionLink } from '../../../lib/integrationService';
-import { systemType, mode, currentMode } from '../../../constants/integrationInfo';
+import { mode, currentMode, apiInfo } from '../../../constants/integrationInfo';
 import Site from '../../../lib/site.js';
 
 export class AccountProfile extends PureComponent {
@@ -21,18 +21,19 @@ export class AccountProfile extends PureComponent {
     }
 
     _fetchData() {
-        const apiUrl = 'PlayerAccountInfo/GetAccountProfile';
         if (currentMode === mode.self) {
+            const apiUrl = 'PlayerAccountInfo/GetAccountProfile';
             DataService.getData(Site.resolveClientUrl(apiUrl), {})
-            .then(response => {
-                this.setState({ data: response.data });
-            })
+                .then(response => {
+                    this.setState({ data: response.data });
+                })
         }
         else {
-            const actionLink = getApiActionLink(systemType.lrf, apiUrl);
+            const { accountProfile } = apiInfo;
+            const actionLink = getApiActionLink(accountProfile.type, accountProfile.action);
             DataService.getData(actionLink, {})
                 .then(response => {
-                    const apiActionUrl = `${response.data.ApiUrl}/${apiUrl}`;
+                    const apiActionUrl = `${response.data.ApiUrl}/${accountProfile.action}`;
                     return DataService.getData(apiActionUrl, { token: response.data.Token })
                 })
                 .then(response => {
