@@ -293,6 +293,54 @@ var debuggingConfig = {
 
 /***/ }),
 
+/***/ "./www/js/source/reactpages/constants/integrationInfo.js":
+/*!***************************************************************!*\
+  !*** ./www/js/source/reactpages/constants/integrationInfo.js ***!
+  \***************************************************************/
+/*! exports provided: mode, currentMode, tokenUrlTemplate, apiInfo, systemType, playerMenuList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mode", function() { return mode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentMode", function() { return currentMode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tokenUrlTemplate", function() { return tokenUrlTemplate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "apiInfo", function() { return apiInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "systemType", function() { return systemType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "playerMenuList", function() { return playerMenuList; });
+var mode = {
+  self: 'Self',
+  parasitic: 'Parasitic'
+};
+var currentMode = window.__lrf && window.__lrf.modules && window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
+var pageConfig = window.__pageConfig;
+var tokenUrlTemplate = pageConfig && pageConfig.tokenUrl;
+var apiInfo = pageConfig && pageConfig.apiInfo;
+var systemType = {
+  internal: 0,
+  lrf: 1,
+  affiliate: 2,
+  newAdmin: 3
+};
+var playerMenuList = [{
+  Name: 'AccountInfo',
+  Text: 'Account Info',
+  Action: 'PlayerAccountInfo',
+  SystemType: systemType.lrf
+}, {
+  Name: 'Statement',
+  Text: 'Statement',
+  Action: 'PlayerStatement',
+  SystemType: systemType.lrf
+}, {
+  Name: 'BetList',
+  Text: 'Bet List',
+  Action: 'PlayerBetList',
+  SystemType: systemType.lrf
+}];
+
+/***/ }),
+
 /***/ "./www/js/source/reactpages/layouts/AppLayout.jsx":
 /*!********************************************************!*\
   !*** ./www/js/source/reactpages/layouts/AppLayout.jsx ***!
@@ -378,6 +426,48 @@ function createReducer(initialState, handlers) {
     }
   };
 }
+
+/***/ }),
+
+/***/ "./www/js/source/reactpages/lib/integrationService.js":
+/*!************************************************************!*\
+  !*** ./www/js/source/reactpages/lib/integrationService.js ***!
+  \************************************************************/
+/*! exports provided: isValidMode, getActionLink, getApiActionLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isValidMode", function() { return isValidMode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActionLink", function() { return getActionLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getApiActionLink", function() { return getApiActionLink; });
+/* harmony import */ var _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/integrationInfo */ "./www/js/source/reactpages/constants/integrationInfo.js");
+/* harmony import */ var _site__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./site */ "./www/js/source/reactpages/lib/site.js");
+
+
+var isValidMode = function isValidMode() {
+  return _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["currentMode"] === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["mode"].parasitic && Identity && Identity.ApplyTokenUrl || _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["currentMode"] === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["mode"].self;
+};
+var getActionLink = function getActionLink(type, action) {
+  return _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["currentMode"] === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["mode"].self ? _site__WEBPACK_IMPORTED_MODULE_1__["default"].resolveClientUrl(action) : getExternalActionLink(type, action);
+};
+
+var getExternalActionLink = function getExternalActionLink(type, action) {
+  return type === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["systemType"].newAdmin ? action : buildExternalActionLink(type, action);
+};
+
+var buildExternalActionLink = function buildExternalActionLink(type, action) {
+  var applyTokenUrl = Identity && Identity.ApplyTokenUrl || '';
+  return "".concat(applyTokenUrl, "?ActionLink=").concat(action, "&Type=").concat(type);
+};
+
+var getApiActionLink = function getApiActionLink(type, action) {
+  return _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["currentMode"] === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["mode"].self && type === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["systemType"].lrf ? _site__WEBPACK_IMPORTED_MODULE_1__["default"].resolveClientUrl(action) : buildExternalApiActionLink(type, action);
+};
+
+var buildExternalApiActionLink = function buildExternalApiActionLink(type, action) {
+  return type === _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["systemType"].newAdmin ? action : _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["tokenUrlTemplate"] && _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_0__["tokenUrlTemplate"].replace('{0}', encodeURIComponent(action)).replace('{1}', type);
+};
 
 /***/ }),
 
@@ -919,8 +1009,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _9softstudio_react_simple_tab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @9softstudio/react-simple-tab */ "./node_modules/@9softstudio/react-simple-tab/dist/index.js");
 /* harmony import */ var _9softstudio_react_simple_tab__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_9softstudio_react_simple_tab__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _lib_site__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/site */ "./www/js/source/reactpages/lib/site.js");
-/* harmony import */ var _lib_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/constants */ "./www/js/source/reactpages/pages/playeradmin/lib/constants.js");
+/* harmony import */ var _lib_integrationService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/integrationService */ "./www/js/source/reactpages/lib/integrationService.js");
+/* harmony import */ var _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../constants/integrationInfo */ "./www/js/source/reactpages/constants/integrationInfo.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -975,43 +1065,13 @@ function (_PureComponent) {
   }
 
   _createClass(PlayerDetail, [{
-    key: "_isValidMode",
-    value: function _isValidMode() {
-      return _lib_constants__WEBPACK_IMPORTED_MODULE_4__["currentMode"] === _lib_constants__WEBPACK_IMPORTED_MODULE_4__["mode"].parasitic && Identity && Identity.ApplyTokenUrl || _lib_constants__WEBPACK_IMPORTED_MODULE_4__["currentMode"] === _lib_constants__WEBPACK_IMPORTED_MODULE_4__["mode"].self;
-    }
-  }, {
-    key: "_getExternalActionLink",
-    value: function _getExternalActionLink(menuItem) {
-      var menuSystemType = menuItem.SystemType;
-      return menuSystemType === _lib_constants__WEBPACK_IMPORTED_MODULE_4__["systemType"].newAdmin ? menuItem.Action : "".concat(Identity.ApplyTokenUrl, "?ActionLink=").concat(menuItem.Action, "&Type=").concat(menuSystemType);
-    }
-  }, {
-    key: "render",
-    value: function render() {
+    key: "_renderTabList",
+    value: function _renderTabList(renderingMenuList) {
       var _this2 = this;
 
-      if (!_lib_constants__WEBPACK_IMPORTED_MODULE_4__["currentMode"] || !this._isValidMode()) {
-        return null;
-      }
-
-      var _this$state = this.state,
-          selectedTabIndex = _this$state.selectedTabIndex,
-          targetUrl = _this$state.targetUrl;
-      var menuList = this.props.menuList;
-      var renderingMenuList = menuList && menuList.length ? menuList : _lib_constants__WEBPACK_IMPORTED_MODULE_4__["playerMenuList"];
-      var src = targetUrl || renderingMenuList[0].Action;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pa-detail-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "page-filter-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "content-tab"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "tabs"
-      }, renderingMenuList.map(function (item, index) {
-        var actionLink = _lib_constants__WEBPACK_IMPORTED_MODULE_4__["currentMode"] === _lib_constants__WEBPACK_IMPORTED_MODULE_4__["mode"].self ? _lib_site__WEBPACK_IMPORTED_MODULE_3__["default"].resolveClientUrl(item.Action) : _this2._getExternalActionLink(item);
+      var selectedTabIndex = this.state.selectedTabIndex;
+      return renderingMenuList.map(function (item, index) {
+        var actionLink = Object(_lib_integrationService__WEBPACK_IMPORTED_MODULE_3__["getActionLink"])(item.SystemType, item.Action);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "tab",
           key: item.Name
@@ -1022,12 +1082,38 @@ function (_PureComponent) {
             return _this2.handleClickMenu(event, actionLink, index);
           }
         }, item.Text));
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!Object(_lib_integrationService__WEBPACK_IMPORTED_MODULE_3__["isValidMode"])()) {
+        return null;
+      }
+
+      var targetUrl = this.state.targetUrl;
+      var menuList = this.props.menuList;
+      var renderingMenuList = menuList && menuList.length ? menuList : _constants_integrationInfo__WEBPACK_IMPORTED_MODULE_4__["playerMenuList"];
+      var src = targetUrl || Object(_lib_integrationService__WEBPACK_IMPORTED_MODULE_3__["getActionLink"])(renderingMenuList[0].SystemType, renderingMenuList[0].Action);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pa-detail-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-filter-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "content-tab"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "tabs"
+      }, this._renderTabList(renderingMenuList)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tab-panel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pa-frame-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
         id: "paDetailFrame",
+        style: {
+          height: 500
+        },
         name: "paDetailFrame",
         frameBorder: "0",
         src: src
@@ -1089,49 +1175,6 @@ var App = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AppContainer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 });
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById("app-container"));
-
-/***/ }),
-
-/***/ "./www/js/source/reactpages/pages/playeradmin/lib/constants.js":
-/*!*********************************************************************!*\
-  !*** ./www/js/source/reactpages/pages/playeradmin/lib/constants.js ***!
-  \*********************************************************************/
-/*! exports provided: mode, currentMode, systemType, playerMenuList */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mode", function() { return mode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentMode", function() { return currentMode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "systemType", function() { return systemType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "playerMenuList", function() { return playerMenuList; });
-var mode = {
-  self: 'Self',
-  parasitic: 'Parasitic'
-};
-var currentMode = window.__lrf && window.__lrf.modules && window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
-var systemType = {
-  internal: 0,
-  lrf: 1,
-  affiliate: 2,
-  newAdmin: 3
-};
-var playerMenuList = [{
-  Name: 'AccountInfo',
-  Text: 'Account Info',
-  Action: 'PlayerAccountInfo',
-  SystemType: systemType.newAdmin
-}, {
-  Name: 'Statement',
-  Text: 'Statement',
-  Action: 'PlayerStatement',
-  SystemType: systemType.lrf
-}, {
-  Name: 'BetList',
-  Text: 'Bet List',
-  Action: 'PlayerBetList',
-  SystemType: systemType.lrf
-}];
 
 /***/ }),
 

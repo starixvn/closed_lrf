@@ -31,6 +31,7 @@ function generateConfig(environment) {
             [`${jsPath}/bettingticketscenter/running`]: pathConfig.scriptPaths.bettingticketscenter_running,
             [`${jsPath}/report/casinoturnover`]: pathConfig.scriptPaths.casinoturnover,
             [`${jsPath}/playeradmin/playeradmin`]: pathConfig.scriptPaths.playeradmin,
+            [`${jsPath}/playeradmin/playeraccountinfo`]: pathConfig.scriptPaths.playeraccountinfo,
 
             /*css*/
             [`${cssPath}/vendor`]: pathConfig.cssPaths.layout,
