@@ -51,6 +51,7 @@
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -81,6 +82,7 @@
     <Compile Include="Controllers\PlayerBetListController.cs" />
     <Compile Include="Controllers\PlayerStatementController.cs" />
     <Compile Include="DTO\Player.cs" />
+    <Compile Include="Filters\AllowCrossSiteJsonAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Interfaces\IPlayerAdminService.cs" />
     <Compile Include="ViewModels\PlayerAdminViewModel.cs" />
@@ -89,7 +91,18 @@
     <Content Include="structure.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Fanex.Athena.Session\Fanex.Athena.Session.csproj">
+      <Project>{B41E38EF-54AD-4866-968F-C856DE9DC072}</Project>
+      <Name>Fanex.Athena.Session</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Fanex.Athena.Service.Core\Fanex.Athena.Service.Core.csproj">
+      <Project>{FCFD7434-085B-4C93-848F-E1CBCEDCC5A0}</Project>
+      <Name>Fanex.Athena.Service.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

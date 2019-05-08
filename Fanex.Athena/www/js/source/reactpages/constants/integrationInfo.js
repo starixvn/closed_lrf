@@ -6,6 +6,8 @@ export const mode = {
 export const currentMode = window.__lrf && window.__lrf.modules &&
     window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
 
+export const tokenUrlTemplate = window.__siteConfig && window.__siteConfig.tokenUrl;
+
 export const systemType = {
     internal: 0,
     lrf: 1,
@@ -17,7 +19,7 @@ export const playerMenuList = [{
         Name: 'AccountInfo',
         Text: 'Account Info',
         Action: 'PlayerAccountInfo',
-        SystemType: systemType.newAdmin
+        SystemType: systemType.lrf
     },
     {
         Name: 'Statement',

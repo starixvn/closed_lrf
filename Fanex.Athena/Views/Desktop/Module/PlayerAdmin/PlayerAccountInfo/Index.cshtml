@@ -6,14 +6,22 @@
     @*<link href="@Url.ContentLinkByEnv("/www/css/build/reactpages/playeradmin/index.css")" rel="stylesheet" type="text/css" />*@
 }
 @section pagejs {
-    @*<script src="@Url.ContentLinkByEnv("/www/js/build/reactpages/playeradmin/playeradmin.chunk.js")"></script>*@
+    <script src="@Url.ContentLinkByEnv("/www/js/build/reactpages/playeradmin/playeraccountinfo.chunk.js")"></script>
 }
 
 @section globaljscode{
+    window.__lrf = {
+        modules: {
+            playerAdmin: {
+                mode: 'Self'
+            }
+        }
+    }
+
     window.initialState = {
-        isLoading: false
+        //isLoading: false
     }
 }
-PlayerAccountInfo from LRF
+
 <div id="app-container">
 </div>

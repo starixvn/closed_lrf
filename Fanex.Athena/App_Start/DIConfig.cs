@@ -88,13 +88,14 @@ namespace Fanex.Athena
             {
                 "Fanex.Athena.Controllers",
                 "Fanex.Athena.Api",
+				"Fanex.Athena.Module.Controllers"
             };
             return assemblies.Where(ass => !controllerFileNames.Any(x => ass.FullName.Contains(x))).ToArray();
         }
 
         private static Assembly[] GetControllerAssemblies(Assembly[] assemblies)
         {
-            return assemblies.Where(ass => ass.FullName.Contains("Fanex.Athena.Controllers")).ToArray();
+            return assemblies.Where(ass => ass.FullName.Contains("Fanex.Athena.Controllers") || ass.FullName.Contains("Fanex.Athena.Module")).ToArray();
         }
 
         private static Assembly[] GetApiControllerAssemblies(Assembly[] assemblies)

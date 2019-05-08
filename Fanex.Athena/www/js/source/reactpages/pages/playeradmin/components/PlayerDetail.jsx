@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Tabs, Tab } from '@9softstudio/react-simple-tab'
 
-import Site from '../../../lib/site';
-import { playerMenuList, mode, currentMode, systemType } from '../lib/constants';
+import { isValidMode, getActionLink } from '../../../lib/integrationService';
+import { playerMenuList } from '../../../constants/integrationInfo';
 
 export class PlayerDetail extends PureComponent {
     constructor(props) {
@@ -24,27 +24,35 @@ export class PlayerDetail extends PureComponent {
         });
     }
 
-    _isValidMode() {
-        return (currentMode === mode.parasitic && Identity && Identity.ApplyTokenUrl) || currentMode === mode.self;
-    }
+    _renderTabList(renderingMenuList) {
+        const { selectedTabIndex } = this.state;
 
-    _getExternalActionLink(menuItem) {
-        const menuSystemType = menuItem.SystemType;
+        return (
+            renderingMenuList.map((item, index) => {
+                const actionLink = getActionLink(item.SystemType, item.Action);
 
-        return menuSystemType === systemType.newAdmin ?
-            menuItem.Action : `${Identity.ApplyTokenUrl}?ActionLink=${menuItem.Action}&Type=${menuSystemType}`;
+                return (
+                    <li className="tab" key={item.Name}>
+                        <a className={selectedTabIndex === index ? "active" : ""}
+                            href={actionLink} onClick={(event) => this.handleClickMenu(event, actionLink, index)}>
+                            {item.Text}
+                        </a>
+                    </li>
+                )
+            })
+        )
     }
 
     render() {
-        if (!currentMode || !this._isValidMode()) {
+        if (!isValidMode()) {
             return null;
         }
 
-        const { selectedTabIndex, targetUrl } = this.state;
+        const { targetUrl } = this.state;
         const { menuList } = this.props;
 
         const renderingMenuList = menuList && menuList.length ? menuList : playerMenuList;
-        const src = targetUrl || renderingMenuList[0].Action;
+        const src = targetUrl || getActionLink(renderingMenuList[0].SystemType, renderingMenuList[0].Action);
 
         return (
             <div className="pa-detail-container">
@@ -52,28 +60,13 @@ export class PlayerDetail extends PureComponent {
                     <div className="header-tab">
                         <div className="content-tab">
                             <ul className="tabs">
-                                {
-                                    renderingMenuList.map((item, index) => {
-                                        const actionLink = currentMode === mode.self ?
-                                            Site.resolveClientUrl(item.Action) :
-                                            this._getExternalActionLink(item);
-
-                                        return (
-                                            <li className="tab" key={item.Name}>
-                                                <a className={selectedTabIndex === index ? "active" : ""}
-                                                    href={actionLink} onClick={(event) => this.handleClickMenu(event, actionLink, index)}>
-                                                    {item.Text}
-                                                </a>
-                                            </li>
-                                        )
-                                    })
-                                }
+                                {this._renderTabList(renderingMenuList)}
                             </ul>
                         </div>
                     </div>
                     <div className="tab-panel">
                         <div className="pa-frame-container">
-                            <iframe id="paDetailFrame" name="paDetailFrame" frameBorder="0" src={src}></iframe>
+                            <iframe id="paDetailFrame" style={{height: 500}} name="paDetailFrame" frameBorder="0" src={src}></iframe>
                         </div>
                     </div>
                 </div>
