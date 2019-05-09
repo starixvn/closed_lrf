@@ -1,6 +1,8 @@
 ﻿namespace Fanex.Athena.Api.Report.UnitTests
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
@@ -39,6 +41,9 @@
             _controller.Request = new HttpRequestMessage();
             _controller.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
             _controller.When(x => x.ExcelStream(Arg.Any<IWorkbook>(), Arg.Any<string>())).DoNotCallBase();
+
+            var validProduct = SetUpProductOption(new string[0]).Select(x => x.Code).ToArray();
+            StubProductAccess(validProduct, FunctionNames.PlatformWinloss, true);
         }
 
         [OneTimeTearDown]
@@ -72,7 +77,14 @@
         public async Task Index_WhenCallWithInvalidModel_ReturnBadRequestWithCorrectMessage()
         {
             // Arrange
-            var metaModel = new PlatformWinLossMetaModel { CurrencyId = 99 };
+            var metaModel = new PlatformWinLossMetaModel
+            {
+                CurrencyId = 99,
+                ProductOptions = new List<ProductOption>
+                {
+                    new ProductOption { Code = "SB" }
+                }
+            };
 
             // Action
             var result = await _controller.Index(metaModel) as BadRequestErrorMessageResult;
@@ -97,6 +109,33 @@
                 Assert.That(result.Data.Count, Is.EqualTo(3));
                 Assert.That(result.Total.CustomerComm, Is.EqualTo(ExpectedCustomerComm));
             });
+        }
+
+        [Test]
+        public void Index_InvalidProductCode_ThowArgumentException()
+        {
+            // Arrange
+            SetUpDataAccessGetSummaryData();
+
+            var product = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true },
+                new ProductOption { Code = "Invalid", Status = true }
+            };
+
+            var expectedProduct = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true }
+            };
+
+            var metaModel = CreateMetaModel(0);
+            metaModel.ProductOptions = product;
+
+            // Action
+            AsyncTestDelegate testDelegate = async () => await _controller.Index(metaModel);
+
+            // Assert
+            Assert.ThrowsAsync<ArgumentException>(testDelegate);
         }
 
         private static PlatformWinLossMetaModel CreateMetaModel(int level, bool isExportExcel = false)
@@ -143,7 +182,7 @@
                 DataList = memberData
             };
 
-            _dataAccess.GetMemberData(Arg.Any<PlatformWinLossMetaModel>(), UserCurrencyList).ReturnsForAnyArgs(result);
+            _dataAccess.GetMemberData(Arg.Any<PlatformWinLossMetaModel>(), UserCurrencyList).ReturnsForAnyArgs(Task.FromResult(result));
 
             return new SortableList<PlatformWinLossMember>
             {
@@ -162,14 +201,14 @@
             };
 
             _dataAccess.GetSummaryData(Arg.Any<PlatformWinLossMetaModel>()).ReturnsForAnyArgs(
-                new ReportResultModel<PlatformWinLossSummary>
+                Task.FromResult(new ReportResultModel<PlatformWinLossSummary>
                 {
                     TotalData = new PlatformWinLossSummary
                     {
                         CustomerComm = ExpectedCustomerComm
                     },
                     DataList = summaryData
-                });
+                }));
         }
     }
 }

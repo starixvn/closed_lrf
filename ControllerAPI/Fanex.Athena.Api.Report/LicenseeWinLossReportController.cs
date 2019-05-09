@@ -283,6 +283,8 @@ namespace Fanex.Athena.Api.Report
             int custId = 0,
             string currencyName = null)
         {
+            CheckValidProducts(FunctionNames.LicenseeWinLoss, metaModel);
+
             metaModel.DrillDownLevel = level;
             metaModel.DrillDownFromDate = fdate.HasValue ? fdate.Value : metaModel.DrillDownFromDate;
             metaModel.DrillDownToDate = tdate.HasValue ? tdate.Value : metaModel.DrillDownToDate;

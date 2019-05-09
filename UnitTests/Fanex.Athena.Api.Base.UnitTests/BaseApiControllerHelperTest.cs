@@ -80,7 +80,7 @@
             SessionService.GenerateAgentListXml(Arg.Any<int>(), Arg.Any<bool>()).Returns(AgentListXml);
         }
 
-        protected void StubSingleWalletProductAccess(string[] productCode)
+        protected void StubProductAccess(string[] productCode, string functionConfigKey, bool isSingleWalletOnly = false)
         {
             var productList = new List<Product>();
 
@@ -89,20 +89,8 @@
                 productList.Add(new Product { ProductCode = productCode[i] });
             }
 
-            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), functionConfigKey: Arg.Any<string>(), isSingleWalletOnly: true)
+            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), functionConfigKey, isSingleWalletOnly)
                 .Returns(new ProductAccess(productList));
-        }
-
-        protected void StubProductAccess(string[] productCode)
-        {
-            var productList = new List<Product>();
-
-            for (var i = 0; i < productCode.Length; i++)
-            {
-                productList.Add(new Product { ProductCode = productCode[i] });
-            }
-
-            ProductService.GetProductAccess(Arg.Any<int>(), Arg.Any<string>(), functionConfigKey: Arg.Any<string>()).Returns(new ProductAccess(productList));
         }
 
         protected void StubUserSessionData(UserSession userSession)

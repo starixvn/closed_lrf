@@ -2,11 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Base.UnitTests;
     using Excel.Report;
     using Excel.Report.Models;
     using Fanex.Athena.DataAccess.Report.Interfaces;
+    using Model.Core.DataDomain;
+    using Model.Core.MetaModel.Product;
     using Model.Core.ResultModel;
     using Model.Report.DTO;
     using Model.Report.MetaModel;
@@ -30,6 +33,8 @@
 
             _controller.When(x => x.ExcelStream(Arg.Any<IWorkbook>(), Arg.Any<string>())).DoNotCallBase();
 
+            StubProductAccess(new[] { "SB", "AB" }, FunctionNames.CustomerPendingFunds, true);
+
             MockSessionData();
         }
 
@@ -47,6 +52,7 @@
         {
             // Arrange
             var model = Substitute.ForPartsOf<CustomerPendingFundsMetaModel>();
+            model.ProductOptions = new List<ProductOption> { new ProductOption() };
             model.IsValid.Returns(false);
 
             // Action
@@ -58,6 +64,32 @@
                 Assert.IsEmpty(result.Data);
                 Assert.That(result.TotalRows, Is.Zero);
             });
+        }
+
+        [Test]
+        public void Index_InvalidProductCode_ThowArgumentException()
+        {
+            // Arrange
+            var product = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true },
+                new ProductOption { Code = "Invalid", Status = true }
+            };
+
+            var expectedProduct = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true }
+            };
+
+            var metaModel = CreateValidMetaModel();
+            metaModel.ProductOptions = product;
+            SetUpForGettingData(metaModel);
+
+            // Action
+            AsyncTestDelegate testDelegate = async () => await _controller.Index(metaModel);
+
+            // Assert
+            Assert.ThrowsAsync<ArgumentException>(testDelegate);
         }
 
         [Test]
@@ -105,7 +137,8 @@
         {
             return new CustomerPendingFundsMetaModel
             {
-                AgentListXml = string.Empty
+                AgentListXml = string.Empty,
+                ProductOptions = new List<ProductOption> { new ProductOption { Code = "SB" } }
             };
         }
 
@@ -128,15 +161,12 @@
                 expectedData.Add(item);
             }
 
-            _dataAccess.GetDataList(metaModel).Returns(x =>
+            _dataAccess.GetDataList(metaModel).Returns(Task.FromResult(new ReportResultModel<CustPendingFunds>
             {
-                return new ReportResultModel<CustPendingFunds>
-                {
-                    TotalData = new CustPendingFunds(),
-                    TotalRows = total,
-                    DataList = expectedData
-                };
-            });
+                TotalData = new CustPendingFunds(),
+                TotalRows = total,
+                DataList = expectedData
+            }));
 
             return expectedData;
         }

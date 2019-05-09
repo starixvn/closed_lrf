@@ -8,7 +8,7 @@
     using Excel.Base.Entities;
     using Excel.Report;
     using Fanex.Athena.DataAccess.Report.Interfaces;
-    using Model.Core.DTO.Common;
+    using Model.Core.DataDomain;
     using Model.Core.MetaModel.Product;
     using Model.Core.ResultModel;
     using Model.Report.DTO;
@@ -34,6 +34,8 @@
             _controller.When(x => x.ExcelStream(Arg.Any<IWorkbook>(), Arg.Any<string>())).DoNotCallBase();
 
             MockSessionData();
+
+            StubProductAccess(new[] { "SB", "AB" }, FunctionNames.CustomerBalance, true);
         }
 
         [OneTimeTearDown]
@@ -52,7 +54,8 @@
             {
                 IsExportExcel = false,
                 FromDate = DateTime.Now.AddDays(1),
-                ToDate = DateTime.Now
+                ToDate = DateTime.Now,
+                ProductOptions = new List<ProductOption> { new ProductOption { Code = "SB" } }
             };
 
             var result = await _controller.Index(model);
@@ -62,6 +65,31 @@
                 Assert.IsEmpty(result.Data);
                 Assert.That(result.TotalRows, Is.Zero);
             });
+        }
+
+        [Test]
+        public void Index_InvalidProductCode_ThowArgumentException()
+        {
+            // Arrange
+            var product = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true },
+                new ProductOption { Code = "Invalid", Status = true }
+            };
+
+            var expectedProduct = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true }
+            };
+
+            var metaModel = CreateValidMetaModel();
+            metaModel.ProductOptions = product;
+
+            // Action
+            AsyncTestDelegate testDelegate = async () => await _controller.Index(metaModel);
+
+            // Assert
+            Assert.ThrowsAsync<ArgumentException>(testDelegate);
         }
 
         [Test]
@@ -91,8 +119,6 @@
             var expectedDataList = SetUpForGettingData(metaModel);
             const int PageSizeExcel = int.MaxValue - 1000;
 
-            StubSingleWalletProductAccess(new[] { Product.BA });
-
             var actualDataList = Enumerable.Empty<CustBalance>();
             var excel = Substitute.ForPartsOf<CustomerBalanceExcel>();
             excel.When(x => x.Export()).DoNotCallBase();
@@ -121,7 +147,7 @@
             {
                 FromDate = DateTime.Now,
                 ToDate = DateTime.Now.AddDays(1),
-                ProductOptions = new List<ProductOption> { new ProductOption { Status = true } },
+                ProductOptions = new List<ProductOption> { new ProductOption { Code = "SB", Status = true } },
                 AgentListXml = string.Empty
             };
         }
@@ -135,7 +161,7 @@
                 DataList = new List<CustBalance> { new CustBalance { Index = 1 } }
             };
 
-            _dataAccess.GetDataList(metaModel).Returns(expectedData);
+            _dataAccess.GetDataList(metaModel).Returns(Task.FromResult(expectedData));
 
             return expectedData;
         }

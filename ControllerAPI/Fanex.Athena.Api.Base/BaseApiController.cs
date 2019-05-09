@@ -102,21 +102,5 @@ namespace Fanex.Athena.Api.Base
             var validProductCodes = productCodeList.Split(',').Where(x => productList.Any(y => y.ProductCode.Equals(x, StringComparison.OrdinalIgnoreCase)));
             return string.Join(",", validProductCodes.ToArray());
         }
-
-        protected IList<ProductOption> RemoveInvalidProducts(IList<ProductOption> productOption, string functionProductConfigKey, bool isSingleWalletOnly = false)
-        {
-            if (!productOption.Any())
-            {
-                return productOption;
-            }
-
-            var validProductAccess = ProductService.GetProductAccess(
-                SessionService.LicenseeSession.LicenseeId,
-                SessionService.UserSession.Language,
-                functionProductConfigKey,
-                isSingleWalletOnly).ProductList;
-
-            return productOption.Where(x => validProductAccess.Any(y => y.ProductCode == x.Code)).ToList();
-        }
     }
 }

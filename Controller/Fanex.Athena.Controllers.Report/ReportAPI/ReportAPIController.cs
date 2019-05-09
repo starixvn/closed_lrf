@@ -21,18 +21,22 @@ namespace Fanex.Athena.Controllers.Report
 
         private readonly ITurnoverService _turnoverService;
 
+        private readonly IProductService _productService;
+
         public ReportAPIController(
             ISessionService sessionService,
             IAppSettings appSettings,
             IBetTypeService betTypeService,
             ICustomerTurnoverService customerTurnoverService,
-            ITurnoverService turnoverService)
+            ITurnoverService turnoverService,
+            IProductService productService)
             : base(sessionService)
         {
             _betTypeService = betTypeService;
             _appSettings = appSettings;
             _customerTurnoverService = customerTurnoverService;
             _turnoverService = turnoverService;
+            _productService = productService;
         }
     }
 }

@@ -91,6 +91,8 @@
 
         private async Task<ReportResultModel<CustPendingFunds>> GetData(CustomerPendingFundsMetaModel metaModel)
         {
+            CheckValidProducts(FunctionNames.CustomerPendingFunds, metaModel);
+
             if (!metaModel.IsValid || !IsValidRequest(metaModel.CurrencyId))
             {
                 return new ReportResultModel<CustPendingFunds>

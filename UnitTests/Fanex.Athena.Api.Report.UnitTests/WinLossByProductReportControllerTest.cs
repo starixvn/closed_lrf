@@ -8,6 +8,7 @@
     using DataAccess.Report.Interfaces;
     using Excel.Report;
     using Excel.Report.Models;
+    using Model.Core.DataDomain;
     using Model.Core.DTO.Common;
     using Model.Core.MetaModel.Product;
     using Model.Report.DTO;
@@ -229,7 +230,7 @@
             var fromDate = new DateTime(2017, 4, 1);
             var toDate = new DateTime(2017, 4, 18);
 
-            StubProductAccess(new string[0]);
+            StubProductAccess(new string[0], null);
             AppSetting.FakeLicenseeList.Returns(x => isFakeLicensee ? new int[1] { SessionLicenseeId } : new int[0]);
 
             var excel = Substitute.ForPartsOf<WinlossByProductExcel>();
@@ -243,7 +244,8 @@
                 IsExportExcel = true,
                 FromDate = fromDate.AddDays(1),
                 ToDate = toDate.AddDays(1),
-                Level = level
+                Level = level,
+                ProductOptions = new List<ProductOption>()
             };
 
             var expectedFromDate = level == 0 ? metaModel.FromDate : fromDate;

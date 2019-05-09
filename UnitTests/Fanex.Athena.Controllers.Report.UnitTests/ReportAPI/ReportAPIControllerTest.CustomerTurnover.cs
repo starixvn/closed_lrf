@@ -24,6 +24,7 @@
         private IBetTypeService _betTypeService;
         private ICustomerTurnoverService _customerTurnoverService;
         private ITurnoverService _turnoverService;
+        private IProductService _productService;
 
         [OneTimeSetUp]
         public override void FixtureSetUp()
@@ -32,6 +33,7 @@
             _betTypeService = Substitute.For<IBetTypeService>();
             _customerTurnoverService = Substitute.For<ICustomerTurnoverService>();
             _turnoverService = Substitute.For<ITurnoverService>();
+            _productService = Substitute.For<IProductService>();
             SetUpDefaultFakeData();
         }
 
@@ -122,7 +124,8 @@
                 AppSettings,
                 _betTypeService,
                 _customerTurnoverService,
-                _turnoverService);
+                _turnoverService,
+                _productService);
         }
     }
 }

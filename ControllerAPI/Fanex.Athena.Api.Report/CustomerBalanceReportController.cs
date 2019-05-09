@@ -95,6 +95,8 @@
 
         private async Task<ReportResultModel<CustBalance>> GetData(CustomerBalanceMetaModel metaModel)
         {
+            CheckValidProducts(FunctionNames.CustomerBalance, metaModel);
+
             if (!metaModel.IsValid)
             {
                 return new ReportResultModel<CustBalance>

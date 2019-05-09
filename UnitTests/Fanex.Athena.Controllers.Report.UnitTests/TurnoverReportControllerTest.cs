@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Athena.Controllers.TotalBets.UnitTests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -9,6 +10,7 @@
     using Excel.Report;
     using Model.Core.DataDomain;
     using Model.Core.DTO.Common;
+    using Model.Core.MetaModel.Product;
     using Model.Report.DTO;
     using Model.Report.MetaModel;
     using Model.Report.ViewModel;
@@ -113,7 +115,7 @@
                         new TurnoverDTO()
                     };
                 var expectedTotalData = new TurnoverDTO();
-                _turnoverService.GetDataList(metaModel).Returns(expectedData);
+                _turnoverService.GetDataList(metaModel).Returns(Task.FromResult<IList<TurnoverDTO>>(expectedData));
                 _turnoverService.SumTotalData(expectedData).Returns(expectedTotalData);
 
                 // Action
@@ -131,6 +133,44 @@
                         false);
                     Assert.That(result, Is.InstanceOf<ExcelResult>());
                 });
+            }
+        }
+
+        [Test]
+        public void Excel_InvalidProductCode_ThowArgumentException()
+        {
+            using (var controller = CreateController("SB"))
+            {
+                // Arrange
+                MockCreatingExcel(controller);
+                var metaModel = new TurnoverMetaModel
+                {
+                    BaseCurrency = "UUS",
+                    CurrencyId = CurrencyId,
+                    ProductOptions = new List<ProductOption>
+                    {
+                        new ProductOption { Code = "SB", Status = true },
+                        new ProductOption { Code = "Invalid", Status = true }
+                    }
+                };
+                var expectedData = new List<TurnoverDTO>
+                    {
+                        new TurnoverDTO()
+                    };
+                var expectedTotalData = new TurnoverDTO();
+                _turnoverService.GetDataList(metaModel).Returns(Task.FromResult<IList<TurnoverDTO>>(expectedData));
+                _turnoverService.SumTotalData(expectedData).Returns(expectedTotalData);
+
+                var expectedProduct = new List<ProductOption>
+                {
+                    new ProductOption { Code = "SB", Status = true }
+                };
+
+                // Action
+                AsyncTestDelegate testDelegate = async () => await controller.Excel(metaModel);
+
+                // Assert
+                Assert.ThrowsAsync<ArgumentException>(testDelegate);
             }
         }
 

@@ -74,7 +74,7 @@
             var productAccess = ProductService.GetProductAccess(
                 licenseeSession.LicenseeId, 
                 SessionService.UserSession.Language, 
-                FunctionNames.CustomerBalance,
+                FunctionNames.CustomerWinLoss,
                 true);
 
             var convertingOption = new ConvertingOption

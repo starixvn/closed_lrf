@@ -1,11 +1,12 @@
 ﻿namespace Fanex.Athena.Api.Report.UnitTests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Excel.Base.Entities;
     using Excel.Report;
+    using Model.Core.DataDomain;
     using Model.Core.DTO.Common;
-    using Model.Core.DTO.Users;
     using Model.Core.MetaModel.Product;
     using Model.Report.DTO;
     using Model.Report.ViewModel;
@@ -33,7 +34,7 @@
             metalModel.ProductOptions = SetUpProductOption(productOptions);
 
             var data = StubDataAccessGetMemberData();
-            StubProductAccess(productAccess);
+            StubProductAccess(productAccess, FunctionNames.PlatformWinloss);
 
             ShowingOption expectedShowingOption = null;
             var excelModel = new PlatformWinLossViewModel
@@ -86,7 +87,7 @@
 
             var expectedSortedData = dataList.Select(x => x.Index).ToArray();
 
-            StubProductAccess(products);
+            StubProductAccess(products, FunctionNames.PlatformWinloss);
 
             var excelModel = new PlatformWinLossViewModel
             {

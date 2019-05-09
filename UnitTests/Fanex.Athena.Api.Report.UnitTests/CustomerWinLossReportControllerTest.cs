@@ -9,6 +9,7 @@
     using Excel.Report.Models;
     using Extension.Utility;
     using Fanex.Athena.DataAccess.Report.Interfaces;
+    using Model.Core.DataDomain;
     using Model.Core.DTO.Common;
     using Model.Core.MetaModel.Product;
     using Model.Core.ResultModel;
@@ -34,7 +35,7 @@
 
             _controller.When(x => x.ExcelStream(Arg.Any<IWorkbook>(), Arg.Any<string>())).DoNotCallBase();
 
-            MockSessionData();
+            StubProductAccess(new[] { "SB", "AB" }, FunctionNames.CustomerWinLoss, true);
         }
 
         [OneTimeTearDown]
@@ -44,6 +45,12 @@
 
             _controller = null;
             _dataAccess = null;
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+            MockSessionData();
         }
 
         [Test]
@@ -89,7 +96,7 @@
             metaModel.IsExportExcel = true;
             var expectedDataList = SetUpForGettingData(metaModel);
 
-            StubSingleWalletProductAccess(new[] { Product.BA });
+            StubProductAccess(new[] { Product.BA, Product.SB }, FunctionNames.CustomerWinLoss, true);
             AppSetting.FakeLicenseeList.Returns(x => isFakeLicensee ? new int[1] { SessionLicenseeId } : new int[0]);
 
             var excel = Substitute.ForPartsOf<CustomerWinLossExcel>(
@@ -124,7 +131,7 @@
             {
                 FromDate = DateTime.Now,
                 ToDate = DateTime.Now.AddDays(1),
-                ProductOptions = new List<ProductOption> { new ProductOption { Status = true } },
+                ProductOptions = new List<ProductOption> { new ProductOption { Code = "SB", Status = true } },
                 AgentListXml = string.Empty
             };
         }

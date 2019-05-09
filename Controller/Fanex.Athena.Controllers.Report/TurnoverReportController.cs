@@ -6,6 +6,7 @@
 
 namespace Fanex.Athena.Controllers.Report
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace Fanex.Athena.Controllers.Report
     using Fanex.Athena.Model.Report.ViewModel;
     using Fanex.Athena.Web.ActionFilter;
     using Fanex.Athena.Web.ResultExtension;
+    using Model.Core.MetaModel.Product;
     using Resources;
     using Service.Core.Common.Interfaces;
     using Service.Core.Users.Interfaces;
@@ -82,6 +84,13 @@ namespace Fanex.Athena.Controllers.Report
         {
             var licenseeSession = SessionService.LicenseeSession;
             var userSession = SessionService.UserSession;
+            var productAccess = ProductService.GetProductAccess(
+                    licenseeSession.LicenseeId,
+                    userSession.Language,
+                    FunctionNames.Turnover,
+                    true);
+
+            CheckInvalidProducts(metaModel.ProductOptions, productAccess);
 
             var placeholderUsername = IsFakeLicensee(licenseeSession.LicenseeId) ? ViewResources.ExternalId : ViewResources.ExternalIdOrSystemId;
             metaModel.Username = string.IsNullOrWhiteSpace(metaModel.Username) ||
@@ -95,17 +104,31 @@ namespace Fanex.Athena.Controllers.Report
                 DataList = dataList,
                 TotalData = _turnoverService.SumTotalData(dataList),
                 Param = metaModel,
-                ProductAccess = ProductService.GetProductAccess(
-                    licenseeSession.LicenseeId,
-                    userSession.Language,
-                    FunctionNames.Turnover,
-                    true),
+                ProductAccess = productAccess,
                 IsAllowedCustomerCommission = licenseeSession.IsAllowedCustomerComm,
                 CurrencyList = GetCurrenciesForTurnoverReport(licenseeSession.LicenseeId),
                 IsAllowedCasinoTransfer = licenseeSession.LicenseeId == 1
             };
 
             return ExportExcel(model);
+        }
+
+        private static void CheckInvalidProducts(IList<ProductOption> productOption, ProductAccess productAccess)
+        {
+            if (!productOption.Any())
+            {
+                return;
+            }
+
+            var validProductAccess = productAccess.ProductList;
+
+            var invalidProduct = productOption.Where(x => !validProductAccess.Any(y => y.ProductCode == x.Code))
+                .Select(y => y.Code ?? string.Empty).ToList();
+
+            if(invalidProduct.Any())
+            {
+                throw new ArgumentException($"Invalid product: {string.Join(",", invalidProduct)}");
+            }
         }
 
         private ActionResult ExportExcel(TurnoverViewModel viewModel)
@@ -116,16 +139,10 @@ namespace Fanex.Athena.Controllers.Report
 
             var licenseeId = SessionService.LicenseeSession.LicenseeId;
 
-            var productAccess = ProductService.GetProductAccess(
-                licenseeId,
-                SessionService.UserSession.Language,
-                FunctionNames.Turnover,
-                true);
-
             var showingOption = new ShowingOption
             {
                 CustomerCommVisible = this.SessionService.LicenseeSession.IsAllowedCustomerComm,
-                BAVisible = productAccess.IsAllowBA
+                BAVisible = viewModel.ProductAccess.IsAllowBA
             };
 
             var isShowCasinoTransfer = AppSettings.LicenseeAllowCasinoTransfer.Contains(licenseeId);

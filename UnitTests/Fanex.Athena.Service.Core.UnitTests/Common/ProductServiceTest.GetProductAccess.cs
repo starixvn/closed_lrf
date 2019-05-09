@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
     using System.Xml.Linq;
     using Model.Core.DTO.Common;
     using Model.Core.DTO.Configuration;
@@ -202,56 +201,28 @@
         }
 
         [Test]
-        public void GetSingleWalletProductAccess_AllowedProductsIsEmpty_ReturnOriginalProductList()
-        {
-            // Arrange
-            var expectedResult = new List<Product>
-            {
-                new Product { ProductID = 100, ProductCode = "SB" },
-                new Product { ProductID = 200, ProductCode = "AB" },
-            };
-
-            var xmlContent = BuildFunctionAllowedProductsXmlString(
-                "Test",
-                new Dictionary<string, IEnumerable<string>> { { "FakeKey", expectedResult.Select(x => x.ProductCode) } });
-
-            SetUpGetAllowedProductsFromCache(xmlContent);
-
-            SetUpForGetProductListFromCache(expectedResult);
-
-            // Action
-            var result = _productService.GetProductAccess(_licenseeId, _languageCode, null, true);
-
-            // Assert
-            Assert.Multiple(() =>
-            {
-                Assert.That(result.IsAllow(expectedResult.First().ProductID), Is.True);
-                Assert.That(result.IsAllow(expectedResult.Last().ProductID), Is.True);
-            });
-        }
-
-        [Test]
-        public void GetSingleWalletProductAccess_AllowedProductsIsNotEmpty_ReturnIntersectionOfOriginalAndAllowedProducts()
+        public void GetProductAccess_IsSingleWallet_ReturnIntersectionOfOriginalAndAllowedProducts()
         {
             // Arrange
             const string FunctionKey = "FakeKey";
 
-            var expectedResult = new List<Product>
-            {
-                new Product { ProductID = 100, ProductCode = "SB", IsOfferedSingleWallet = true },
-                new Product { ProductID = 200, ProductCode = "AB", IsOfferedSingleWallet = true },
-            };
-
             var productList = new List<Product>
             {
-                new Product { ProductID = 300, ProductCode = "CS", IsOfferedSingleWallet = true },
+                new Product { ProductID = 100, ProductCode = "SB", IsOfferedSingleWallet = false },
+                new Product { ProductID = 200, ProductCode = "AB", IsOfferedSingleWallet = true },
+                new Product { ProductID = 300, ProductCode = "CS", IsOfferedSingleWallet = true }
             };
 
-            productList.AddRange(expectedResult);
+            var cacheProduct = new[] { "SB", "AB" };
+
+            var expectedResult = new List<Product>
+            {
+                new Product { ProductID = 200, ProductCode = "AB", IsOfferedSingleWallet = true }
+            };
 
             var xmlContent = BuildFunctionAllowedProductsXmlString(
                 "Test",
-                new Dictionary<string, IEnumerable<string>> { { FunctionKey, expectedResult.Select(x => x.ProductCode) } });
+                new Dictionary<string, IEnumerable<string>> { { FunctionKey, cacheProduct } });
 
             SetUpGetAllowedProductsFromCache(xmlContent);
 
@@ -264,8 +235,7 @@
             Assert.Multiple(() =>
             {
                 Assert.That(result.IsAllow(expectedResult.First().ProductID), Is.True);
-                Assert.That(result.IsAllow(expectedResult.Last().ProductID), Is.True);
-                Assert.That(result.IsAllow(productList.First().ProductID), Is.False);
+                Assert.That(result.ProductList.Count, Is.EqualTo(expectedResult.Count));
             });
         }
 

@@ -10,6 +10,7 @@
     using Excel.Report.Models;
     using Extension.Helper;
     using Extension.Utility;
+    using Model.Core.DataDomain;
     using Model.Core.DTO.Common;
     using Model.Core.MetaModel.Product;
     using Model.Core.ResultModel;
@@ -46,6 +47,8 @@
                 _dataAccess);
 
             _controller.When(x => x.ExcelStream(Arg.Any<IWorkbook>(), Arg.Any<string>())).DoNotCallBase();
+
+            StubProductAccess(new[] { "SB", "AB" }, FunctionNames.LicenseeWinLoss, true);
 
             MockSessionData();
         }
@@ -90,7 +93,8 @@
             // Arrange
             var model = new LicenseeWinLossMetaModel
             {
-                CurrencyId = 3
+                CurrencyId = 3,
+                ProductOptions = new List<ProductOption> { new ProductOption { Code = "SB" } }
             };
 
             // Action
@@ -118,6 +122,32 @@
 
             // Assert
             Assert.That(result.Data.Count, Is.EqualTo(expectedResult.DataList.Count));
+        }
+
+        [Test]
+        public void Index_InvalidProductCode_ThowArgumentException()
+        {
+            // Arrange
+            var product = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true },
+                new ProductOption { Code = "Invalid", Status = true }
+            };
+
+            var expectedProduct = new List<ProductOption>
+            {
+                new ProductOption { Code = "SB", Status = true }
+            };
+
+            var metaModel = CreateValidMetaModel();
+            metaModel.ProductOptions = product;
+            SetUpForGettingData(metaModel, totalItem: 0);
+
+            // Action
+            AsyncTestDelegate testDelegate = async () => await _controller.Index(metaModel);
+
+            // Assert
+            Assert.ThrowsAsync<ArgumentException>(testDelegate);
         }
 
         [TestCase("ActualStake")]
@@ -344,15 +374,15 @@
 
             if (level == 0)
             {
-                _dataAccess.GetSummaryWinloss(metaModel, Arg.Any<IDictionary<int, string>>()).Returns(result);
+                _dataAccess.GetSummaryWinloss(metaModel, Arg.Any<IDictionary<int, string>>()).Returns(Task.FromResult(result));
             }
             else if (level == 1)
             {
-                _dataAccess.GetAgentWinlossDetail(metaModel, Arg.Any<IDictionary<int, string>>()).Returns(result);
+                _dataAccess.GetAgentWinlossDetail(metaModel, Arg.Any<IDictionary<int, string>>()).Returns(Task.FromResult(result));
             }
             else
             {
-                _dataAccess.GetCustomerWinlossDetail(metaModel, Arg.Any<IDictionary<int, string>>()).Returns(result);
+                _dataAccess.GetCustomerWinlossDetail(metaModel, Arg.Any<IDictionary<int, string>>()).Returns(Task.FromResult(result));
             }
 
             return result;
