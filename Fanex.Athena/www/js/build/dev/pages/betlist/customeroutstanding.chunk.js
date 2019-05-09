@@ -5118,7 +5118,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
 
                                 choice += "</div>";
                                 $divEvent.html(choice).show();
-                                $nameDiv.hide();
                             }
                         },
                         beforeSend: Site.blockUI,
@@ -5127,7 +5126,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;﻿!(__WEBPACK_A
                 }
                 else {
                     $divEvent.hide().html("");
-                    $nameDiv.show();
                     $(".ui-jqgrid-bdiv").css("height", "auto");
                 }
             },

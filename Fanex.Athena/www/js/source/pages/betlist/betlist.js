@@ -559,7 +559,6 @@
 
                                 choice += "</div>";
                                 $divEvent.html(choice).show();
-                                $nameDiv.hide();
                             }
                         },
                         beforeSend: Site.blockUI,
@@ -568,7 +567,6 @@
                 }
                 else {
                     $divEvent.hide().html("");
-                    $nameDiv.show();
                     $(".ui-jqgrid-bdiv").css("height", "auto");
                 }
             },
