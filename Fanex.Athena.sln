@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{195AD258-DE51-497C-BA3B-1645AE32CAB6}"
 EndProject
@@ -1279,11 +1279,11 @@ Global
 		{B5C8656B-6C30-4C82-BDB9-85B1C71B00C3} = {4F0025D0-B5BA-46E4-B615-B8C6B0F5D064}
 		{1F82F1FE-8794-4B76-AC02-E6BD6741729E} = {6AD8D3FB-0047-432F-ACAC-D67093176088}
 		{5A171DF9-0532-40C2-A325-A69DEE459B26} = {1F82F1FE-8794-4B76-AC02-E6BD6741729E}
-		{19150CD4-08FC-4BEC-800A-57ABD7744C41} = {9C2F85A3-AF8C-4DBA-85A0-CE3F764D7AD6}
+		{19150CD4-08FC-4BEC-800A-57ABD7744C41} = {4F0025D0-B5BA-46E4-B615-B8C6B0F5D064}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AF850210-126B-4E21-BADB-F5C02AD2CCEE}
-		RESX_ShowErrorsInErrorList = False
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35
+		RESX_ShowErrorsInErrorList = False
+		SolutionGuid = {AF850210-126B-4E21-BADB-F5C02AD2CCEE}
 	EndGlobalSection
 EndGlobal

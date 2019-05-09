@@ -18,9 +18,13 @@ export default class DataService {
 
     static postDataFromExternal(url, params) {
         return axios.post(url, params, {
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'X-Auth-Token': (params && params.token) || ''
+                'X-Auth-Token': (params && params.token) || '',
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*"
             }
         });
     }

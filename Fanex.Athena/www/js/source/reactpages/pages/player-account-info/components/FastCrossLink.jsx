@@ -18,7 +18,6 @@ export class FastCrossLink extends PureComponent {
         this._fetchData();
     }
 
-
     _fetchData() {
     }
 
@@ -26,7 +25,10 @@ export class FastCrossLink extends PureComponent {
         const { data } = this.state;
         return data && (
             <div>
+                <h4>Fast Cross Link</h4>
                 <ul>
+                    <li><a href="#">Betting Ticket Center</a></li>
+                    <li><a href="#">Customer Win Loss</a></li>
                 </ul>
             </div>
         );

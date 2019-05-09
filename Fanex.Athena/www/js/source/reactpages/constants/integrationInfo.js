@@ -3,10 +3,10 @@ export const mode = {
     parasitic: 'Parasitic'
 }
 
-export const currentMode = window.__lrf && window.__lrf.modules &&
-    window.__lrf.modules.playerAdmin && window.__lrf.modules.playerAdmin.mode;
-
 const pageConfig = window.__pageConfig;
+
+export const currentMode = pageConfig && pageConfig.mode;
+
 export const tokenUrlTemplate = pageConfig && pageConfig.tokenUrl;
 
 export const apiInfo = pageConfig && pageConfig.apiInfo;
