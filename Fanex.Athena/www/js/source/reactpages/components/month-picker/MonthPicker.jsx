@@ -32,19 +32,26 @@ class MonthPicker extends Component {
 
     static propTypes = {
         monthOption: PropTypes.object.isRequired,
-        fromDateOption: PropTypes.object.isRequired,
-        toDateOption: PropTypes.object.isRequired,
         onChange: PropTypes.func,
 
         minDate: PropTypes.string.isRequired,
         maxDate: PropTypes.string.isRequired,
         fromDate: PropTypes.string.isRequired,
-        toDate: PropTypes.string.isRequired
+        toDate: PropTypes.string.isRequired,
+
+        showDate: PropTypes.bool
     }
 
     static defaultProps = {
         label: 'View data in month',
-        onChange: function() {}
+        onChange: function() {},
+        fromDateOption: {
+            label: 'From'
+        },
+        toDateOption: {
+            label: 'To'
+        },
+        showDate: true
     }
 
     _onMonthChange = (value)  => {
@@ -95,11 +102,14 @@ class MonthPicker extends Component {
         const endDate = month.year === this.max.year && month.month === this.max.month ? this.max.date : daysInMonth;
 
         return (
-            <div className='month-picker'>
+            <div className={`month-picker ${this.props.showDate ? '' : 'month-only'}`}>
                 <Month min={this.min} max={this.max} value={month}  {...this.props.monthOption} onChange={this._onMonthChange}/>
-
-                <Day min = {startDate} max={endDate > to ? to : endDate} value={from} { ...this.props.fromDateOption } onChange={this._onFromDateChange} />
-                <Day min = {startDate < from ? from : startDate} max={endDate} value={to} { ...this.props.toDateOption } onChange={this._onToDateChange}/>
+                {
+                    this.props.showDate && <Day min = {startDate} max={endDate > to ? to : endDate} value={from} { ...this.props.fromDateOption } onChange={this._onFromDateChange} />
+                }
+                {
+                    this.props.showDate && <Day min = {startDate < from ? from : startDate} max={endDate} value={to} { ...this.props.toDateOption } onChange={this._onToDateChange}/>
+                }            
             </div>
        );
     }

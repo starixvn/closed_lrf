@@ -62,6 +62,7 @@
         public const string ReportLicenseeWinLossByTimeZone = "LicenseeWinLossByTimeZone76";
         public const string ReportExchangeWinLoss = "ExchangeWinloss77";
         public const string ReportCasinoTurnover = "CasinoTurnover80";
+        public const string ReportDetailedBilling = "DetailedBilling81";
 
         /* Customer Info. */
 

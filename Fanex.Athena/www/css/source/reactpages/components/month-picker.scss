@@ -18,6 +18,13 @@ $color-hover: #D1F0FC;
         max-width: 25%;
         padding-left: 10px;
     }
+
+    &.month-only {
+        .month {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
 }
 
 .month-container {

@@ -603,6 +603,8 @@
     <Content Include="www\css\build\dev\reactpages\bettingticketscenter\index.css" />
     <Content Include="www\css\build\dev\reactpages\casinoturnover\index.chunk.js" />
     <Content Include="www\css\build\dev\reactpages\casinoturnover\index.css" />
+    <Content Include="www\css\build\dev\reactpages\detailedbilling\index.chunk.js" />
+    <Content Include="www\css\build\dev\reactpages\detailedbilling\index.css" />
     <Content Include="www\css\build\dev\reactpages\exchangewl\index.chunk.js" />
     <Content Include="www\css\build\dev\reactpages\exchangewl\index.css" />
     <Content Include="www\css\build\dev\reactpages\licenseewlbytimezone\index.chunk.js" />
@@ -640,6 +642,8 @@
     <Content Include="www\css\build\pro\reactpages\bettingticketscenter\index.css" />
     <Content Include="www\css\build\pro\reactpages\casinoturnover\index.chunk.js" />
     <Content Include="www\css\build\pro\reactpages\casinoturnover\index.css" />
+    <Content Include="www\css\build\pro\reactpages\detailedbilling\index.chunk.js" />
+    <Content Include="www\css\build\pro\reactpages\detailedbilling\index.css" />
     <Content Include="www\css\build\pro\reactpages\exchangewl\index.css" />
     <Content Include="www\css\build\pro\reactpages\licenseewlbytimezone\index.css" />
     <Content Include="www\css\build\pro\reactpages\notification\index.chunk.js" />
@@ -658,6 +662,9 @@
     <Content Include="SiteConfig\Web.UATTW.config" />
     <Content Include="App_Data\UserGuide\CustomerList\pdf\zh-Hans\Odds Group Feature_Licensee.pdf" />
     <Content Include="App_Data\UserGuide\CustomerList\pdf\zh-Hans\Odds Group Feature_Licensee_BA.pdf" />
+    <Content Include="Views\Desktop\Report\DetailedBilling\Main.cshtml" />
+    <Content Include="www\css\build\dev\reactpages\detailedbilling\index.chunk.js.map" />
+    <Content Include="www\css\build\dev\reactpages\detailedbilling\index.css.map" />
     <None Include="www\css\source\reactpages\components\custom3rd\react-toastify.scss" />
     <None Include="www\css\source\pages\betlist\result\result.happy5.scss" />
     <Content Include="www\css\source\reactpages\pages\betlist\images\bonus.png" />
@@ -682,6 +689,7 @@
     <Content Include="www\js\build\dev\reactpages\lib\lang-zh-TW.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\lib\xlsx-style-sparta.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\report\casinoturnover.chunk.js" />
+    <Content Include="www\js\build\dev\reactpages\report\detailedbilling.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\report\licenseewlbytimezone.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\notification\notification.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\notification\notification.chunk.js.map" />
@@ -705,6 +713,7 @@
     <Content Include="www\js\build\pro\reactpages\lib\langHelper.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\lib\xlsx-style-sparta.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\casinoturnover.chunk.js" />
+    <Content Include="www\js\build\pro\reactpages\report\detailedbilling.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\licenseewlbytimezone.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\notification\notification.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\speciallicenseewl.chunk.js" />
@@ -937,6 +946,11 @@
     <Content Include="www\js\source\reactpages\pages\casinoturnover\lib\__tests__\reportExcel.test.js" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\lib\__tests__\service.test.js" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\reducers\index.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\filterHandlerAction.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\index.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\types.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\reducers\filterHandlerReducer.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\reducers\index.js" />
     <Content Include="www\js\source\reactpages\pages\subsidiaryperformance\components\__tests__\AppContainer.redux.test.js" />
     <Content Include="www\js\source\reactpages\pages\subsidiaryperformance\components\__tests__\AppContainer.test.js" />
     <Content Include="www\js\source\reactpages\reducers\convertAllReducer.js" />
@@ -2479,6 +2493,11 @@
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\FormFilter.jsx" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\index.jsx" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\DataGrid.jsx" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\index.jsx" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\FormFilter.jsx" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\AppContainer.jsx" />
+    <Content Include="www\css\source\reactpages\pages\detailedbilling\index.scss" />
+    <Content Include="www\js\build\dev\reactpages\report\detailedbilling.chunk.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteConfig\WebConfigTransforms\SIT.config">
@@ -5491,6 +5510,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logs\" />
+    <Folder Include="www\js\source\reactpages\pages\detailedbilling\libs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\js\source\reactpages\pages\subsidiaryperformance\components\index.jsx" />

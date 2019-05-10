@@ -1,4 +1,4 @@
-﻿// Generated at: 05/16/2019 1:51:36 PM
+﻿// Generated at: 05/10/2019 4:13:48 PM
 window._language_en_US = {
 AA:"AA",
 AB:"AB",
@@ -96,6 +96,7 @@ BetTrade:"Bet Trade",
 BetTradeCommission:"Bet Trade Commission",
 BetTradeNotOfferCurrency:"BetTrade is not offered for this currency.",
 BetType:"Bet type",
+BillingMonth:"Billing Month",
 BONTeamToScore:"Both/One/Neither Team To Score",
 Bonus:"Bonus",
 BoughtAmount:"Bought Amount",
@@ -225,6 +226,9 @@ DeleteCommissionGroup:"Delete Commission group",
 DeleteGroup:"Delete Group",
 Deposit:"Deposit",
 DetailedBetlist:"Detailed Bet list",
+DetailedBilling:"Detailed Billing",
+DetailedBilling_BaseCurrency:"If you choose a base currency which is not supported in the Invoice, the converted figures are for reference only",
+DetailedBilling_InvoiceNode:"To check Invoice of last month, Please generate the report after 5th",
 Details:"Details",
 DetailTickets:"Detail Tickets",
 DH:"DH",

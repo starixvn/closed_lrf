@@ -3095,4 +3095,20 @@
     <value>Promotion Prize</value>
     <comment>109471</comment>
   </data>
+  <data name="DetailedBilling" xml:space="preserve">
+    <value>Detailed Billing</value>
+    <comment>112173</comment>
+  </data>
+  <data name="BillingMonth" xml:space="preserve">
+    <value>Billing Month</value>
+    <comment>112173</comment>
+  </data>
+  <data name="DetailedBilling_BaseCurrency" xml:space="preserve">
+    <value>If you choose a base currency which is not supported in the Invoice, the converted figures are for reference only</value>
+    <comment>112173</comment>
+  </data>
+  <data name="DetailedBilling_InvoiceNode" xml:space="preserve">
+    <value>To check Invoice of last month, Please generate the report after 5th</value>
+    <comment>112173</comment>
+  </data>
 </root>

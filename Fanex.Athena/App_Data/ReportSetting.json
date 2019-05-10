@@ -19,5 +19,10 @@
     "ReportKey": "CasinoTurnover80",
     "MinDateString": "08/01/2018",
     "MaxDateString": ""
+  },
+  {
+    "ReportKey": "DetailedBilling81",
+    "MinDateString": "01/01/2019",
+    "MaxDateString": ""
   }
 ]

@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CasinoTurnoverController.cs" />
+    <Compile Include="DetailedBillingReportController.cs" />
     <Compile Include="NotificationReportController.cs" />
     <Compile Include="ColossusBetsWinLossReportController.cs" />
     <Compile Include="CashOutWinLossReportController.cs" />

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "LAP - " + ViewResources.Report +
+    " - " + ViewResources.DetailedBilling;
+    Layout = "~/Views/Desktop/Shared/_ReactPageLayout.cshtml";
+}
+@model Fanex.Athena.Model.Report.ViewModel.DetailedBillingViewModel
+@{
+    var baseCurrencyList = Model.BaseCurrencyList.Select(c => new { value = c, label = c }).ToList();
+}
+
+@section pagecss {
+    <link href="@Url.ContentLinkByEnv("/www/css/build/reactpages/detailedbilling/index.css")" rel="stylesheet" type="text/css" />
+}
+
+@section pagejs {
+    <script src="@Url.ContentLinkByEnv("/www/js/build/reactpages/report/detailedbilling.chunk.js")"></script>
+}
+
+@section globaljscode{
+    window.initialState = {
+        selectedBaseCurrency: { value: '@Model.BaseCurrency', label: '@Model.BaseCurrency' },
+        dateRange: { fromDate: '@Model.FromDate.ToString("MM/dd/yyyy")', toDate: '@Model.ToDate.ToString("MM/dd/yyyy")'},
+        isLoading: false
+    };
+    window._AppData = {
+        baseCurrencyList: @Html.Raw(baseCurrencyList.ToJson()),
+        dateConstraint: { minDate: '@Model.ReportSetting.MinDate.ToString("MM/dd/yyyy")', maxDate: '@Model.ReportSetting.MaxDate.ToString("MM/dd/yyyy")'}
+    };
+}
+<div id="app-container">
+</div>

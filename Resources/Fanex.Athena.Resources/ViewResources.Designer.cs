@@ -27,7 +27,7 @@ namespace Fanex.Athena.Resources {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal ViewResources() {
         }
@@ -921,6 +921,15 @@ namespace Fanex.Athena.Resources {
         public static string BetType {
             get {
                 return ResourceManager.GetString("BetType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Billing Month.
+        /// </summary>
+        public static string BillingMonth {
+            get {
+                return ResourceManager.GetString("BillingMonth", resourceCulture);
             }
         }
         
@@ -2082,6 +2091,33 @@ namespace Fanex.Athena.Resources {
         public static string DetailedBetlist {
             get {
                 return ResourceManager.GetString("DetailedBetlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detailed Billing.
+        /// </summary>
+        public static string DetailedBilling {
+            get {
+                return ResourceManager.GetString("DetailedBilling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you choose a base currency which is not supported in the Invoice, the converted figures are for reference only.
+        /// </summary>
+        public static string DetailedBilling_BaseCurrency {
+            get {
+                return ResourceManager.GetString("DetailedBilling_BaseCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To check Invoice of last month, Please generate the report after 5th.
+        /// </summary>
+        public static string DetailedBilling_InvoiceNode {
+            get {
+                return ResourceManager.GetString("DetailedBilling_InvoiceNode", resourceCulture);
             }
         }
         

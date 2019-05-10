@@ -42,7 +42,7 @@
         protected override void AssignHeader(ISheet sheet)
         {
             // row 1
-            var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate);
             row.Cells[ColumnIndex].SetCellValue("#");
             row.Cells[ColumnDate].SetCellValue(ViewResources.Date);
             row.Cells[ColumnCurrency].SetCellValue(ViewResources.Currency);
@@ -80,7 +80,7 @@
 
         protected override void AssignTitle(ISheet sheet)
         {
-            sheet.SetTextRowValue(TemplateSheet, RowTitleTemplate, RowTitleTemplate, ColumnTemplateCount, _title);
+            sheet.SetTextRowValue(TemplateSheet, RowTitleTemplate, ColumnTemplateCount, _title);
 
             // Freeze 2 rows title and header
             sheet.CreateFreezePane(0, RowContentTemplate);
@@ -101,7 +101,7 @@
                 row.Cells[ColumnIndex].SetCellValue(ViewResources.Totalin + " " + currency.ToUpperInvariant());
 
                 // Merge first two column
-                sheet.MergeCells(rowIndex, ColumnIndex, rowIndex, ColumnSystemId);
+                sheet.MergeCols(ColumnIndex, ColumnSystemId, rowIndex);
                 rowIndex++;
             }
 

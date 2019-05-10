@@ -2,7 +2,7 @@
 var alias = require('../config/aliasReact');
 var pathConfig = require('../config/pathReact');
 var pluginGenerator = require('../config/pluginReact');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 function generateConfig(environment) {
     var jsPath = `${pathConfig.scriptPaths.build}/${environment}/reactpages`;
@@ -30,6 +30,7 @@ function generateConfig(environment) {
             [`${jsPath}/bettingticketscenter/refno`]: pathConfig.scriptPaths.bettingticketscenter_refno,
             [`${jsPath}/bettingticketscenter/running`]: pathConfig.scriptPaths.bettingticketscenter_running,
             [`${jsPath}/report/casinoturnover`]: pathConfig.scriptPaths.casinoturnover,
+            [`${jsPath}/report/detailedbilling`]: pathConfig.scriptPaths.detailedbilling,
 
             /*css*/
             [`${cssPath}/vendor`]: pathConfig.cssPaths.layout,
@@ -40,17 +41,18 @@ function generateConfig(environment) {
             [`${cssPath}/speciallicenseewl/index`]: pathConfig.cssPaths.speciallicenseewl,
             [`${cssPath}/bettingticketscenter/index`]: pathConfig.cssPaths.bettingticketscenter,
             [`${cssPath}/betlist/index`]: pathConfig.cssPaths.betlist,
-            [`${cssPath}/casinoturnover/index`]: pathConfig.cssPaths.casinoturnover
+            [`${cssPath}/casinoturnover/index`]: pathConfig.cssPaths.casinoturnover,
+            [`${cssPath}/detailedbilling/index`]: pathConfig.cssPaths.detailedbilling
         },
         output: {
             path: pathConfig.projectRoot,
-            filename: "[name].chunk.js",
+            filename: '[name].chunk.js',
             chunkFilename: jsPath + '/lib/[name].chunk.js',
         },
         module: {
             rules: [{
                 test: /\.(js|jsx)$/,
-                loader: ["babel-loader"],
+                loader: ['babel-loader'],
                 exclude: /node_modules/
             }]
         },
