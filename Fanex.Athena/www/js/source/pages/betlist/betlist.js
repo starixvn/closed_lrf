@@ -550,10 +550,10 @@
                         cache: false,
                         url: url,
                         success: function (response) {
-                            var length = response.Data === null ? 0 : response.Data.length;
+                            var length = response === null ? 0 : response.length;
                             if (length > 0) {
                                 var choice = "<div class='single-match-parlay-detail'>";
-                                $.each(response.Data, function (index, item) {
+                                $.each(response, function (index, item) {
                                     choice += item;
                                 });
 
@@ -763,6 +763,7 @@
                 window.ViewCashOutHistory = _me.viewCashOutHistory;
                 window.ShowBonusDetails = _me.showBonusDetails;
                 window.showPPDetails = _me.showPPDetails;
+                window.showSingleMatchParlayDetail = _me.showSingleMatchParlayDetail;
 
                 const betList = {
                     ViewCasinoHandHistory: _me.ViewCasinoHandHistory
