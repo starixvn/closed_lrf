@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
-import DataService from '../../../lib/DataService';
-import { getActionLink } from '../../../lib/integrationService';
 
 export class FastCrossLink extends PureComponent {
     constructor(props) {

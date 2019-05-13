@@ -92,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\PlayerAccountInfoController.cs" />
     <Compile Include="Api\PlayerAdminController.cs" />
     <Compile Include="Controllers\ProductAndBetLimitController.cs" />
     <Compile Include="DTO\Player.cs" />

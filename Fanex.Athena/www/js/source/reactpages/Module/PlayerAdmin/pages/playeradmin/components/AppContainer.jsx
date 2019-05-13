@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions/index'
 import DataGrid from './DataGrid'
 import FormFilter from './FormFilter'
-import Loader from '../../../components/Loader'
-import AppLayout from '../../../layouts/AppLayout'
+import Loader from '../../../../../components/Loader'
+import AppLayout from '../../../../../layouts/AppLayout'
 import PlayerDetail from './PlayerDetail';
 
 const AppContainer = (props) => {

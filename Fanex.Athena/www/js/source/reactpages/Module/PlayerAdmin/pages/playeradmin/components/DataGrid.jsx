@@ -4,10 +4,13 @@ import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
 
 import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid'
-import DataService from '../../../lib/DataService';
-import Site from '@jsroot/lib/site'
-import { getApiActionLink } from '../../../lib/integrationService';
-import { mode, currentMode, apiInfo } from '../../../constants/integrationInfo';
+
+import ParasiticContainerService from '../../../lib/parasiticContainerService';
+import { systemType } from '../../../constants/configInfo';
+
+const apiInfo = {
+    playerList: {action: 'api/PlayerAdmin/GetPlayerList', type: systemType.lrf}
+}
 
 export class DataGrid extends PureComponent {
     constructor(props) {
@@ -21,7 +24,6 @@ export class DataGrid extends PureComponent {
     componentDidMount() {
         this._fetchData();
     }
-    
 
     componentDidUpdate(prevProps, prevState) {
         const { param } = this.props;
@@ -31,28 +33,20 @@ export class DataGrid extends PureComponent {
     }
 
     _fetchData() {
-        if (currentMode === mode.self) {
-            DataService.postData(Site.resolveClientUrl('PlayerAdmin/GetPlayerList'), this.props.param)
-                .then(response => {
-                    this.setState({ data: response.data });
-                })
+        const { playerList } = apiInfo;
+        const dataService = new ParasiticContainerService();
+        const ajaxConfig = {
+            method: 'GET',
+            params: { userName: '', ...this.props.param }
         }
-        else {
-            const { playerList } = apiInfo;
-            const actionLink = getApiActionLink(playerList.type, playerList.action);
-            DataService.getData(actionLink, {})
-                .then(response => {
-                    const apiActionUrl = `${response.data.ApiUrl}/${playerList.action}`;
 
-                    return DataService.getData(apiActionUrl, { ...this.props.param, token: response.data.Token })
-                })
-                .then(response => {
-                    this.setState({ data: response.data });
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        }
+        dataService.fetchData(playerList.type, playerList.action, ajaxConfig)
+            .then(response => {
+                this.setState({ data: response.data });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     _renderHeader() {

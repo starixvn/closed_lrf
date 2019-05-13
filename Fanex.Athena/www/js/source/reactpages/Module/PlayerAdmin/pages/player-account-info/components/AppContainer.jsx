@@ -2,16 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions/index'
-import AppLayout from '../../../layouts/AppLayout'
+import AppLayout from '../../../../../layouts/AppLayout'
 import AccountProfile from './AccountProfile';
 import CustomerBettingStatus from './CustomerBettingStatus';
 import FastCrossLink from './FastCrossLink';
-import { currentMode } from '../../../constants/integrationInfo';
 
 const AppContainer = (props) => {
     return (
         <AppLayout>
-            PlayerAccountInfo from {currentMode}
+            PlayerAccountInfo from LAP
             <AccountProfile />
             <CustomerBettingStatus />
             <FastCrossLink />

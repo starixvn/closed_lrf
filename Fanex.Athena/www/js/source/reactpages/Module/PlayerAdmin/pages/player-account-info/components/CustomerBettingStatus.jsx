@@ -2,9 +2,12 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
-import DataService from '../../../lib/DataService';
-import { getApiActionLink } from '../../../lib/integrationService';
-import { systemType, currentMode, mode, apiInfo } from '../../../constants/integrationInfo';
+import LapDataService from '../../../lib/lapDataService';
+
+import { systemType } from '../../../constants/configInfo';
+const apiInfo = {
+    custBettingStatus: {action: 'PlayerAccountInfo/GetCustomerBettingStatus', type: systemType.newAdmin}
+}
 
 export class CustomerBettingStatus extends PureComponent {
     constructor(props) {
@@ -16,28 +19,22 @@ export class CustomerBettingStatus extends PureComponent {
     }
 
     componentDidMount() {
-        if (currentMode === mode.parasitic) {
-            this._fetchData();
-        }
+        this._fetchData();
     }
 
     _fetchData() {
         const { custBettingStatus } = apiInfo;
-        const actionLink = getApiActionLink(custBettingStatus.type, custBettingStatus.action);
-        DataService.postDataFromExternal(actionLink, {})
-            .then(response => {
-                this.setState({ data: response.data });
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+
+        LapDataService.postData(custBettingStatus.action)
+        .then(response => {
+            this.setState({ data: response.data });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
 
     render() {
-        if (currentMode === mode.self) {
-            return (<div>This site don't support api data for customer betting status</div>);
-        }
-
         const { data } = this.state;
         return data && (
             <div>

@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { Tabs, Tab } from '@9softstudio/react-simple-tab'
-
-import { isValidMode, getActionLink } from '../../../lib/integrationService';
-import { playerMenuList } from '../../../constants/integrationInfo';
+import { playerMenuList } from '../../../constants/configInfo';
+import ParasiticContainerService from '../../../lib/parasiticContainerService';
 
 export class PlayerDetail extends PureComponent {
     constructor(props) {
@@ -13,6 +11,8 @@ export class PlayerDetail extends PureComponent {
             selectedTabIndex: 0,
             targetUrl: ''
         }
+
+        this.containerService = new ParasiticContainerService();
     }
 
     handleClickMenu = (event, actionLink, tabIndex) => {
@@ -29,7 +29,7 @@ export class PlayerDetail extends PureComponent {
 
         return (
             renderingMenuList.map((item, index) => {
-                const actionLink = getActionLink(item.SystemType, item.Action);
+                const actionLink = this.containerService.getTabLink(item.SystemType, item.Action);
 
                 return (
                     <li className="tab" key={item.Name}>
@@ -44,15 +44,11 @@ export class PlayerDetail extends PureComponent {
     }
 
     render() {
-        if (!isValidMode()) {
-            return null;
-        }
-
         const { targetUrl } = this.state;
         const { menuList } = this.props;
 
         const renderingMenuList = menuList && menuList.length ? menuList : playerMenuList;
-        const src = targetUrl || getActionLink(renderingMenuList[0].SystemType, renderingMenuList[0].Action);
+        const src = targetUrl || this.containerService.getTabLink(renderingMenuList[0].SystemType, renderingMenuList[0].Action);
 
         return (
             <div className="pa-detail-container">

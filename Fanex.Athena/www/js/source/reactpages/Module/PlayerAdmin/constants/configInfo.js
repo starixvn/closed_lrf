@@ -3,13 +3,11 @@ export const mode = {
     parasitic: 'Parasitic'
 }
 
-const pageConfig = window.__pageConfig;
+const pageConfig = window._pConfig;
 
 export const currentMode = pageConfig && pageConfig.mode;
 
 export const tokenUrlTemplate = pageConfig && pageConfig.tokenUrl;
-
-export const apiInfo = pageConfig && pageConfig.apiInfo;
 
 export const systemType = {
     internal: 0,
