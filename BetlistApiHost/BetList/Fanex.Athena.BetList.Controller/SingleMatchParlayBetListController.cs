@@ -49,7 +49,7 @@
             {
                 var selectionStatus = detail.ElementAtOrDefault(i)?.Result;
                 var statusText = string.Empty;
-                if (!BetListHelper.IsRunning(metaModel.Status) && !BetListHelper.IsVoid(metaModel.Status))
+                if (!BetListHelper.IsRunning(metaModel.Status) && !BetListHelper.IsVoid(metaModel.Status) && !string.IsNullOrEmpty(selectionStatus))
                 {
                     statusText = string.Format(StatusTextTemplate, _betlistHtmlBuilder.BuildSingleMatchParlaySelectionStatus(selectionStatus));
                 }

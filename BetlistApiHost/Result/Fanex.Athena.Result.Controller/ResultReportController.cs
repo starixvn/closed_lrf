@@ -227,7 +227,7 @@ namespace Fanex.Athena.Result.Controller
             }
             else if (metalModel.Bettype == (int)Common.Constant.BetType.SingleMatchParlay)
             {
-                var singleMatchParlayData = await _resultService.GetPopUpSingleMatchParlay(metalModel.MatchId, "100057769").ConfigureAwait(false);
+                var singleMatchParlayData = await _resultService.GetPopUpSingleMatchParlay(metalModel.MatchId, metalModel.BetId?.ToString()).ConfigureAwait(false);
                 if (singleMatchParlayData != null)
                 {
                     setting.IsPopupOpenFromBetList = true;
