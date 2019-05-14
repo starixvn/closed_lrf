@@ -41,6 +41,8 @@ namespace Fanex.Athena.Controllers.BetList
 
         private const string BONTeamToScoreBettypes = "26,145,146,170,188,427,433";
 
+        private readonly int[] _parlayBettypes = new[] { (int)BetType.CombinationMixParlay, (int)BetType.SingleMatchParlay };
+
         public RunningBettypesBetListController(
             ILanguageService languageService,
             ISessionService sessionService,
@@ -57,7 +59,7 @@ namespace Fanex.Athena.Controllers.BetList
         [FunctionAuthorization(PermissionKeys.TotalBetMixParlay)]
         public async Task<ActionResult> MixParlay(BetListExcelMetaModel metaModel)
         {
-            metaModel.MultipleBettype = ((int)BetType.CombinationMixParlay).ToString();
+            metaModel.MultipleBettype = string.Join(",", _parlayBettypes);
             ViewBag.ReportTitle = Menu.Menu_12;
             ViewBag.UserGuideName = "TotalBetsMixParlay";
             return await ProcessRequest(metaModel).ConfigureAwait(false);
