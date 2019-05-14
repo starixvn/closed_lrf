@@ -2445,13 +2445,13 @@ function (_Component) {
     }
   }, {
     key: "_showSingleMatchParlayDetail",
-    value: function _showSingleMatchParlayDetail(transId, custId, transIndex) {
+    value: function _showSingleMatchParlayDetail(transId, custId, status, transIndex) {
       var _this5 = this;
 
       var divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
 
       if (divEvent.style.display == "none") {
-        var url = _lib_BetList__WEBPACK_IMPORTED_MODULE_10__["default"].getSingleMatchParlayDetailUrl(transId, custId);
+        var url = _lib_BetList__WEBPACK_IMPORTED_MODULE_10__["default"].getSingleMatchParlayDetailUrl(transId, custId, status);
         this.props.toggleLoader(true);
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(url).then(function (result) {
           var selection = _lib_BetList__WEBPACK_IMPORTED_MODULE_10__["default"].buildSingleMatchParlayDetail(result.data);
@@ -2750,7 +2750,7 @@ function () {
     }
   }, {
     key: "getSingleMatchParlayDetailUrl",
-    value: function getSingleMatchParlayDetailUrl(transId, custId) {
+    value: function getSingleMatchParlayDetailUrl(transId, custId, status) {
       if (Number(transId) === 0) {
         return;
       }
@@ -2758,6 +2758,7 @@ function () {
       var url = _jsroot_lib_site__WEBPACK_IMPORTED_MODULE_0__["default"].resolveClientUrl('api/SingleMatchParlayBetList/Detail');
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "transId", transId);
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "custId", custId);
+      url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "status", status);
       return url;
     }
   }]);

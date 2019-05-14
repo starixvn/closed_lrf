@@ -223,6 +223,9 @@
     .betlist-container .single-match-parlay-detail .single-match-parlay-selection .status {
       color: #003399; }
 
-.betlist-container .status {
+.betlist-container .status, .betlist-container .bettype {
   white-space: normal; }
+
+.betlist-container .combinationLink {
+  font-weight: normal; }
 

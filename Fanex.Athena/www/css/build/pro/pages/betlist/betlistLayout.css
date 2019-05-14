@@ -1579,6 +1579,9 @@ tr.ui-search-toolbar select {
 .allbet-bet-type-name {
   color: #696969; }
 
-.betlist-container .status {
+.betlist-container .status, .betlist-container .bettype {
   white-space: normal; }
+
+.betlist-container .combinationLink {
+  font-weight: normal; }
 
