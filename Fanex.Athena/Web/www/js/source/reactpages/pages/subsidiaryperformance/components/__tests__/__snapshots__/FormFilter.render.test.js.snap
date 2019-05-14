@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFilter  render methods render whole component match to snapshot 1`] = `
+<div
+  className="page-filter"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-3 col-sm-5 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Subsidiary
+        </label>
+        <t
+          dataSource={
+            Array [
+              Object {
+                "Checked": true,
+                "ID": 1,
+                "Name": "New York",
+              },
+              Object {
+                "Checked": false,
+                "ID": 2,
+                "Name": "India",
+              },
+            ]
+          }
+          hasAllOption={true}
+          hasSearchBox={true}
+          keyField="Name"
+          language="en-US"
+          onChange={[Function]}
+          statusField="Checked"
+          valueField="Name"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-6 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Date
+        </label>
+        <DateRange
+          calendars={2}
+          classNames={Object {}}
+          endDate="09/28/2017"
+          format="MM/DD/YYYY"
+          limitedMonthRange={3}
+          linkedCalendars={false}
+          maxDate="09/28/2017"
+          minDate="06/01/2012"
+          onChange={[Function]}
+          onlyClasses={true}
+          showRange={true}
+          specialDays={Array []}
+          startDate="09/26/2017"
+          theme={Object {}}
+          today="09/28/2017"
+          twoStepChange={false}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-5 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Product
+        </label>
+        <t
+          dataSource={
+            Array [
+              Object {
+                "Code": "SB",
+                "Name": "Sportsbook",
+                "Status": true,
+              },
+              Object {
+                "Code": "BA",
+                "Name": "BA",
+                "Status": true,
+              },
+            ]
+          }
+          hasAllOption={true}
+          hasSearchBox={false}
+          keyField="Code"
+          language="en-US"
+          onChange={[Function]}
+          statusField="Status"
+          valueField="Name"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-sm-4 col-md-2 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          BaseCurrency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          id="ddlBased"
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="BaseCurrency"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={
+            Array [
+              Object {
+                "label": "EUR",
+                "value": "EUR",
+              },
+              Object {
+                "label": "USD",
+                "value": "USD",
+              },
+            ]
+          }
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value="EUR"
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-3 col-sm-5 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="checkbox-group"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            id="IsConvertAll"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            htmlFor="IsConvertAll"
+          >
+            ConvertAllFiguresToBaseCurrency
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-6 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="checkbox-group"
+        >
+          <input
+            className="checkbox"
+            id="IncludeDrawData"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            htmlFor="IncludeDrawData"
+          >
+            IncludeDrawData
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 col-sm-5 col-lg-3 col-xl-3 col-md-3"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="checkbox-group"
+        >
+          <input
+            className="checkbox"
+            id="ExcludeTest"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            htmlFor="ExcludeTest"
+          >
+            ExcludeTestData
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-2 col-sm-4 col-lg-2 col-xl-2"
+    >
+      <div
+        className="button-group"
+      >
+        <button
+          className="btn btn-submit"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="caret-block"
+  >
+    <i
+      className="icon-excel right"
+      onClick={[Function]}
+      title="ExportToExcel"
+    />
+  </div>
+</div>
+`;

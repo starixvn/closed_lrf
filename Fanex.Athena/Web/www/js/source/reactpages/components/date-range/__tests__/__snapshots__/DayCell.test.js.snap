@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayCell render onlyClasses is false - render correct content 1`] = `
+<span
+  onClick={[Function]}
+  style={
+    Object {
+      "display": undefined,
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <span
+    className="day"
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    style={Object {}}
+  >
+    22
+  </span>
+</span>
+`;
+
+exports[`DayCell render onlyClasses is true - render correct content 1`] = `
+<span
+  onClick={[Function]}
+>
+  <span
+    className="day"
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+  >
+    22
+  </span>
+</span>
+`;

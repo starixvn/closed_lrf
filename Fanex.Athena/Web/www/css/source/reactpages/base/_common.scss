@@ -1,0 +1,98 @@
+﻿@import "../abstracts/variables";
+
+html {
+    font-size: 62.5%;
+    height: auto;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: $bgBody;
+    font-size: $font-size;
+    color: $black;
+}
+
+a {
+    color: $colorHyperlink;
+
+    &, &:hover {
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+ul {
+    padding: 0;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.circle {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f94a4a;
+}
+
+.arrow-icon {
+    display: inline-block;
+    border-width: 4px;
+    border-style: solid;
+    width: 0;
+    height: 0;
+
+    &.left-arrow {
+        border-color: transparent $black transparent transparent;
+
+        &.disable {
+            border-color: transparent $input-disabled-color transparent transparent;
+        }
+    }
+
+    &.right-arrow {
+        border-color: transparent transparent transparent $black;
+
+        &.disable {
+            border-color: transparent transparent transparent $input-disabled-color;
+        }
+    }
+
+    &.down-arrow {
+        border-color: $black transparent transparent;
+
+        &.disable {
+            border-color: $input-disabled-color transparent transparent;
+        }
+    }
+}

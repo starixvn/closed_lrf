@@ -1,0 +1,84 @@
+/* z-index */
+.pagingContainer {
+  padding: 3px;
+  font-size: 1.1rem;
+  background-color: #EFF3F8;
+  border-left: 1px solid #d1dae1;
+  border-right: 1px solid #d1dae1;
+  border-bottom: 1px solid #d1dae1; }
+  .pagingContainer .icon {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.2rem;
+    color: #4c6375;
+    cursor: pointer; }
+  .pagingContainer .pagingDisable {
+    color: #ccc;
+    cursor: default; }
+  .pagingContainer .pagingFirst:before {
+    content: "\EA21"; }
+  .pagingContainer .pagingPrev:before {
+    content: "\EA1F"; }
+  .pagingContainer .pagingNext:before {
+    content: "\EA20"; }
+  .pagingContainer .pagingLast:before {
+    content: "\EA22"; }
+  .pagingContainer .paging-form {
+    width: auto;
+    height: auto;
+    font-size: inherit;
+    padding: 2px;
+    text-align: center;
+    margin: 0; }
+    .pagingContainer .paging-form, .pagingContainer .paging-form:focus {
+      background: #fff;
+      border: 1px solid #e2d6d6;
+      box-shadow: none; }
+  .pagingContainer .paging-info {
+    display: inline-block;
+    margin: 0 5px; }
+  .pagingContainer .pagingSeperator {
+    width: 4px;
+    height: 18px;
+    margin: 0;
+    border: 1px solid #ccc; }
+  .pagingContainer .pageSizeSelected {
+    height: auto;
+    font-size: inherit;
+    padding: 2px;
+    min-width: 65px;
+    border: 1px solid #e2d6d6; }
+
+.sortable {
+  cursor: pointer; }
+  .sortable:hover .sort-heading {
+    text-decoration: underline; }
+
+.sorted-heading {
+  text-decoration: underline; }
+
+.sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; }
+  .sort-icon-asc {
+    border-bottom: 5px solid; }
+    .sort-icon-asc.light {
+      border-bottom-color: #fff; }
+  .sort-icon-desc {
+    border-top: 5px solid; }
+    .sort-icon-desc.light {
+      border-top-color: #fff; }
+
+.popup-notification .notification {
+  font-size: 14px;
+  text-align: center;
+  padding: 20px; }
+

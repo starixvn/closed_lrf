@@ -1,0 +1,19 @@
+﻿@import "../../scss/abstracts/_variables.scss";
+@import '../../components/daterangepicker/daterangepicker-ex';
+@import '../../components/breadcrumb/breadcrumb';
+@import "../../components/popupnotification/popupnotification";
+@import "../../components/jqgrid/multipletotalblock";
+
+$colorTextTotal: $black;
+
+.theme_jqGrid {
+    .ui-jqgrid {
+        .grandTotal, .total-eur {
+            color: $colorTextTotal;
+        }
+
+        .ui-jqgrid-sortable {
+            cursor: default;
+        }
+    }
+}

@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataGrid  render  has data - render table 1`] = `
+<div
+  className="result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    >
+      
+    </p>
+  </div>
+  <div>
+    <div
+      className="table-container"
+      style={
+        Object {
+          "maxWidth": -30,
+        }
+      }
+    >
+      <div
+        className="header-content"
+        style={
+          Object {
+            "maxHeight": undefined,
+            "minWidth": 650,
+            "width": -30,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 631,
+              }
+            }
+          >
+            <thead>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "-2.773584905660377px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-11.094339622641508px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-32.35849056603773px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-2.773584905660377px",
+                    }
+                  }
+                />
+              </tr>
+              <tr
+                style={
+                  Object {
+                    "height": 32,
+                  }
+                }
+              >
+                <th
+                  title="#"
+                >
+                  #
+                </th>
+                <th
+                  title="EventDate"
+                >
+                  EventDate
+                </th>
+                <th
+                  title="Content"
+                >
+                  Content
+                </th>
+                <th
+                  title="TicketList"
+                >
+                  TicketList
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div
+        className="body-content"
+        style={
+          Object {
+            "maxHeight": 665,
+            "minWidth": 650,
+            "width": -30,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 631,
+              }
+            }
+          >
+            <tbody>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "-2.773584905660377px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-11.094339622641508px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-32.35849056603773px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-2.773584905660377px",
+                    }
+                  }
+                />
+              </tr>
+              <tr
+                className="unread"
+              >
+                <td
+                  className="center-align"
+                  title={1}
+                >
+                  1
+                </td>
+                <td
+                  className="center-align"
+                  title="01/01/2017"
+                >
+                  01/01/2017
+                </td>
+                <td
+                  className="notification-content"
+                >
+                  <div
+                    className="collapse-item collapse"
+                  >
+                    <div
+                      className="subject-item"
+                    >
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "Subject",
+                          }
+                        }
+                      />
+                      <i
+                        className="icon-arrow"
+                        onClick={[Function]}
+                      />
+                    </div>
+                    <div
+                      className="content-item"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "Content",
+                        }
+                      }
+                    />
+                  </div>
+                </td>
+                <td />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div
+      className="page-container center-align"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <a
+        className="icon page-first disable"
+        href="javascript:;"
+        onClick={[Function]}
+      />
+      <a
+        className="icon page-prev disable"
+        href="javascript:;"
+        onClick={[Function]}
+      />
+      <div
+        className="page-input"
+      >
+        <span>
+          Page 
+        </span>
+        <input
+          className="page-form"
+          maxLength="4"
+          onChange={[Function]}
+          onKeyUp={[Function]}
+          size="2"
+          type="text"
+          value={1}
+        />
+        <span>
+           of 1
+           
+        </span>
+      </div>
+      <a
+        className="icon page-next disable"
+        href="javascript:;"
+        onClick={[Function]}
+      />
+      <a
+        className="icon page-last disable"
+        href="javascript:;"
+        onClick={[Function]}
+      />
+      <select
+        className="pagesize-select"
+        disabled={false}
+        onChange={[Function]}
+        value={10}
+      >
+        <option
+          value={10}
+        >
+          10
+        </option>
+        <option
+          value={20}
+        >
+          20
+        </option>
+        <option
+          value={50}
+        >
+          50
+        </option>
+        <option
+          value={100}
+        >
+          100
+        </option>
+        <option
+          value={500}
+        >
+          500
+        </option>
+      </select>
+      <span
+        className="page-info"
+      >
+        View 1-1 of 1
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataGrid  render  no data - render No data title 1`] = `
+<div
+  className="result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    >
+      
+    </p>
+  </div>
+  <p
+    className="no-info-row center-align"
+  >
+    NoInfo
+  </p>
+</div>
+`;

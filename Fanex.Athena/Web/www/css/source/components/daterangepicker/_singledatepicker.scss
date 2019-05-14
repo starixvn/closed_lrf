@@ -1,0 +1,11 @@
+﻿.single-date{
+    .daterangepicker{
+        &.show-calendar .single.left{
+            border: 1px solid #c2cbd2;
+        }
+
+        .calendar {
+            margin: 0;
+        }
+    }
+}

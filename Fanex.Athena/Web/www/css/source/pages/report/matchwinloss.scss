@@ -1,0 +1,59 @@
+﻿@import '../common/reportcommon.main';
+@import '../../components/scrollablegrid/scrollablegrid';
+@import '../../components/daterangepicker/daterangepicker-ex';
+@import '../../components/multiselect/multiselect.main';
+
+$colorText: #484848;
+
+.col-small {
+    width: 3%;
+}
+
+.header-content {
+    .table {
+        th {
+            background: $bgHeaderTableLevel2;
+            color: $black;
+            font-weight: bold;
+        }
+    }
+}
+
+.match-container {
+    display: table;
+    width: 100%;
+
+    .cell {
+        display: table-cell;
+    }
+
+    .bet-list-link {
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .icon-wrapper {
+        text-align: center;
+        font-weight: 900;
+        vertical-align: middle;
+        color: $colorText;
+        width: 20px;
+
+        &.expanded {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.footer-content {
+    .grandTotal {
+        &, &:hover {
+            > td {
+                background: $bgSummaryTotal;
+            }
+        }
+    }
+}

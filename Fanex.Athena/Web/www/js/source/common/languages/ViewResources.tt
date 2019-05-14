@@ -1,0 +1,55 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".txt" #>
+<#@ include file="$(SolutionDir)\Packages\T4.TemplateFileManager.2.1.2\tools\ttinc\TemplateFilemanager.CS.ttinclude" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Xml.Linq" #>
+<#@ assembly name="System.Xml" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Security" #>
+<#
+	string solutionPath = Host.ResolveAssemblyReference("$(SolutionDir)");
+	Directory.SetCurrentDirectory(solutionPath);
+	var manager = TemplateFileManager.Create(this);	
+	string[] filePaths = Directory.GetFiles(solutionPath, "ViewResources*.resx", SearchOption.AllDirectories);
+	foreach(var filePath in filePaths)
+	{        
+		var fileName = Path.GetFileName(filePath.Replace("resx", "js"));
+		manager.StartNewFile(fileName);
+		using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            {
+               var xdoc = System.Xml.Linq.XDocument.Load(stream);
+					var items = xdoc.Descendants("data").OrderBy(i=>i.Attribute("name").Value);
+					 var index = 0;
+					var lastIndex = items.Count() - 1;
+#>
+// Generated at: <#= DateTime.Now.ToString() #>
+window.<#=GetJsObjectName(fileName)#> = {
+<#
+                foreach (var item in items)
+                {
+                    var se = index < lastIndex;
+                    var valueItem = item.Descendants("value").FirstOrDefault();
+					index++;
+			#>
+<#=CreateJjonPropertise(item.Attribute("name").Value, valueItem.Value, se)#>
+<# }} #>
+};
+<# }
+	manager.Process();
+#>
+
+<#+
+ string  CreateJjonPropertise(string name, string value, bool isLast)
+{
+    var pattern = "{0}:\"{1}\"{2}";
+    var se = isLast ?  ",":string.Empty;
+    return string.Format(pattern, name, SecurityElement.Escape(value.Trim()), se);
+}
+
+string GetJsObjectName(string fileName){
+	var texts = fileName.Split('.');
+	var languageCode = texts.Length == 3 ? texts[1].Replace('-', '_') : "en_US";
+	return "_language_" + languageCode;
+}
+#>

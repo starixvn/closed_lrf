@@ -1,0 +1,57 @@
+﻿$button-height: 32px;
+$btnSubmit-background: #f05b1f;
+$btnCancelBackground: #757985;
+
+%buttonDisabled {
+    background-color: #DFDFDF !important;
+    box-shadow: none;
+    color: #9F9F9F !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+.btn {
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    height: $button-height;
+    line-height: $button-height;
+    transition: none;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-block;
+    outline: 0;
+    padding: 0 2rem;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:disabled{
+        @extend %buttonDisabled;
+    }
+}
+
+.btn-submit {
+    color: $white;
+    background-color: rgb(240, 91, 31);
+}
+
+.btn-cancel {
+    color: $white;
+    background-color: $btnCancelBackground;
+}
+
+button {
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled{
+        @extend %buttonDisabled;
+    }
+}

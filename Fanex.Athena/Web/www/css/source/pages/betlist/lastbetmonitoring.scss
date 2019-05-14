@@ -1,0 +1,156 @@
+﻿@import '../common/reportcommon.main';
+@import '../../components/label/label';
+@import "../../components/multiselect/multiselect.main";
+@import "betlist";
+@import 'AGCasino';
+@import 'Allbet';
+
+$bgNewRow: #fcf4df;
+
+.label {
+    padding: 0 8px;
+    margin-top: 6px;
+}
+
+.table > thead > tr {
+    > th {
+        background: $bgHeaderTableLevel1;
+        color: $white;
+    }
+}
+
+.table > tbody {
+    > tr {
+        td {
+            text-align: center;
+
+            &.bl-event {
+                text-align: right;
+            }
+
+            &.bl-username {
+                text-align: left;
+            }
+
+            &.bl-odds, &.bl-stake {
+                font-weight: bold;
+                text-align: right;
+            }
+        }
+
+        &.monitor-keep {
+            > td {
+                background-color: $colorSelectedRow;
+            }
+        }
+
+        &.monitor-hightlight {
+            > td{
+                background-color: $bgNewRow;
+            }
+        }
+
+        .bl-status {
+            font-weight: bold;
+
+            > label {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+.first-row {
+    height: auto;
+
+    > td {
+        height: 0;
+        border: none !important;
+        padding: 0 !important;
+        line-height: 0;
+    }
+}
+
+/*-----------------Color-------------------*/
+
+.special-color-0 {
+    color: #fcfcfc;
+}
+
+.special-color-1 {
+    color: #98b516 !important;
+}
+
+.special-color-2 {
+    color: #007d00 !important;
+}
+
+.special-color-3 {
+    color: #b87856 !important;
+}
+
+.special-color-4 {
+    color: #fcc50f !important;
+}
+
+.special-color-5 {
+    color: #418a86 !important;
+}
+
+.special-color-6 {
+    color: #969036 !important;
+}
+
+.special-color-7 {
+    color: #944937 !important;
+}
+
+.special-color-8 {
+    color: #3297fc !important;
+}
+
+.special-color-9 {
+    color: #c98402 !important;
+}
+
+.special-color-10 {
+    color: #fc0000 !important;
+}
+
+.btn {
+    &.btn-alert {
+        background-color: #26a69a;
+    }
+}
+
+/*-----------------Loader-------------------*/
+.loader {
+  border: 5px solid #e4d8d8;
+  border-radius: 50%;
+  border-top: 5px solid #4C6375;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

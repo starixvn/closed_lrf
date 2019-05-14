@@ -1,0 +1,410 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFilter  render() - match with snapshot 1`] = `
+<div
+  className="page-filter"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-5 col-sm-12 col-lg-5 col-xl-5"
+    >
+      <div
+        className="form-group"
+      >
+        <MonthPicker
+          fromDate="01/01/2018"
+          fromDateOption={
+            Object {
+              "id": "FromDateInput",
+              "label": "From",
+            }
+          }
+          label="View data in month"
+          maxDate="01/01/2019"
+          minDate="01/01/2017"
+          monthOption={
+            Object {
+              "label": "ViewDataInMonth",
+            }
+          }
+          onChange={[Function]}
+          toDate="01/02/2018"
+          toDateOption={
+            Object {
+              "id": "ToDateInput",
+              "label": "To",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Currency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          instanceId="ddlCurrency"
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value={1}
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Product
+        </label>
+        <t
+          dataSource={
+            Array [
+              Object {
+                "Code": "p1",
+                "Name": "product1",
+                "Status": false,
+              },
+              Object {
+                "Code": "p2",
+                "Name": "product2",
+                "Status": true,
+              },
+            ]
+          }
+          hasAllOption={true}
+          hasSearchBox={false}
+          id="ProductList"
+          keyField="Code"
+          language="en-US"
+          onChange={[Function]}
+          statusField="Status"
+          valueField="Name"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-5 col-sm-12 col-lg-2 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          ReportBy
+        </label>
+        <span>
+          <input
+            checked={true}
+            id="ReportBy0"
+            onChange={[Function]}
+            type="radio"
+            value={1}
+          />
+          <label
+            htmlFor="ReportBy0"
+          >
+            Opt 1
+          </label>
+        </span>
+        <span>
+          <input
+            checked={false}
+            id="ReportBy1"
+            onChange={[Function]}
+            type="radio"
+            value={2}
+          />
+          <label
+            htmlFor="ReportBy1"
+          >
+            Opt 2
+          </label>
+        </span>
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="button-group"
+        >
+          <button
+            className="btn btn-submit"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="caret-block"
+    >
+      <i
+        className="icon-excel right"
+        onClick={[Function]}
+        title="ExportToExcel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FormFilter  render() - productOptions is empty - no render dropdown for product 1`] = `
+<div
+  className="page-filter"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-5 col-sm-12 col-lg-5 col-xl-5"
+    >
+      <div
+        className="form-group"
+      >
+        <MonthPicker
+          fromDate="01/01/2018"
+          fromDateOption={
+            Object {
+              "id": "FromDateInput",
+              "label": "From",
+            }
+          }
+          label="View data in month"
+          maxDate="01/01/2019"
+          minDate="01/01/2017"
+          monthOption={
+            Object {
+              "label": "ViewDataInMonth",
+            }
+          }
+          onChange={[Function]}
+          toDate="01/02/2018"
+          toDateOption={
+            Object {
+              "id": "ToDateInput",
+              "label": "To",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Currency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          instanceId="ddlCurrency"
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value={1}
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Product
+        </label>
+        0
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-5 col-sm-12 col-lg-2 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          ReportBy
+        </label>
+        <span>
+          <input
+            checked={true}
+            id="ReportBy0"
+            onChange={[Function]}
+            type="radio"
+            value={1}
+          />
+          <label
+            htmlFor="ReportBy0"
+          >
+            Opt 1
+          </label>
+        </span>
+        <span>
+          <input
+            checked={false}
+            id="ReportBy1"
+            onChange={[Function]}
+            type="radio"
+            value={2}
+          />
+          <label
+            htmlFor="ReportBy1"
+          >
+            Opt 2
+          </label>
+        </span>
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="button-group"
+        >
+          <button
+            className="btn btn-submit"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="caret-block"
+    >
+      <i
+        className="icon-excel right"
+        onClick={[Function]}
+        title="ExportToExcel"
+      />
+    </div>
+  </div>
+</div>
+`;

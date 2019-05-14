@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BetListDetail  _buildBody  match Snapshot 1`] = `
+<div>
+  <tr>
+    <td
+      className="center-align"
+      title="01/01/2018"
+    >
+      01/01/2018
+    </td>
+    <td
+      className="right-align"
+      title={1.34}
+    >
+      1.34
+    </td>
+    <td
+      className="right-align"
+      title={1.5}
+    >
+      1.5
+    </td>
+    <td
+      className="right-align"
+      title={1.8}
+    >
+      1.8
+    </td>
+    <td
+      className="right-align"
+      title={0.5}
+    >
+      0.5
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`BetListDetail  _buildHeader  match Snapshot 1`] = `
+<tr
+  style={
+    Object {
+      "height": 32,
+    }
+  }
+>
+  <th>
+    BetTaken
+  </th>
+  <th>
+    OddsReq
+  </th>
+  <th>
+    Stake
+  </th>
+  <th>
+    Liability
+  </th>
+  <th>
+    OddsMatched
+  </th>
+</tr>
+`;
+
+exports[`BetListDetail  render  show grid when gridData is not empty - match snapshot 1`] = `
+<div
+  className="popup-content-default popup-detail-default"
+>
+  <div>
+    <div
+      className="table-container"
+      style={
+        Object {
+          "maxWidth": -30,
+        }
+      }
+    >
+      <div
+        className="header-content"
+        style={
+          Object {
+            "maxHeight": undefined,
+            "minWidth": undefined,
+            "width": 670,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 651,
+              }
+            }
+          >
+            <thead>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "171.31578947368422px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+              </tr>
+              <tr
+                style={
+                  Object {
+                    "height": 32,
+                  }
+                }
+              >
+                <th>
+                  BetTaken
+                </th>
+                <th>
+                  OddsReq
+                </th>
+                <th>
+                  Stake
+                </th>
+                <th>
+                  Liability
+                </th>
+                <th>
+                  OddsMatched
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div
+        className="body-content"
+        style={
+          Object {
+            "maxHeight": 350,
+            "minWidth": undefined,
+            "width": 670,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 651,
+              }
+            }
+          >
+            <tbody>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "171.31578947368422px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "119.92105263157896px",
+                    }
+                  }
+                />
+              </tr>
+              <tr>
+                <td
+                  className="center-align"
+                  title="01/01/2018"
+                >
+                  01/01/2018
+                </td>
+                <td
+                  className="right-align"
+                  title={1.34}
+                >
+                  1.34
+                </td>
+                <td
+                  className="right-align"
+                  title={1.5}
+                >
+                  1.5
+                </td>
+                <td
+                  className="right-align"
+                  title={1.8}
+                >
+                  1.8
+                </td>
+                <td
+                  className="right-align"
+                  title={0.5}
+                >
+                  0.5
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BetListDetail  render  show no data title when gridData is empty - match snapshot 1`] = `
+<p
+  className="no-info-row center-align"
+>
+  NoInfo
+</p>
+`;

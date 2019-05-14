@@ -1,0 +1,1017 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataGrid Data is not empty _buildBody - GroupByProduct - render correct body content 1`] = `
+<div>
+  <tr>
+    <td
+      className="center-align"
+    >
+      1
+    </td>
+    <td
+      className="center-align"
+      title="01/0001"
+    >
+      01/0001
+    </td>
+    <td
+      className="left-align"
+      title="Sportsbook"
+    >
+      Sportsbook
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="26,761.00"
+    >
+      26,761.00
+    </td>
+    <td
+      className="right-align"
+      title="960.00"
+    >
+      960.00
+    </td>
+    <td
+      className="right-align "
+      title="23,646.17"
+    >
+      23,646.17
+    </td>
+    <td
+      className="right-align"
+      title="72.00"
+    >
+      72.00
+    </td>
+    <td
+      className="right-align "
+      title="22,758.17"
+    >
+      22,758.17
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildBody - ReportByDaily - render correct body content 1`] = `
+<div>
+  <tr>
+    <td
+      className="center-align"
+    >
+      1
+    </td>
+    <td
+      className="center-align"
+      title="01/01/0001"
+    >
+      01/01/0001
+    </td>
+    <td
+      className="center-align"
+      title="Sportsbook"
+    >
+      Sportsbook
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="26,761.00"
+    >
+      26,761.00
+    </td>
+    <td
+      className="right-align"
+      title="960.00"
+    >
+      960.00
+    </td>
+    <td
+      className="right-align "
+      title="23,646.17"
+    >
+      23,646.17
+    </td>
+    <td
+      className="right-align"
+      title="72.00"
+    >
+      72.00
+    </td>
+    <td
+      className="right-align "
+      title="22,758.17"
+    >
+      22,758.17
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildBody - ReportBySummary - Contain negetive value - render correct body content 1`] = `
+<div>
+  <tr>
+    <td
+      className="center-align"
+    >
+      1
+    </td>
+    <td
+      className="center-align"
+      title="01/01/0001"
+    >
+      01/01/0001
+    </td>
+    <td
+      className="center-align"
+      title="Sportsbook"
+    >
+      Sportsbook
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="26,761.00"
+    >
+      26,761.00
+    </td>
+    <td
+      className="right-align"
+      title="960.00"
+    >
+      960.00
+    </td>
+    <td
+      className="right-align "
+      title="23,646.17"
+    >
+      23,646.17
+    </td>
+    <td
+      className="right-align"
+      title="72.00"
+    >
+      72.00
+    </td>
+    <td
+      className="right-align "
+      title="22,758.17"
+    >
+      22,758.17
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+  <tr>
+    <td
+      className="center-align"
+    >
+      2
+    </td>
+    <td
+      className="center-align"
+      title="01/01/0001"
+    >
+      01/01/0001
+    </td>
+    <td
+      className="center-align"
+      title="Sportsbook"
+    >
+      Sportsbook
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="26,761.00"
+    >
+      26,761.00
+    </td>
+    <td
+      className="right-align"
+      title="960.00"
+    >
+      960.00
+    </td>
+    <td
+      className="right-align negative"
+      title="-23,646.17"
+    >
+      -23,646.17
+    </td>
+    <td
+      className="right-align"
+      title="72.00"
+    >
+      72.00
+    </td>
+    <td
+      className="right-align negative"
+      title="-22,758.17"
+    >
+      -22,758.17
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildBody - ReportBySummary - render correct body content 1`] = `
+<div>
+  <tr>
+    <td
+      className="center-align"
+    >
+      1
+    </td>
+    <td
+      className="center-align"
+      title="Sportsbook"
+    >
+      Sportsbook
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="26,761.00"
+    >
+      26,761.00
+    </td>
+    <td
+      className="right-align"
+      title="960.00"
+    >
+      960.00
+    </td>
+    <td
+      className="right-align "
+      title="23,646.17"
+    >
+      23,646.17
+    </td>
+    <td
+      className="right-align"
+      title="72.00"
+    >
+      72.00
+    </td>
+    <td
+      className="right-align "
+      title="22,758.17"
+    >
+      22,758.17
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildFooter - Data contain negative value - render correct footer content 1`] = `
+<div>
+  <tr
+    className="fixed-table-grant-total"
+  >
+    <td
+      className="center-align"
+      colSpan={2}
+    >
+      Totalin 
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="130,685.74"
+    >
+      130,685.74
+    </td>
+    <td
+      className="right-align"
+      title="4,688.10"
+    >
+      4,688.10
+    </td>
+    <td
+      className="right-align negative"
+      title="-115,474.65"
+    >
+      -115,474.65
+    </td>
+    <td
+      className="right-align"
+      title="351.61"
+    >
+      351.61
+    </td>
+    <td
+      className="right-align negative"
+      title="-111,138.16"
+    >
+      -111,138.16
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildFooter - ReportByDaily - render correct footer content 1`] = `
+<div>
+  <tr
+    className="fixed-table-grant-total"
+  >
+    <td
+      className="center-align"
+      colSpan={3}
+    >
+      Totalin 
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="130,685.74"
+    >
+      130,685.74
+    </td>
+    <td
+      className="right-align"
+      title="4,688.10"
+    >
+      4,688.10
+    </td>
+    <td
+      className="right-align "
+      title="115,474.65"
+    >
+      115,474.65
+    </td>
+    <td
+      className="right-align"
+      title="351.61"
+    >
+      351.61
+    </td>
+    <td
+      className="right-align "
+      title="111,138.16"
+    >
+      111,138.16
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildFooter - ReportBySummary - render correct footer content 1`] = `
+<div>
+  <tr
+    className="fixed-table-grant-total"
+  >
+    <td
+      className="center-align"
+      colSpan={2}
+    >
+      Totalin 
+    </td>
+    <td
+      className="right-align"
+      title="50"
+    >
+      50
+    </td>
+    <td
+      className="right-align"
+      title="130,685.74"
+    >
+      130,685.74
+    </td>
+    <td
+      className="right-align"
+      title="4,688.10"
+    >
+      4,688.10
+    </td>
+    <td
+      className="right-align "
+      title="115,474.65"
+    >
+      115,474.65
+    </td>
+    <td
+      className="right-align"
+      title="351.61"
+    >
+      351.61
+    </td>
+    <td
+      className="right-align "
+      title="111,138.16"
+    >
+      111,138.16
+    </td>
+    <td
+      className="right-align"
+      title="85.04%"
+    >
+      85.04%
+    </td>
+  </tr>
+</div>
+`;
+
+exports[`DataGrid Data is not empty _buildHeader - ReportBySummary - render correct header content 1`] = `
+<tr
+  style={
+    Object {
+      "height": 32,
+    }
+  }
+>
+  <th
+    title="#"
+  />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+</tr>
+`;
+
+exports[`DataGrid Data is not empty _buildHeader - render correct header content 1`] = `
+<tr
+  style={
+    Object {
+      "height": 32,
+    }
+  }
+>
+  <th
+    title="#"
+  />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+  <th />
+</tr>
+`;
+
+exports[`DataGrid Data is not empty grid data should be rendered correctly 1`] = `
+<div
+  className="result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    >
+      
+    </p>
+  </div>
+  <div>
+    <div
+      className="table-container"
+      style={
+        Object {
+          "maxWidth": -30,
+        }
+      }
+    >
+      <div
+        className="header-content"
+        style={
+          Object {
+            "maxHeight": undefined,
+            "minWidth": 600,
+            "width": -30,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 581,
+              }
+            }
+          >
+            <thead>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "-1.4411764705882353px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+              </tr>
+              <tr
+                style={
+                  Object {
+                    "height": 32,
+                  }
+                }
+              >
+                <th
+                  title="#"
+                />
+                <th />
+                <th />
+                <th />
+                <th />
+                <th />
+                <th />
+                <th />
+                <th />
+                <th />
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div
+        className="body-content"
+        style={
+          Object {
+            "maxHeight": 696,
+            "minWidth": 600,
+            "width": -30,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 581,
+              }
+            }
+          >
+            <tbody>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "-1.4411764705882353px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+              </tr>
+              <tr>
+                <td
+                  className="center-align"
+                >
+                  1
+                </td>
+                <td
+                  className="center-align"
+                  title="01/0001"
+                >
+                  01/0001
+                </td>
+                <td
+                  className="center-align"
+                  title="Sportsbook"
+                >
+                  Sportsbook
+                </td>
+                <td
+                  className="right-align"
+                  title="50"
+                >
+                  50
+                </td>
+                <td
+                  className="right-align"
+                  title="26,761.00"
+                >
+                  26,761.00
+                </td>
+                <td
+                  className="right-align"
+                  title="960.00"
+                >
+                  960.00
+                </td>
+                <td
+                  className="right-align "
+                  title="23,646.17"
+                >
+                  23,646.17
+                </td>
+                <td
+                  className="right-align"
+                  title="72.00"
+                >
+                  72.00
+                </td>
+                <td
+                  className="right-align "
+                  title="22,758.17"
+                >
+                  22,758.17
+                </td>
+                <td
+                  className="right-align"
+                  title="85.04%"
+                >
+                  85.04%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        className="footer-content"
+        style={
+          Object {
+            "maxHeight": undefined,
+            "minWidth": 600,
+            "width": -30,
+          }
+        }
+      >
+        <div
+          className="table-wrapper"
+        >
+          <table
+            className="table"
+            style={
+              Object {
+                "width": 581,
+              }
+            }
+          >
+            <tbody>
+              <tr
+                className="first-row"
+              >
+                <td
+                  style={
+                    Object {
+                      "width": "-1.4411764705882353px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-4.323529411764706px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+                <td
+                  style={
+                    Object {
+                      "width": "-5.764705882352941px",
+                    }
+                  }
+                />
+              </tr>
+              <tr
+                className="fixed-table-grant-total"
+              >
+                <td
+                  className="center-align"
+                  colSpan={3}
+                >
+                  Totalin 
+                </td>
+                <td
+                  className="right-align"
+                  title="50"
+                >
+                  50
+                </td>
+                <td
+                  className="right-align"
+                  title="130,685.74"
+                >
+                  130,685.74
+                </td>
+                <td
+                  className="right-align"
+                  title="4,688.10"
+                >
+                  4,688.10
+                </td>
+                <td
+                  className="right-align "
+                  title="115,474.65"
+                >
+                  115,474.65
+                </td>
+                <td
+                  className="right-align"
+                  title="351.61"
+                >
+                  351.61
+                </td>
+                <td
+                  className="right-align "
+                  title="111,138.16"
+                >
+                  111,138.16
+                </td>
+                <td
+                  className="right-align"
+                  title="85.04%"
+                >
+                  85.04%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataGrid No data gridData length is 0 - render correct content 1`] = `
+<div
+  className="result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    >
+      
+    </p>
+  </div>
+  <p
+    className="no-info-row center-align"
+  >
+    NoInfo
+  </p>
+</div>
+`;

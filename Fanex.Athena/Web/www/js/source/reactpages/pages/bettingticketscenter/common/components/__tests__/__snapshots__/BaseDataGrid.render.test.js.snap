@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render grid Has data grid data should be rendered correctly with footer 1`] = `
+<div
+  className="betlist-container result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    />
+  </div>
+</div>
+`;
+
+exports[`Render grid Has data grid data should be rendered correctly without footer 1`] = `
+<div
+  className="betlist-container result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    />
+  </div>
+</div>
+`;
+
+exports[`Render grid No data gridData length is 0 - render correct content 1`] = `
+<div
+  className="result-content"
+>
+  <div
+    className="report-title-container"
+  >
+    <p
+      className="report-title"
+    />
+  </div>
+  <p
+    className="no-info-row center-align"
+  >
+    NoInfo
+  </p>
+</div>
+`;

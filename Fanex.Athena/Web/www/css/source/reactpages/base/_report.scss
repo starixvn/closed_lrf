@@ -1,0 +1,40 @@
+﻿.caret-block {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 10px;
+    right: 10px;
+}
+
+.icon-excel {
+    background: url(../../images/excel-icon.svg) no-repeat;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.icon-book {
+    font-size: 18px;
+    color: #066CC0;
+    cursor: pointer;
+
+    &.right {
+        margin-left: 10px;
+    }
+}
+
+.negative {
+    color: #ff0000 !important;
+}
+
+.circle {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f94a4a;
+}

@@ -1,0 +1,26 @@
+﻿@import '../common/reportcommon.main';
+@import '../totalbet/totalbet';
+
+.timer {
+    margin: 10px 15px;
+}
+
+.form-popup {
+    .timer-countdown {
+        line-height: 25px;
+    }
+}
+
+.table {
+    > tbody {
+        > tr > td {
+            .icon-plus {
+                margin: 0;
+            }
+
+            &.highlight{
+                background: #f4f5f2;
+            }
+        }
+    }
+}

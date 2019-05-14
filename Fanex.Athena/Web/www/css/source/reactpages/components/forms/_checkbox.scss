@@ -1,0 +1,74 @@
+﻿@import "../../abstracts/variables";
+$colorDefault: $black;
+
+input[type="checkbox"].checkbox {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+
+    & + label {
+        position: relative;
+        padding-left: 20px;
+        cursor: pointer;
+        display: inline-block;
+        height: 18px;
+        font-size: 12px;
+        color: $colorDefault;
+        margin: 0 5px 0 0;
+        line-height: 18px;
+        top: 4px;
+
+        &:before, &:after {
+            content: '';
+            left: 0;
+            position: absolute;
+        }
+
+        &:before {
+            width: 4px;
+            height: 11px;
+            border: 1px solid transparent;
+            -webkit-transform-origin: 20% 40%;
+            transform-origin: 100% 100%;
+            transform: rotateZ(37deg);
+        }
+
+        &:after {
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+            border: 1px solid $colorDefault;
+        }
+    }
+
+    &:checked {
+        & + label {
+            &:before {
+                top: 0;
+                left: 2px;
+                border-right: 1px solid $colorDefault;
+                border-bottom: 1px solid $colorDefault;
+            }
+        }
+    }
+
+    &:disabled {
+        & + label:after {
+            border-color: $input-disabled-solid-color;
+        }
+
+        &:checked + label:before {
+            border-right-color: $input-disabled-solid-color;
+            border-bottom-color: $input-disabled-solid-color;
+        }
+    }
+}
+
+.invalid {
+    input[type="checkbox"] + label {
+        &:after {
+            border: 1px solid $red;
+        }
+    }
+}

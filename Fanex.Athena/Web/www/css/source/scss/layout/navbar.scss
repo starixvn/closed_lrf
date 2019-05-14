@@ -1,0 +1,530 @@
+﻿@import "../abstracts/_variables.scss";
+@import '../../components/flatpopup/flatpopup';
+@import '../../vendors/materialize/components/buttons';
+@import '../../scss/components/button';
+
+@mixin searchBarFocusedMobile() {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    margin-right: 0;
+    color: #333;
+    padding-left: 10px;
+    z-index: 3;
+    height: 25px;
+    top: 70px;
+
+    label {
+        color: #333 !important;
+    }
+
+    #label-search {
+        left: 10px;
+        top: 0;
+    }
+}
+
+@mixin inputFocusedMobile() {
+    opacity: 1;
+    height: 25px;
+    border-bottom: none;
+
+    &:focus {
+        border-bottom: none;
+        box-shadow: none;
+    }
+}
+
+@mixin searchBarMobile() {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    margin-right: 0;
+    height: 25px;
+    top: 70px;
+
+    #label-search {
+        top: -2px !important;
+        right: 10px;
+    }
+}
+
+@mixin heightForRightBlock() {
+    height: 32px;
+    line-height: 32px;
+}
+
+header {
+    nav {
+        background: $colorHeaderNav;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+    }
+}
+
+.button-collapse {
+    width: 3rem;
+    height: 6.4rem;
+    line-height: 6.4rem;
+    text-align: center;
+    font-size: 20px;
+}
+
+.navbar-fixed {
+    height: 64px;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    nav {
+        height: 64px;
+        line-height: 64px;
+        top: 0;
+        right: 0;
+
+        i {
+            @include heightForRightBlock()
+        }
+    }
+}
+
+.logo {
+    padding-left: 15px;
+    height: 64px;
+    line-height: 64px;
+    float: left;
+    background: #314453;
+
+    img {
+        vertical-align: middle;
+    }
+
+    .logo-image {
+        display: inline-block;
+    }
+
+    .logo-text {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .icon-hambuger {
+        display: inline-block;
+        width: 5rem;
+        text-align: center;
+        margin-left: 13px;
+    }
+
+    .lines {
+        background: #fff;
+        width: 16px;
+        height: 2px;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+
+        &:before, &:after {
+            content: "";
+            background: #fff;
+            width: 16px;
+            height: 2px;
+            display: inline-block;
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        &:after {
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        box-shadow: none;
+    }
+
+    @media (max-width: 992px) {
+        background-color: transparent;
+        width: auto;
+        box-shadow: none;
+        padding-right: 0;
+        position: fixed;
+        z-index: 2;
+
+        .icon-hambuger {
+            margin-left: 0;
+            text-align: left;
+        }
+    }
+}
+
+.nav-wrapper {
+    .page-title {
+        float: left;
+        vertical-align: middle;
+        font-size: 15px;
+        padding: 0 20px;
+
+        @media (max-width: 992px) {
+            position: absolute;
+            left: 25px;
+        }
+
+        @media (max-width: 500px) {
+            position: absolute;
+            top: 64px;
+            height: 34px;
+            line-height: 34px;
+            background: #384a58;
+            left: 0;
+            right: 0;
+            font-size: 13px;
+            padding: 0 15px;
+        }
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+        padding-left: 3rem;
+        color: $white;
+
+        .active {
+            color: $yellow;
+        }
+    }
+    //--------------- Clock -------------------//
+    .clock-block {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        @include heightForRightBlock()
+    }
+
+    .right-block {
+        position: absolute;
+        right: 15px;
+        top: 27px;
+        @include heightForRightBlock();
+
+        > * {
+            float: right;
+        }
+        //------------ Profile avatar -------------------//
+        .navbar-avatar {
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar {
+            position: relative;
+            display: inline-block;
+            width: 4rem;
+            white-space: nowrap;
+            border-radius: 50%;
+            vertical-align: middle;
+            width: 25px;
+            border: 2px solid #708291;
+        }
+
+        .name {
+            padding: 0 0.5rem;
+        }
+
+        .icon-menu-down {
+            font-size: 15px;
+        }
+
+        .navbar-avatar > .dropdown-button {
+            cursor: pointer;
+        }
+
+        .profile-items {
+            width: 17rem !important;
+            top: 38px !important;
+
+            .icon {
+                font-size: 14px;
+                padding-left: 10px;
+                vertical-align: middle;
+            }
+        }
+        //------------ Search block -------------------//
+        .search_bar {
+            box-sizing: border-box;
+            display: inline-block;
+            font-size: 16px;
+            width: 2rem;
+            position: relative;
+            transition: all 0.2s ease-out;
+            margin-right: 1rem;
+            z-index: 1;
+            // ----------- iPhone 5 and 5S Portrait ----------- //
+            @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                @include searchBarMobile()
+            }
+            // ----------- iPhone 6 Portrait ----------- //
+            @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                @include searchBarMobile()
+            }
+
+            form {
+                overflow: hidden;
+            }
+
+            #label-search {
+                position: absolute;
+                top: 5px;
+                width: 25px;
+                height: 25px;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 50%;
+                line-height: 25px;
+
+                i {
+                    font-size: 15px;
+                    vertical-align: top;
+                }
+            }
+
+            .placeholder {
+                background: transparent none repeat scroll 0 0;
+                display: block;
+                margin-left: 2rem;
+                width: calc(100% - 2.7rem);
+                margin-top: 16px;
+                padding-left: 5px;
+                border-bottom: none;
+                opacity: 0.7;
+                font-size: 13px;
+                margin: 0 0 0 25px;
+                // ----------- iPhone 6 Portrait ----------- //
+                @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                    opacity: 0;
+                    transition: none;
+                }
+                // ----------- iPhone 5 and 5S Portrait ----------- //
+                @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                    opacity: 0;
+                    transition: none;
+                }
+            }
+
+            &.focused {
+                width: 17rem;
+                transition: all 0.2s ease-out;
+
+                .placeholder {
+                    border-bottom: 1px solid #fff;
+                    vertical-align: middle;
+                    background: transparent none repeat scroll 0 0;
+
+                    &:focus {
+                        border-bottom: 1px solid #fff;
+                    }
+                    // ----------- iPhone 5 and 5S Portrait ----------- //
+                    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                        @include inputFocusedMobile()
+                    }
+                    // ----------- iPhone 6 Portrait ----------- //
+                    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                        @include inputFocusedMobile()
+                    }
+                }
+
+                label {
+                    color: #fff;
+                }
+                // ----------- iPhone 5 and 5S Portrait ----------- //
+                @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                    @include searchBarFocusedMobile()
+                }
+                // ----------- iPhone 6 Portrait ----------- //
+                @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+                    @include searchBarFocusedMobile()
+                }
+            }
+        }
+        //------------ Languages block -------------------//
+        .languages-block {
+            padding: 0 0.8rem;
+            position: relative;
+            z-index: 2;
+
+            .dropdown-button {
+                display: inline-block;
+                height: 26px;
+                vertical-align: middle;
+                line-height: 26px;
+                border-bottom: 1px solid rgba(255,255,255,0.8);
+
+                .icon-menu-down {
+                    height: 26px;
+                    line-height: 26px;
+                }
+            }
+
+            .language-items {
+                width: 15rem !important;
+                top: 38px !important;
+
+                > li {
+                    min-height: 4rem;
+                }
+
+                a {
+                    padding: 10px;
+                    font-size: 13px;
+                }
+            }
+        }
+        //------------ Licensee block -------------------//
+        .licensees-block {
+            padding: 0 1rem;
+            width: 120px;
+
+            .select-licensee {
+                display: inline-block;
+                width: 100%;
+            }
+
+            .select-list-container {
+                margin-bottom: 0;
+
+                .selection {
+                    border-bottom-color: rgba(255, 255, 255, 0.8);
+                    vertical-align: middle;
+                }
+
+                .selection-icon-arrow {
+                    border-top-color: $white;
+                    border-width: 3.5px 3.5px 0 3.5px;
+                }
+            }
+        }
+        //------------ Notification block -------------------//
+        .notifications-block {
+            position: relative;
+            margin: 5px;
+            cursor: pointer;
+
+            .number-notifications {
+                background-color: #d91a1a;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                border-radius: 50%;
+                right: -3px;
+                top: 0;
+                line-height: 16px;
+                text-align: center;
+                font-size: 0.8em;
+            }
+
+            .notification-content {
+                background-color: #4C6375;
+                top: 30px;
+                left: -45px;
+                width: 32rem;
+                margin-left: 20px;
+                z-index: 999;
+                overflow-y: auto;
+                display: none;
+                position: absolute;
+                max-height: 580px;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+                li {
+                    border-bottom: 1px solid #314453;
+                    width: 100%;
+                }
+
+                li:hover {
+                    background-color: #314453;
+                }
+
+                li > a {
+                    color: #fff;
+                    display: block;
+                    overflow: hidden;
+                    font-size: 12px;
+                    padding: 10px 15px 0 10px;
+                    line-height: 1.5em;
+                }
+
+                li > span {
+                    padding-top: 0;
+                    font-size: 12px;
+                }
+
+                .type {
+                    color: #4caf50;
+                    display: block;
+                    padding-left: 10px;
+                }
+
+                .type:before {
+                    content: "\2022";
+                    font-size: 2.5em;
+                    vertical-align: middle;
+                }
+
+                .date-time {
+                    display: block;
+                    text-align: right;
+                    color: #d3d3d3;
+                    padding-right: 15px;
+                    margin-top: -10px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        padding-left: 0;
+
+        .toggleMenubar {
+            .icon-backburger {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.site-menubar-fold {
+    .logo {
+        width: 70px;
+        padding: 0;
+
+        .logo-text, .logo-image {
+            display: none;
+        }
+
+        .icon-hambuger {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+
+    .nav-wrapper {
+        .toggleMenubar {
+            .icon-backburger {
+                transform: rotate(180deg);
+            }
+        }
+
+        @media only screen and (max-width: 992px) {
+            padding-left: 0;
+        }
+    }
+}
+// ----------- iPhone 5 and 5S Portrait ----------- //
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .select-list-result-container {
+        z-index: 999 !important;
+    }
+}

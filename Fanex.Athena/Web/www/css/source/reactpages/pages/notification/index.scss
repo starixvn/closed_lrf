@@ -1,0 +1,8 @@
+﻿@import "../../components/date-range/styles";
+@import "../../components/react-grid";
+@import "../../components/collapsibleRow";
+@import "../../vendors/notification";
+
+.unread td {
+    background-color: #f5c0ab !important;
+}

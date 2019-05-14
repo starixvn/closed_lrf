@@ -1,0 +1,111 @@
+﻿@import "../../components/tab/tab";
+@import "../../components/autocomplete/autocomplete";
+@import "../../components/monthpicker/monpickr";
+@import "../../components/checkbox/checkbox";
+@import "../common/reportjqgridlayout.main";
+
+$colorBorder: #ccc;
+$colorHeader: $bgHeaderTableLevel1;
+$bgHeader: #BCC5CC;
+$colorRowText: #404040;
+
+.report-container {
+
+    .ui-jqgrid .ui-jqgrid-htable thead tr th.ui-th-column {
+        background: $bgHeaderTableLevel1;
+        color: $white;
+        font-weight: normal;
+    }
+
+    .main-content {
+        padding-bottom: 1.5rem;
+
+        .ui-jqgrid {
+            tr.jqgrow {
+                td {
+                    white-space: normal;
+
+                    &.jqgrid-detail-col {
+                        padding: 0;
+                    }
+                }
+            }
+
+            .ui-jqgrid-btable {
+                height: 0; // Hack for IE's bug
+            }
+        }
+    }
+
+    .group-color-box {
+        width: 40%;
+        border: 1px solid #d6d6d6;
+        border-radius: 3px;
+        margin: 2px auto;
+
+        &:before {
+            content: "\A0";
+        }
+    }
+
+    .nested-table {
+        height: 100%;
+
+        th, td {
+            border-right: 1px solid $colorBorderTable;
+            text-align: center !important;
+            padding: 2px 0 !important;
+
+            &:last-child {
+                border-right: none !important;
+            }
+        }
+
+        thead {
+            th {
+                background-color: $bgHeader;
+                color: $colorHeader;
+                font-weight: bold;
+            }
+        }
+
+        tbody {
+            td {
+                border: none;
+                border-top: 1px solid $colorBorderTable;
+                text-align: center;
+
+                .old-value {
+                    border-top: 1px solid $colorBorder;
+                    color: $colorRowText;
+                }
+            }
+        }
+
+        &.table-2-column {
+            td {
+                width: 50%;
+            }
+        }
+    }
+
+    .ui-icon {
+        margin-left: 4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+
+        &.ui-icon-asc {
+            border-bottom: 5px solid $white;
+            margin-top: 0px;
+        }
+
+        &.ui-icon-desc {
+            border-top: 5px solid $white;
+            margin-top: 6px;
+        }
+
+        &.ui-state-disabled {
+            display: none;
+        }
+    }
+}

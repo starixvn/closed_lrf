@@ -1,0 +1,70 @@
+﻿@import "../common/reportcommon.main";
+
+.table > thead > tr > th {
+    background: $bgHeaderTableLevel1;
+    color: $white;
+}
+
+.group-color-box {
+    width: 90%;
+    border: 1px solid #d6d6d6;
+    margin: auto;
+    border-radius: 3px;
+
+    &:before {
+        content: "\00a0 ";
+    }
+}
+
+.page-action {
+    margin: 1.5rem 1.5rem 0;
+
+    .btn {
+        height: 26px;
+        line-height: 28px;
+        padding: 0 1rem;
+    }
+}
+
+.no-customer-border {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+#confirm-delete-comm-group {
+    display: none;
+}
+
+[type="radio"] + label {
+    color: inherit;
+    font-size: inherit !important;
+}
+
+.delete-comm-group, .customer-list-link {
+    cursor: pointer;
+}
+
+div {
+    &.icon-edit, &.icon-delete {
+        padding-left: 0 !important;
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .no-customer-border {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .group-color-box {
+        width: 50%;
+    }
+
+    .no-customer-border {
+        width: 50%;
+    }
+}

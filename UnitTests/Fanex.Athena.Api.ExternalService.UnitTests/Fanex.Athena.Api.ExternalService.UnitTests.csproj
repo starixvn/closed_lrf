@@ -120,6 +120,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ControllerAPI\Fanex.Athena.Api.Base\Fanex.Athena.Api.Base.csproj">
+      <Project>{16D39D7B-00C0-4CC3-82F5-44BBDEE7AE51}</Project>
+      <Name>Fanex.Athena.Api.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Fanex.Athena.Api.ExternalService\Fanex.Athena.Api.ExternalService.csproj">
       <Project>{33283837-A60B-44AA-815D-F61F70774DE2}</Project>
       <Name>Fanex.Athena.Api.ExternalService</Name>

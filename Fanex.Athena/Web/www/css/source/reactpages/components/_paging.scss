@@ -1,0 +1,31 @@
+﻿.page-container {
+    font-size: 1.1rem;
+
+    .icon {
+        font-family: 'icomoon' !important;
+    }
+
+    .page-first {
+        &:before {
+            content: "\ea21";
+        }
+    }
+
+    .page-prev {
+        &:before {
+            content: "\ea1f";
+        }
+    }
+
+    .page-next {
+        &:before {
+            content: "\ea20";
+        }
+    }
+
+    .page-last {
+        &:before {
+            content: "\ea22";
+        }
+    }
+}

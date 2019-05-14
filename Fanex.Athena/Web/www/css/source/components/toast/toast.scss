@@ -1,0 +1,95 @@
+﻿.page-portal {
+    position: absolute;
+    top: 0;
+
+    .toast {
+        &-container {
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: $zIndexToast;
+            pointer-events: none;
+
+            &-top {
+                top: 0;
+
+                .toast-align {
+                    flex-direction: column;
+                }
+            }
+
+            &-right {
+                .toast-align {
+                    align-items: flex-end;
+                }
+            }
+
+            &-bottom {
+                bottom: 0;
+
+                .toast-align {
+                    flex-direction: column-reverse;
+                }
+            }
+
+            &-left {
+                .toast-align {
+                    align-items: flex-start;
+                }
+            }
+
+            &-center {
+                .toast-align {
+                    align-items: center;
+                }
+            }
+        }
+
+        &-align {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0 20px 20px 20px;
+        }
+
+        &-item {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            margin: 20px 0 0 0;
+            border-radius: 3px;
+            box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
+            min-width: 300px;
+            max-width: 500px;
+            z-index: $zIndexToastItem;
+            pointer-events: all;
+
+            &-default {
+                background-color: #0f9960;
+                color: #ffffff;
+            }
+        }
+
+        &-message {
+            flex: 1 1 auto;
+            padding: 10px;
+        }
+
+        &-button-group {
+            flex: 0 0 auto;
+            padding: 5px;
+            padding-left: 0;
+        }
+
+        &-item-close {
+            overflow: visible;
+            position: relative;
+            background: none;
+            border: none;
+            margin-right: 0;
+            font-size: 16px;
+            min-width: 30px;
+            line-height: 26px;
+        }
+    }
+}

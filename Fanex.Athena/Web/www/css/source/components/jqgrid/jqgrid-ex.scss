@@ -1,0 +1,219 @@
+﻿@import "../../scss/abstracts/_variables";
+
+$colorLightGray: #ccc;
+$colorDisabledPgButton: $colorLightGray;
+
+.theme_jqGrid {
+    a {
+        color: $colorHyperlink;
+        text-decoration: none;
+
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+        }
+    }
+
+    .ui-jqgrid {
+        .highlight {
+            background-color: $colorHighlight;
+        }
+
+        .ui-jqgrid-view {
+            font-size: $font-size;
+            border: 1px solid $colorBorderTable;
+        }
+
+        .ui-jqgrid-htable {
+            border-right: 1px solid $colorBorderTable;
+
+            thead {
+                border: none;
+
+                tr {
+                    th {
+                        &.ui-th-column, &.ui-th-column-header {
+                            vertical-align: middle;
+                            text-align: center;
+                            border-left: 1px solid $white;
+                            border-bottom: 1px solid $colorBorderTable;
+                            background: $bgHeaderTableLevel1;
+                            color: #314453;
+                            font-weight: normal;
+                            padding: 4px 5px;
+
+                            &:first-child {
+                                border-left-color: $colorBorderTable !important;
+                            }
+                        }
+
+                        div {
+                            height: auto;
+                            white-space: pre-wrap;
+                        }
+                    }
+
+                    &:nth-child(2) th {
+                        &:first-child {
+                            border-left: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ui-jqgrid-btable, .ui-jqgrid-ftable {
+            tr {
+                &, &.footrow {
+                    td {
+                        border: 1px solid $colorBorderTable;
+                        color: #404040;
+                        padding: 4px 5px;
+
+                        &:first-child {
+                            border-left: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ui-jqgrid-btable {
+            tr.jqgfirstrow {
+                > td {
+                    padding: 0;
+                    border: none;
+                }
+            }
+
+            tr {
+                > td {
+                    border-top: none;
+                }
+            }
+        }
+
+        .ui-jqgrid-sdiv {
+            border-top: 3px solid #a7a1a1;
+
+            .ui-jqgrid-ftable {
+                .footer-firstrow {
+                    > td {
+                        padding: 0;
+                    }
+                }
+
+                tr.footrow {
+                    > td {
+                        border: 1px solid $colorBorderTable;
+                        border-bottom: none;
+
+                        &:first-child {
+                            border-left-color: $colorBorderTable;
+                        }
+                    }
+                }
+
+                .grandTotal {
+                    > td {
+                        background: $bgTotal;
+                    }
+                }
+
+                .summarytotal {
+                    > td {
+                        background: $bgSummaryTotal;
+                    }
+                }
+            }
+
+            &.jqgrid-footer-scroll-hacking {
+                max-height: 250px;
+                overflow-y: auto;
+            }
+        }
+
+        .ui-jqgrid-pager {
+            font-size: 1.1rem;
+            background-color: #EFF3F8 !important;
+            border-left: 1px solid $colorBorderTable !important;
+            border-right: 1px solid $colorBorderTable !important;
+            border-bottom: 1px solid $colorBorderTable !important;
+
+            .ui-icon {
+                font-family: 'icomoon' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                font-size: 1.2rem;
+                color: #4c6375;
+                cursor: pointer;
+            }
+
+            .ui-pg-table {
+                .ui-pg-button {
+                    padding: 1px;
+
+                    &:hover {
+                        padding: 1px;
+                    }
+
+                    &.ui-state-disabled {
+                        .ui-icon {
+                            color: $colorDisabledPgButton;
+                            cursor: default;
+                        }
+                    }
+                }
+
+                .ui-icon-seek-first {
+                    &:before {
+                        content: "\ea21";
+                    }
+                }
+
+                .ui-icon-seek-prev {
+                    &:before {
+                        content: "\ea1f";
+                    }
+                }
+
+                .ui-icon-seek-next {
+                    &:before {
+                        content: "\ea20";
+                    }
+                }
+
+                .ui-icon-seek-end {
+                    &:before {
+                        content: "\ea22";
+                    }
+                }
+
+                .ui-pg-input {
+                    width: auto;
+                    font-size: inherit;
+                    padding: 2px;
+                    text-align: center;
+
+                    &, &:focus {
+                        background: $white;
+                        border: 1px solid #e2d6d6;
+                        box-shadow: none;
+                    }
+                }
+
+                .ui-pg-selbox {
+                    height: auto;
+                    font-size: inherit;
+                    padding: 2px;
+                    min-width: 65px;
+                    border: 1px solid #e2d6d6;
+                }
+            }
+        }
+    }
+}

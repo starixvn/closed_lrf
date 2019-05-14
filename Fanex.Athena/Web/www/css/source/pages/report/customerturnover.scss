@@ -1,0 +1,22 @@
+﻿@import '../../scss/abstracts/variables';
+@import '../../components/daterangepicker/daterangepicker-ex';
+@import "../../components/popupnotification/popupnotification";
+@import '../../components/paging/paging';
+@import "../../components/autocomplete/autocomplete";
+@import '../../components/checkbox/checkbox';
+
+#TickerFilter {
+    > label {
+        left: 0;
+        color: $colorCheckbox;
+        font-size: 1.3rem;
+    }
+}
+
+.decimal-odds {
+    color: $red;
+}
+
+/*.ui-multiselect-ul-group{
+    padding-left: 40px;
+}*/

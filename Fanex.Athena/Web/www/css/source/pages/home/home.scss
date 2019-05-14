@@ -1,0 +1,126 @@
+﻿@import '../../vendors/materialize/_materialize-home';
+
+@import '../../scss/fonts/font-icon/style';
+@import '../../scss/fonts/montserrat/style';
+@import '../../scss/fonts/flags/flags-icon';
+@import '../../scss/base/common';
+
+@import '../../../../../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar';
+@import '../../scss/layout/navbar';
+@import '../../scss/layout/sidebar';
+@import '../../components/selectlist/selectlist';
+
+.notification-marquee-container {
+    color: #f05b1f;
+    position: relative;
+    padding: 0.5rem;
+    background: $white;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 1px 1px -2px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.12);
+}
+
+.select-list-result-container {
+    top: 65px !important;
+}
+
+.dropdown-header {
+    max-height: 400px;
+}
+
+.dropdown-content {
+    opacity: 1;
+    top: 50px;
+    width: 20rem;
+    margin-left: 20px;
+
+    .ac-item {
+        &.ac-hover {
+            background: #eee;
+        }
+    }
+}
+
+.view-notification {
+    .subject {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .date-time {
+        text-align: right;
+        font-size: 1.2em;
+    }
+
+    .content {
+        padding: 5px;
+        border: solid 1px $colorBorderTable;
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        line-height: 1.42;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+            line-height: 100%;
+        }
+
+        ol li, ul li {
+            padding-left: 1.5em;
+            list-style-position: inside;
+        }
+
+        ol li {
+            list-style-type: decimal;
+        }
+
+        ul li {
+            list-style-type: disc;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            margin: 5px 0 5px 0;
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            display: block;
+            color: #333;
+        }
+
+        blockquote {
+            border-left: 4px solid #ccc;
+            margin: 5px 0 5px 0;
+            padding-left: 16px;
+            font-size: 1.4em;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        &:after, &:before {
+            clear: both;
+        }
+    }
+
+    .popup-close {
+        display: none;
+    }
+}
+
+/*Hack for IE*/
+.logo {
+    .logo-image {
+        vertical-align: top;
+    }
+}
+
+footer {
+    background: #CBCBCB;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#clock {
+    margin-left: 5px;
+}

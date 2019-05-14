@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthPicker render render correct content 1`] = `
+<div
+  className="month-picker"
+>
+  <div
+    className="month"
+  >
+    <label
+      className="label-text"
+    >
+      View data in month
+    </label>
+    <div
+      className="month-content"
+    >
+      <div
+        className="month-container"
+      >
+        <div
+          className="month-picked"
+        >
+          <a
+            className="prev"
+            href="javascript:;"
+            onClick={[Function]}
+          >
+            <span
+              className="arrow-icon left-arrow "
+            />
+          </a>
+          <span
+            className="month-label"
+            onClick={[Function]}
+          >
+            Oct 2000
+          </span>
+          <a
+            className="next"
+            href="javascript:;"
+            onClick={[Function]}
+          >
+            <span
+              className="arrow-icon right-arrow "
+            />
+          </a>
+        </div>
+        <div
+          className="overlay"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="date"
+  >
+    <label
+      className="label-text"
+    />
+    <div
+      className="date-content"
+    >
+      <div
+        className="date-container"
+      >
+        <div
+          className="date-picked"
+          onClick={[Function]}
+        >
+          <span
+            className="date-label"
+          >
+            20
+          </span>
+          <a
+            href="javascript:;"
+          >
+            <span
+              className="arrow-icon down-arrow"
+            />
+          </a>
+        </div>
+        <div
+          className="overlay"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="date"
+  >
+    <label
+      className="label-text"
+    />
+    <div
+      className="date-content"
+    >
+      <div
+        className="date-container"
+      >
+        <div
+          className="date-picked"
+          onClick={[Function]}
+        >
+          <span
+            className="date-label"
+          >
+            29
+          </span>
+          <a
+            href="javascript:;"
+          >
+            <span
+              className="arrow-icon down-arrow"
+            />
+          </a>
+        </div>
+        <div
+          className="overlay"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

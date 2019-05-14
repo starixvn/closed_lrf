@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PredefinedRanges render onlyClasses = false - match snapshot 1`] = `
+<div
+  className="predefinedRanges"
+  style={
+    Object {
+      "display": "inline-block",
+      "marginLeft": 10,
+      "marginTop": 10,
+      "verticalAlign": "top",
+      "width": 160,
+    }
+  }
+>
+  <a
+    className="rdr-PredefinedRangesItem"
+    href="#"
+    onClick={[Function]}
+    style={
+      Object {
+        "borderRadius": "4px",
+        "color": "#2c3e50",
+        "display": "block",
+        "fontSize": 12,
+        "marginBottom": 3,
+        "padding": "10px 14px",
+        "textDecoration": "none",
+      }
+    }
+  >
+    Yesterday
+  </a>
+  <a
+    className="rdr-PredefinedRangesItem"
+    href="#"
+    onClick={[Function]}
+    style={
+      Object {
+        "borderRadius": "4px",
+        "color": "#2c3e50",
+        "display": "block",
+        "fontSize": 12,
+        "marginBottom": 3,
+        "padding": "10px 14px",
+        "textDecoration": "none",
+      }
+    }
+  >
+    LastMonth
+  </a>
+  <div
+    className="range-button-group"
+  >
+    <button
+      className="rdr-Button rdr-ApplyButton"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#f05b1f",
+          "border": "none",
+          "borderRadius": "2px",
+          "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)",
+          "color": "#fff",
+          "display": "inline-block",
+          "height": 25,
+          "letterSpacing": "0.5px",
+          "lineHeight": "25px",
+          "marginRight": "calc(4%)",
+          "outline": 0,
+          "textAlign": "center",
+          "verticalAlign": "middle",
+          "width": "48%",
+        }
+      }
+      type="button"
+    >
+      OK
+    </button>
+    <button
+      className="rdr-Button rdr-CancelButton"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#757985",
+          "border": "none",
+          "borderRadius": "2px",
+          "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)",
+          "color": "#fff",
+          "display": "inline-block",
+          "height": 25,
+          "letterSpacing": "0.5px",
+          "lineHeight": "25px",
+          "outline": 0,
+          "textAlign": "center",
+          "verticalAlign": "middle",
+          "width": "48%",
+        }
+      }
+      type="button"
+    >
+      Cancel
+    </button>
+  </div>
+</div>
+`;
+
+exports[`PredefinedRanges render onlyClasses = true - match snapshot 1`] = `
+<div
+  className="predefinedRanges"
+>
+  <a
+    className="rdr-PredefinedRangesItem"
+    href="#"
+    onClick={[Function]}
+  >
+    Yesterday
+  </a>
+  <a
+    className="rdr-PredefinedRangesItem"
+    href="#"
+    onClick={[Function]}
+  >
+    LastMonth
+  </a>
+  <div
+    className="range-button-group"
+  >
+    <button
+      className="rdr-Button rdr-ApplyButton"
+      onClick={[Function]}
+      type="button"
+    >
+      OK
+    </button>
+    <button
+      className="rdr-Button rdr-CancelButton"
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+  </div>
+</div>
+`;

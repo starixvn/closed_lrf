@@ -1,0 +1,42 @@
+﻿@import "../../components/react-grid";
+@import "../../components/forms/radio-buttons";
+@import "../../components/react-multiselect";
+@import "../../components/month-picker";
+
+$bgheaderButton: #2c3d4b;
+
+.rdr-DateRange {
+    z-index: 2;
+}
+
+.header-button {
+    margin: 0;
+    height: 16px;
+    width: 16px;
+    border-radius: 2px;
+    padding: 0;
+    margin-left: 10px;
+    background: $bgheaderButton;
+    box-shadow: none;
+
+    .btn-icon {
+        display: block;
+        transform: rotate(-90deg);
+        font-size: 7px;
+        color: $white;
+        font-weight: bold;
+        height: 100%;
+        line-height: 16px;
+    }
+
+    &.btnCollapse {
+        .btn-icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    &:hover {
+        background: lighten($bgheaderButton, 5%);
+        box-shadow: none;
+    }
+}

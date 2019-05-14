@@ -1,0 +1,16 @@
+﻿@import "../../components/forms/checkbox";
+@import "../../components/date-range/styles";
+@import "../../components/react-grid";
+@import "../../components/react-multiselect";
+@import "../../components/breadcrumb";
+
+.form-group {
+    .button-group {
+        margin-left: 15px;
+        margin-top: 0;
+    }
+}
+
+.multiple-select-options-container, .rdr-DateRange, .Select-menu-outer {
+    z-index: 2;
+}

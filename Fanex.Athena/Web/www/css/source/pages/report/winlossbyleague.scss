@@ -1,0 +1,18 @@
+﻿@import '../../scss/abstracts/variables';
+@import '../../components/monthpicker/monpickr';
+@import '../../components/paging/paging';
+@import '../../components/checkbox/checkbox';
+@import "../../components/popupnotification/popupnotification";
+@import "../../components/breadcrumb/breadcrumb";
+
+#TickerFilter {
+    > label {
+        left: 0;
+        color: $colorCheckbox;
+        font-size: 1.3rem;
+    }
+}
+
+.decimal-odds {
+    color: $red;
+}

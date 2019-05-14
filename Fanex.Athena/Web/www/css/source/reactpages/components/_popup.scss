@@ -1,0 +1,116 @@
+﻿@import "../abstracts/variables";
+
+$colorTextForRule: #515151;
+$colorTextTitle: $white;
+$bgTitlebar: $bgHeaderTableLevel1;
+
+.popup-container {
+    &.show {
+        .popup-block-body, .flat-popup {
+            display: block;
+        }
+    }
+
+    &.hide {
+        .popup-block-body, .flat-popup {
+            display: none;
+        }
+    }
+
+    .popup-block-body {
+        border: none;
+        background: rgba(0, 0, 0, 0.7) no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+    }
+
+    .flat-popup {
+        background: $white;
+        position: fixed;
+        z-index: 101;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        max-height: 80%;
+        max-width: 95%;
+        margin: auto;
+
+        .popup-title {
+            background-color: #4C6375;
+            padding: 8.5px 15px;
+            position: relative;
+            background-color: $bgTitlebar;
+            padding: 8.5px 15px;
+            position: relative;
+
+            .txt-title {
+                color: $colorTextTitle;
+                font-size: 14px;
+                text-transform: uppercase;
+                display: inline-block;
+            }
+
+            .popup-close {
+                color: #BFBDBF;
+                float: right;
+
+                .icon-close {
+                    font-size: 18px;
+                }
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+
+        .popup-content {
+            overflow-y: auto;
+            height: calc(100% - 38px);
+
+            h1, h2, h3, h4, h5, h6 {
+                font-weight: bold;
+            }
+
+            .rule {
+                padding: 8px 10px;
+
+                ul, div {
+                    color: $colorTextForRule;
+                    font-size: 12px;
+                    line-height: 20px;
+                    margin: 0;
+                    padding-left: 15px;
+                }
+
+                h4 {
+                    color: $colorTextForRule;
+                    font-size: 12px;
+                    margin: 0 0 5px;
+                }
+
+                .newline {
+                    padding-top: 12px;
+                }
+
+                &:last-child {
+                    border-bottom: medium none;
+                }
+            }
+
+            .line {
+                border: none;
+                overflow: auto;
+                width: auto;
+                background-color: #ebeaea;
+                height: 1px;
+                margin: 0 10px;
+            }
+        }
+    }
+}

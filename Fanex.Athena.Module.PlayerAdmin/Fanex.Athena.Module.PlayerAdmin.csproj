@@ -92,8 +92,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\PlayerAccountInfoController.cs" />
-    <Compile Include="Api\PlayerAdminController.cs" />
+    <Compile Include="Api\PlayerExtController.cs" />
+    <Compile Include="Api\PlayerLogController.cs" />
+    <Compile Include="Api\PlayerMainController.cs" />
+    <Compile Include="Controllers\PlayerRunningBetlistController.cs" />
+    <Compile Include="Controllers\PlayerStatementController.cs" />
     <Compile Include="Controllers\ProductAndBetLimitController.cs" />
     <Compile Include="DTO\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +118,10 @@
     <ProjectReference Include="..\Controller\Fanex.Athena.Controllers.Base\Fanex.Athena.Controllers.Base.csproj">
       <Project>{255E120A-83BF-4F72-9E31-6050D5704069}</Project>
       <Name>Fanex.Athena.Controllers.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Athena.Extension\Fanex.Athena.Extension.csproj">
+      <Project>{71F95E53-36D0-4091-828D-ED14C9939C35}</Project>
+      <Name>Fanex.Athena.Extension</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Fanex.Athena.Session\Fanex.Athena.Session.csproj">
       <Project>{B41E38EF-54AD-4866-968F-C856DE9DC072}</Project>

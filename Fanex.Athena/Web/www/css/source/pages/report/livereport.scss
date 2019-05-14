@@ -1,0 +1,37 @@
+﻿@import '../common/reportcommon.main';
+@import '../../components/monthpicker/monpickr';
+@import '../../components/daterangepicker/daterangepicker-ex';
+
+.panel-body {
+    padding-bottom: 1.5rem;
+}
+
+.table {
+    table-layout: fixed;
+
+    tr {
+        > th:first-child {
+            width: 200px;
+        }
+
+        > td {
+            overflow: hidden;
+        }
+
+        .header-small {
+            width: 8%;
+        }
+    }
+}
+
+.rpt-match-list {
+    &.table {
+        table-layout: auto;
+
+        tr {
+            > th:first-child, .header-small {
+                width: auto;
+            }
+        }
+    }
+}

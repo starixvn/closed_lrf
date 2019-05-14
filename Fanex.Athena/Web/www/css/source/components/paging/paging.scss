@@ -1,0 +1,93 @@
+﻿@import "../../scss/abstracts/_variables";
+
+$colorLightGray: #ccc;
+$colorDisabledPgButton: $colorLightGray;
+$bgPaging: #EFF3F8;
+$colorBorderPaging: #d1dae1;
+
+.pagingContainer {
+    padding: 3px;
+    font-size: 1.1rem;
+    background-color: $bgPaging;
+    border-left: 1px solid $colorBorderPaging;
+    border-right: 1px solid $colorBorderPaging;
+    border-bottom: 1px solid $colorBorderPaging;
+
+    .icon {
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        font-size: 1.2rem;
+        color: #4c6375;
+        cursor: pointer;
+    }
+
+    .pagingDisable {
+        color: $colorDisabledPgButton;
+        cursor: default;
+    }
+
+    .pagingFirst {
+        &:before {
+            content: "\ea21";
+        }
+    }
+
+    .pagingPrev {
+        &:before {
+            content: "\ea1f";
+        }
+    }
+
+    .pagingNext {
+        &:before {
+            content: "\ea20";
+        }
+    }
+
+    .pagingLast {
+        &:before {
+            content: "\ea22";
+        }
+    }
+
+    .paging-form {
+        width: auto;
+        height: auto;
+        font-size: inherit;
+        padding: 2px;
+        text-align: center;
+        margin: 0;
+
+        &, &:focus {
+            background: $white;
+            border: 1px solid #e2d6d6;
+            box-shadow: none;
+        }
+    }
+
+    .paging-info {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .pagingSeperator {
+        width: 4px;
+        height: 18px;
+        margin: 0;
+        border: 1px solid #ccc;
+    }
+
+    .pageSizeSelected {
+        height: auto;
+        font-size: inherit;
+        padding: 2px;
+        min-width: 65px;
+        border: 1px solid #e2d6d6;
+    }
+}

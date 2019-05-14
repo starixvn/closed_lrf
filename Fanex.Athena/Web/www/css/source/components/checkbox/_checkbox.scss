@@ -1,0 +1,76 @@
+﻿@import '../../scss/abstracts/variables';
+$colorDefault: $colorCheckbox;
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+
+    & + label {
+        position: relative;
+        padding-left: 18px;
+        cursor: pointer;
+        display: inline-block;
+        height: 26px;
+        font-size: 13px;
+        color: $colorDefault;
+        top: 10px;
+        left: 0;
+        margin: 0 5px 10px 0;
+
+        &:before, &:after {
+            content: '';
+            left: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        &:before {
+            width: 6px;
+            height: 12px;
+            border: 1px solid transparent;
+            -webkit-transform-origin: 20% 40%;
+            transform-origin: 100% 100%;
+            transform: rotateZ(37deg);
+        }
+
+        &:after {
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+            z-index: 0;
+            border: 1px solid $colorDefault;
+        }
+    }
+
+    &:checked {
+        & + label {
+            &:before {
+                top: 0;
+                left: 1px;
+                border-right: 1px solid $colorDefault;
+                border-bottom: 1px solid $colorDefault;
+            }
+        }
+    }
+
+    &:disabled {
+        & + label:after {
+            border-color: $colorDisabled;
+        }
+
+        &:checked + label:before {
+            border-right-color: $colorDisabled;
+            border-bottom-color: $colorDisabled;
+        }
+    }
+}
+
+.invalid {
+    input[type="checkbox"] + label {
+        &:after {
+            border: 2px solid $red;
+        }
+    }
+}

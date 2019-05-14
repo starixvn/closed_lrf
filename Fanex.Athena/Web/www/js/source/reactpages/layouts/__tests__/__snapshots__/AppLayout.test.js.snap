@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppLayout  component render correctly 1`] = `
+<div
+  className="container-fluid"
+  id="container"
+>
+  <div>
+    Content
+  </div>
+</div>
+`;

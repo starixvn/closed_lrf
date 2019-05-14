@@ -1,0 +1,35 @@
+﻿@import "../../scss/abstracts/_variables.scss";
+@import "../../components/autocomplete/autocomplete";
+@import '../../components/daterangepicker/daterangepicker-ex';
+@import '../../components/breadcrumb/breadcrumb';
+@import "../../components/jqgrid/multipletotalblock";
+@import "../../components/popupnotification/popupnotification";
+
+$colorBorderGroupingRow: #c5c3c3;
+
+.theme_jqGrid {
+    .ui-jqgrid {
+        .ui-jqgrid-sortable{
+            cursor: default;
+        }
+
+        .ui-jqgrid-btable {
+            .jqgroup {
+                .ui-icon {
+                    float: right;
+                    font-weight: bold;
+                }
+
+                .ui-icon-circlesmall-plus {
+                    transform: rotate(-90deg);
+                }
+
+                > td {
+                    padding-left: 10px !important;
+                    padding-right: 10px;
+                    border-bottom: 1px solid $colorBorderGroupingRow;
+                }
+            }
+        }
+    }
+}

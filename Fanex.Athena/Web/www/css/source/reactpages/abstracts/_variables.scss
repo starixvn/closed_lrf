@@ -1,0 +1,53 @@
+﻿$black: #2c2c2c;
+$white: #fff;
+$red: #e51c23;
+$ligh-gray: #d1dae1;
+$bgBody: #f5f7fa;
+$font-size: 1.2rem;
+$colorHyperlink: #147ccc;
+$colorPositiveNumber: $red;
+
+$secondary-color: #6790b0;
+
+/* z-index */
+$indexLoader: 1000;
+$indexNormal: 1;
+
+/* Table */
+
+$bgHeaderTableLevel1: #4C6375;
+$bgHeaderTableLevel2: #9eb4c3;
+$bgHeaderTableLevel3: $ligh-gray;
+$bgRowGroupLevel1: $ligh-gray;
+$bgSummaryTotal: #B8C3C9;
+$bgTotal: $bgSummaryTotal;
+$bgGrandTotal: $white;
+$colorTableHeader: $black;
+$colorBorderTable: #d6d6d6;
+
+/* Label Text */
+
+$colorLabelText: #808080;
+$label-font-size: 1.1rem !default;
+
+
+// 1. Forms
+// ==========================================================================
+$input-height: 2.5rem !default;
+$input-border-color: #9e9e9e !default;
+$input-border: 1px solid $input-border-color !default;
+$input-error-color: $red !default;
+$input-font-size: 1.2rem !default;
+$input-margin-bottom: 10px;
+$input-margin: 0 0 $input-margin-bottom 0 !default;
+$input-padding: 0 !default;
+$input-transition: all .3s !default;
+$input-disabled-color: rgba(0,0,0, .26) !default;
+$input-disabled-solid-color: #BDBDBD !default;
+$input-disabled-border: 1px dotted $input-disabled-color !default;
+$input-invalid-border: 1px solid $input-error-color !default;
+$input-focus-color: $secondary-color !default;
+
+// Radio Buttons
+$radio-color: $secondary-color !default;
+$radio-border: 2px solid $secondary-color !default;

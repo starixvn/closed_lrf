@@ -1,0 +1,112 @@
+﻿@import "../../scss/abstracts/_variables";
+
+.multiselect-container {
+    > label {
+        position: absolute;
+        top: -10px;
+        width: 100%;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            opacity: 0;
+            left: 0;
+        }
+    }
+
+    > a.ui-multiselect {
+        height: 26px;
+        line-height: 26px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        position: relative;
+        border-radius: 0;
+        width: 100% !important;
+        margin: 0 0 10px 0;
+
+        > input {
+            width: 100% !important;
+            height: 100% !important;
+            cursor: pointer;
+        }
+
+        .ui-multiselect-icon {
+            font-family: 'icomoon' !important;
+
+            &:before {
+                content: "\E916";
+                color: #4d6273;
+                font-size: 18px;
+                position: absolute;
+                top: 7px;
+                right: -5px;
+                line-height: 1;
+            }
+        }
+    }
+
+    &.invalid {
+        > a.ui-multiselect {
+            border-bottom: 2px solid $red;
+        }
+    }
+}
+
+.ui-multiselect-shadow {
+    box-shadow: 0 1px 12px rgba(0,0,0,.175);
+    padding: 0;
+}
+
+.ui-multiselect-header {
+    padding: 8px 10px;
+    padding-right: 0;
+    border-bottom-color: #ccc;
+}
+
+ul.ui-multiselect-checkboxes {
+    margin-top: 0 !important;
+}
+
+.ui-multiselect-div, .ui-multiselect-checkboxes-head {
+    label {
+        position: static;
+        cursor: pointer;
+
+        > input[type="checkbox"] {
+            position: inherit;
+            opacity: 1;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -3px;
+        }
+    }
+}
+
+.ui-multiselect-div {
+    padding: 8px 10px;
+    margin-left: 0 !important;
+
+    label {
+        font-size: $font-size !important;
+        color: #2c2c2c !important;
+
+        &:hover {
+            font-weight: normal !important;
+        }
+    }
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.ui-multiselect-options input {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.ui-multiselect-ul-group {
+    padding-left: 40px;
+}

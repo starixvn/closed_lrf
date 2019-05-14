@@ -1,0 +1,311 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Month render _renderOption() renders correctly 1`] = `
+<div>
+  <li
+    className="year"
+    style={
+      Object {
+        "fontWeight": "bold",
+      }
+    }
+  >
+    <a
+      href="javascript:;"
+    >
+      1999
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      February
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      March
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      April
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      May
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      June
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      July
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      August
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      September
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      October
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      November
+    </a>
+  </li>
+  <li
+    className="month-option"
+    onClick={[Function]}
+  >
+    <a
+      className=""
+      href="javascript:;"
+    >
+      December
+    </a>
+  </li>
+  <li
+    className="year"
+    onClick={[Function]}
+  >
+    <a
+      href="javascript:;"
+    >
+      2000
+    </a>
+  </li>
+  <li
+    className="year"
+    onClick={[Function]}
+  >
+    <a
+      href="javascript:;"
+    >
+      2001
+    </a>
+  </li>
+  <li
+    className="year"
+    onClick={[Function]}
+  >
+    <a
+      href="javascript:;"
+    >
+      2002
+    </a>
+  </li>
+  <li
+    className="year"
+    onClick={[Function]}
+  >
+    <a
+      href="javascript:;"
+    >
+      2003
+    </a>
+  </li>
+  <li
+    className="year"
+    onClick={[Function]}
+  >
+    <a
+      href="javascript:;"
+    >
+      2004
+    </a>
+  </li>
+</div>
+`;
+
+exports[`Month render showMonthDrop = false: render correct content 1`] = `
+<div
+  className="month"
+>
+  <label
+    className="label-text"
+  >
+    View data in month
+  </label>
+  <div
+    className="month-content"
+  >
+    <div
+      className="month-container"
+    >
+      <div
+        className="month-picked"
+      >
+        <a
+          className="prev"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <span
+            className="arrow-icon left-arrow disable"
+          />
+        </a>
+        <span
+          className="month-label"
+          onClick={[Function]}
+        >
+          undefined 1999
+        </span>
+        <a
+          className="next"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <span
+            className="arrow-icon right-arrow disable"
+          />
+        </a>
+      </div>
+      <div
+        className="overlay"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Month render showMonthDrop = true: render correct content 1`] = `
+<div
+  className="month"
+>
+  <label
+    className="label-text"
+  >
+    View data in month
+  </label>
+  <div
+    className="month-content"
+  >
+    <div
+      className="month-container"
+    >
+      <div
+        className="month-picked"
+      >
+        <a
+          className="prev"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <span
+            className="arrow-icon left-arrow disable"
+          />
+        </a>
+        <span
+          className="month-label"
+          onClick={[Function]}
+        >
+          undefined 1999
+        </span>
+        <a
+          className="next"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <span
+            className="arrow-icon right-arrow disable"
+          />
+        </a>
+      </div>
+      <div
+        className="overlay overlay-open"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <div
+          className="month-selection-container"
+        >
+          <ul
+            className="month-selection"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

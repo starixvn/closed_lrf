@@ -1,0 +1,163 @@
+﻿*:focus {
+  outline: none; }
+
+body, html {
+  height: 100%; }
+
+.layout-full {
+  height: 100%; }
+
+.overflow-hidden {
+  overflow: hidden; }
+
+.errmsg {
+  color: #fc5448;
+  transition: 0.2s ease all;
+  opacity: 0;
+  padding-top: 0;
+  height: 0; }
+  .errmsg.show {
+    opacity: 1;
+    padding-top: 10px;
+    height: 20px; }
+
+.page-login .page {
+  background-image: url("../../../images/bg-login.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #020922;
+  height: 100%;
+  padding-top: 8rem; }
+
+.page-login .page-content {
+  display: inline-block;
+  max-width: 100%;
+  font-size: 14px;
+  padding: 50px 30px 20px 30px; }
+  .page-login .page-content .brand-text {
+    text-transform: capitalize;
+    color: #fff;
+    margin-bottom: 10px; }
+    .page-login .page-content .brand-text .text-small {
+      font-size: 20px;
+      font-family: 'Montserrat Hairline';
+      line-height: 1; }
+    .page-login .page-content .brand-text .big-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px; }
+
+.page-login .languages {
+  position: relative;
+  text-align: left;
+  width: 70%;
+  margin-bottom: 0; }
+  .page-login .languages .flag-icon {
+    margin-right: 11px; }
+  .page-login .languages .icon {
+    font-size: 20px;
+    float: right;
+    top: 12px;
+    left: 5px;
+    position: relative; }
+  .page-login .languages .dropdown-toggle {
+    color: #314453;
+    border-bottom: 1px solid #8aa5b8;
+    width: 100%;
+    display: block;
+    transition: 0.2s ease all;
+    font-size: 13px;
+    height: 38px;
+    line-height: 38px; }
+    .page-login .languages .dropdown-toggle:hover, .page-login .languages .dropdown-toggle:focus, .page-login .languages .dropdown-toggle:active {
+      text-decoration: none; }
+  .page-login .languages.open .dropdown-toggle {
+    border-bottom: 1px solid #314453;
+    box-shadow: 0 1px 0 0 #314453; }
+
+.page-login .capcha-block {
+  position: relative;
+  text-align: left;
+  width: 70%;
+  margin-bottom: 0;
+  overflow: hidden; }
+  .page-login .capcha-block .capcha-img {
+    float: left;
+    width: 80px;
+    height: 32px;
+    background: #d2d2d2;
+    border-radius: 3px;
+    overflow: hidden; }
+    .page-login .capcha-block .capcha-img img {
+      width: 100%; }
+  .page-login .capcha-block .input-capcha {
+    float: left;
+    width: calc(100% - 95px);
+    margin-left: 15px;
+    margin-bottom: 1px; }
+
+.page-login form {
+  width: 410px;
+  background: #fff;
+  padding: 10px 30px 30px;
+  border-radius: 6px; }
+
+.page-login .floating-label {
+  color: #bdbdbd; }
+
+.page-login .form-control {
+  color: #333;
+  border-radius: 0;
+  font-size: 13px;
+  height: 31px;
+  line-height: 31px;
+  width: calc(100% - 30px); }
+  .page-login .form-control:focus + .floating-label {
+    color: #bdbdbd; }
+  .page-login .form-control:focus:not([readonly]) {
+    border-bottom: 1px solid #314453;
+    box-shadow: 0 1px 0 0 #314453; }
+
+.page-login .input-icon-group i {
+  color: #314453;
+  font-size: 20px;
+  left: 0;
+  top: 13px;
+  width: 25px;
+  text-align: left;
+  pointer-events: none;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%); }
+  .page-login .input-icon-group i.pull-right {
+    left: inherit;
+    right: -10px;
+    font-size: 16px;
+    opacity: 0;
+    z-index: 9999;
+    cursor: pointer;
+    transition: 0.2s all ease; }
+  .page-login .input-icon-group i + .form-control {
+    padding-left: 30px; }
+    .page-login .input-icon-group i + .form-control:not([value=""]):not(:focus) {
+      border-bottom: 1px solid #314453;
+      box-shadow: 0 1px 0 0 #314453; }
+      .page-login .input-icon-group i + .form-control:not([value=""]):not(:focus) + i.pull-right {
+        opacity: 1; }
+
+a {
+  color: rgba(255, 255, 255, 0.6); }
+
+.btn {
+  background: #f05c20;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  width: calc(30% - 20px);
+  margin-left: 20px;
+  border-radius: 2px;
+  letter-spacing: initial; }
+  .btn:hover, .btn:active {
+    background: #f37f50; }
+

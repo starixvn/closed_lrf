@@ -1,0 +1,19 @@
+﻿ul.list {
+    padding-top: 0.5rem;
+    margin-bottom: 10px;
+
+    li {
+        line-height: 2rem;
+
+        &:before {
+            content: "";
+            width: 0.6rem;
+            height: 0.6rem;
+            background-color: #F9494D;
+            float: left;
+            margin-right: 1rem;
+            margin-top: 0.7rem;
+            border-radius: 50%;
+        }
+    }
+}

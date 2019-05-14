@@ -6,14 +6,12 @@
     using System.Web.Http.Cors;
     using Base.Attributes;
     using Extension.Utility;
+    using Fanex.Athena.Api.Base;
     using Model.Report.MetaModel;
     using Service.Core.Configuration.Interfaces;
     using Service.Report.Interfaces;
 
-    [AllowAnonymous]
-    [ApiOneAuthorization]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class NotificationApiController : ApiController
+    public class NotificationApiController : ExternalApiBaseController
     {
         private const int DefaultPageSize = 10;
 
@@ -24,9 +22,9 @@
         private readonly IAppSettings _appSettings;
 
         public NotificationApiController(
-            IMoveBetService moveBetService, 
-            INotificationService notificationService, 
-            IAppSettings appSettings, 
+            IMoveBetService moveBetService,
+            INotificationService notificationService,
+            IAppSettings appSettings,
             ILicenseeSettingService licenseeSettingService)
         {
             _moveBetService = moveBetService;
@@ -35,11 +33,6 @@
             _licenseeSettingService = licenseeSettingService;
         }
 
-        private string UserName => (string)ActionContext.ActionArguments["username"];
-
-        private string SiteName => (string)ActionContext.ActionArguments["sitename"];
-
-        private string Language => (string)ActionContext.ActionArguments["language"];
 
         [HttpGet]
         public async Task<string> Index()

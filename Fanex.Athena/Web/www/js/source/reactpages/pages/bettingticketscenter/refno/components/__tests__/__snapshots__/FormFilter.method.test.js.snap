@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFilter  render Base Currency Select List correctly 1`] = `
+<div
+  className="Select is-clearable is-searchable Select--single"
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-ddlBased--value"
+    >
+      <div
+        className="Select-placeholder"
+      >
+        Select...
+      </div>
+      <AutosizeInput
+        aria-activedescendant="react-select-ddlBased--value"
+        aria-expanded="false"
+        aria-haspopup="false"
+        aria-owns=""
+        className="Select-input"
+        injectStyles={true}
+        minWidth="5"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        role="combobox"
+        value=""
+      />
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="Select-arrow"
+        onMouseDown={[Function]}
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`FormFilter  render correctly 1`] = `
+<CollapsiblePanel
+  className="page-filter"
+  stickyFooter={
+    <i
+      className="icon-excel right"
+      onClick={[Function]}
+      title="ExportToExcel"
+    />
+  }
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-4 col-sm-4 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          RefNo
+           *
+        </label>
+        <input
+          className="input-text"
+          id="RefNo"
+          name="RefNo"
+          onChange={[Function]}
+          placeholder="RefNo"
+          type="number"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-4 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Username
+        </label>
+        <AutoComplete
+          cache={true}
+          htmlAttributes={
+            Object {
+              "placeholder": "ExternalIdOrSystemId",
+            }
+          }
+          onInput={[Function]}
+          onSelect={[Function]}
+          queryParamName="query"
+          responseDataField="suggestions"
+          url="/SearchCustomerAPI/SearchCustomer"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-4 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          BaseCurrency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          instanceId="ddlBased"
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={
+            Array [
+              "EUR",
+            ]
+          }
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-4 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <CheckBox
+          checked={true}
+          disabled={false}
+          id="IsConvertAll"
+          label="ConvertAllFiguresToBaseCurrency"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-4 col-lg-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="button-group"
+        >
+          <button
+            className="btn btn-submit"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-1"
+      style={
+        Object {
+          "flex": "0 0 4%",
+        }
+      }
+    >
+      Note
+      :
+    </div>
+    <div
+      className="col-9"
+    >
+      * 
+      BettingTicketCenter_RefnoTabNote1
+      <br />
+      * 
+      BettingTicketCenter_RefnoTabNote2
+    </div>
+  </div>
+</CollapsiblePanel>
+`;

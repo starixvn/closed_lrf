@@ -1,0 +1,39 @@
+﻿.ac-container {
+    position: relative;
+
+    > ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .suggestion-list {
+        background-color: #fff;
+        margin: 5px 0 0 0;
+        //display: none;
+        min-width: 100px;
+        max-height: 650px;
+        overflow-y: auto;
+        position: absolute;
+        z-index: 1;
+        will-change: width, height;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .ac-item {
+        padding: 10px;
+        color: $black;
+        cursor: pointer;
+        min-height: 30px;
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+
+        &-active {
+            background-color: #eee;
+        }
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}

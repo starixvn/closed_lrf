@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContainer  render correctly 1`] = `
+<AppLayout>
+  <Loader
+    isLoading={true}
+  />
+  <Connect(FormFilter) />
+  <Connect(DataGrid) />
+</AppLayout>
+`;

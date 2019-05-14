@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker  render Calendar section should be matched with snapshot 1`] = `
+<div
+  className="daterange-container"
+>
+  <div
+    className="daterange-label"
+    onClick={[Function]}
+  >
+    <input
+      autoComplete="off"
+      className="input-text datepicker"
+      readOnly={true}
+      type="text"
+      value="01/29/2018"
+    />
+    <i
+      className="icon icon-calendar"
+    />
+  </div>
+  <div
+    className="overlay"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <div
+      className="rdr-DateRange"
+    />
+  </div>
+</div>
+`;
+
+exports[`DatePicker  render input section should be matched with snapshot 1`] = `
+<div>
+  <div
+    className="daterange-label"
+    onClick={[Function]}
+  >
+    <input
+      autoComplete="off"
+      className="input-text datepicker"
+      readOnly={true}
+      type="text"
+      value="01/29/2018"
+    />
+    <i
+      className="icon icon-calendar"
+    />
+  </div>
+</div>
+`;

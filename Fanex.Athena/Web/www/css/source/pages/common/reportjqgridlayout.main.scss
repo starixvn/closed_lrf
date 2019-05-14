@@ -1,0 +1,34 @@
+﻿@import "../../scss/abstracts/_variables";
+@import 'reportcommon.main';
+@import '../../components/jqgrid/jqgrid.main';
+@import '../../components/multiselect/multiselect.main';
+
+$bgRowGroupLevel1: #D1DAE1;
+
+tr {
+    &.total td {
+        background: $bgGrandTotal;
+    }
+}
+
+.theme_jqGrid {
+    .ui-jqgrid {
+        .ui-jqgrid-htable {
+            thead tr th {
+                &.ui-th-column, &.ui-th-column-header {
+                    background: $bgHeaderTableLevel2;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .ui-jqgrid-btable {
+        tr {
+            &.jqgroup td {
+                background: $bgRowGroupLevel1;
+                font-weight: bold;
+            }
+        }
+    }
+}

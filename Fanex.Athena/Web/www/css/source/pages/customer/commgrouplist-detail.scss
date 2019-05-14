@@ -1,0 +1,31 @@
+﻿@import "../../components/jquery.colorpicker/colorPicker";
+@import "../../components/checkbox/_checkbox";
+@import "../common/reportcommon.main";
+
+.btn-back {
+    margin: 0;
+}
+
+input[type=text] + label:after {
+    top: 40px;
+}
+
+.field-validation-error {
+    font-size: 1.1rem;
+    color: #F44336;
+}
+
+.first-value {
+    position: relative;
+
+    &:after {
+        content: "\2022";
+        position: absolute;
+        top: 8px;
+        right: -2px;
+    }
+}
+
+.third-value {
+    padding: 0 2rem 0 0 !important;
+}

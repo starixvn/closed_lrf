@@ -1,0 +1,36 @@
+﻿@import '../common/reportcommon.main';
+@import '../../components/daterangepicker/daterangepicker-ex';
+@import '../../components/label/label';
+@import '../../components/list/list';
+@import '../../components/daterangepicker/singledatepicker';
+
+body{
+    background: #f5f7fa;
+}
+
+.date-submit{
+    min-width: 210px;
+}
+
+.icon-block{
+    bottom: 12px;
+    right: 15px;
+}
+
+.label{
+    margin-right: 8px;
+}
+
+.result-note{
+    border-bottom: 1px solid #ccc;
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+
+.result-container {
+    padding: 0;
+
+    .noScroll, .fn-rs-content-header {
+        padding-right: 17px;
+    }
+}

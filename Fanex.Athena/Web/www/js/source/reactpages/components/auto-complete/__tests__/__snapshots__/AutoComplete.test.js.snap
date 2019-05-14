@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoComplete render render with custom props 1`] = `
+<div
+  className="ac-container"
+>
+  <input
+    className="test"
+    id="test"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
+</div>
+`;
+
+exports[`AutoComplete render render with default props 1`] = `
+<div
+  className="ac-container"
+>
+  <input
+    className="input-text"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
+</div>
+`;

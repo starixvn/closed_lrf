@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader  isLoading = false - component render correctly 1`] = `
+<div
+  className="loading-process default"
+  style={
+    Object {
+      "display": "none",
+    }
+  }
+>
+  <div
+    className="icon-loading"
+  >
+    <div
+      className="loader-inner ball-beat"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Loader  isLoading = true - component render correctly 1`] = `
+<div
+  className="loading-process default"
+  style={
+    Object {
+      "display": "block",
+    }
+  }
+>
+  <div
+    className="icon-loading"
+  >
+    <div
+      className="loader-inner ball-beat"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;

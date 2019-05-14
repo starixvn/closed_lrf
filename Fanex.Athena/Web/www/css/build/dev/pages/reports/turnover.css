@@ -1,0 +1,171 @@
+/* z-index */
+.dropdown-content {
+  opacity: 1;
+  top: 25px; }
+
+.ac-hover {
+  background-color: #eee; }
+
+/* z-index */
+/*
+* monPickr - jQuery Plugin
+* Just a simple month picker
+*
+* Examples and documentation at: http://update.later
+*
+* Version: 1.0.0 (6 Jan 2012)
+* Requires: jQuery v1.7+
+*
+* Swatch color: BDC7D8 - base color
+*               000000 - text, link color
+*               aaaaaa - border, button background
+*/
+.monPickrWrap {
+  width: 100%;
+  color: #000; }
+
+.monPickrWrapParent, .selectedDayWrapParent {
+  margin-bottom: 10px; }
+
+.monPickrDropDown, .dayPickrDropDown {
+  background: #fff; }
+
+.monPickr {
+  padding: 3px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc; }
+  .monPickr a {
+    display: block;
+    text-decoration: none;
+    color: #000; }
+  .monPickr .prev b, .monPickr .next b {
+    color: #fff;
+    font-weight: 500; }
+    .monPickr .prev b:after, .monPickr .next b:after {
+      font-family: 'icomoon' !important;
+      content: "\E916";
+      color: #444;
+      font-size: 17px;
+      position: absolute;
+      top: -3px; }
+  .monPickr .prev.disable b:after, .monPickr .next.disable b:after {
+    color: rgba(0, 0, 0, 0.26); }
+  .monPickr .prev {
+    float: left; }
+    .monPickr .prev b {
+      float: left;
+      transform: rotate(90deg); }
+      .monPickr .prev b:after {
+        left: -5px; }
+  .monPickr .next {
+    float: right; }
+    .monPickr .next b {
+      float: right;
+      transform: rotate(-90deg); }
+      .monPickr .next b:after {
+        right: -5px; }
+
+.selectedMonth {
+  cursor: pointer;
+  padding: 0; }
+  .selectedMonth:hover {
+    background-color: #D1F0FC;
+    text-decoration: none; }
+
+.monPickrDropDown {
+  display: none;
+  max-height: 330px;
+  overflow: auto;
+  padding: 1px;
+  border-top: 1px solid #eee;
+  list-style-type: circle;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .monPickrDropDown a {
+    text-decoration: none;
+    color: #000 !important;
+    /*font-size: 14px;*/ }
+    .monPickrDropDown a:hover {
+      background-color: #D1F0FC;
+      text-decoration: none;
+      color: #FFF; }
+    .monPickrDropDown a.hover:hover {
+      cursor: default; }
+
+.monPickrDropDownInner {
+  padding: 0;
+  list-style-type: circle; }
+  .monPickrDropDownInner li {
+    text-align: center; }
+  .monPickrDropDownInner .monthWrap {
+    display: none;
+    list-style-type: none; }
+    .monPickrDropDownInner .monthWrap li {
+      list-style-type: none; }
+    .monPickrDropDownInner .monthWrap a {
+      font-size: 12px !important; }
+    .monPickrDropDownInner .monthWrap ul {
+      margin: 0;
+      padding: 0; }
+    .monPickrDropDownInner .monthWrap a.selected {
+      font-weight: bold;
+      text-decoration: underline; }
+
+/* DATE RANGE
+----------------------------------------------------------*/
+.selectedDayWrap {
+  width: 100%;
+  color: #444; }
+
+.dayPickr {
+  padding: 3px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer; }
+  .dayPickr .selectedDay:hover {
+    cursor: default; }
+  .dayPickr .darr {
+    display: block;
+    float: right;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    position: relative; }
+    .dayPickr .darr:after {
+      font-family: 'icomoon' !important;
+      content: "\E916";
+      color: #444;
+      font-size: 17px;
+      position: absolute;
+      top: -2px;
+      right: -5px; }
+    .dayPickr .darr:hover {
+      cursor: default; }
+    .dayPickr .darr b {
+      float: right;
+      margin-right: 4px;
+      margin-top: -1px;
+      font-size: 10px; }
+
+.dayPickrDropDown {
+  max-height: 330px;
+  overflow: auto;
+  border-top: #eee solid 1px;
+  display: none;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .dayPickrDropDown ul {
+    margin: 0;
+    padding: 0; }
+  .dayPickrDropDown li {
+    list-style-type: none;
+    text-indent: 13px; }
+    .dayPickrDropDown li:hover {
+      background-color: #D1F0FC; }
+      .dayPickrDropDown li:hover a {
+        color: #000;
+        cursor: default; }
+
+.theme_jqGrid .ui-jqgrid .ui-jqgrid-sortable {
+  cursor: default; }
+
+
+/*# sourceMappingURL=turnover.css.map*/

@@ -1,0 +1,57 @@
+﻿@import '../common/reportcommon.main';
+@import '../totalbet/totalbet';
+
+$colorTextMatch: #545454;
+
+.page-results {
+    .result-content {
+        border: none;
+    }
+}
+
+.content-data{
+    padding-bottom: 15px;
+
+    .collapsible-header{
+        border-bottom: 1px solid $white;
+    }
+}
+
+.content-detail {
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.match {
+    color: $colorTextMatch;
+    padding: 1rem 0.5rem;
+}
+
+.match-infor {
+    display: inline-block;
+    font-size: 1.8rem;
+    margin: 0 10px;
+}
+
+.v-line {
+    margin: 0 10px;
+}
+
+.table-detail-container {
+    display: inline-block;
+    width: calc(50% - 3px);
+
+    .table > thead > tr > th {
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.table-title {
+    color: $black;
+}
+
+.panel-title {
+    cursor: pointer;
+}

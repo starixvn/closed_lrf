@@ -1,0 +1,178 @@
+﻿@import "../../scss/abstracts/_variables.scss";
+@import '../../../../../node_modules/bootstrap-daterangepicker/daterangepicker';
+
+.btn { 
+    &.applyBtn {
+        margin-right: calc(100% - 48%*2);
+        background: #f05c20;
+        width: 48%;
+        color: #fff;
+        float: left;
+        &:hover, &:active {
+            background: lighten(#f05c20, 5%);
+        }
+    }
+
+    &.cancelBtn {
+        background: #8aa5b8;
+        width: 48%;
+        color: #fff;
+        float: left;
+
+        &:hover, &:active {
+            background: lighten(#8aa5b8, 5%);
+        }
+    }
+}
+
+.daterangepicker {
+    display: none;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    border-radius: 0;
+    margin-top: -1px;
+
+    &:before, &:after {
+        content: none;
+    }
+
+    .input-mini {        
+        border-radius: 0;
+        padding: 0;
+        padding-left: 5px;
+        width: calc(100% - 6px);
+        font-size: $font-size;
+
+        &.active {
+            border-color: #ccc;
+            border-radius: 0;
+        }
+
+        &:focus:not([readonly]) {
+            box-shadow: none;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+
+    select.monthselect, select.yearselect {
+        display: inline-block;
+        height: 32px;
+        font-size: $font-size;
+        border-color: #ececec;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .calendar{
+        max-width: 350px;
+    }
+
+    &.show-calendar .calendar {
+        border: 1px solid #c2cbd2;
+        padding: 10px;
+
+        &.left {
+            border-right: 0;
+        }
+
+        &.right {
+            border-left: 0;
+        }
+    }
+
+    th {
+        color: #4c6375;
+        text-transform: uppercase;
+
+        &.month {
+            padding: 0;
+        }
+
+        &.prev {
+            font-family: 'icomoon' !important;
+            transform: rotate(90deg);
+            padding: 6px;
+            border-radius: 0;
+
+            &:before {
+                content: "\e903";
+                font-size: $font-size;
+                
+            }            
+        }
+
+        &.next {
+            font-family: 'icomoon' !important;
+            transform: rotate(-90deg);
+            padding: 6px;
+            border-radius: 0;
+
+            &:before {
+                content: "\e903";
+                font-size: $font-size;
+                
+            }            
+        }
+    }
+
+    td {
+        padding: 6px;
+        border-radius: 50%;
+
+        &:hover {
+            background-color: rgba(78,184,94,0.4);
+        }
+
+        &.today {
+            background-color: #506374;
+            color: #fff;
+        }
+
+        &.end-date {
+            border-radius: 0 10px 10px 0;
+        }
+
+        &.start-date {
+            border-radius: 10px 0 0 10px ;
+        }
+
+
+        &.in-range {
+            background-color: rgba(78,184,94,0.2);
+        }
+
+        &.available:hover {
+            background-color: rgba(78,184,94,0.4);
+        }
+
+        &.active {
+            background-color: #4eb85e;
+
+            &:hover {
+                background-color: #4eb85e;
+            }
+        }
+    }
+}
+
+.ranges {
+    li {
+        color: #4a6475;
+        background: transparent;
+        border: 0;
+        transition: 0.2s all ease;
+        padding: 5px 12px;
+
+        &:hover {
+            background: lighten(#4c6375, 5%);
+            border: 0;
+        }
+
+        &.active {
+            background: #4c6375;
+            border: 0;
+        }
+    }
+}

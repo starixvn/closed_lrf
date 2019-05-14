@@ -1,0 +1,230 @@
+﻿@import "../../scss/abstracts/variables";
+/*
+* monPickr - jQuery Plugin
+* Just a simple month picker
+*
+* Examples and documentation at: http://update.later
+*
+* Version: 1.0.0 (6 Jan 2012)
+* Requires: jQuery v1.7+
+*
+* Swatch color: BDC7D8 - base color
+*               000000 - text, link color
+*               aaaaaa - border, button background
+*/
+
+.monPickrWrap {
+    width: 100%;
+    color: #000;
+}
+
+.monPickrWrapParent, .selectedDayWrapParent {
+    margin-bottom: 10px;
+}
+
+.monPickrDropDown, .dayPickrDropDown {
+    background: #fff;
+}
+
+.monPickr {
+    padding: 3px 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .prev, .next {
+        b {
+            color: #fff;
+            font-weight: 500;
+
+            &:after {
+                font-family: 'icomoon' !important;
+                content: "\e916";
+                color: #444;
+                font-size: 17px;
+                position: absolute;
+                top: -3px;
+            }
+        }
+
+        &.disable {
+            b:after {
+                color: $colorDisabled;
+            }
+        }
+    }
+
+    .prev {
+        float: left;
+
+        b {
+            float: left;
+            transform: rotate(90deg);
+
+            &:after {
+                left: -5px;
+            }
+        }
+    }
+
+    .next {
+        float: right;
+
+        b {
+            float: right;
+            transform: rotate(-90deg);
+
+            &:after {
+                right: -5px;
+            }
+        }
+    }
+}
+
+.selectedMonth {
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+        background-color: #D1F0FC;
+        text-decoration: none;
+    }
+}
+
+.monPickrDropDown {
+    display: none;
+    max-height: 330px;
+    overflow: auto;
+    padding: 1px;
+    border-top: 1px solid #eee;
+    list-style-type: circle;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+    a {
+        text-decoration: none;
+        color: #000 !important;
+        /*font-size: 14px;*/
+        &:hover {
+            background-color: #D1F0FC;
+            text-decoration: none;
+            color: #FFF;
+        }
+
+        &.hover:hover {
+            cursor: default;
+        }
+    }
+}
+
+.monPickrDropDownInner {
+    padding: 0;
+    list-style-type: circle;
+
+    li {
+        text-align: center;
+    }
+
+    .monthWrap {
+        display: none;
+        list-style-type: none;
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            font-size: 12px !important;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        a.selected {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
+
+/* DATE RANGE
+----------------------------------------------------------*/
+
+.selectedDayWrap {
+    width: 100%;
+    color: #444;
+}
+
+.dayPickr {
+    padding: 3px 0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+
+    .selectedDay:hover {
+        cursor: default;
+    }
+
+    .darr {
+        display: block;
+        float: right;
+        text-decoration: none;
+        font-size: 14px;
+        color: #fff;
+        position: relative;
+
+        &:after {
+            font-family: 'icomoon' !important;
+            content: "\e916";
+            color: #444;
+            font-size: 17px;
+            position: absolute;
+            top: -2px;
+            right: -5px;
+        }
+
+        &:hover {
+            cursor: default;
+        }
+
+        b {
+            float: right;
+            margin-right: 4px;
+            margin-top: -1px;
+            font-size: 10px;
+        }
+    }
+}
+
+.dayPickrDropDown {
+    max-height: 330px;
+    overflow: auto;
+    border-top: #eee solid 1px;
+    display: none;
+    width: 100%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+        text-indent: 13px;
+
+        &:hover {
+            background-color: #D1F0FC;
+
+            a {
+                color: #000;
+                cursor: default;
+            }
+        }
+    }
+}

@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFilter  render render with correct props 1`] = `
+<div
+  className="page-filter"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-6 col-sm-12 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Date
+        </label>
+        <DateRange
+          calendars={2}
+          classNames={Object {}}
+          endDate="01/02/2019"
+          format="MM/DD/YYYY"
+          limitedMonthRange={1}
+          linkedCalendars={false}
+          maxDate="01/01/2010"
+          minDate="10/10/2030"
+          onChange={[Function]}
+          onlyClasses={true}
+          showRange={true}
+          specialDays={Array []}
+          startDate="01/01/2019"
+          theme={Object {}}
+          today="01/02/2019"
+          twoStepChange={false}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Currency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          instanceId="ddlCurrency"
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="Currency"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={
+            Array [
+              Object {
+                "label": "All",
+                "value": 0,
+              },
+              Object {
+                "label": "C1",
+                "value": 1,
+              },
+              Object {
+                "label": "C2",
+                "value": 2,
+              },
+            ]
+          }
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value={0}
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          BaseCurrency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          instanceId="ddlBased"
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="BaseCurrency"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={
+            Array [
+              Object {
+                "label": "EUR",
+                "value": "EUR",
+              },
+              Object {
+                "label": "USD",
+                "value": "USD",
+              },
+            ]
+          }
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value={
+            Object {
+              "label": "EUR",
+              "value": "EUR",
+            }
+          }
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-3 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <CheckBox
+          checked={false}
+          disabled={false}
+          id="IsConvertAll"
+          label="ConvertAllFiguresToBaseCurrency"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group "
+      >
+        <label
+          className="label-text"
+        >
+          Product
+           *
+        </label>
+        <t
+          dataSource={
+            Array [
+              Object {
+                "Code": "1",
+                "Name": "P1",
+                "Status": true,
+              },
+              Object {
+                "Code": "2",
+                "Name": "P2",
+                "Status": false,
+              },
+            ]
+          }
+          hasAllOption={true}
+          hasSearchBox={false}
+          id="ProductList"
+          keyField="Code"
+          language="en-US"
+          onChange={[Function]}
+          statusField="Status"
+          valueField="Name"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-6 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Username
+        </label>
+        <AutoComplete
+          cache={true}
+          htmlAttributes={
+            Object {
+              "placeholder": "ExternalIdOrSystemId",
+            }
+          }
+          onInput={[Function]}
+          onSelect={[Function]}
+          queryParamName="query"
+          responseDataField="suggestions"
+          url="/SearchCustomerAPI/SearchCustomer"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group "
+      >
+        <label
+          className="label-text"
+        >
+          Status
+           *
+        </label>
+        <t
+          dataSource={
+            Array [
+              Object {
+                "Code": 1,
+                "Name": "Won",
+                "Status": true,
+              },
+              Object {
+                "Code": 2,
+                "Name": "Lose",
+                "Status": true,
+              },
+              Object {
+                "Code": 3,
+                "Name": "Draw",
+                "Status": false,
+              },
+            ]
+          }
+          hasAllOption={true}
+          hasSearchBox={false}
+          id="StatusList"
+          keyField="Code"
+          language="en-US"
+          onChange={[Function]}
+          statusField="Status"
+          valueField="Name"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="button-group"
+        >
+          <button
+            className="btn btn-submit"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="caret-block"
+    >
+      <i
+        className="icon-excel right"
+        onClick={[Function]}
+        title="ExportToExcel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FormFilter  render render with empty source - do not render invalid component 1`] = `
+<div
+  className="page-filter"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-md-6 col-sm-12 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Date
+        </label>
+        <DateRange
+          calendars={2}
+          classNames={Object {}}
+          endDate="01/02/2019"
+          format="MM/DD/YYYY"
+          limitedMonthRange={1}
+          linkedCalendars={false}
+          maxDate="01/01/2010"
+          minDate="10/10/2030"
+          onChange={[Function]}
+          onlyClasses={true}
+          showRange={true}
+          specialDays={Array []}
+          startDate="01/01/2019"
+          theme={Object {}}
+          today="01/02/2019"
+          twoStepChange={false}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Currency
+        </label>
+        0
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          BaseCurrency
+        </label>
+        0
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-3 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <CheckBox
+          checked={false}
+          disabled={false}
+          id="IsConvertAll"
+          label="ConvertAllFiguresToBaseCurrency"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group invalid"
+      >
+        <label
+          className="label-text"
+        >
+          Product
+           *
+        </label>
+        0
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-6 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Username
+        </label>
+        <AutoComplete
+          cache={true}
+          htmlAttributes={
+            Object {
+              "placeholder": "ExternalIdOrSystemId",
+            }
+          }
+          onInput={[Function]}
+          onSelect={[Function]}
+          queryParamName="query"
+          responseDataField="suggestions"
+          url="/SearchCustomerAPI/SearchCustomer"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-2"
+    >
+      <div
+        className="form-group invalid"
+      >
+        <label
+          className="label-text"
+        >
+          Status
+           *
+        </label>
+        0
+      </div>
+    </div>
+    <div
+      className="col-12 col-md-3 col-sm-12 col-lg-3 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="button-group"
+        >
+          <button
+            className="btn btn-submit"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="caret-block"
+    >
+      <i
+        className="icon-excel right"
+        onClick={[Function]}
+        title="ExportToExcel"
+      />
+    </div>
+  </div>
+</div>
+`;

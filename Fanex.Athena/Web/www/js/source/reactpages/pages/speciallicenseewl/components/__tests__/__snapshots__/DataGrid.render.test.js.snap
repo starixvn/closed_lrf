@@ -1,0 +1,3567 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataGrid   gridData length is 0 - render no content 1`] = `
+<p
+  className="no-info-row center-align"
+>
+  NoInfo
+</p>
+`;
+
+exports[`DataGrid   gridData length is greater than 0 - expand licensee wl columns - render correctly 1`] = `
+<div>
+  <div
+    className="table-container"
+    style={
+      Object {
+        "maxWidth": -30,
+      }
+    }
+  >
+    <div
+      className="header-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <thead>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-1.715686274509804px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-5.147058823529412px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-3.431372549019608px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.794117647058824px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.46078431372549px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              style={
+                Object {
+                  "height": 32,
+                }
+              }
+            >
+              <th
+                rowSpan={2}
+              >
+                #
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Date
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Currency
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                colSpan={1}
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Turnover
+                  <button
+                    className="header-button btn "
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon icon-arrow"
+                    />
+                  </button>
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  TotalTransaction
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  CustomerW_L
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                colSpan={3}
+                rowSpan={1}
+              >
+                LicenseeW_L
+                <button
+                  className="header-button btn btnCollapse"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="btn-icon icon-arrow"
+                  />
+                </button>
+              </th>
+            </tr>
+            <tr
+              style={
+                Object {
+                  "height": 32,
+                }
+              }
+            >
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  ProductSB
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  ProductNG
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Total
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div
+      className="body-content"
+      style={
+        Object {
+          "maxHeight": 300,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-1.715686274509804px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-5.147058823529412px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-3.431372549019608px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.794117647058824px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.46078431372549px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={1}
+              >
+                1
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-20.00"
+              >
+                -20.00
+              </td>
+              <td
+                className="right-align "
+                title="30.00"
+              >
+                30.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={2}
+              >
+                2
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-20.00"
+              >
+                -20.00
+              </td>
+              <td
+                className="right-align "
+                title="30.00"
+              >
+                30.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      className="footer-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-1.715686274509804px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-5.147058823529412px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-3.431372549019608px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.794117647058824px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.46078431372549px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                colSpan={2}
+                rowSpan={2}
+                title="Total"
+              >
+                Total
+              </td>
+              <td
+                className="center-align"
+                title="USD"
+              >
+                USD
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-4.00"
+              >
+                -4.00
+              </td>
+              <td
+                className="right-align "
+                title="6.00"
+              >
+                6.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="30.00"
+              >
+                30.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-40.00"
+              >
+                -40.00
+              </td>
+              <td
+                className="right-align "
+                title="60.00"
+              >
+                60.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-grant-total"
+            >
+              <td
+                className="center-align"
+                colSpan={3}
+                title="Totalin USD"
+              >
+                Totalin USD
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-4.00"
+              >
+                -4.00
+              </td>
+              <td
+                className="right-align "
+                title="6.00"
+              >
+                6.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataGrid   gridData length is greater than 0 - expand turnover columns - render correctly 1`] = `
+<div>
+  <div
+    className="table-container"
+    style={
+      Object {
+        "maxWidth": -30,
+      }
+    }
+  >
+    <div
+      className="header-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <thead>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-1.715686274509804px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-5.147058823529412px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-3.431372549019608px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.46078431372549px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.794117647058824px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              style={
+                Object {
+                  "height": 32,
+                }
+              }
+            >
+              <th
+                rowSpan={2}
+              >
+                #
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Date
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Currency
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                colSpan={3}
+                rowSpan={1}
+              >
+                Turnover
+                <button
+                  className="header-button btn btnCollapse"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="btn-icon icon-arrow"
+                  />
+                </button>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  TotalTransaction
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  CustomerW_L
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                colSpan={1}
+                onClick={[Function]}
+                rowSpan={2}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  LicenseeW_L
+                  <button
+                    className="header-button btn "
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon icon-arrow"
+                    />
+                  </button>
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+            </tr>
+            <tr
+              style={
+                Object {
+                  "height": 32,
+                }
+              }
+            >
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  ProductSB
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  ProductNG
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Total
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div
+      className="body-content"
+      style={
+        Object {
+          "maxHeight": 300,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-1.715686274509804px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-5.147058823529412px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-3.431372549019608px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.46078431372549px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.794117647058824px",
+                  }
+                }
+              />
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={1}
+              >
+                1
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="5.00"
+              >
+                5.00
+              </td>
+              <td
+                className="right-align"
+                title="10.00"
+              >
+                10.00
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={2}
+              >
+                2
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="5.00"
+              >
+                5.00
+              </td>
+              <td
+                className="right-align"
+                title="10.00"
+              >
+                10.00
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      className="footer-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-1.715686274509804px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-5.147058823529412px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-3.431372549019608px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.46078431372549px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.862745098039216px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.794117647058824px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                colSpan={2}
+                rowSpan={2}
+                title="Total"
+              >
+                Total
+              </td>
+              <td
+                className="center-align"
+                title="USD"
+              >
+                USD
+              </td>
+              <td
+                className="right-align"
+                title="1.00"
+              >
+                1.00
+              </td>
+              <td
+                className="right-align"
+                title="2.00"
+              >
+                2.00
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="10.00"
+              >
+                10.00
+              </td>
+              <td
+                className="right-align"
+                title="20.00"
+              >
+                20.00
+              </td>
+              <td
+                className="right-align"
+                title="30.00"
+              >
+                30.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-grant-total"
+            >
+              <td
+                className="center-align"
+                colSpan={3}
+                title="Totalin USD"
+              >
+                Totalin USD
+              </td>
+              <td
+                className="right-align"
+                title="1.00"
+              >
+                1.00
+              </td>
+              <td
+                className="right-align"
+                title="2.00"
+              >
+                2.00
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataGrid   gridData length is greater than 0 - have 1 product only - render grid without expandable columns 1`] = `
+<div>
+  <div
+    className="table-container"
+    style={
+      Object {
+        "maxWidth": -30,
+      }
+    }
+  >
+    <div
+      className="header-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <thead>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-2.378640776699029px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-7.135922330097087px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.757281553398058px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.184466019417475px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              style={
+                Object {
+                  "height": 32,
+                }
+              }
+            >
+              <th
+                rowSpan={1}
+              >
+                #
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Date
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Currency
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Turnover
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  TotalTransaction
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  CustomerW_L
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  LicenseeW_L
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div
+      className="body-content"
+      style={
+        Object {
+          "maxHeight": 300,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-2.378640776699029px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-7.135922330097087px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.757281553398058px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.184466019417475px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={1}
+              >
+                1
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={2}
+              >
+                2
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      className="footer-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-2.378640776699029px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-7.135922330097087px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.757281553398058px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.184466019417475px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.514563106796116px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                colSpan={2}
+                rowSpan={2}
+                title="Total"
+              >
+                Total
+              </td>
+              <td
+                className="center-align"
+                title="USD"
+              >
+                USD
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="30.00"
+              >
+                30.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-grant-total"
+            >
+              <td
+                className="center-align"
+                colSpan={3}
+                title="Totalin USD"
+              >
+                Totalin USD
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataGrid   gridData length is greater than 0 - have more than 1 product - render grid with expandable columns 1`] = `
+<div>
+  <div
+    className="table-container"
+    style={
+      Object {
+        "maxWidth": -30,
+      }
+    }
+  >
+    <div
+      className="header-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <thead>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-2.387914230019493px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-7.163742690058479px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.775828460038986px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.456140350877192px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.208576998050682px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.551656920077972px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.456140350877192px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              style={
+                Object {
+                  "height": 32,
+                }
+              }
+            >
+              <th
+                rowSpan={1}
+              >
+                #
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Date
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Currency
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                colSpan={1}
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  Turnover
+                  <button
+                    className="header-button btn "
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon icon-arrow"
+                    />
+                  </button>
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  TotalTransaction
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  CustomerW_L
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+              <th
+                className="sortable sorting"
+                colSpan={1}
+                onClick={[Function]}
+                rowSpan={1}
+                style={
+                  Object {
+                    "backgroundClip": "padding-box",
+                    "position": "relative",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "width": "90%",
+                    }
+                  }
+                >
+                  LicenseeW_L
+                  <button
+                    className="header-button btn "
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon icon-arrow"
+                    />
+                  </button>
+                </div>
+                <span
+                  style={
+                    Object {
+                      "float": "right",
+                      "position": "absolute",
+                      "right": "2px",
+                      "top": "40%",
+                    }
+                  }
+                >
+                  <div
+                    className="asc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                      }
+                    }
+                  />
+                  <div
+                    className="desc"
+                    style={
+                      Object {
+                        "color": "#777",
+                        "display": "block",
+                        "marginTop": "2px",
+                      }
+                    }
+                  />
+                </span>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div
+      className="body-content"
+      style={
+        Object {
+          "maxHeight": 300,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-2.387914230019493px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-7.163742690058479px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.775828460038986px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.456140350877192px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.208576998050682px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.551656920077972px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.456140350877192px",
+                  }
+                }
+              />
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={1}
+              >
+                1
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align negative"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+            </tr>
+            <tr>
+              <td
+                className="center-align"
+                title={2}
+              >
+                2
+              </td>
+              <td
+                className="center-align"
+                title="08/2018"
+              >
+                08/2018
+              </td>
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="15.00"
+              >
+                15.00
+              </td>
+              <td
+                className="right-align"
+                title="1"
+              >
+                1
+              </td>
+              <td
+                className="right-align"
+                title="-5.00"
+              >
+                -5.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      className="footer-content"
+      style={
+        Object {
+          "maxHeight": undefined,
+          "minWidth": 800,
+          "width": -30,
+        }
+      }
+    >
+      <div
+        className="table-wrapper"
+      >
+        <table
+          className="table"
+          style={
+            Object {
+              "width": 781,
+            }
+          }
+        >
+          <tbody>
+            <tr
+              className="first-row"
+            >
+              <td
+                style={
+                  Object {
+                    "width": "-2.387914230019493px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-7.163742690058479px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-4.775828460038986px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.456140350877192px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-6.208576998050682px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.551656920077972px",
+                  }
+                }
+              />
+              <td
+                style={
+                  Object {
+                    "width": "-9.456140350877192px",
+                  }
+                }
+              />
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                colSpan={2}
+                rowSpan={2}
+                title="Total"
+              >
+                Total
+              </td>
+              <td
+                className="center-align"
+                title="USD"
+              >
+                USD
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-total"
+            >
+              <td
+                className="center-align"
+                title="UUS"
+              >
+                UUS
+              </td>
+              <td
+                className="right-align"
+                title="30.00"
+              >
+                30.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-10.00"
+              >
+                -10.00
+              </td>
+              <td
+                className="right-align "
+                title="20.00"
+              >
+                20.00
+              </td>
+            </tr>
+            <tr
+              className="fixed-table-grant-total"
+            >
+              <td
+                className="center-align"
+                colSpan={3}
+                title="Totalin USD"
+              >
+                Totalin USD
+              </td>
+              <td
+                className="right-align"
+                title="3.00"
+              >
+                3.00
+              </td>
+              <td
+                className="right-align"
+                title="2"
+              >
+                2
+              </td>
+              <td
+                className="right-align"
+                title="-1.00"
+              >
+                -1.00
+              </td>
+              <td
+                className="right-align "
+                title="2.00"
+              >
+                2.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollapsibleRow  onClick Class name is changed to show/hide content 1`] = `
+<div
+  className="collapse-item collapse"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Subject",
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Content",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  onClick Class name is changed to show/hide content 2`] = `
+<div
+  className="collapse-item"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Subject",
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Content",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  onClick Class name is changed to show/hide content 3`] = `
+<div
+  className="collapse-item collapse"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Subject",
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Content",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  onClick onExpand function is called when expanding 1`] = `
+<div
+  className="collapse-item"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Subject",
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Content",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  render component render content correctly 1`] = `
+<div
+  className="collapse-item collapse"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Content</p>",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  render component render subject correctly 1`] = `
+<div
+  className="collapse-item collapse"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Subject</p>",
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  render isExpand = false - component is collapsed 1`] = `
+<div
+  className="collapse-item collapse"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CollapsibleRow  render isExpand = true - component is expanded 1`] = `
+<div
+  className="collapse-item collapse"
+>
+  <div
+    className="subject-item"
+  >
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+    />
+    <i
+      className="icon-arrow"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="content-item"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": undefined,
+      }
+    }
+  />
+</div>
+`;

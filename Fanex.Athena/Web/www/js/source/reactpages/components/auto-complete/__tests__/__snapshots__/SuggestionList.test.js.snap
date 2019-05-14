@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestionList on click in a item of suggestion list - call props.onSelect 1`] = `
+<ul
+  className="suggestion-list"
+  style={
+    Object {
+      "width": 100,
+    }
+  }
+>
+  <li
+    className="ac-item"
+    onClick={[Function]}
+  >
+    1
+  </li>
+  <li
+    className="ac-item ac-item-active"
+    onClick={[Function]}
+  >
+    2
+  </li>
+  <li
+    className="ac-item"
+    onClick={[Function]}
+  >
+    3
+  </li>
+</ul>
+`;
+
+exports[`SuggestionList render correctly 1`] = `
+<ul
+  className="suggestion-list"
+  style={
+    Object {
+      "width": 100,
+    }
+  }
+>
+  <li
+    className="ac-item"
+    onClick={[Function]}
+  >
+    1
+  </li>
+  <li
+    className="ac-item ac-item-active"
+    onClick={[Function]}
+  >
+    2
+  </li>
+  <li
+    className="ac-item"
+    onClick={[Function]}
+  >
+    3
+  </li>
+</ul>
+`;

@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserGuide  onClickHandler update state to true - content is empty - popup is shown 1`] = `
+<div>
+  <i
+    className="icon-book right"
+    onClick={[Function]}
+  />
+  <div
+    className="popup-container show"
+  >
+    <div
+      className="popup-block-body"
+    />
+    <div
+      className="flat-popup"
+      style={
+        Object {
+          "height": 480,
+          "width": 640,
+        }
+      }
+    >
+      <div
+        className="popup-title"
+      >
+        <div
+          className="txt-title"
+        />
+        <a
+          className="popup-close"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <i
+            className="icon-close"
+          />
+        </a>
+      </div>
+      <div
+        className="popup-content"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<div></div>",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UserGuide  onClickHandler update state to true - content is not empty - popup is shown 1`] = `
+<div>
+  <i
+    className="icon-book right"
+    onClick={[Function]}
+  />
+  <div
+    className="popup-container hide"
+  >
+    <div
+      className="popup-block-body"
+    />
+    <div
+      className="flat-popup"
+      style={
+        Object {
+          "height": 480,
+          "width": 640,
+        }
+      }
+    >
+      <div
+        className="popup-title"
+      >
+        <div
+          className="txt-title"
+        />
+        <a
+          className="popup-close"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <i
+            className="icon-close"
+          />
+        </a>
+      </div>
+      <div
+        className="popup-content"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UserGuide  render popup component is hidden 1`] = `
+<div>
+  <i
+    className="icon-book right"
+    onClick={[Function]}
+  />
+  <div
+    className="popup-container hide"
+  >
+    <div
+      className="popup-block-body"
+    />
+    <div
+      className="flat-popup"
+      style={
+        Object {
+          "height": 480,
+          "width": 640,
+        }
+      }
+    >
+      <div
+        className="popup-title"
+      >
+        <div
+          className="txt-title"
+        />
+        <a
+          className="popup-close"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <i
+            className="icon-close"
+          />
+        </a>
+      </div>
+      <div
+        className="popup-content"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<div></div>",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

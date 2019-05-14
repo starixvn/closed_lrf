@@ -1,0 +1,30 @@
+﻿@import "../abstracts/variables";
+
+.popup-content-default {
+    padding: 0 15px 10px 15px;
+
+    .caption {
+        font-weight: bold;
+        font-size: 15px;
+        padding: 5px 0 10px 0;
+        min-width: 650px;
+        color: #D2592D;
+
+        .base-currency-title {
+            color: #024584;
+        }
+    }
+
+    .table {
+        > thead {
+            > tr > th {
+                background: $bgHeaderTableLevel1;
+                color: $white;
+            }
+        }
+    }
+}
+
+.popup-detail-default {
+    padding-top: 10px;
+}

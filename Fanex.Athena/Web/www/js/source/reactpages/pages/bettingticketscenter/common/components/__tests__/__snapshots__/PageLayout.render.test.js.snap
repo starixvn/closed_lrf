@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLayout  render with correct active tab 1`] = `
+<AppLayout>
+  <Loader
+    isLoading={true}
+  />
+  <t>
+    <t
+      isActive={false}
+      label="MultiCustomers"
+      url="BettingTicketCenter/MultipleCustomers"
+    />
+    <t
+      isActive={true}
+      label="SingleCustomer"
+      url="BettingTicketCenter/SingleCustomer"
+    />
+    <t
+      isActive={false}
+      label="RefNo"
+      url="BettingTicketCenter/RefNo"
+    />
+    <t
+      isActive={false}
+      label="Running"
+      url="BettingTicketCenter/Running"
+    />
+  </t>
+  <div />
+</AppLayout>
+`;
+
+exports[`PageLayout  show loader 1`] = `
+<AppLayout>
+  <Loader
+    isLoading={true}
+  />
+  <t>
+    <t
+      isActive={false}
+      label=""
+      url="javascript:;"
+    />
+    <t
+      isActive={true}
+      label=""
+      url="javascript:;"
+    />
+    <t
+      isActive={false}
+      label=""
+      url="javascript:;"
+    />
+    <t
+      isActive={false}
+      label=""
+      url="javascript:;"
+    />
+  </t>
+  <div />
+</AppLayout>
+`;
+
+exports[`PageLayout  show popup 1`] = `
+<div
+  className="container-fluid"
+  id="container"
+>
+  <div
+    className="loading-process default"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <div
+      className="icon-loading"
+    >
+      <div
+        className="loader-inner ball-beat"
+      >
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>
+  <div
+    className="page-filter-tab"
+  >
+    <div
+      className="header-tab"
+    >
+      <div
+        className="content-tab"
+      >
+        <ul
+          className="tabs"
+        >
+          <li
+            className="tab"
+          >
+            <a
+              className=""
+              href="javascript:;"
+              onClick={[Function]}
+            >
+              
+            </a>
+          </li>
+          <li
+            className="tab"
+          >
+            <a
+              className="active"
+              href="javascript:;"
+              onClick={[Function]}
+            >
+              
+            </a>
+          </li>
+          <li
+            className="tab"
+          >
+            <a
+              className=""
+              href="javascript:;"
+              onClick={[Function]}
+            >
+              
+            </a>
+          </li>
+          <li
+            className="tab"
+          >
+            <a
+              className=""
+              href="javascript:;"
+              onClick={[Function]}
+            >
+              
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="tab-panel"
+    />
+  </div>
+  <div />
+  <div
+    className="popup-container show"
+  >
+    <div
+      className="popup-block-body"
+    />
+    <div
+      className="flat-popup"
+      style={
+        Object {
+          "height": 600,
+          "width": 900,
+        }
+      }
+    >
+      <div
+        className="popup-title"
+      >
+        <div
+          className="txt-title"
+        >
+          title
+        </div>
+        <a
+          className="popup-close"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          <i
+            className="icon-close"
+          />
+        </a>
+      </div>
+      <iframe
+        frameBorder="0"
+        height="100%"
+        src="url"
+        width="100%"
+      />
+    </div>
+  </div>
+</div>
+`;

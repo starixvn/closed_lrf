@@ -1,0 +1,64 @@
+﻿@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+/* Grid System Mixin */
+$columnList: 12 !default;
+$grid-gutter-width: 30px !default;
+
+$breakpointList: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px ) !default;
+
+@mixin make-container() {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+}
+
+@mixin make-row() {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $breakpointList) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $breakpointList) {
+    @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $breakpointList) {
+    $min: breakpoint-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+
+@mixin make-col($size, $columns: $columnList) {
+    flex: 0 0 percentage($size / $columns);
+    // Add a `max-width` to ensure content within each column does not blow out
+    // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+    // do not appear to require this.
+    max-width: percentage($size / $columns);
+}

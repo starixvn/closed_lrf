@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFilter  ExchangeWL FormFilter render whole component match to snapshot 1`] = `
+<div
+  className="page-filter"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-sm-7 col-md-4 col-xl-3"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Date
+        </label>
+        <DateRange
+          calendars={2}
+          classNames={Object {}}
+          endDate="10/10/2017"
+          format="MM/DD/YYYY"
+          limitedMonthRange={3}
+          linkedCalendars={false}
+          maxDate="01/01/2010"
+          minDate="10/10/2030"
+          onChange={[Function]}
+          onlyClasses={true}
+          showRange={true}
+          specialDays={Array []}
+          startDate="01/01/2017"
+          theme={Object {}}
+          twoStepChange={false}
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-sm-4 col-md-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          Currency
+        </label>
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          instanceId="ddlCurrency"
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="form-field-name"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={
+            Array [
+              Object {
+                "label": "1",
+                "value": "1",
+              },
+              Object {
+                "label": "2",
+                "value": "2",
+              },
+            ]
+          }
+          pageSize={5}
+          placeholder="Select..."
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value={
+            Object {
+              "label": "1",
+              "value": "1",
+            }
+          }
+          valueComponent={[Function]}
+          valueKey="value"
+        />
+      </div>
+    </div>
+    <div
+      className="col-12 col-sm-4 col-md-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="label-text"
+        >
+          ReportBy
+        </label>
+        <span>
+          <input
+            checked={false}
+            id="ReportBy0"
+            onChange={[Function]}
+            type="radio"
+            value="1"
+          />
+          <label
+            htmlFor="ReportBy0"
+          >
+            1
+          </label>
+        </span>
+        <span>
+          <input
+            checked={false}
+            id="ReportBy1"
+            onChange={[Function]}
+            type="radio"
+            value="2"
+          />
+          <label
+            htmlFor="ReportBy1"
+          >
+            2
+          </label>
+        </span>
+      </div>
+    </div>
+    <div
+      className="col-12 col-sm-3 col-md-2 col-xl-2"
+    >
+      <div
+        className="form-group"
+      >
+        <div
+          className="checkbox-group"
+        >
+          <input
+            checked={true}
+            className="checkbox"
+            id="ExcludeTest"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            htmlFor="ExcludeTest"
+            style={
+              Object {
+                "marginLeft": "0px",
+              }
+            }
+          >
+            ExcludeTestData
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 col-sm-3 col-md-2 col-xl-2"
+    >
+      <div
+        className="form-group button-group"
+      >
+        <button
+          className="btn btn-submit"
+          onClick={[Function]}
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="caret-block"
+  >
+    <i
+      className="icon-excel right"
+      onClick={[Function]}
+      title="ExportToExcel"
+    />
+  </div>
+</div>
+`;

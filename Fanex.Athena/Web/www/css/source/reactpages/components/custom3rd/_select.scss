@@ -1,0 +1,74 @@
+﻿@import '../../../../../../node_modules/react-select/dist/react-select';
+
+$selected-option-color: #4c6375;
+
+.Select {
+    outline: 0;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.Select--single {
+        > .Select-control .Select-value {
+            line-height: $input-height;
+            padding-left: 0;
+        }
+    }
+
+    .Select-clear-zone {
+        display: none;
+    }
+    &.is-disabled > .Select-control {
+        background-color: #ddd;
+    }
+
+    &.is-focused:not(.is-open) > .Select-control {
+        border: none;
+        border-bottom: $input-border;
+        box-shadow: none;
+    }
+
+    .Select-control {
+        border: none;
+        border-bottom: $input-border;
+        border-radius: 0;
+        height: $input-height;
+
+        .Select-value {
+            &-label {
+                color: $black;
+            }
+        }
+
+        .Select-input {
+            height: $input-height;
+            padding-left: 0;
+        }
+    }
+
+    &-menu-outer {
+        .Select-option {
+            color: $black;
+
+            &.is-focused, &.is-selected {
+                background-color: $selected-option-color;
+                color: $white;
+            }
+        }
+    }
+
+    &-arrow {
+        border-width: 4px 4px 2.5px;
+        border-top-color: $black;
+    }
+}
+
+.is-open {
+    > .Select-control {
+        .Select-arrow {
+            border-bottom-color: $black;
+            border-width: 0 4px 4px;
+        }
+    }
+}

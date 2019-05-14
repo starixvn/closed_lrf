@@ -1,0 +1,33 @@
+﻿.input-text {
+    background-color: transparent;
+    border: none;
+    border-bottom: $input-border;
+    border-radius: 0;
+    outline: none;
+    width: 100%;
+    font-size: $input-font-size;
+    padding: $input-padding;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: $input-transition;
+    height: $input-height;
+    line-height: $input-height;
+    font-size: 1.3rem;
+    color: $black;
+
+    // Focused input style
+    &:focus:not([readonly]) {
+        border-bottom: 1px solid $input-focus-color;
+        box-shadow: 0 1px 0 0 $input-focus-color;
+    }
+
+    // hide up/down arrow in number input
+    &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    &[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+}

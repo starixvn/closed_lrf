@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContainer  render() - match with snapshot 1`] = `
+<AppLayout>
+  <Loader
+    isLoading={false}
+  />
+  <Connect(FormFilter) />
+  <div
+    className="result-content"
+  >
+    <ReportTitle
+      content="title"
+    />
+    <Connect(DataGrid) />
+  </div>
+</AppLayout>
+`;
+
+exports[`AppContainer  render() - title is null - match with snapshot 1`] = `
+<AppLayout>
+  <Loader
+    isLoading={false}
+  />
+  <Connect(FormFilter) />
+  <div
+    className="result-content"
+  >
+    <Connect(DataGrid) />
+  </div>
+</AppLayout>
+`;

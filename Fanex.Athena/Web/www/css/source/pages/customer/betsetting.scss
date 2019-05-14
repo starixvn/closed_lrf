@@ -1,0 +1,169 @@
+﻿@import "../../scss/abstracts/_variables";
+@import "../common/reportcommon.main";
+@import "../../components/checkbox/checkbox";
+
+$colorBorderTable: #d6d6d6;
+$paddingRightContainer: 17px;
+
+.table-content {
+    border: solid 1px $colorBorderTable;
+
+    &.hasScroll {
+        .header-content {
+            padding-right: $paddingRightContainer;
+        }
+    }
+}
+
+.wrapper {
+    background-color: $white;
+}
+
+.menu-container, .setting-group-seletion {
+    .col {
+        padding: 0;
+
+        label {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.header-content, .body-content, .footer-content {
+    .table {
+        td:first-child {
+            &:first-child {
+                border-left: none;
+            }
+
+            &:last-child {
+                border-left: none;
+            }
+        }
+
+        tr:last-child {
+            td {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.table {
+    > thead, > tbody {
+        tr {
+            td, th {
+                padding: 4px 5px;
+            }
+
+            > td {
+                background: $white;
+            }
+        }
+    }
+}
+
+.first-row {
+    height: auto;
+
+    > td {
+        height: 0;
+        border: none !important;
+        padding: 0 !important;
+        line-height: 0;
+    }
+}
+
+.body-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 330px;
+    position: relative;
+}
+
+.header-content {
+    .table {
+        th {
+            background: $bgHeaderTableLevel1;
+            color: $white;
+            border-top: none;
+
+            &:first-child {
+                border-left: none;
+            }
+        }
+
+        > thead > tr > th.col-last {
+            border-right-color: $colorBorderTable !important;
+        }
+    }
+}
+
+.setting-content {
+    margin-top: 5px;
+
+    .table-content {
+        margin-top: 10px;
+    }
+
+    .button-block {
+        margin-top: 10px;
+
+        button {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.content-title {
+    font-weight: bold;
+    font-size: 15px;
+    color: #F15E29;
+}
+
+.copy-setting, .filter-input {
+    input[type="checkbox"] + label {
+        color: $bgHeaderTableLevel1;
+    }
+}
+
+.betsetting-form {
+    td {
+        input[type=text] {
+            width: calc(100% - 100px); // 100px is label width
+            margin: 0;
+            height: 1.5rem;
+            font-size: 12px;
+            border-bottom-color: #b7a9a9;
+
+            &:focus {
+                border-bottom-color: #b7a9a9;
+            }
+        }
+    }
+}
+
+.disabled-text {
+    color: $colorDisabled;
+}
+
+td {
+    input[type="checkbox"] + label {
+        height: inherit;
+        margin: 0;
+        top: 0;
+        padding-right: 10px;
+    }
+
+    input[type="radio"] + label {
+        padding-left: 20px !important;
+        padding-right: 10px;
+    }
+}
+
+tr:hover {
+    .no-hover {
+        background: initial !important;
+    }
+}

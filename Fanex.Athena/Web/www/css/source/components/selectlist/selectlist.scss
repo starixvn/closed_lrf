@@ -1,0 +1,114 @@
+﻿@import "../../scss/abstracts/variables";
+
+$height: 26px;
+$font-size: 12px;
+$colorDisableDropdown: $colorDisabled;
+
+.input-field {
+    label {
+        position: absolute;
+        top: -10px;
+    }
+}
+
+.select-list {
+    &-container {
+        position: relative;
+        font-size: $font-size;
+        margin-bottom: 10px;
+
+        .selection {
+            background: transparent;
+            border-bottom: 1px solid #ccc;
+            height: $height;
+            line-height: $height;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+
+            &-label {
+                cursor: pointer;
+            }
+
+            &-icon {
+                position: absolute;
+                top: 1px;
+                right: 1px;
+
+                &-arrow {
+                    border-color: #4d6273 transparent transparent transparent;
+                    border-width: 4px 4px 0 4px;
+                    border-style: solid;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+            &.disabled {
+                color: $colorDisableDropdown !important;
+                cursor: default;
+                pointer-events: none;
+
+                .selection-icon-arrow{
+                    border-color: $colorDisableDropdown transparent transparent transparent;
+                }
+            }
+        }
+    }
+
+    &-result-container {
+        position: absolute;
+        z-index: 200;
+
+        .select-list-dropdown {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 201;
+
+            &-search {
+                padding: 4px;
+
+                .select-list-search-results {
+                    width: 100%;
+                    margin-bottom: 0;
+                    border: 0;
+                    border-bottom: 2px solid #4c6375;
+                    font-size: 12px;
+                    padding: 0;
+                    height: 25px;
+                    outline: none;
+
+                    &:focus {
+                        border-bottom: 2px solid #4c6375;
+                    }
+                }
+            }
+
+            &-results {
+                max-height: 300px;
+                overflow-y: auto;
+
+                ul.option-list {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+
+                    .option-item {
+                        padding: 6px;
+                        cursor: pointer;
+
+                        &.highlighted {
+                            background-color: #4c6375;
+                            color: #fff;
+                        }
+
+                        &:hover {
+                            background-color: #4c6375;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

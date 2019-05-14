@@ -1,0 +1,249 @@
+/* z-index */
+/* z-index */
+/*
+* monPickr - jQuery Plugin
+* Just a simple month picker
+*
+* Examples and documentation at: http://update.later
+*
+* Version: 1.0.0 (6 Jan 2012)
+* Requires: jQuery v1.7+
+*
+* Swatch color: BDC7D8 - base color
+*               000000 - text, link color
+*               aaaaaa - border, button background
+*/
+.monPickrWrap {
+  width: 100%;
+  color: #000; }
+
+.monPickrWrapParent, .selectedDayWrapParent {
+  margin-bottom: 10px; }
+
+.monPickrDropDown, .dayPickrDropDown {
+  background: #fff; }
+
+.monPickr {
+  padding: 3px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc; }
+  .monPickr a {
+    display: block;
+    text-decoration: none;
+    color: #000; }
+  .monPickr .prev b, .monPickr .next b {
+    color: #fff;
+    font-weight: 500; }
+    .monPickr .prev b:after, .monPickr .next b:after {
+      font-family: 'icomoon' !important;
+      content: "\E916";
+      color: #444;
+      font-size: 17px;
+      position: absolute;
+      top: -3px; }
+  .monPickr .prev.disable b:after, .monPickr .next.disable b:after {
+    color: rgba(0, 0, 0, 0.26); }
+  .monPickr .prev {
+    float: left; }
+    .monPickr .prev b {
+      float: left;
+      transform: rotate(90deg); }
+      .monPickr .prev b:after {
+        left: -5px; }
+  .monPickr .next {
+    float: right; }
+    .monPickr .next b {
+      float: right;
+      transform: rotate(-90deg); }
+      .monPickr .next b:after {
+        right: -5px; }
+
+.selectedMonth {
+  cursor: pointer;
+  padding: 0; }
+  .selectedMonth:hover {
+    background-color: #D1F0FC;
+    text-decoration: none; }
+
+.monPickrDropDown {
+  display: none;
+  max-height: 330px;
+  overflow: auto;
+  padding: 1px;
+  border-top: 1px solid #eee;
+  list-style-type: circle;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .monPickrDropDown a {
+    text-decoration: none;
+    color: #000 !important;
+    /*font-size: 14px;*/ }
+    .monPickrDropDown a:hover {
+      background-color: #D1F0FC;
+      text-decoration: none;
+      color: #FFF; }
+    .monPickrDropDown a.hover:hover {
+      cursor: default; }
+
+.monPickrDropDownInner {
+  padding: 0;
+  list-style-type: circle; }
+  .monPickrDropDownInner li {
+    text-align: center; }
+  .monPickrDropDownInner .monthWrap {
+    display: none;
+    list-style-type: none; }
+    .monPickrDropDownInner .monthWrap li {
+      list-style-type: none; }
+    .monPickrDropDownInner .monthWrap a {
+      font-size: 12px !important; }
+    .monPickrDropDownInner .monthWrap ul {
+      margin: 0;
+      padding: 0; }
+    .monPickrDropDownInner .monthWrap a.selected {
+      font-weight: bold;
+      text-decoration: underline; }
+
+/* DATE RANGE
+----------------------------------------------------------*/
+.selectedDayWrap {
+  width: 100%;
+  color: #444; }
+
+.dayPickr {
+  padding: 3px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer; }
+  .dayPickr .selectedDay:hover {
+    cursor: default; }
+  .dayPickr .darr {
+    display: block;
+    float: right;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    position: relative; }
+    .dayPickr .darr:after {
+      font-family: 'icomoon' !important;
+      content: "\E916";
+      color: #444;
+      font-size: 17px;
+      position: absolute;
+      top: -2px;
+      right: -5px; }
+    .dayPickr .darr:hover {
+      cursor: default; }
+    .dayPickr .darr b {
+      float: right;
+      margin-right: 4px;
+      margin-top: -1px;
+      font-size: 10px; }
+
+.dayPickrDropDown {
+  max-height: 330px;
+  overflow: auto;
+  border-top: #eee solid 1px;
+  display: none;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .dayPickrDropDown ul {
+    margin: 0;
+    padding: 0; }
+  .dayPickrDropDown li {
+    list-style-type: none;
+    text-indent: 13px; }
+    .dayPickrDropDown li:hover {
+      background-color: #D1F0FC; }
+      .dayPickrDropDown li:hover a {
+        color: #000;
+        cursor: default; }
+
+.breadCrumbHolder {
+  display: none; }
+  .breadCrumbHolder .level {
+    display: none; }
+
+.breadcrumb {
+  text-align: center;
+  display: inline-block;
+  overflow: hidden; }
+  .breadcrumb > a {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 30px;
+    color: #fff;
+    padding: 0 10px 0 25px;
+    position: relative; }
+    .breadcrumb > a:first-child {
+      padding-left: 10px; }
+      .breadcrumb > a:first-child::before {
+        left: 14px; }
+    .breadcrumb > a:last-child {
+      padding-right: 20px; }
+      .breadcrumb > a:last-child::after {
+        content: none; }
+    .breadcrumb > a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -16px;
+      width: 30px;
+      height: 30px;
+      transform: scale(0.8) rotate(45deg);
+      z-index: 1;
+      border-right: 3px solid #ca1e58;
+      border-top: 3px solid #ca1e58;
+      border-radius: 0 5px 0 50px; }
+  .breadcrumb.flat a, .breadcrumb.flat a::after {
+    background: #fff;
+    color: #4C6375; }
+  .breadcrumb.flat a::before {
+    background: #fff;
+    box-shadow: 0 0 0 1px #ec407a; }
+  .breadcrumb.flat a:hover, .breadcrumb.flat a.active {
+    color: #fff; }
+    .breadcrumb.flat a:hover, .breadcrumb.flat a:hover::after, .breadcrumb.flat a.active, .breadcrumb.flat a.active::after {
+      background: #4C6375; }
+    .breadcrumb.flat a:hover::before, .breadcrumb.flat a.active::before {
+      color: #4C6375; }
+  .breadcrumb.flat a.active:hover {
+    background: #4C6375; }
+
+.sortable {
+  cursor: pointer; }
+  .sortable:hover .sort-heading {
+    text-decoration: underline; }
+
+.sorted-heading {
+  text-decoration: underline; }
+
+.sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; }
+  .sort-icon-asc {
+    border-bottom: 5px solid; }
+    .sort-icon-asc.light {
+      border-bottom-color: #fff; }
+  .sort-icon-desc {
+    border-top: 5px solid; }
+    .sort-icon-desc.light {
+      border-top-color: #fff; }
+
+.platform-data-info {
+  margin-top: 20px; }
+
+.ui-icon-circlesmall-plus {
+  transform: rotate(-90deg); }
+
+.ui-jqgrid .tree-wrap-ltr {
+  float: right; }
+
+.cell-wrapperleaf {
+  padding-left: 18px; }
+
+
+/*# sourceMappingURL=platformwinloss.css.map*/

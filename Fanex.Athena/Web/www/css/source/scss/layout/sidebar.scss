@@ -1,0 +1,244 @@
+﻿@import "../abstracts/_variables.scss";
+
+.side-nav {
+    width: 260px;
+    box-shadow: none;
+    background: #314453;
+    top: 64px;
+    z-index: 997;
+
+    .logo-block {
+        display: none;
+    }
+
+    .site-menu {
+        padding-bottom: 7rem;
+        // ----------- iPhone 6 Portrait ----------- //
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+            padding-bottom: 17rem;
+        }
+        // ----------- iPhone 5 and 5S Portrait ----------- //
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+            padding-bottom: 17rem;
+        }
+    }
+
+    &.fixed {
+        .collapsible-header {
+            padding: 0 1.6rem;
+            min-height: 4rem;
+            line-height: 4rem;
+            text-transform: uppercase;
+            display: block;
+            color: #dbdbdb;
+
+            &:hover {
+                background: none;
+            }
+
+            .icon-arrow {
+                font-size: 9px;
+                margin: 0;
+                width: initial;
+                transform: rotate(-90deg);
+                color: inherit;
+            }
+
+            .menu-icon {
+                margin-right: 10px;
+                color: inherit;
+            }
+
+            .menu-title {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 170px;
+                overflow: hidden;
+                display: inline-block;
+                line-height: 1rem;
+            }
+        }
+
+        .menu-item {
+            &:not(.active) {
+                .collapsible-header {
+                    i.icon-arrow {
+                        transition: none;
+                    }
+                }
+            }
+
+            &.active {
+                background: rgba(0,0,0,0.1);
+
+                > .collapsible-header {
+                    color: #f05b1f;
+                    font-weight: bold;
+
+                    i.icon-arrow {
+                        transform: rotate(0);
+                        transition: 0.3s all ease;
+                    }
+                }
+            }
+        }
+
+        .collapsible-body {
+            background: transparent;
+            padding-bottom: 7px;
+
+            li {
+                padding: 0 0 0 20px;
+                line-height: 30px;
+
+                a {
+                    display: inline-block;
+                    vertical-align: middle;
+                    padding-right: 0;
+                    height: 25px;
+                    line-height: 25px;
+                    color: #dbdbdb;
+                    //--- truncate text ---//
+                    width: 220px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                &:hover {
+                    a {
+                        color: #f05b1f;
+                    }
+                }
+
+                img {
+                    vertical-align: middle;
+                }
+
+                &.active {
+                    background: #f05b1f;
+
+                    a {
+                        color: #fff;
+                    }
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    a {
+        font-size: $font-size;
+
+        &:hover {
+            background: none;
+        }
+    }
+}
+
+.site-menubar-fold {
+    .mCSB_container, .mCustomScrollBox {
+        overflow: visible;
+    }
+
+    .side-nav {
+        width: 70px;
+        overflow: visible;
+
+        .site-menu {
+            overflow: visible;
+
+            .menu-item {
+                font-size: 1.3rem;
+                position: relative;
+                transition: 0.1s ease all;
+
+                > a {
+                    line-height: 50px;
+                    height: 50px;
+                    transition: 0.1s ease all;
+
+                    .menu-icon {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 70px;
+                        height: 50px;
+                        line-height: 50px;
+                        text-align: center;
+                        visibility: visible;
+                        opacity: 1;
+                        font-size: 20px;
+                        margin-right: 0;
+                    }
+
+                    .menu-title {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 70px;
+                        height: 50px;
+                        line-height: 50px;
+                        text-align: center;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    .icon-arrow {
+                        visibility: hidden;
+                    }
+                }
+
+                .collapsible-body {
+                    position: absolute !important;
+                    top: 0;
+                    left: 6.9rem;
+                    background: #2c3d4b;
+                    width: 24rem;
+                    overflow: auto;
+                    max-height: 300px;
+
+                    > li > a {
+                        padding: 0;
+                    }
+
+                    @media screen and ( max-height: 800px ) {
+                        max-height: 25rem;
+                    }
+
+                    .mCSB_container, .mCustomScrollBox {
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+
+        &.fixed {
+            .collapsible-body li {
+                padding: 0;
+
+                a {
+                    padding: 0 16px;
+                    width: 85%;
+                }
+            }
+        }
+    }
+
+    main {
+        padding-left: 70px;
+    }
+
+    @media (max-width: 992px) {
+        main {
+            padding-left: 0;
+        }
+    }
+}
+
+#sidenav-overlay {
+    z-index: 996;
+}

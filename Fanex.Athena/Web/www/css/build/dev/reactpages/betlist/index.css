@@ -1,0 +1,221 @@
+/* z-index */
+.sortable {
+  cursor: pointer; }
+  .sortable:hover .sort-heading {
+    text-decoration: underline; }
+
+.sorted-heading {
+  text-decoration: underline; }
+
+.sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; }
+  .sort-icon-asc {
+    border-bottom: 5px solid; }
+    .sort-icon-asc.light {
+      border-bottom-color: #fff; }
+  .sort-icon-desc {
+    border-top: 5px solid; }
+    .sort-icon-desc.light {
+      border-top-color: #fff; }
+
+.betlist-popup {
+  padding: 5px 20px; }
+
+.betlist-container {
+  background: #fff;
+  /* Trans */
+  /*ul.h-list li a*/
+  /* Link */
+  /*to make line-through for void-parlay-ticket*/ }
+  .betlist-container .ui-jqgrid-hdiv table.ui-jqgrid-htable > thead > tr > th, .betlist-container .ui-jqgrid-hdiv table.ui-jqgrid-htable > thead > tr > th.ui-th-column {
+    color: #fff; }
+  .betlist-container .content-title {
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px 0 10px 0;
+    min-width: 650px;
+    color: #D2592D; }
+  .betlist-container a {
+    text-decoration: none; }
+  .betlist-container .mx-parlay .void, .betlist-container .mx-parlay .reject, .betlist-container .mx-parlay .refund {
+    text-decoration: line-through; }
+  .betlist-container .line {
+    border-bottom: 1px solid #A0A0A0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: left;
+    width: 100%; }
+  .betlist-container .underdog {
+    color: #01122B;
+    font-weight: bold !important;
+    white-space: normal; }
+  .betlist-container .stake {
+    font-weight: bold !important; }
+  .betlist-container .favorite {
+    color: #B50000;
+    font-weight: bold !important; }
+    .betlist-container .favorite .excluding-choices {
+      white-space: normal;
+      color: #484848;
+      font-weight: normal; }
+  .betlist-container .handicap .odds {
+    color: #003399;
+    font-size: 8pt; }
+  .betlist-container .handicap.custom {
+    font-weight: bold; }
+  .betlist-container div.match + div.league {
+    color: #666666;
+    line-height: 15px;
+    margin-top: 1px;
+    background: none repeat scroll 0 0 transparent;
+    font-weight: normal;
+    text-align: right;
+    text-transform: none; }
+  .betlist-container .bettype {
+    color: #003399;
+    font-weight: 600;
+    text-align: right; }
+  .betlist-container .firstGoal, .betlist-container .lastGoal, .betlist-container .fhFirstGoal, .betlist-container .fhLastGoal {
+    display: inline;
+    height: 10px;
+    padding: 0 6px;
+    width: 14px;
+    vertical-align: middle; }
+  .betlist-container .firstGoal {
+    background: url("images/goal-icon.png") no-repeat 0 0; }
+  .betlist-container .lastGoal {
+    background: url("images/goal-icon.png") no-repeat -18px 0; }
+  .betlist-container .fhFirstGoal {
+    background: url("images/goal-icon.png") no-repeat -36px 0; }
+  .betlist-container .fhLastGoal {
+    background: url("images/goal-icon.png") no-repeat no-repeat -54px 0; }
+  .betlist-container .match {
+    color: #000000;
+    font-weight: normal;
+    line-height: 15px;
+    text-align: right;
+    white-space: normal; }
+  .betlist-container .leagueName {
+    white-space: normal; }
+  .betlist-container .oddstype {
+    color: #586985;
+    font-weight: bold; }
+  .betlist-container .colorHandicap, .betlist-container .handicap {
+    color: #606060; }
+  .betlist-container .sport {
+    color: #0066CC; }
+  .betlist-container .lic-win-loss {
+    background-color: #F5E3E3;
+    font-weight: bold; }
+  .betlist-container .negative-number {
+    color: #b50000; }
+  .betlist-container .detail {
+    background: url("images/q_Icon2_1.png") no-repeat scroll left center transparent;
+    color: #755200;
+    display: inline;
+    font-weight: bold;
+    height: 10px;
+    line-height: 20px;
+    padding: 0 1px 0 18px;
+    width: 14px; }
+    .betlist-container .detail:hover {
+      background: url("images/q_Icon_2.png") no-repeat scroll left center transparent;
+      color: #755200;
+      cursor: pointer;
+      display: inline;
+      font-weight: bold;
+      height: 10px;
+      padding: 0 1px 0 18px;
+      width: 14px; }
+  .betlist-container .combinationLink {
+    line-height: 20px; }
+  .betlist-container .scoremap {
+    float: left; }
+  .betlist-container .scoremapIcon {
+    background: url("Images/ScoreMapWL.png") no-repeat scroll 0 0 transparent;
+    height: 18px;
+    margin: 3px;
+    width: 18px; }
+  .betlist-container .gamegroupname {
+    color: #008000; }
+  .betlist-container .light-blue {
+    color: #0017CD;
+    background-color: transparent !important; }
+  .betlist-container .iplink, .betlist-container .betsliplink {
+    cursor: pointer;
+    color: #1E1EEB;
+    font-size: 11px; }
+  .betlist-container .time {
+    color: #434343;
+    font-size: 7pt;
+    font-weight: normal;
+    text-align: center;
+    margin: 10px 0 0 0; }
+  .betlist-container .status {
+    color: #606060;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: capitalize; }
+  .betlist-container .result {
+    color: #1BA4ED;
+    cursor: pointer; }
+  .betlist-container .ip {
+    display: none; }
+  .betlist-container .selected {
+    color: Gray !important; }
+  .betlist-container .base-currency {
+    font-size: 14px;
+    color: #024584; }
+  .betlist-container .icon-back {
+    color: #555;
+    font-size: 1.8rem; }
+  .betlist-container span.inactive-switch-link {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: default;
+    text-decoration: none;
+    color: #88003E; }
+  .betlist-container span.active-switch-link {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #3547E3; }
+  .betlist-container .blue {
+    color: #2673CE; }
+  .betlist-container td .detail > .detail-link {
+    color: #755200;
+    font-weight: bold; }
+  .betlist-container div.mx-parlay div.void span, .betlist-container div.mx-parlay div.void div {
+    text-decoration: line-through; }
+  .betlist-container div.mx-parlay div.void > div.match, .betlist-container div.mx-parlay div.void div.firstGoal, .betlist-container div.mx-parlay div.void div.lastGoal {
+    text-decoration: none; }
+  .betlist-container div.mx-parlay .system-parlay-ticket-infor {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 15px;
+    color: #000000;
+    font-weight: bold; }
+    .betlist-container div.mx-parlay .system-parlay-ticket-infor .system-parlay-unit-stake {
+      color: #003399; }
+  .betlist-container .ui-jqgrid .jqgrow .transtime {
+    white-space: normal; }
+  .betlist-container .offer-name-list {
+    font-weight: bold; }
+  .betlist-container .bonus-icon {
+    background: url(images/bonus.png) no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 18px;
+    width: 18px; }
+  .betlist-container .bonus-icon:hover {
+    cursor: pointer; }
+
+.betlist-container .status {
+  white-space: normal; }
+
+
+/*# sourceMappingURL=index.css.map*/

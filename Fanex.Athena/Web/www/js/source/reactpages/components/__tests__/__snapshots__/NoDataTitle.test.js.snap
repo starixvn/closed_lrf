@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoDataTitle  component render correctly 1`] = `
+<p
+  className="no-info-row center-align"
+>
+  No Data
+</p>
+`;

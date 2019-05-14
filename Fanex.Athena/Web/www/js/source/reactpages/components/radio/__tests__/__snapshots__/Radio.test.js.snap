@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio  render with default props 1`] = `
+<span>
+  <input
+    checked={false}
+    id="default"
+    name=""
+    onChange={[Function]}
+    type="radio"
+    value={0}
+  />
+  <label
+    htmlFor="default"
+  >
+    
+  </label>
+</span>
+`;
+
+exports[`Radio  render with given props 1`] = `
+<span>
+  <input
+    checked={true}
+    id="R"
+    name="inputRadio"
+    onChange={[Function]}
+    type="radio"
+    value={0}
+  />
+  <label
+    htmlFor="R"
+  >
+    
+  </label>
+</span>
+`;

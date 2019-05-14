@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup  render with default props 1`] = `
+<div
+  className="radio-group"
+>
+  <label
+    className="label-text"
+  >
+    
+  </label>
+  <span>
+    <input
+      checked={false}
+      id="-1"
+      name=""
+      onChange={[Function]}
+      type="radio"
+      value={1}
+    />
+    <label
+      htmlFor="-1"
+    >
+      Radio1
+    </label>
+  </span>
+</div>
+`;
+
+exports[`RadioGroup  render with given props 1`] = `
+<div
+  className="radio-group"
+>
+  <label
+    className="label-text"
+  >
+    Radio group
+  </label>
+  <span>
+    <input
+      checked={false}
+      id="RadioGroup-1"
+      name="RadioGroup"
+      onChange={[Function]}
+      type="radio"
+      value={1}
+    />
+    <label
+      htmlFor="RadioGroup-1"
+    >
+      Radio1
+    </label>
+  </span>
+  <span>
+    <input
+      checked={true}
+      id="RadioGroup-2"
+      name="RadioGroup"
+      onChange={[Function]}
+      type="radio"
+      value={2}
+    />
+    <label
+      htmlFor="RadioGroup-2"
+    >
+      
+    </label>
+  </span>
+</div>
+`;

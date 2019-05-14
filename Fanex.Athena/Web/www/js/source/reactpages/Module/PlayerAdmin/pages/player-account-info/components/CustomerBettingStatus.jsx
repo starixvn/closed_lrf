@@ -1,0 +1,60 @@
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { ActionCreators } from '../actions/index.js'
+import { bindActionCreators } from 'redux'
+import LapDataService from '../../../lib/lapDataService';
+
+import { systemType } from '../../../constants/configInfo';
+const apiInfo = {
+    custBettingStatus: {action: 'PlayerAccountInfo/GetCustomerBettingStatus', type: systemType.newAdmin}
+}
+
+export class CustomerBettingStatus extends PureComponent {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: null
+        }
+    }
+
+    componentDidMount() {
+        this._fetchData();
+    }
+
+    _fetchData() {
+        const { custBettingStatus } = apiInfo;
+
+        LapDataService.postData(custBettingStatus.action)
+        .then(response => {
+            this.setState({ data: response.data });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    render() {
+        const { data } = this.state;
+        return data && (
+            <div>
+                <h4>Customer Betting Status (Call From LAP)</h4>
+                <ul>
+                    <li>Win: {data.Win}</li>
+                    <li>Loss: {data.Loss}</li>
+                    <li>Void/Reject/Cancel: {data.VoidRejectCancel}</li>
+                </ul>
+            </div>
+        );
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({}, dispatch);
+}
+
+function mapStateToProps(state) {
+    return Object.assign({}, {});
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerBettingStatus);

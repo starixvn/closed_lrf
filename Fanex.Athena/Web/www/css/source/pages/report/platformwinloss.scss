@@ -1,0 +1,20 @@
+﻿@import "../../scss/abstracts/_variables.scss";
+@import "../../components/monthpicker/monpickr";
+@import "../../components/breadcrumb/breadcrumb";
+@import "../../components/sortableheader/sortableheader.scss";
+
+.platform-data-info {
+    margin-top: 20px;
+}
+
+.ui-icon-circlesmall-plus {
+    transform: rotate(-90deg);
+}
+
+.ui-jqgrid .tree-wrap-ltr {
+    float: right;
+}
+
+.cell-wrapperleaf {
+    padding-left: 18px;
+}

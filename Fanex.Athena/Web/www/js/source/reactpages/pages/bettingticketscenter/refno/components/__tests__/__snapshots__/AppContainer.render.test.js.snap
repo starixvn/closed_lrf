@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppContainer  render correctly 1`] = `
+<Connect(PageLayout)
+  isLoading={true}
+  selectedTabIndex="2"
+>
+  <Connect(FormFilter) />
+  <Connect(DataGrid) />
+</Connect(PageLayout)>
+`;

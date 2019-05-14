@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportTitle  props content is not empty - component render correctly 1`] = `
+<div
+  className="report-title-container"
+>
+  <p
+    className="report-title"
+  >
+    Title
+  </p>
+</div>
+`;
+
+exports[`ReportTitle  props content is undefined - component render correctly 1`] = `
+<div
+  className="report-title-container"
+>
+  <p
+    className="report-title"
+  />
+</div>
+`;

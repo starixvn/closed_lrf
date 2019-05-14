@@ -1,0 +1,10 @@
+﻿@import '../../components/daterangepicker/daterangepicker-ex';
+@import '../../components/popupnotification/popupnotification';
+@import '../../components/sortableheader/sortableheader';
+
+.theme_jqGrid {
+    .ui-jqgrid .ui-jqgrid-htable thead tr th.ui-th-column {
+        background: $bgHeaderTableLevel1;
+        color: #fff;
+    }
+}

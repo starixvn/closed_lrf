@@ -1,0 +1,11 @@
+﻿@import '../../scss/abstracts/variables';
+@import "../../components/autocomplete/autocomplete";
+@import '../../components/monthpicker/monpickr';
+
+.theme_jqGrid {
+    .ui-jqgrid {
+        .ui-jqgrid-sortable {
+            cursor: default;
+        }
+    }
+}

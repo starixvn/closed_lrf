@@ -1,0 +1,273 @@
+﻿@import "../../vendors/materialize/components/color";
+@import "../../vendors/materialize/components/variables";
+@import "../../vendors/materialize/components/forms/switches";
+@import "../../components/checkbox/checkbox";
+@import '../../components/label/label';
+@import "../../components/autocomplete/autocomplete";
+@import "../../components/switch/switch";
+@import "../../components/griddropdown/griddropdown";
+@import '../../components/paging/paging';
+
+/* tab */
+.tab {
+    overflow: hidden;
+}
+
+.tab button {
+    background-color: #c3c3c3;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 16px;
+    transition: 0.3s;
+    font-size: 1.4rem;
+    color: #4c6173;
+    text-transform: uppercase;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #4c6274;
+    color: #fff;
+}
+
+/* Special Level */
+.level-0 {
+    background-color: #fcfcfc;
+}
+
+.level-1 {
+    background-color: #98b516;
+}
+
+.level-2 {
+    background-color: #007d00;
+}
+
+.level-3 {
+    background-color: #b87856;
+}
+
+.level-4 {
+    background-color: #fcc50f;
+}
+
+.level-5 {
+    background-color: #418a86;
+}
+
+.level-6 {
+    background-color: #969036;
+}
+
+.level-7 {
+    background-color: #944937;
+}
+
+.level-8 {
+    background-color: #3297fc;
+}
+
+.level-9 {
+    background-color: #c98402;
+}
+
+.level-10 {
+    background-color: #fc0000;
+}
+
+.num-of-customer {
+    color: #FFCE33;
+}
+
+/* Odds Group */
+.group-A {
+    background-color: #007C00;
+    color: white !important;
+}
+
+.group-B {
+    background-color: #3298FD;
+    color: white !important;
+}
+
+#LevelListContainer, #OddsGroupListContainer, #ViewOptionList, #UpdateCustStatus {
+    display: none;
+    position: absolute;
+}
+
+#LevelListContainer, #OddsGroupListContainer {
+    border: 1px solid #969292;
+}
+
+#OddsGroupListContainer, #ViewOptionList, #UpdateCustStatus {
+    background-color: #fff;
+}
+
+#ViewOptionList {
+    width: 85px !important;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.175);
+
+    .viewOptionLink {
+        display: block;
+        padding: 5px 2px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+/* Customer Option - Log infor */
+.customer-logInfo {
+    .log-info-container {
+        padding: 10px;
+    }
+}
+
+.link {
+    cursor: pointer;
+    border-top: 1px solid $colorBorderTable;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+/* Cust Status Form */
+.custStatusPopup {
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.175);
+
+    .custStatus {
+        &-row {
+            margin-bottom: 10px;
+        }
+
+        &-title {
+            font-size: 13px;
+        }
+
+        &-button-block {
+            margin-top: 15px;
+            margin-bottom: 0;
+
+            .btn {
+                height: 27px;
+                line-height: 27px;
+            }
+        }
+    }
+}
+
+/* Index column */
+input[type="checkbox"] + label {
+    margin: 0;
+    top: 0;
+    vertical-align: middle;
+    height: 15px;
+    width: 15px;
+}
+
+/* Customer Option */
+.custoptionlink {
+    .grid-dropdown-icon {
+        margin-left: 5px;
+        font-weight: 900;
+        color: #000;
+    }
+}
+
+/* Move Group Popup*/
+.input-label {
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    height: 28px;
+    line-height: 26px;
+    display: inline-block;
+    width: 80%;
+    position: relative;
+    text-align: right;
+}
+
+.success-message, .error-message, .ajax-loading {
+    margin: 15px 5px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    border: 1px solid #bbb;
+}
+
+.success-message {
+    color: green;
+    border: 1px solid #bbb;
+}
+
+/* Update Group Popup*/
+.attention-message {
+    color: red;
+}
+
+#ConfirmRemoveFromGroupPopUp {
+    p {
+        margin-bottom: 5px;
+    }
+
+    [type="radio"] + label {
+        color: inherit;
+        font-size: inherit !important;
+    }
+}
+
+.first-value {
+    position: relative;
+
+    &:after {
+        content: "\2022";
+        position: absolute;
+        top: 8px;
+        right: -2px;
+    }
+}
+
+.third-value {
+    padding: 0 2rem 0 0 !important;
+}
+
+.page-button {
+    margin: 1.5rem 1.5rem 0;
+
+    .btn {
+        height: 26px;
+        line-height: 28px;
+        padding: 0 1rem;
+    }
+}
+
+.btn-back {
+    margin: 0 10px 0 0;
+}
+
+a.grid-dropdown {
+    display: block;
+}
+
+.theme_jqGrid .ui-jqgrid .ui-jqgrid-sortable {
+    cursor: default;
+}
+
+@media only screen and (min-width: 751px) {
+    .ba-time-notice {
+        float: right;
+        margin-right: 20px;
+    }
+}

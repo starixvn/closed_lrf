@@ -1,0 +1,12 @@
+﻿export const FETCH_DATA = 'FETCH_DATA'
+export const SET_GRID_DATA = "SET_GRID_DATA"
+
+export const SET_SUBSIDIARY = "SET_SUBSIDIARY"
+
+export const SET_DATE_RANGE = "SET_DATE_RANGE"
+
+export const CHANGE_CONVERT_ALL = "CHANGE_CONVERT_ALL"
+
+export const CHANGE_INCLUDE_DRAW_DATA = 'CHANGE_INCLUDE_DRAW_DATA'
+
+export const SET_PARAMS = 'SET_PARAMS'

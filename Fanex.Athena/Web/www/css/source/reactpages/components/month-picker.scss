@@ -1,0 +1,158 @@
+﻿@import "../abstracts/_variables";
+@import "../base/_common";
+
+$color-hover: #D1F0FC;
+
+.month-picker {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 50px;
+
+    .month {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .date {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding-left: 10px;
+    }
+}
+
+.month-container {
+    width: 100%;
+    position: absolute;
+    z-index: $indexNormal;
+}
+
+.month-content, .date-content {
+    position: relative;
+}
+
+.month-selection-container, .date-selection-container {
+    background: $white;
+    display: block;
+    max-height: 330px;
+    overflow: auto;
+    padding: 1px;
+    border-top: 1px solid #eee;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.month-picked {
+    padding: 3px 0;
+    text-align: center;
+    border-bottom: $input-border;
+
+    a {
+        display: block;
+        text-decoration: none;
+        width: 25px;
+    }
+
+    .prev {
+        float: left;
+        padding-left: 5px;
+        text-align: left;
+    }
+
+    .next {
+        float: right;
+        padding-right: 5px;
+        text-align: right;
+    }
+}
+
+.month-label {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.month-selection-container {
+    a {
+        text-decoration: none;
+        color: $black !important;
+
+        &:hover {
+            background-color: $color-hover;
+            text-decoration: none;
+            color: $white;
+        }
+    }
+}
+
+.month-selection {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+
+    li {
+        text-align: center;
+    }
+
+    .month-option {
+        a {
+            font-size: 12px !important;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        a.selected {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
+
+.date-container {
+    width: 100%;
+    position: absolute;
+    z-index: $indexNormal;
+}
+
+.date-picked {
+    padding: 3px 0;
+    border-bottom: $input-border;
+    cursor: pointer;
+
+    .date-label:hover {
+        cursor: default;
+    }
+
+    a {
+        padding-right: 5px;
+        float: right;
+        width: 25px;
+        text-align: center;
+    }
+}
+
+.date-selection-container {
+    list-style-type: none;
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        text-indent: 13px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-hover;
+
+            a {
+                color: $black;
+                cursor: default;
+            }
+        }
+    }
+}
