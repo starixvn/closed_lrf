@@ -2,12 +2,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
-import LapDataService from '../../../lib/lapDataService';
-
-import { systemType } from '../../../constants/configInfo';
-const apiInfo = {
-    custBettingStatus: {action: 'PlayerAccountInfo/GetCustomerBettingStatus', type: systemType.newAdmin}
-}
 
 export class CustomerBettingStatus extends PureComponent {
     constructor(props) {
@@ -23,15 +17,14 @@ export class CustomerBettingStatus extends PureComponent {
     }
 
     _fetchData() {
-        const { custBettingStatus } = apiInfo;
-
-        LapDataService.postData(custBettingStatus.action)
-        .then(response => {
-            this.setState({ data: response.data });
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        const params = {};
+        this.props.getCustomerBettingStatus(params)
+            .then(response => {
+                this.setState({ data: response.data });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     render() {
@@ -50,7 +43,8 @@ export class CustomerBettingStatus extends PureComponent {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({}, dispatch);
+    const { getCustomerBettingStatus } = ActionCreators;
+    return bindActionCreators({ getCustomerBettingStatus }, dispatch);
 }
 
 function mapStateToProps(state) {

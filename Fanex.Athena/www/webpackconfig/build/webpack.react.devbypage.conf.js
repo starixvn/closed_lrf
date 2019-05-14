@@ -9,7 +9,7 @@ var environment = "dev";
 var jsPath = `${pathConfig.scriptPaths.build}/${environment}/reactpages`;
 var cssPath = `${pathConfig.cssPaths.build}/${environment}/reactpages`;
 const entry = {
-    [`${jsPath}/playeradmin/playeradmin`]: pathConfig.scriptPaths.playeradmin,
+    [`${jsPath}/playeradmin/playerlist`]: pathConfig.scriptPaths.playerlist,
     [`${cssPath}/playeradmin/index`]: pathConfig.cssPaths.playeradmin,
     [`${jsPath}/playeradmin/playeraccountinfo`]: pathConfig.scriptPaths.playeraccountinfo,
 }

@@ -7,13 +7,10 @@
     <link href="@Url.ContentLinkByEnv("/www/css/build/reactpages/playeradmin/index.css")" rel="stylesheet" type="text/css" />
 }
 @section pagejs {
-    <script src="@Url.ContentLinkByEnv("/www/js/build/reactpages/playeradmin/playeradmin.chunk.js")"></script>
+    <script src="@Url.ContentLinkByEnv("/www/js/build/reactpages/playeradmin/playerlist.chunk.js")"></script>
 }
 
 @section globaljscode{
-    window.__pageConfig = {
-        mode: 'Self'
-    }
     window.initialState = {
         isLoading: false
     }

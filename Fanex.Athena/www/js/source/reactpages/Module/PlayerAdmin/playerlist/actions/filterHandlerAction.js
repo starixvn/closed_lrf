@@ -1,15 +1,20 @@
-import { SET_PARAM } from './types'
-import playerlistservice from '../lib/playerlistservice';
+import { SET_PARAM, SET_PLAYER_LIST } from './types'
+import PlayerListService from '../lib/playerListService';
 
-
-export const searchPlayer = (param) => {
-    let service = new playerlistservice();
+export const searchPlayer = (param) => (dispatch) => {
+    let service = new PlayerListService();
+    service.getPlayerList(param).then(response => {
+        dispatch(setPlayerList(response.data));
+    })
 }
-export const gotoDetailedPlayerInfo = (param) => {
 
-    let playerInfoService = new playerInfoService();
-
+const setPlayerList = (data) => {
+    return {
+        type: SET_PLAYER_LIST,
+        data
+    }
 }
+
 export const setParam = (data) => {
     return {
         type: SET_PARAM,

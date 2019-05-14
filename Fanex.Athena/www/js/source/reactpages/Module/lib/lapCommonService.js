@@ -1,55 +1,96 @@
-import BaseContainerService from './baseContainerService';
-import { systemType, tokenUrlTemplate } from '../constants/configInfo';
-import LapDataService from '../lib/lapDataService';
+import BaseCommonService from './baseCommonService';
+import { systemType } from '../constants/configInfo';
 import axios from 'axios'
+import qs from 'qs';
 
-const buildExternalTabLink = (sType, action) => {
-    const applyTokenUrl = (Identity && Identity.ApplyTokenUrl) || '';
-
-    return `${applyTokenUrl}?ActionLink=${action}&Type=${sType}`;
-}
-
-const buildApiTokenAction = (sType, action) => {
-    return sType === systemType.newAdmin ? action :
-        tokenUrlTemplate && tokenUrlTemplate.replace('{0}', encodeURIComponent(action)).replace('{1}', sType);
+const defaultAjaxConfig = {
+    method: 'post',
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'content-type': 'application/x-www-form-urlencoded'
+    },
+    withCredentials: false,
+    responseType: 'json',
+    cancelToken: new axios.CancelToken(function(cancel) {})
 }
 
 class LapCommonService extends BaseCommonService {
     constructor(initialConfig) {
         super();
 
-        this._applyTokenUrl = initialConfig.ApplyTokenUrl;
-        this._tokenUrl = initialConfig.tokenUrl;
+        const { baseUrl, applyLinkTokenUrl, applyApiTokenUrl } = initialConfig;
+        this._applyLinkTokenUrl = applyLinkTokenUrl;
+        this._applyApiTokenUrl = applyApiTokenUrl;
+        this._baseUrl = baseUrl;
     }
 
-    getTabLink(sType, action) {
-        return sType === systemType.newAdmin ? action : buildExternalTabLink(sType, action);
+    _buildApplyTokenQueryString(sysType, action) {
+        return `ActionLink=${action}&Type=${sysType}`;
     }
 
-    _getData(url, params, config = {}) {
-        return axios.get(url, { params: params }, config);
+    getLink(sysType, action) {
+        return sysType === systemType.newAdmin ? action :
+            `${this._applyLinkTokenUrl}?${this._buildApplyTokenQueryString(sysType, action)}`;
     }
 
-    _postData(url, params, config = {}) {
-        const requiredConfig = {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
+    _buildCommonAjaxConfig(configOption, apiActionUrl, params) {
+        const commonConfig = {
+            ...configOption,
+            url: apiActionUrl
         };
 
-        const postConfig = {...requiredConfig, ...config };
+        const configWithParam = this._getConfigParam(commonConfig, params);
 
-        return axios.post(url, params, postConfig);
+        return configWithParam;
     }
 
-    fetchData(sType, action, method = 'POST') {
-        const tokenApiAction = buildApiTokenAction(sType, action);
+    _getConfigParam(config, params) {
+        const isGetMethod = config.method.toLowerCase() === 'get';
+        const paramConfig = isGetMethod ? { params } : { data: qs.stringify(params) };
 
-        return LapDataService.getData(tokenApiAction, {})
+        return {
+            ...config,
+            ...paramConfig
+        }
+    }
+
+    _fetchDataWithToken(sysType, action, params, configOption) {
+        const apiToken = `${this._applyApiTokenUrl}?${this._buildApplyTokenQueryString(sysType, action)}`;
+
+        return axios.get(apiToken)
             .then(response => {
-                const apiActionUrl = `${response.data.ApiUrl}/${action}`;
-                return LapDataService.fetchDataWithAuthToken(response.data.Token, {...ajaxConfig, url: apiActionUrl });
-            })
+                const { Token, ApiUrl } = response.data;
+                const apiActionUrl = `${ApiUrl}/${action}`;
+
+                const commonAjaxConfig = this._buildCommonAjaxConfig(configOption, apiActionUrl, params);
+                const headerConfig = {
+                    headers: {
+                        'X-Auth-Token': Token
+                    }
+                }
+
+                const configWithXToken = {...commonAjaxConfig, ...headerConfig };
+
+                return axios(configWithXToken);
+            });
+    }
+
+    fetchData(sysType, action, params, configOption = defaultAjaxConfig) {
+        if (sysType === systemType.newAdmin) {
+            const relativeUrl = this._baseUrl + action;
+            const ajaxConfig = this._buildCommonAjaxConfig(configOption, relativeUrl, params);
+
+            return axios(ajaxConfig);
+        } else {
+            return this._fetchDataWithToken(sysType, action, params, configOption);
+        }
+    }
+
+    fetchMultiple(promiseList, callback) {
+        if (promiseList && promiseList.length) {
+            return axios.all(promiseList)
+                .then(axios.spread(callback));
+        }
     }
 }
 

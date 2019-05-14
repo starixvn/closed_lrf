@@ -5,48 +5,9 @@ import { bindActionCreators } from 'redux'
 
 import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid'
 
-import ParasiticContainerService from '../../../lib/parasiticContainerService';
-import { systemType } from '../../../constants/configInfo';
-
-const apiInfo = {
-    playerList: {action: 'api/PlayerAdmin/GetPlayerList', type: systemType.lrf}
-}
-
 export class DataGrid extends PureComponent {
     constructor(props) {
         super(props);
-
-        this.state = {
-            data: null
-        }
-    }
-
-    componentDidMount() {
-        this._fetchData();
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        const { param } = this.props;
-        if (param !== prevProps.param) {
-            this._fetchData();
-        }
-    }
-
-    _fetchData() {
-        const { playerList } = apiInfo;
-        const dataService = new ParasiticContainerService();
-        const ajaxConfig = {
-            method: 'GET',
-            params: { userName: '', ...this.props.param }
-        }
-
-        dataService.fetchData(playerList.type, playerList.action, ajaxConfig)
-            .then(response => {
-                this.setState({ data: response.data });
-            })
-            .catch(err => {
-                console.log(err);
-            });
     }
 
     _renderHeader() {
@@ -97,9 +58,9 @@ export class DataGrid extends PureComponent {
     }
 
     render() {
-        const { data } = this.state;
+        const { playerList } = this.props;
 
-        return data && (
+        return playerList && (
             <div className="result-content">
                 <Table minWidth={650}
                     autoWidth={true}
@@ -107,19 +68,20 @@ export class DataGrid extends PureComponent {
                     bodyHeight={300}
                     adjustedHeight={32}
                     header={this._renderHeader()}
-                    body={this._renderDataSection(data)} />
+                    body={this._renderDataSection(playerList)} />
             </div>
         );
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({}, dispatch);
+    const { searchPlayer } = ActionCreators;
+    return bindActionCreators({ searchPlayer }, dispatch);
 }
 
 function mapStateToProps(state) {
-    const { param } = state;
-    return Object.assign({}, { param });
+    const { playerList } = state;
+    return Object.assign({}, { playerList });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataGrid);

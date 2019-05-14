@@ -12,9 +12,14 @@ export class FormFilter extends PureComponent {
         }
     }
 
+    componentDidMount() {
+        this.props.searchPlayer({ userName: this.state.Username });
+    }
+    
+
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.setParam({ userName: this.state.Username });
+        this.props.searchPlayer({ userName: this.state.Username });
     }
 
     handleChange = (event) => {
@@ -48,7 +53,8 @@ export class FormFilter extends PureComponent {
     }
 }
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(ActionCreators, dispatch);
+    const { searchPlayer } = ActionCreators;
+    return bindActionCreators({ searchPlayer }, dispatch);
 }
 function mapStateToProps(state) {
     const { isLoading, ...rest } = state;

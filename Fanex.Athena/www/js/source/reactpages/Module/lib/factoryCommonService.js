@@ -6,7 +6,26 @@ export default class FactoryCommonService {
         if (!pageConfig) {
             throw new Error("Missing _pConfig in window");
         }
-        const { TokenUrl, ApplyTokenUrl } = window._pConfig;
-        return new LapCommonService({ TokenUrl, ApplyTokenUrl });
+
+        const { applyApiTokenUrl, baseUrl } = pageConfig;
+
+        if (!applyApiTokenUrl) {
+            throw new Error("Missing applyApiTokenUrl in window._pConfig");
+        }
+
+        if (!Identity) {
+            throw new Error("Missing Identity object");
+        }
+
+        const { RootUrl, ApplyTokenUrl } = Identity;
+        if (!RootUrl) {
+            throw new Error("Missing Identity.RootUrl");
+        }
+
+        if (!ApplyTokenUrl) {
+            throw new Error("Missing Identity.ApplyTokenUrl");
+        }
+
+        return new LapCommonService({ baseUrl: RootUrl, applyApiTokenUrl, applyLinkTokenUrl: Identity.ApplyTokenUrl });
     }
 }

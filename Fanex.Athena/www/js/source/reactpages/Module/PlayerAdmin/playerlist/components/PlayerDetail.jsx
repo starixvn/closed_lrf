@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { playerMenuList } from '../../../constants/configInfo';
-import ParasiticContainerService from '../../../lib/parasiticContainerService';
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../actions';
 
 export class PlayerDetail extends PureComponent {
     constructor(props) {
@@ -11,8 +11,6 @@ export class PlayerDetail extends PureComponent {
             selectedTabIndex: 0,
             targetUrl: ''
         }
-
-        this.containerService = new ParasiticContainerService();
     }
 
     handleClickMenu = (event, actionLink, tabIndex) => {
@@ -29,7 +27,7 @@ export class PlayerDetail extends PureComponent {
 
         return (
             renderingMenuList.map((item, index) => {
-                const actionLink = this.containerService.getTabLink(item.SystemType, item.Action);
+                const actionLink = this.props.getLink(item.SystemType, item.Action);
 
                 return (
                     <li className="tab" key={item.Name}>
@@ -47,8 +45,8 @@ export class PlayerDetail extends PureComponent {
         const { targetUrl } = this.state;
         const { menuList } = this.props;
 
-        const renderingMenuList = menuList && menuList.length ? menuList : playerMenuList;
-        const src = targetUrl || this.containerService.getTabLink(renderingMenuList[0].SystemType, renderingMenuList[0].Action);
+        const hasMenuList = menuList && menuList.length > 0;
+        const src = targetUrl || (hasMenuList ? this.props.getLink(menuList[0].SystemType, menuList[0].Action) : '');
 
         return (
             <div className="pa-detail-container">
@@ -56,13 +54,13 @@ export class PlayerDetail extends PureComponent {
                     <div className="header-tab">
                         <div className="content-tab">
                             <ul className="tabs">
-                                {this._renderTabList(renderingMenuList)}
+                                {hasMenuList ? this._renderTabList(menuList) : null}
                             </ul>
                         </div>
                     </div>
                     <div className="tab-panel">
                         <div className="pa-frame-container">
-                            <iframe id="paDetailFrame" style={{height: 500}} name="paDetailFrame" frameBorder="0" src={src}></iframe>
+                            <iframe id="paDetailFrame" style={{ height: 500 }} name="paDetailFrame" frameBorder="0" src={src}></iframe>
                         </div>
                     </div>
                 </div>
@@ -71,13 +69,14 @@ export class PlayerDetail extends PureComponent {
     }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return bindActionCreators({}, dispatch);
-// }
+function mapDispatchToProps(dispatch) {
+    const { getLink } = ActionCreators;
+    return bindActionCreators({ getLink }, dispatch);
+}
 
 function mapStateToProps(state) {
     const { menuList } = state;
     return Object.assign({}, { menuList });
 };
 
-export default connect(mapStateToProps, null)(PlayerDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerDetail);

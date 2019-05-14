@@ -1,11 +1,4 @@
-export const mode = {
-    self: 'Self',
-    parasitic: 'Parasitic'
-}
-
 const pageConfig = window._pConfig;
-
-export const currentMode = pageConfig && pageConfig.mode;
 
 export const tokenUrlTemplate = pageConfig && pageConfig.tokenUrl;
 

@@ -37,8 +37,8 @@ var scriptPaths = {
     bettingticketscenter_running: "./www/js/source/reactpages/pages/bettingticketscenter/running/components/index.jsx",
     casinoturnover: "./www/js/source/reactpages/pages/casinoturnover/components/index.jsx",
 
-    playeradmin: "./www/js/source/reactpages/Module/PlayerAdmin/pages/playeradmin/components/index.jsx",
-    playeraccountinfo: "./www/js/source/reactpages/Module/PlayerAdmin/pages/player-account-info/components/index.jsx",
+    playerlist: "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/components/index.jsx",
+    playeraccountinfo: "./www/js/source/reactpages/Module/PlayerAdmin/player-account-info/components/index.jsx",
 };
 module.exports = {
     projectRoot: projectRoot,

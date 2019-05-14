@@ -5,12 +5,16 @@ class BaseCommonService {
         }
     }
 
-    getLink(systemType, actionUrl) {
+    getLink(sysType, action) {
         throw new Error("Method 'getTabLink()' must be implemented.");
     }
 
-    fetchData(systemType, apiUrl, method = 'POST') {
+    fetchData(sType, action, params, configOption = {}) {
         throw new Error("Method 'fetchData()' must be implemented.");
+    }
+
+    fetchMultiple(promiseList) {
+        throw new Error("Method 'fetchMultiple()' must be implemented.");
     }
 }
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import AppContainer from './AppContainer.jsx'
 import { Provider } from 'react-redux'
 import reducer from '../reducers/index.js'
-import Store from '../../../../../lib/store'
+import Store from '../../../../lib/store'
 
 const defaultState = {...window.initialState};
 const store = Store.createStore(reducer, defaultState);

@@ -1,18 +1,16 @@
 ﻿using System.Web.Http;
-using System.Web.Http.Cors;
 using Fanex.Athena.Api.Base;
-using Fanex.Athena.Api.Base.Attributes;
 
 namespace Fanex.Athena.Module.PlayerAdmin.Api
 {
-  
+
     public class PlayerLogController : ExternalApiBaseController
     {
         /*
          * Get logs of player
          * 
          */
-        //[HttpGet]
+        [HttpPost]
         public dynamic GetAccountProfile()
         {
             return new

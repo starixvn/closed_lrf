@@ -2,12 +2,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
-import { systemType } from '../../../constants/configInfo';
-import ParasiticContainerService from '../../../lib/parasiticContainerService';
-
-const apiInfo = {
-    accountProfile: {action: 'api/PlayerAccountInfo/GetAccountProfile', type: systemType.lrf}
-}
 
 export class AccountProfile extends PureComponent {
     constructor(props) {
@@ -23,20 +17,14 @@ export class AccountProfile extends PureComponent {
     }
 
     _fetchData() {
-        const { accountProfile } = apiInfo;
-        const dataService = new ParasiticContainerService();
-        const ajaxConfig = {
-            method: 'GET',
-            params: {}
-        }
-
-        dataService.fetchData(accountProfile.type, accountProfile.action, ajaxConfig)
-        .then(response => {
-            this.setState({ data: response.data });
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        const params = {};
+        this.props.getAccountInfo(params)
+            .then(response => {
+                this.setState({ data: response.data });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     render() {
@@ -55,7 +43,8 @@ export class AccountProfile extends PureComponent {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({}, dispatch);
+    const { getAccountInfo } = ActionCreators;
+    return bindActionCreators({ getAccountInfo }, dispatch);
 }
 
 function mapStateToProps(state) {
