@@ -1,6 +1,7 @@
 import BaseContainerService from './baseContainerService';
 import { systemType, tokenUrlTemplate } from '../constants/configInfo';
 import LapDataService from '../lib/lapDataService';
+import axios from 'axios'
 
 const buildExternalTabLink = (sType, action) => {
     const applyTokenUrl = (Identity && Identity.ApplyTokenUrl) || '';
@@ -13,16 +14,35 @@ const buildApiTokenAction = (sType, action) => {
         tokenUrlTemplate && tokenUrlTemplate.replace('{0}', encodeURIComponent(action)).replace('{1}', sType);
 }
 
-class ParasiticContainerService extends BaseContainerService {
-    constructor() {
+class LapCommonService extends BaseCommonService {
+    constructor(initialConfig) {
         super();
+
+        this._applyTokenUrl = initialConfig.ApplyTokenUrl;
+        this._tokenUrl = initialConfig.tokenUrl;
     }
 
     getTabLink(sType, action) {
         return sType === systemType.newAdmin ? action : buildExternalTabLink(sType, action);
     }
 
-    fetchData(sType, action, ajaxConfig = {}) {
+    _getData(url, params, config = {}) {
+        return axios.get(url, { params: params }, config);
+    }
+
+    _postData(url, params, config = {}) {
+        const requiredConfig = {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        };
+
+        const postConfig = {...requiredConfig, ...config };
+
+        return axios.post(url, params, postConfig);
+    }
+
+    fetchData(sType, action, method = 'POST') {
         const tokenApiAction = buildApiTokenAction(sType, action);
 
         return LapDataService.getData(tokenApiAction, {})
@@ -33,4 +53,4 @@ class ParasiticContainerService extends BaseContainerService {
     }
 }
 
-export default ParasiticContainerService
+export default LapCommonService

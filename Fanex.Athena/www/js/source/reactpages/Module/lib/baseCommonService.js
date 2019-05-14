@@ -1,17 +1,17 @@
-class BaseContainerService {
+class BaseCommonService {
     constructor() {
-        if (this.constructor == BaseContainerService) {
+        if (this.constructor == BaseCommonService) {
             throw new Error("Abstract classes can't be instantiated.");
         }
     }
 
-    getTabLink(sType, action) {
+    getLink(systemType, actionUrl) {
         throw new Error("Method 'getTabLink()' must be implemented.");
     }
 
-    fetchData(sType, action, ajaxConfig = {}) {
+    fetchData(systemType, apiUrl, method = 'POST') {
         throw new Error("Method 'fetchData()' must be implemented.");
     }
 }
 
-export default BaseContainerService;
+export default BaseCommonService;
