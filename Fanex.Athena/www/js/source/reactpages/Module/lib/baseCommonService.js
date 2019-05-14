@@ -13,7 +13,7 @@ class BaseCommonService {
         throw new Error("Method 'fetchData()' must be implemented.");
     }
 
-    fetchMultiple(promiseList) {
+    fetchMultiple(promiseList, callback) {
         throw new Error("Method 'fetchMultiple()' must be implemented.");
     }
 }

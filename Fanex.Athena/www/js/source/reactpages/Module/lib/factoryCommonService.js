@@ -7,7 +7,7 @@ export default class FactoryCommonService {
             throw new Error("Missing _pConfig in window");
         }
 
-        const { applyApiTokenUrl, baseUrl } = pageConfig;
+        const { applyApiTokenUrl } = pageConfig;
 
         if (!applyApiTokenUrl) {
             throw new Error("Missing applyApiTokenUrl in window._pConfig");

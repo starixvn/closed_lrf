@@ -690,7 +690,8 @@
     <Content Include="www\js\build\dev\reactpages\lib\lang-zh-Hans.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\lib\lang-zh-TW.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\lib\xlsx-style-sparta.chunk.js" />
-    <Content Include="www\js\build\dev\reactpages\playeradmin\playeradmin.chunk.js" />
+    <Content Include="www\js\build\dev\reactpages\playeradmin\playeraccountinfo.chunk.js" />
+    <Content Include="www\js\build\dev\reactpages\playeradmin\playerlist.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\report\casinoturnover.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\report\licenseewlbytimezone.chunk.js" />
     <Content Include="www\js\build\dev\reactpages\notification\notification.chunk.js" />
@@ -714,7 +715,8 @@
     <Content Include="www\js\build\pro\reactpages\lib\lang-zh-TW.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\lib\langHelper.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\lib\xlsx-style-sparta.chunk.js" />
-    <Content Include="www\js\build\pro\reactpages\playeradmin\playeradmin.chunk.js" />
+    <Content Include="www\js\build\pro\reactpages\playeradmin\playeraccountinfo.chunk.js" />
+    <Content Include="www\js\build\pro\reactpages\playeradmin\playerlist.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\casinoturnover.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\report\licenseewlbytimezone.chunk.js" />
     <Content Include="www\js\build\pro\reactpages\notification\notification.chunk.js" />
@@ -2492,7 +2494,8 @@
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\index.jsx" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\DataGrid.jsx" />
     <Content Include="www\css\source\reactpages\pages\playeradmin\index.scss" />
-    <Content Include="www\js\build\dev\reactpages\playeradmin\playeradmin.chunk.js.map" />
+    <Content Include="www\js\build\dev\reactpages\playeradmin\playeraccountinfo.chunk.js.map" />
+    <Content Include="www\js\build\dev\reactpages\playeradmin\playerlist.chunk.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteConfig\WebConfigTransforms\SIT.config">

@@ -7715,16 +7715,6 @@ function () {
       });
     }
   }, {
-    key: "postDataFromExternal",
-    value: function postDataFromExternal(url, params) {
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, params, {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          'X-Auth-Token': params && params.token || ''
-        }
-      });
-    }
-  }, {
     key: "getFile",
     value: function getFile(url, params) {
       return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, params, {
