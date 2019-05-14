@@ -25,7 +25,6 @@ namespace Fanex.Athena.DataAccess.Forecast
             using (var db = this.GetObjectDb("Lrf_Forecast_MatchTotalForecast"))
             {
                 SetParams(metaModel, db);
-
                 using (var ds = await db.ExecuteDataSetAsync().ConfigureAwait(false))
                 {
                     var forecastData = new NewForecastHdpOuData();

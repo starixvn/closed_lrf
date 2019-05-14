@@ -24,14 +24,15 @@
         }
 
         [HttpGet]
-        public async Task<HttpResponseMessage> Detail(long transId, int custId)
+        public async Task<HttpResponseMessage> Detail(long transId, int custId, string status)
         {
             CheckDataPermission(custId, transId);
 
             var metaModel = new SingleMatchParlayDetailMetaModel
             {
                 CustId = custId,
-                TransId = transId
+                TransId = transId,
+                Status = status
             };
 
             return await BridgeClientService.PostAsync("/SingleMatchParlayBetList/Detail", metaModel).ConfigureAwait(false);

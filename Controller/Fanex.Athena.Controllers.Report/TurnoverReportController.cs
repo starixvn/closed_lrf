@@ -125,7 +125,7 @@ namespace Fanex.Athena.Controllers.Report
             var invalidProduct = productOption.Where(x => !validProductAccess.Any(y => y.ProductCode == x.Code))
                 .Select(y => y.Code ?? string.Empty).ToList();
 
-            if(invalidProduct.Any())
+            if (invalidProduct.Any())
             {
                 throw new ArgumentException($"Invalid product: {string.Join(",", invalidProduct)}");
             }

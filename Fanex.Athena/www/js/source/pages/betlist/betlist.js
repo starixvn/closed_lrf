@@ -535,13 +535,14 @@
                     $('.ui-jqgrid-bdiv').css('height', 'auto');
                 }
             },
-            showSingleMatchParlayDetail: function (transId, custId, transIndex) {
+            showSingleMatchParlayDetail: function (transId, custId, status, transIndex) {
                 var $divEvent = $('#divEvent_' + transId + "" + transIndex);
 
                 if ($divEvent.is(":hidden")) {
                     var url = Site.resolveClientUrl('api/SingleMatchParlayBetList/Detail');
                     url = QueryString.setParam(url, "transId", transId);
                     url = QueryString.setParam(url, "custId", custId);
+                    url = QueryString.setParam(url, "status", status);
 
                     $.ajax({
                         type: "GET",

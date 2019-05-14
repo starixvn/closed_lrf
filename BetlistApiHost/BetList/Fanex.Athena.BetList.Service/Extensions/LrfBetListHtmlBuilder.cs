@@ -133,6 +133,12 @@ namespace Fanex.Athena.BetList.Service.Extensions
                 : string.Format(PatternStatusBetlist, "#000", ViewResources.NoneLive);
         }
 
+        [CLSCompliant(false)]
+        public static string BuildSingleMatchParlaySelectionStatus(this IBetListHTMLBuilder builder, string status)
+        {
+            return GetStatusText(status);
+        }
+
         #region Private Utility
 
         /// <summary>

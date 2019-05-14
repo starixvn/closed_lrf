@@ -1,3 +1,9 @@
-﻿.betlist-container .status {
-    white-space: normal;
+﻿.betlist-container {
+    .status, .bettype {
+        white-space: normal;
+    }
+
+    .combinationLink {
+        font-weight: normal;
+    }
 }

@@ -143,11 +143,11 @@ export class PageLayout extends Component {
         }
     }
 
-    _showSingleMatchParlayDetail (transId, custId, transIndex) {
+    _showSingleMatchParlayDetail (transId, custId, status, transIndex) {
         let divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
         
         if (divEvent.style.display == "none") {
-            let url = BetList.getSingleMatchParlayDetailUrl(transId, custId);
+            let url = BetList.getSingleMatchParlayDetailUrl(transId, custId, status);
             this.props.toggleLoader(true);
             axios.get(url)
                .then((result) => {       

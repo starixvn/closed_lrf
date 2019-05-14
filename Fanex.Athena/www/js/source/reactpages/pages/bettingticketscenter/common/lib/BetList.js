@@ -136,12 +136,13 @@ class BetList {
         return url;
     }
 
-    getSingleMatchParlayDetailUrl (transId, custId) {
+    getSingleMatchParlayDetailUrl (transId, custId, status) {
         if (Number(transId) === 0) { return; }
 
         var url = Site.resolveClientUrl('api/SingleMatchParlayBetList/Detail');
         url = QueryString.setParam(url, "transId", transId);
         url = QueryString.setParam(url, "custId", custId);
+        url = QueryString.setParam(url, "status", status);
 
         return url;
     }

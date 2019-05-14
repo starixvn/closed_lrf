@@ -5,8 +5,9 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Common.Utility.Services.Interfaces;
+    using Fanex.Athena.BetList.Service.Extensions;
+    using Fanex.BetList.Core.Builder;
     using Model.MetaModel;
-    using Resources;
     using Service.Helpers;
     using Service.Interfaces;
 
@@ -16,12 +17,16 @@
 
         private readonly IBetListService _betListService;
 
+        private readonly IBetListHTMLBuilder _betlistHtmlBuilder;
+
         public SingleMatchParlayBetListController(
             ICacheRefAdapter cacheRefAdapter,
-            IBetListService betListService)
+            IBetListService betListService,
+            IBetListHTMLBuilder betlistHtmlBuilder)
         {
             _cacheRefAdapter = cacheRefAdapter;
             _betListService = betListService;
+            _betlistHtmlBuilder = betlistHtmlBuilder;
         }
 
         [HttpPost]
@@ -42,11 +47,11 @@
 
             for (var i = 0; i < selectType.Length; i++)
             {
-                var status = detail.ElementAtOrDefault(i)?.Result;
+                var selectionStatus = detail.ElementAtOrDefault(i)?.Result;
                 var statusText = string.Empty;
-                if (!BetListHelper.IsRunning(status) && !BetListHelper.IsVoid(status))
+                if (!BetListHelper.IsRunning(metaModel.Status) && !BetListHelper.IsVoid(metaModel.Status))
                 {
-                    statusText = string.Format(StatusTextTemplate, ViewResources.ResourceManager.GetString(status));
+                    statusText = string.Format(StatusTextTemplate, _betlistHtmlBuilder.BuildSingleMatchParlaySelectionStatus(selectionStatus));
                 }
 
                 result.Add(string.Format(TextRenderTemplate, selectType[i], statusText));
