@@ -5,6 +5,7 @@
         'use strict';
         const BETTYPE_CASHOUT = 911;
         const BETTYPE_MIXPARLAY = 9, BETTYPE_SYSTEMPARLAY = 29, BETTYPE_MIXPARLAY_BETRADAR = 2799;
+        const BETTYPR_SINGLEMATCHPARLAY = 38;
         const MIN_BETTYPE_FASTMARKET = 221;
         const MAX_BETTYPE_FASTMARKET = 227;
         const SPORT_RNG_GAME = 208;
@@ -34,9 +35,30 @@
         function isFastMarket(bettype) {
             return bettype >= MIN_BETTYPE_FASTMARKET && bettype <= MAX_BETTYPE_FASTMARKET;
         }
+
+        function isParlay(bettype) {
+            return bettype === BETTYPE_MIXPARLAY || bettype === BETTYPE_SYSTEMPARLAY || bettype === BETTYPE_MIXPARLAY_BETRADAR;
+        }
+
         function getBaseCurrency() {
             const params = $.parseJSON($(BETLIST_META_MODEL).val());
             return params.BaseCurrency;
+        }
+
+        function getPopupResultHeight(bettype) {
+            if (isParlay(bettype)) {
+                return 450;
+            }
+
+            if (isFastMarket(bettype)) {
+                return 300;
+            }
+
+            if (bettype === BETTYPR_SINGLEMATCHPARLAY) {
+                return 330;
+            }
+
+            return 250;
         }
 
         const _me = {
@@ -435,12 +457,11 @@
                 }
                 else {
                     const numberBettype = Number(bettype);
-                    const isParlay = numberBettype === BETTYPE_MIXPARLAY || numberBettype === BETTYPE_SYSTEMPARLAY || numberBettype === BETTYPE_MIXPARLAY_BETRADAR;
-                    const url = isParlay
+                    const url = isParlay(numberBettype)
                         ? _me.getMixParlayResultUrl(refnoMixParlay, winlostdate, numberBettype)
                         : _me.getSportBookResultUrl(matchid, numberBettype, raceNo, sporttype, league, isOutright, extension1, extension2, custid);
 
-                    const height = isParlay ? 450 : (isFastMarket(numberBettype) ? 300 : 250);
+                    const height = getPopupResultHeight(numberBettype);
                     const width = 750;
 
                     showResultPopUp(url, { width: width + 25, height: height + 70, title: title });
@@ -535,6 +556,7 @@
                     $('.ui-jqgrid-bdiv').css('height', 'auto');
                 }
             },
+
             showSingleMatchParlayDetail: function (transId, custId, status, transIndex) {
                 var $divEvent = $('#divEvent_' + transId + "" + transIndex);
 

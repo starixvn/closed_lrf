@@ -160,6 +160,14 @@ body {
     vertical-align: middle;
     font-weight: bold;
     text-align: center; }
+  .result-container table.fn-rs tbody .cl-total td {
+    background: #D1DAE1; }
+  .result-container table.fn-rs tbody .cl-total .selection {
+    font-size: 12px;
+    text-align: left;
+    padding-left: 3px; }
+  .result-container table.fn-rs tbody .cl-total .result {
+    text-align: center; }
   .result-container table.fn-rs tbody .cl-league {
     background: #D1DAE1;
     vertical-align: middle;

@@ -4,12 +4,12 @@
 
 $bgRowGroupLevel1: #D1DAE1;
 
-body{
+body {
     background: #fff;
 }
+
 .result-container {
     padding: 10px;
-
     /* Fast Markets */
     .fn-rs.popup .cl-league.sub {
         text-align: center;
@@ -159,6 +159,22 @@ body{
                 text-align: center;
             }
 
+            .cl-total {
+                td {
+                    background: $bgRowGroupLevel1;
+                }
+
+                .selection {
+                    font-size: 12px;
+                    text-align: left;
+                    padding-left: 3px;
+                }
+
+                .result {
+                    text-align: center;
+                }
+            }
+
             .cl-league {
                 background: $bgRowGroupLevel1;
                 vertical-align: middle;
@@ -191,7 +207,7 @@ body{
 
             .cl-match {
                 text-align: left;
-                padding-left: 3px;  
+                padding-left: 3px;
 
                 &.home {
                     color: rgb(69, 69, 69);
@@ -288,7 +304,7 @@ body{
         .cl-status {
             text-transform: capitalize;
 
-            &{
+            & {
                 width: 110px;
             }
 
@@ -399,15 +415,16 @@ body{
         text-align: center;
         padding: 4px;
     }
-
     // E-Sport2
     .width-40 {
-      width: 40%;
+        width: 40%;
     }
+
     .width-30 {
-      width: 30%;
+        width: 30%;
     }
+
     .color-blue {
-      color: #4169E1;
+        color: #4169E1;
     }
 }
