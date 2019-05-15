@@ -79,6 +79,17 @@ describe('PageLayout methods ', () => {
         expect(pageLayout.setState).toHaveBeenCalledWith({ isShowPopup: true, popupUrl: expectedResultUrl, popupTitle: expectedPopupTitle});
     });
 
+    it('window.showSingleMatchParlayDetail() - Call _showSingleMatchParlayDetail() correctly',() =>{
+        const pageLayout = new PageLayout(DefaultProps);
+        pageLayout._showSingleMatchParlayDetail = jest.fn();
+        
+        pageLayout.componentDidMount();
+
+        window.showSingleMatchParlayDetail(1,2,3,4);
+
+        expect(pageLayout._showSingleMatchParlayDetail).toHaveBeenCalledWith(1,2,3,4);
+    });
+
     describe('window.ViewCashOutHistory()', () => {
         it('is cash out - Call Betlist and setState correctly',() =>{
             const expectedResultUrl = "www.CashOutHistory.com";
@@ -166,18 +177,28 @@ describe('PageLayout methods ', () => {
         const betcheck = 444;
         const betteam = 555;
         const custId = 123;
-        document.body.innerHTML = `<div id='divEvent_${transId}${transIndex}'></div><div id='combinationOfferName_${transId}${transIndex}'></div>`;
-        let divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
-        let nameDiv = document.querySelector('#combinationOfferName_' + transId + transIndex);
+        const innerHTML = document.body.innerHTML;
+        let divEvent;
+        let nameDiv;
 
         const pageLayout = new PageLayout({toggleLoader: jest.fn()});
-        
+
         beforeAll(() =>{
             jest.mock('axios');
+
+            document.body.innerHTML = `<div id='divEvent_${transId}${transIndex}'></div><div id='combinationOfferName_${transId}${transIndex}'></div>`;
+            divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
+            nameDiv = document.querySelector('#combinationOfferName_' + transId + transIndex);
+
+            BetList.getChoiceParlayDetailUrl = jest.fn();
         });
 
         afterEach(() => {
             jest.resetAllMocks();
+        });
+
+        afterAll(() => {
+            document.body.innerHTML = innerHTML;
         });
 
         it('Assign class .mx-parlay to divEvent',() =>{
@@ -201,22 +222,20 @@ describe('PageLayout methods ', () => {
 
         it('divEvent is hidden - get choice from server and append to divEvent',() =>{
             divEvent.style.display = "none";
-            const expectedParlayDetailUrl = "www.alskdlf.com";
 
             const promise = Promise.resolve({
-                data: '<div>KimJongUn</div>'
+                data: '<div>New Parlay</div>'
             });
             axios.get = jest.fn((url, option) => promise);
 
-            BetList.getChoiceParlayDetailUrl = jest.fn(() => expectedParlayDetailUrl);
             BetList.buildChoiceParlayDetail = jest.fn(() => "abc");
 
             pageLayout._showNewParlayDetail(transId, transIndex, refNo, handicap1, handicap2, betcheck, betteam, custId);
 
             expect(BetList.getChoiceParlayDetailUrl).toHaveBeenCalledWith(transId, refNo, handicap1, handicap2, betcheck, betteam, custId);
-            expect(axios.get).toHaveBeenCalledWith(expectedParlayDetailUrl);
+            expect(axios.get).toHaveBeenCalled();
             promise.then((result) => {
-                expect(BetList.buildChoiceParlayDetail).toHaveBeenCalledWith('<div>KimJongUn</div>');
+                expect(BetList.buildChoiceParlayDetail).toHaveBeenCalledWith('<div>New Parlay</div>');
                 expect(divEvent.innerHTML).toBe("abc");
                 expect(divEvent.style.display).toBe('block');
                 expect(nameDiv.style.display).toBe('none');
@@ -233,4 +252,77 @@ describe('PageLayout methods ', () => {
             expect(nameDiv.style.display).toBe('block');
         });
     });
+
+
+    describe('_showSingleMatchParlayDetail(transId, custId, status, transIndex)', () => {
+        const transId = 1111;
+        const custId = 2222;
+        const status = 'Won';
+        const transIndex = 3333;
+        const innerHTML = document.body.innerHTML;
+        let divEvent;
+
+        const pageLayout = new PageLayout({toggleLoader: jest.fn()});
+        
+        beforeAll(() =>{
+            jest.mock('axios');
+
+            document.body.innerHTML = `<div id='divEvent_${transId}${transIndex}'></div>`;
+            divEvent = document.querySelector('#divEvent_' + transId + "" + transIndex);
+
+            BetList.getSingleMatchParlayDetailUrl = jest.fn();
+        });
+
+        afterEach(() => {
+            jest.resetAllMocks();
+        });
+
+        afterAll(() => {
+            document.body.innerHTML = innerHTML;
+        });
+
+        it('divEvent is hidden - get selection from server fail - log error',() =>{
+            divEvent.style.display = "none";
+
+            const promise = Promise.reject("error");
+            axios.get = jest.fn((url, option) => promise);
+
+            pageLayout._showSingleMatchParlayDetail(transId, custId, status, transIndex);
+
+            Promise.reject().catch(() => {
+                expect(pageLayout.props.toggleLoader).not.toHaveBeenCalledWith(false);
+            });
+        });
+
+        it('divEvent is hidden - get selection from server and append to divEvent',() =>{
+            divEvent.style.display = "none";
+
+            const promise = Promise.resolve({
+                data: '<div>Single Match Parlay</div>'
+            });
+            axios.get = jest.fn((url, option) => promise);
+
+            BetList.buildSingleMatchParlayDetail = jest.fn(() => 'test');
+
+            pageLayout._showSingleMatchParlayDetail(transId, custId, status, transIndex);
+
+            expect(BetList.getSingleMatchParlayDetailUrl).toHaveBeenCalledWith(transId, custId, status);
+            expect(axios.get).toHaveBeenCalled();
+            promise.then((result) => {
+                expect(BetList.buildSingleMatchParlayDetail).toHaveBeenCalledWith('<div>Single Match Parlay</div>');
+                expect(divEvent.innerHTML).toBe('test');
+                expect(divEvent.style.display).toBe('block');
+            });
+        });
+
+        it('divEvent is show - hide divEvent',() =>{
+            divEvent.style.display = 'block';
+
+            pageLayout._showSingleMatchParlayDetail(transId, custId, status, transIndex);
+
+            expect(divEvent.innerHTML).toBe('');
+            expect(divEvent.style.display).toBe('none');
+        });
+    });
+    
 });

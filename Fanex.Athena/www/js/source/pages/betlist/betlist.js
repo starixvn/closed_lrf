@@ -560,27 +560,27 @@
             showSingleMatchParlayDetail: function (transId, custId, status, transIndex) {
                 var $divEvent = $('#divEvent_' + transId + "" + transIndex);
 
-                if ($divEvent.is(":hidden")) {
+                if ($divEvent.is(':hidden')) {
                     var url = Site.resolveClientUrl('api/SingleMatchParlayBetList/Detail');
-                    url = QueryString.setParam(url, "transId", transId);
-                    url = QueryString.setParam(url, "custId", custId);
-                    url = QueryString.setParam(url, "status", status);
+                    url = QueryString.setParam(url, 'transId', transId);
+                    url = QueryString.setParam(url, 'custId', custId);
+                    url = QueryString.setParam(url, 'status', status);
 
                     $.ajax({
-                        type: "GET",
+                        type: 'GET',
                         contentType: 'application/json',
-                        dataType: "json",
+                        dataType: 'json',
                         cache: false,
                         url: url,
                         success: function (response) {
                             var length = response === null ? 0 : response.length;
                             if (length > 0) {
-                                var choice = "<div class='single-match-parlay-detail'>";
+                                var choice = '<div class="single-match-parlay-detail">';
                                 $.each(response, function (index, item) {
                                     choice += item;
                                 });
 
-                                choice += "</div>";
+                                choice += '</div>';
                                 $divEvent.html(choice).show();
                             }
                         },
@@ -589,8 +589,8 @@
                     });
                 }
                 else {
-                    $divEvent.hide().html("");
-                    $(".ui-jqgrid-bdiv").css("height", "auto");
+                    $divEvent.hide().html('');
+                    $('.ui-jqgrid-bdiv').css('height', 'auto');
                 }
             },
 

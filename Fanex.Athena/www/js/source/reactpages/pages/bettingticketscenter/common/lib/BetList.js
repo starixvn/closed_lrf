@@ -88,14 +88,14 @@ class BetList {
     }
 
     buildSingleMatchParlayDetail(data){
-        let selection = "";
+        let selection = '';
         let length = data === null ? 0 : data.length;
         if (length > 0) {
-            selection = "<div class='single-match-parlay-detail'>";
+            selection = '<div class="single-match-parlay-detail">';
             for(let i = 0; i < data.length; i++){
                 selection += data[i];
             }
-            selection += "</div>";
+            selection += '</div>';
         }
 
         return selection;
@@ -137,13 +137,10 @@ class BetList {
     }
 
     getSingleMatchParlayDetailUrl (transId, custId, status) {
-        if (Number(transId) === 0) { return; }
-
         var url = Site.resolveClientUrl('api/SingleMatchParlayBetList/Detail');
         url = QueryString.setParam(url, "transId", transId);
         url = QueryString.setParam(url, "custId", custId);
         url = QueryString.setParam(url, "status", status);
-
         return url;
     }
 }

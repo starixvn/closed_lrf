@@ -125,9 +125,8 @@ export class PageLayout extends Component {
             let url = BetList.getChoiceParlayDetailUrl(transId, refNo, handicap1, handicap2, betcheck, betteam, custId);
             this.props.toggleLoader(true);
             axios.get(url)
-               .then((result) => {       
+               .then((result) => {
                    let choice = BetList.buildChoiceParlayDetail(result.data);
-                   
                    divEvent.innerHTML = choice;
                    divEvent.style.display = 'block';
                    nameDiv.style.display = 'none';
@@ -150,7 +149,7 @@ export class PageLayout extends Component {
             let url = BetList.getSingleMatchParlayDetailUrl(transId, custId, status);
             this.props.toggleLoader(true);
             axios.get(url)
-               .then((result) => {       
+               .then((result) => {
                    let selection = BetList.buildSingleMatchParlayDetail(result.data);
                    
                    divEvent.innerHTML = selection;
@@ -162,7 +161,7 @@ export class PageLayout extends Component {
         }
         else {
             divEvent.style.display = 'none';
-            divEvent.innerHTML = "";
+            divEvent.innerHTML = '';
         }
     }
 

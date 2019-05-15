@@ -97,4 +97,25 @@ describe("BetList", function () {
             expect(result).toEqual({ url: 'CashOutBetList/Detail?transid=1&refno=2&bettype=3&betdaqid=1&basecurrency=USD&iscashout=false', isCashOut: false });
         });
     });
+
+    describe('getSingleMatchParlayDetailUrl(transId, custId, status)', function () {
+        it('should return an url with correct parameters', function () {
+            const result = BetList.getSingleMatchParlayDetailUrl(1, 2, 3);
+            expect(result).toBe('api/SingleMatchParlayBetList/Detail?transid=1&custid=2&status=3');
+        });
+    });
+
+    describe('buildSingleMatchParlayDetail(data)', function () {
+        it('has data - return correct result', function () {
+            const data = ['Text1', 'Text2'];
+            const result = BetList.buildSingleMatchParlayDetail(data);
+            expect(result).toBe('<div class="single-match-parlay-detail">Text1Text2</div>');
+        });
+
+        it('has no data - return empty string', function () {
+            const data = null;
+            const result = BetList.buildSingleMatchParlayDetail(data);
+            expect(result).toBe('');
+        });
+    });
 });
