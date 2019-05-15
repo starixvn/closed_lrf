@@ -96,7 +96,7 @@
                 {
                     Assert.That(expect, Is.EqualTo(actual));
                     Assert.That(metaModel.UspKey, Is.EqualTo(UspKey));
-                    Assert.That(metaModel.MultipleBettype, Is.EqualTo(((int)BetType.CombinationMixParlay).ToString()));
+                    Assert.That(metaModel.MultipleBettype, Is.EqualTo($"{(int)BetType.CombinationMixParlay},{(int)BetType.SingleMatchParlay}"));
                     BetListApiClient.Received().PostAsync(ApiPath, metaModel, SessionLanguage);
                 });
             }

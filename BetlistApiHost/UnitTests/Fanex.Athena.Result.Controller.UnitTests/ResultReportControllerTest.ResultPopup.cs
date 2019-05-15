@@ -151,6 +151,51 @@
             }
         }
 
+        [Test]
+        public async Task ResultPopup_SingleMatchParlay_NoData_ResultNull()
+        {
+            using (var controller = CreateController())
+            {
+                // Arrange
+                var metaModel = CreateResultPopupMetaModel(Fanex.Result.Core.Base.SportType.Soccer);
+                metaModel.Bettype = (int)BetType.SingleMatchParlay;
+
+                Sportsbook data = null;
+                _resultService.GetPopUpSingleMatchParlay(metaModel.MatchId, metaModel.BetId?.ToString()).Returns(Task.FromResult(data));
+
+                // Action
+                var result = await controller.ResultPopup(metaModel).ConfigureAwait(false);
+
+                // Assert
+                Assert.That(result, Is.Null);
+            }
+        }
+
+        [Test]
+        public async Task ResultPopup_SingleMatchParlay_ResultIsCorrect()
+        {
+            using (var controller = CreateController())
+            {
+                // Arrange
+                var metaModel = CreateResultPopupMetaModel(Fanex.Result.Core.Base.SportType.Soccer);
+                metaModel.Bettype = (int)BetType.SingleMatchParlay;
+
+                var data = new Sportsbook();
+                _resultService.GetPopUpSingleMatchParlay(metaModel.MatchId, metaModel.BetId?.ToString()).Returns(Task.FromResult(data));
+                _resultService.HtmlParser(Arg.Is<List<Sportsbook>>(x => x[0] == data), Arg.Any<ResultSetting>()).Returns(HtmlResult);
+
+                // Action
+                var result = await controller.ResultPopup(metaModel).ConfigureAwait(false);
+
+                // Assert
+                Assert.Multiple(() =>
+                {
+                    _resultService.Received(1).HtmlParser(Arg.Any<List<Sportsbook>>(), Arg.Is<ResultSetting>(x => x.IsPopupOpenFromBetList == true));
+                    Assert.That(result, Is.EqualTo(HtmlResult));
+                });
+            }
+        }
+
         private static ResultPopupMetaModel CreateResultPopupMetaModel(Fanex.Result.Core.Base.SportType sportType)
         {
             return new ResultPopupMetaModel

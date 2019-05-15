@@ -15,6 +15,8 @@
     {
         private const string AgentListXml = "<xml/>";
 
+        private string MixParlayBetType = $"{(int)BetType.CombinationMixParlay},{(int)BetType.SingleMatchParlay}";
+
         [OneTimeSetUp]
         public override void FixtureSetUp()
         {
@@ -36,7 +38,7 @@
                 // Arrange
                 var metaModel = new BetListExcelMetaModel
                 {
-                    MultipleBettype = ((int)BetType.CombinationMixParlay).ToString()
+                    MultipleBettype = MixParlayBetType
                 };
 
                 // Action
@@ -95,7 +97,7 @@
                 {
                     IsExportExcel = true,
                     CurrencyId = -1000,
-                    MultipleBettype = "29"
+                    MultipleBettype = MixParlayBetType
                 };
 
                 controller.When(x => x.EmptyExcel()).DoNotCallBase();
@@ -121,10 +123,10 @@
                     CurrencyId = 0,
                     CurrencyName = currency,
                     BaseCurrency = baseCurrency,
-                    MultipleBettype = "29"
+                    MultipleBettype = MixParlayBetType
                 };
 
-                CacheRefAdapter.GetBettype("29").Returns("MixParlay");
+                CacheRefAdapter.GetBettype(((int)BetType.CombinationMixParlay).ToString()).Returns("MixParlay");
 
                 var currencyTitle = string.Format(ViewResources.Viewin, expectedCurrency);
                 var expectedTitle = "MixParlay - " + currencyTitle;

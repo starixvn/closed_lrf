@@ -31,6 +31,12 @@
             _rngCasinoSingleWalletService = Substitute.For<IRNGCasinoSingleWalletService>();
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            _resultService.ClearReceivedCalls();
+        }
+
         [Test]
         public void ShowRngCasinoSingleWalletResult_WhenCall_ReturnCorrectResult()
         {

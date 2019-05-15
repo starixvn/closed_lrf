@@ -94,6 +94,7 @@
     <Compile Include="LicenseeWinLossBetListControllerTest.cs" />
     <Compile Include="LiveReportBetListControllerTest.cs" />
     <Compile Include="MatchWinLossBetListControllerTest.cs" />
+    <Compile Include="SingleMatchParlayBetListControllerTest.cs" />
     <Compile Include="MixParlayBetListControllerTest.cs" />
     <Compile Include="OutStandingCompletedBetListControllerTest.cs" />
     <Compile Include="OutstandingDailyStatementBetListControllerTest.cs" />

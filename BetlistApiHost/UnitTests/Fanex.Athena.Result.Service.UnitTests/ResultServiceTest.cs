@@ -7,6 +7,7 @@
     using Model.MetaModel;
     using NSubstitute;
     using NUnit.Framework;
+    using UnitTest.Common.Helpers;
 
     public class ResultServiceTest
     {
@@ -212,6 +213,20 @@
 
             // Assert
             _numberGameDataAccess.Received(1).GetPopUpHappy5Match(MatchId);
+        }
+
+        [Test]
+        public void GetPopUpSingleMatchParlay_WhenCall_ReturnDataFromDataAccess()
+        {
+            // Arrange
+            var matchId = FakeHelper.Create<int>();
+            var marketId = FakeHelper.Create<string>();
+
+            // Action
+            _service.GetPopUpSingleMatchParlay(matchId, marketId);
+
+            // Assert
+            _dataAccess.Received(1).GetPopUpSingleMatchParlay(matchId, marketId);
         }
     }
 }

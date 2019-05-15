@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Athena.BetList.Service.UnitTests
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Common.Constant;
     using Common.DataAccess.Interfaces;
@@ -90,6 +91,21 @@
 
             // Action
             var result = await _betListService.GetSystemParlayDetail(metaModel).ConfigureAwait(false);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public async Task GetSingleMatchParlayDetail_WhenCall_ReturnDataFromDataAccess()
+        {
+            // Arrange
+            var expectedResult = FakeHelper.CreateMany<SingleMatchParlayDetail>(2);
+            var metaModel = new SingleMatchParlayDetailMetaModel();
+            _betlistDataAccess.GetSingleMatchParlayDetail(metaModel).Returns(Task.FromResult<IList<SingleMatchParlayDetail>>(expectedResult.ToList()));
+
+            // Action
+            var result = await _betListService.GetSingleMatchParlayDetail(metaModel).ConfigureAwait(false);
 
             // Assert
             Assert.That(result, Is.EqualTo(expectedResult));

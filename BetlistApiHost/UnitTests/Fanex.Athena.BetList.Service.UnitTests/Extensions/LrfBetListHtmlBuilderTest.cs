@@ -353,5 +353,27 @@
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [TestCase("running", BetStatus.Running)]
+        [TestCase("Reject", BetStatus.Reject)]
+        [TestCase("WON", BetStatus.Won)]
+        [TestCase("lOse", BetStatus.Lose)]
+        [TestCase("draW", BetStatus.Draw)]
+        [TestCase("WaitIng", BetStatus.Waiting)]
+        [TestCase("Void", "voided")]
+        [TestCase("RefunD", BetStatus.Refund)]
+        public void BuildSingleMatchParlaySelectionStatus_WhenCall_ReturnCorrectStatus(string status, string expectStatus)
+        {
+            // Arrange
+            var sourceType = typeof(CoreBetList);
+            var statusProp = sourceType.GetProperty(expectStatus);
+            var expected = statusProp.GetValue(sourceType, null);
+
+            // Action
+            var result = _betListBuilder.BuildSingleMatchParlaySelectionStatus(status);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }

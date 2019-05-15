@@ -121,6 +121,7 @@
     <Compile Include="MixParlayBetListControllerTest.cs" />
     <Compile Include="OutstandingDailyStatementBetListControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleMatchParlayBetListControllerTest.cs" />
     <Compile Include="SystemParlayBetListControllerTest.cs" />
     <Compile Include="Utility\BettingTicketCenterZipBuilderTest.cs" />
   </ItemGroup>
