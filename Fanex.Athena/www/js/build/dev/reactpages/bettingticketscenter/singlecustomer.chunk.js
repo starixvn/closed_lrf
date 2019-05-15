@@ -4425,7 +4425,7 @@ function (_Component) {
         });
       } else {
         divEvent.style.display = 'none';
-        divEvent.innerHTML = "";
+        divEvent.innerHTML = '';
       }
     }
   }, {
@@ -4656,17 +4656,17 @@ function () {
   }, {
     key: "buildSingleMatchParlayDetail",
     value: function buildSingleMatchParlayDetail(data) {
-      var selection = "";
+      var selection = '';
       var length = data === null ? 0 : data.length;
 
       if (length > 0) {
-        selection = "<div class='single-match-parlay-detail'>";
+        selection = '<div class="single-match-parlay-detail">';
 
         for (var i = 0; i < data.length; i++) {
           selection += data[i];
         }
 
-        selection += "</div>";
+        selection += '</div>';
       }
 
       return selection;
@@ -4712,10 +4712,6 @@ function () {
   }, {
     key: "getSingleMatchParlayDetailUrl",
     value: function getSingleMatchParlayDetailUrl(transId, custId, status) {
-      if (Number(transId) === 0) {
-        return;
-      }
-
       var url = _jsroot_lib_site__WEBPACK_IMPORTED_MODULE_0__["default"].resolveClientUrl('api/SingleMatchParlayBetList/Detail');
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "transId", transId);
       url = _jsroot_lib_QueryString__WEBPACK_IMPORTED_MODULE_1__["default"].setParam(url, "custId", custId);
