@@ -154,6 +154,34 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/commonAction.js":
+/*!****************************************************************************************!*\
+  !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/commonAction.js ***!
+  \****************************************************************************************/
+/*! exports provided: setSelectedPlayer, setTabList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setSelectedPlayer", function() { return setSelectedPlayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTabList", function() { return setTabList; });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js");
+
+var setSelectedPlayer = function setSelectedPlayer(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["SET_SELECTED_PLAYER"],
+    data: data
+  };
+};
+var setTabList = function setTabList(data) {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__["SET_TAB_LIST"],
+    data: data
+  };
+};
+
+/***/ }),
+
 /***/ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/filterHandlerAction.js":
 /*!***********************************************************************************************!*\
   !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/filterHandlerAction.js ***!
@@ -167,13 +195,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setParam", function() { return setParam; });
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js");
 /* harmony import */ var _lib_playerListService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/playerListService */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/lib/playerListService.js");
+/* harmony import */ var _commonAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./commonAction */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/commonAction.js");
+
 
 
 var searchPlayer = function searchPlayer(param) {
   return function (dispatch) {
     var service = new _lib_playerListService__WEBPACK_IMPORTED_MODULE_1__["default"]();
-    service.getPlayerList(param).then(function (response) {
-      dispatch(setPlayerList(response.data));
+    service.getPlayerList(param).then(function (result) {
+      var playerList = result.playerList,
+          tabList = result.tabList;
+      dispatch(setPlayerList(playerList));
+      dispatch(Object(_commonAction__WEBPACK_IMPORTED_MODULE_2__["setTabList"])(tabList));
+
+      if (playerList.length === 1) {
+        dispatch(Object(_commonAction__WEBPACK_IMPORTED_MODULE_2__["setSelectedPlayer"])(playerList[0].CustId));
+      }
     });
   };
 };
@@ -207,10 +244,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_loaderAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../actions/loaderAction */ "./www/js/source/reactpages/actions/loaderAction.js");
 /* harmony import */ var _filterHandlerAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filterHandlerAction */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/filterHandlerAction.js");
 /* harmony import */ var _playerDetailHandlerAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./playerDetailHandlerAction */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/playerDetailHandlerAction.js");
+/* harmony import */ var _commonAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./commonAction */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/commonAction.js");
 
 
 
-var ActionCreators = Object.assign({}, _actions_loaderAction__WEBPACK_IMPORTED_MODULE_0__, _filterHandlerAction__WEBPACK_IMPORTED_MODULE_1__, _playerDetailHandlerAction__WEBPACK_IMPORTED_MODULE_2__);
+
+var ActionCreators = Object.assign({}, _actions_loaderAction__WEBPACK_IMPORTED_MODULE_0__, _commonAction__WEBPACK_IMPORTED_MODULE_3__, _filterHandlerAction__WEBPACK_IMPORTED_MODULE_1__, _playerDetailHandlerAction__WEBPACK_IMPORTED_MODULE_2__);
 
 /***/ }),
 
@@ -239,7 +278,7 @@ var getLink = function getLink(systemType, action) {
 /*!*********************************************************************************!*\
   !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js ***!
   \*********************************************************************************/
-/*! exports provided: SET_PARAM, SET_PLAYER_LIST, SET_SELECTED_PLAYER */
+/*! exports provided: SET_PARAM, SET_PLAYER_LIST, SET_SELECTED_PLAYER, SET_TAB_LIST */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -247,9 +286,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PARAM", function() { return SET_PARAM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PLAYER_LIST", function() { return SET_PLAYER_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_SELECTED_PLAYER", function() { return SET_SELECTED_PLAYER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TAB_LIST", function() { return SET_TAB_LIST; });
 var SET_PARAM = 'PLAYER_ADMIN/SET_PARAM';
 var SET_PLAYER_LIST = 'PLAYER_ADMIN/SET_PLAYER_LIST';
 var SET_SELECTED_PLAYER = 'PLAYER_ADMIN/SET_SELECTED_PLAYER';
+var SET_TAB_LIST = 'PLAYER_ADMIN/SET_TAB_LIST';
 
 /***/ }),
 
@@ -335,13 +376,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -354,9 +397,19 @@ function (_PureComponent) {
   _inherits(DataGrid, _PureComponent);
 
   function DataGrid(props) {
+    var _this;
+
     _classCallCheck(this, DataGrid);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DataGrid).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DataGrid).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "_handleSelectPlayer", function (event, custId) {
+      event.preventDefault();
+
+      _this.props.setSelectedPlayer(custId);
+    });
+
+    return _this;
   }
 
   _createClass(DataGrid, [{
@@ -390,7 +443,9 @@ function (_PureComponent) {
         colWidth: 70
       }, "Special Level"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["HeaderCell"], {
         colWidth: 100
-      }, "Last Transaction"));
+      }, "Last Transaction"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["HeaderCell"], {
+        colWidth: 100
+      }, "Email"));
     }
   }, {
     key: "_renderDataSection",
@@ -407,6 +462,8 @@ function (_PureComponent) {
   }, {
     key: "_buildDataRow",
     value: function _buildDataRow(dataItem, index) {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Row"], {
         key: index
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
@@ -418,7 +475,12 @@ function (_PureComponent) {
         className: "center-align"
       }, dataItem.Status), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
         className: "center-align"
-      }, dataItem.UserName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "javascript:;",
+        onClick: function onClick(e) {
+          return _this2._handleSelectPlayer(e, dataItem.CustId);
+        }
+      }, dataItem.UserName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
         className: "center-align"
       }, dataItem.SystemId), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
         className: "center-align"
@@ -437,7 +499,9 @@ function (_PureComponent) {
         className: "center-align"
       }, dataItem.SpecialLevel), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
         className: "center-align"
-      }, dataItem.LastTransaction));
+      }, dataItem.LastTransaction), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_9softstudio_react_grid__WEBPACK_IMPORTED_MODULE_4__["Cell"], {
+        className: "center-align"
+      }, dataItem.Email));
     }
   }, {
     key: "render",
@@ -461,9 +525,9 @@ function (_PureComponent) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["PureComponent"]);
 
 function mapDispatchToProps(dispatch) {
-  var searchPlayer = _actions_index_js__WEBPACK_IMPORTED_MODULE_2__["ActionCreators"].searchPlayer;
+  var setSelectedPlayer = _actions_index_js__WEBPACK_IMPORTED_MODULE_2__["ActionCreators"].setSelectedPlayer;
   return Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])({
-    searchPlayer: searchPlayer
+    setSelectedPlayer: setSelectedPlayer
   }, dispatch);
 }
 
@@ -557,13 +621,6 @@ function (_PureComponent) {
   }
 
   _createClass(FormFilter, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.searchPlayer({
-        userName: this.state.Username
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var Username = this.state.Username;
@@ -686,22 +743,30 @@ function (_PureComponent) {
   }
 
   _createClass(PlayerDetail, [{
+    key: "_buildActionUrl",
+    value: function _buildActionUrl(systemType, action) {
+      var selectedPlayer = this.props.selectedPlayer;
+      var queryString = (action.indexOf('?') !== -1 ? '&custId=' : '?custId=') + selectedPlayer;
+      var urlByPlayer = action + queryString;
+      return this.props.getLink(systemType, urlByPlayer);
+    }
+  }, {
     key: "_renderTabList",
     value: function _renderTabList(renderingMenuList) {
       var _this2 = this;
 
       var selectedTabIndex = this.state.selectedTabIndex;
       return renderingMenuList.map(function (item, index) {
-        var actionLink = _this2.props.getLink(item.SystemType, item.Action);
+        var actionUrl = _this2._buildActionUrl(item.SystemType, item.Action);
 
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "tab",
           key: item.Name
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: selectedTabIndex === index ? "active" : "",
-          href: actionLink,
+          href: actionUrl,
           onClick: function onClick(event) {
-            return _this2.handleClickMenu(event, actionLink, index);
+            return _this2.handleClickMenu(event, actionUrl, index);
           }
         }, item.Text));
       });
@@ -710,9 +775,16 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var targetUrl = this.state.targetUrl;
-      var menuList = this.props.menuList;
-      var hasMenuList = menuList && menuList.length > 0;
-      var src = targetUrl || (hasMenuList ? this.props.getLink(menuList[0].SystemType, menuList[0].Action) : '');
+      var _this$props = this.props,
+          menuList = _this$props.menuList,
+          selectedPlayer = _this$props.selectedPlayer;
+
+      if (!selectedPlayer || !menuList || menuList.length === 0) {
+        return null;
+      }
+
+      var src = targetUrl || this._buildActionUrl(menuList[0].SystemType, menuList[0].Action);
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pa-detail-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -723,7 +795,7 @@ function (_PureComponent) {
         className: "content-tab"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "tabs"
-      }, hasMenuList ? this._renderTabList(menuList) : null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this._renderTabList(menuList)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tab-panel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pa-frame-container"
@@ -750,9 +822,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  var menuList = state.menuList;
+  var menuList = state.menuList,
+      selectedPlayer = state.selectedPlayer;
   return Object.assign({}, {
-    menuList: menuList
+    menuList: menuList,
+    selectedPlayer: selectedPlayer
   });
 }
 
@@ -826,9 +900,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 var apiInfo = {
-  playerList: {
-    action: 'api/PlayerMain/GetPlayerList',
+  lrfPlayerList: {
+    action: 'api/PlayerMain/Search',
     type: _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].lrf
+  },
+  lapPlayerList: {
+    action: 'PlayerAdminContainer/Search',
+    type: _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].newAdmin
   }
 };
 
@@ -842,18 +920,52 @@ function () {
   }
 
   _createClass(PlayerListService, [{
+    key: "_mergePlayerList",
+    value: function _mergePlayerList(lrfList, lapList) {
+      var result = [];
+
+      var _loop = function _loop(i) {
+        var lrfItem = lrfList[i];
+        var lapItem = lapList.find(function (x) {
+          return x.CustId === lrfItem.CustId;
+        });
+
+        if (lrfItem && lapItem) {
+          result.push(_objectSpread({}, lrfItem, lapItem));
+        }
+      };
+
+      for (var i = 0; i < lrfList.length; i++) {
+        _loop(i);
+      }
+
+      return result;
+    }
+  }, {
     key: "getPlayerList",
     value: function getPlayerList(param) {
-      var playerList = apiInfo.playerList;
-      var ajaxConfig = {
-        method: 'GET'
-      };
+      var _this = this;
+
+      var lrfPlayerList = apiInfo.lrfPlayerList,
+          lapPlayerList = apiInfo.lapPlayerList;
 
       var params = _objectSpread({
         userName: ''
       }, param);
 
-      return this.commonService.fetchData(playerList.type, playerList.action, params, ajaxConfig);
+      var lrfPromise = this.commonService.fetchData(lrfPlayerList.type, lrfPlayerList.action, _objectSpread({}, params));
+      var lapPromise = this.commonService.fetchData(lapPlayerList.type, lapPlayerList.action, _objectSpread({}, params));
+      return this.commonService.fetchMultiple([lrfPromise, lapPromise], function (lrfResponse, lapResponse) {
+        var lrfPlayerList = lrfResponse.data;
+        var lapResponseData = lapResponse.data;
+
+        var playerList = _this._mergePlayerList(lrfPlayerList, lapResponseData.PlayerList);
+
+        return {
+          playerList: playerList,
+          tabList: lapResponseData.TabList
+        };
+      });
     }
   }, {
     key: "getLink",
@@ -903,7 +1015,9 @@ var param = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 var playerList = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(null, _defineProperty({}, _actions_types_js__WEBPACK_IMPORTED_MODULE_1__["SET_PLAYER_LIST"], function (preState, action) {
   return _toConsumableArray(action.data);
 }));
-var menuList = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"])([], {});
+var menuList = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"])([], _defineProperty({}, _actions_types_js__WEBPACK_IMPORTED_MODULE_1__["SET_TAB_LIST"], function (preState, action) {
+  return _toConsumableArray(action.data);
+}));
 
 /***/ }),
 
@@ -918,11 +1032,35 @@ var menuList = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["defaul
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _filterHandlerReducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filterHandlerReducer.js */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/reducers/filterHandlerReducer.js");
-/* harmony import */ var _reducers_loaderReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../reducers/loaderReducer */ "./www/js/source/reactpages/reducers/loaderReducer.js");
+/* harmony import */ var _playerDetailHandlerReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./playerDetailHandlerReducer */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/reducers/playerDetailHandlerReducer.js");
+/* harmony import */ var _reducers_loaderReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../reducers/loaderReducer */ "./www/js/source/reactpages/reducers/loaderReducer.js");
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(Object.assign(_filterHandlerReducer_js__WEBPACK_IMPORTED_MODULE_1__, _reducers_loaderReducer__WEBPACK_IMPORTED_MODULE_2__)));
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(Object.assign(_filterHandlerReducer_js__WEBPACK_IMPORTED_MODULE_1__, _reducers_loaderReducer__WEBPACK_IMPORTED_MODULE_3__, _playerDetailHandlerReducer__WEBPACK_IMPORTED_MODULE_2__)));
+
+/***/ }),
+
+/***/ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/reducers/playerDetailHandlerReducer.js":
+/*!*******************************************************************************************************!*\
+  !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/reducers/playerDetailHandlerReducer.js ***!
+  \*******************************************************************************************************/
+/*! exports provided: selectedPlayer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectedPlayer", function() { return selectedPlayer; });
+/* harmony import */ var _lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../lib/createReducer.js */ "./www/js/source/reactpages/lib/createReducer.js");
+/* harmony import */ var _actions_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/types.js */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var selectedPlayer = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(null, _defineProperty({}, _actions_types_js__WEBPACK_IMPORTED_MODULE_1__["SET_SELECTED_PLAYER"], function (preState, action) {
+  return action.data;
+}));
 
 /***/ }),
 
@@ -1146,7 +1284,7 @@ function (_BaseCommonService) {
   _createClass(LapCommonService, [{
     key: "_buildApplyTokenQueryString",
     value: function _buildApplyTokenQueryString(sysType, action) {
-      return "ActionLink=".concat(action, "&Type=").concat(sysType);
+      return "ActionLink=".concat(encodeURIComponent(action), "&Type=").concat(sysType);
     }
   }, {
     key: "getLink",
@@ -1189,13 +1327,13 @@ function (_BaseCommonService) {
 
         var commonAjaxConfig = _this2._buildCommonAjaxConfig(configOption, apiActionUrl, params);
 
-        var headerConfig = {
-          headers: {
-            'X-Auth-Token': Token
-          }
-        };
+        var headerConfig = _objectSpread({}, configOption.headers, {
+          'X-Auth-Token': Token
+        });
 
-        var configWithXToken = _objectSpread({}, commonAjaxConfig, headerConfig);
+        var configWithXToken = _objectSpread({}, commonAjaxConfig, {
+          headers: _objectSpread({}, headerConfig)
+        });
 
         return axios__WEBPACK_IMPORTED_MODULE_2___default()(configWithXToken);
       });
@@ -1205,14 +1343,16 @@ function (_BaseCommonService) {
     value: function fetchData(sysType, action, params) {
       var configOption = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : defaultAjaxConfig;
 
+      var config = _objectSpread({}, defaultAjaxConfig, configOption);
+
       if (sysType === _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].newAdmin) {
         var relativeUrl = this._baseUrl + action;
 
-        var ajaxConfig = this._buildCommonAjaxConfig(configOption, relativeUrl, params);
+        var ajaxConfig = this._buildCommonAjaxConfig(config, relativeUrl, params);
 
         return axios__WEBPACK_IMPORTED_MODULE_2___default()(ajaxConfig);
       } else {
-        return this._fetchDataWithToken(sysType, action, params, configOption);
+        return this._fetchDataWithToken(sysType, action, params, config);
       }
     }
   }, {

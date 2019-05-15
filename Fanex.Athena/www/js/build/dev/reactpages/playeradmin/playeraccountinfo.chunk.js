@@ -253,9 +253,9 @@ function (_PureComponent) {
       var _this2 = this;
 
       var params = {};
-      this.props.getAccountInfo(params).then(function (response) {
+      this.props.getAccountInfo(params).then(function (result) {
         _this2.setState({
-          data: response.data
+          data: result
         });
       }).catch(function (err) {
         console.log(err);
@@ -265,7 +265,7 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var data = this.state.data;
-      return data && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Account Profile (Call From LRF)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Created Date: ", data.CreatedDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Last Login: ", data.LastLogin), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Last Txn: ", data.LastTxn)));
+      return data && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Account Profile (Call From LRF & LAP)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Created Date: ", data.CreatedDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Last Login: ", data.LastLogin), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Last Txn: ", data.LastTxn), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Email (LAP): ", data.Email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "LapInfo1 (LAP): ", data.LapInfo1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "LapInfo2 (LAP): ", data.LapInfo2)));
     }
   }]);
 
@@ -408,7 +408,7 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var data = this.state.data;
-      return data && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Customer Betting Status (Call From LAP)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Win: ", data.Win), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Loss: ", data.Loss), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Void/Reject/Cancel: ", data.VoidRejectCancel)));
+      return data && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Customer Betting Status (Call From LRF)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Win: ", data.Win), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Loss: ", data.Loss), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Void/Reject/Cancel: ", data.VoidRejectCancel)));
     }
   }]);
 
@@ -586,12 +586,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 var apiInfo = {
-  accountProfile: {
-    action: 'api/PlayerLog/GetAccountProfile',
+  lrfAccountProfile: {
+    action: 'api/PlayerDetailedInfo/GetAccountProfile',
     type: _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].lrf
   },
   custBettingStatus: {
-    action: 'PlayerAccountInfo/GetCustomerBettingStatus',
+    action: 'api/PlayerDetailedInfo/GetCustomerBettingStatus',
+    type: _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].lrf
+  },
+  lapAccountProfile: {
+    action: 'PlayerAccountInfo/GetAccountProfile',
     type: _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].newAdmin
   }
 };
@@ -608,11 +612,21 @@ function () {
   _createClass(PlayerAccountService, [{
     key: "getAccountInfo",
     value: function getAccountInfo(param) {
-      var accountProfile = apiInfo.accountProfile;
+      var lrfAccountProfile = apiInfo.lrfAccountProfile,
+          lapAccountProfile = apiInfo.lapAccountProfile;
 
       var params = _objectSpread({}, param);
 
-      return this.commonService.fetchData(accountProfile.type, accountProfile.action, params);
+      var lrfPromise = this.commonService.fetchData(lrfAccountProfile.type, lrfAccountProfile.action, params);
+      var ajaxConfig = {
+        method: 'get'
+      };
+      var lapPromise = this.commonService.fetchData(lapAccountProfile.type, lapAccountProfile.action, params, ajaxConfig);
+      return this.commonService.fetchMultiple([lrfPromise, lapPromise], function (lrfResponse, lapResponse) {
+        var lrfAccountInfo = lrfResponse.data;
+        var lapAccountInfo = lapResponse.data;
+        return _objectSpread({}, lrfAccountInfo, lapAccountInfo);
+      });
     }
   }, {
     key: "getCustomerBettingStatus",
@@ -867,7 +881,7 @@ function (_BaseCommonService) {
   _createClass(LapCommonService, [{
     key: "_buildApplyTokenQueryString",
     value: function _buildApplyTokenQueryString(sysType, action) {
-      return "ActionLink=".concat(action, "&Type=").concat(sysType);
+      return "ActionLink=".concat(encodeURIComponent(action), "&Type=").concat(sysType);
     }
   }, {
     key: "getLink",
@@ -910,13 +924,13 @@ function (_BaseCommonService) {
 
         var commonAjaxConfig = _this2._buildCommonAjaxConfig(configOption, apiActionUrl, params);
 
-        var headerConfig = {
-          headers: {
-            'X-Auth-Token': Token
-          }
-        };
+        var headerConfig = _objectSpread({}, configOption.headers, {
+          'X-Auth-Token': Token
+        });
 
-        var configWithXToken = _objectSpread({}, commonAjaxConfig, headerConfig);
+        var configWithXToken = _objectSpread({}, commonAjaxConfig, {
+          headers: _objectSpread({}, headerConfig)
+        });
 
         return axios__WEBPACK_IMPORTED_MODULE_2___default()(configWithXToken);
       });
@@ -926,14 +940,16 @@ function (_BaseCommonService) {
     value: function fetchData(sysType, action, params) {
       var configOption = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : defaultAjaxConfig;
 
+      var config = _objectSpread({}, defaultAjaxConfig, configOption);
+
       if (sysType === _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].newAdmin) {
         var relativeUrl = this._baseUrl + action;
 
-        var ajaxConfig = this._buildCommonAjaxConfig(configOption, relativeUrl, params);
+        var ajaxConfig = this._buildCommonAjaxConfig(config, relativeUrl, params);
 
         return axios__WEBPACK_IMPORTED_MODULE_2___default()(ajaxConfig);
       } else {
-        return this._fetchDataWithToken(sysType, action, params, configOption);
+        return this._fetchDataWithToken(sysType, action, params, config);
       }
     }
   }, {
