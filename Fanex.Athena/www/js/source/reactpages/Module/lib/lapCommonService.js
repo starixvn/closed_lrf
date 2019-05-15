@@ -25,7 +25,7 @@ class LapCommonService extends BaseCommonService {
     }
 
     _buildApplyTokenQueryString(sysType, action) {
-        return `ActionLink=${action}&Type=${sysType}`;
+        return `ActionLink=${encodeURIComponent(action)}&Type=${sysType}`;
     }
 
     getLink(sysType, action) {
@@ -64,25 +64,25 @@ class LapCommonService extends BaseCommonService {
 
                 const commonAjaxConfig = this._buildCommonAjaxConfig(configOption, apiActionUrl, params);
                 const headerConfig = {
-                    headers: {
-                        'X-Auth-Token': Token
-                    }
+                    ...configOption.headers,
+                    'X-Auth-Token': Token
                 }
 
-                const configWithXToken = {...commonAjaxConfig, ...headerConfig };
+                const configWithXToken = {...commonAjaxConfig, headers: {...headerConfig } };
 
                 return axios(configWithXToken);
             });
     }
 
     fetchData(sysType, action, params, configOption = defaultAjaxConfig) {
+        const config = {...defaultAjaxConfig, ...configOption };
         if (sysType === systemType.newAdmin) {
             const relativeUrl = this._baseUrl + action;
-            const ajaxConfig = this._buildCommonAjaxConfig(configOption, relativeUrl, params);
+            const ajaxConfig = this._buildCommonAjaxConfig(config, relativeUrl, params);
 
             return axios(ajaxConfig);
         } else {
-            return this._fetchDataWithToken(sysType, action, params, configOption);
+            return this._fetchDataWithToken(sysType, action, params, config);
         }
     }
 

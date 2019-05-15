@@ -22,17 +22,25 @@ export class PlayerDetail extends PureComponent {
         });
     }
 
+    _buildActionUrl(systemType, action) {
+        const { selectedPlayer } = this.props;
+        const queryString = (action.indexOf('?') !== -1 ? '&custId=' : '?custId=') + selectedPlayer;
+        const urlByPlayer = action + queryString;
+
+        return this.props.getLink(systemType, urlByPlayer);
+    }
+
     _renderTabList(renderingMenuList) {
         const { selectedTabIndex } = this.state;
 
         return (
             renderingMenuList.map((item, index) => {
-                const actionLink = this.props.getLink(item.SystemType, item.Action);
+                const actionUrl = this._buildActionUrl(item.SystemType, item.Action);
 
                 return (
                     <li className="tab" key={item.Name}>
                         <a className={selectedTabIndex === index ? "active" : ""}
-                            href={actionLink} onClick={(event) => this.handleClickMenu(event, actionLink, index)}>
+                            href={actionUrl} onClick={(event) => this.handleClickMenu(event, actionUrl, index)}>
                             {item.Text}
                         </a>
                     </li>
@@ -43,10 +51,13 @@ export class PlayerDetail extends PureComponent {
 
     render() {
         const { targetUrl } = this.state;
-        const { menuList } = this.props;
+        const { menuList, selectedPlayer } = this.props;
 
-        const hasMenuList = menuList && menuList.length > 0;
-        const src = targetUrl || (hasMenuList ? this.props.getLink(menuList[0].SystemType, menuList[0].Action) : '');
+        if(!selectedPlayer || !menuList || menuList.length === 0){
+            return null;
+        }
+
+        const src = targetUrl || this._buildActionUrl(menuList[0].SystemType, menuList[0].Action);
 
         return (
             <div className="pa-detail-container">
@@ -54,7 +65,7 @@ export class PlayerDetail extends PureComponent {
                     <div className="header-tab">
                         <div className="content-tab">
                             <ul className="tabs">
-                                {hasMenuList ? this._renderTabList(menuList) : null}
+                                {this._renderTabList(menuList)}
                             </ul>
                         </div>
                     </div>
@@ -75,8 +86,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    const { menuList } = state;
-    return Object.assign({}, { menuList });
+    const { menuList, selectedPlayer } = state;
+    return Object.assign({}, { menuList, selectedPlayer });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerDetail);

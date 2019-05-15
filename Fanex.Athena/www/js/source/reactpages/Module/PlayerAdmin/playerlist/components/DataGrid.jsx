@@ -24,6 +24,7 @@ export class DataGrid extends PureComponent {
                 <HeaderCell colWidth={70}>BA Status</HeaderCell>
                 <HeaderCell colWidth={70}>Special Level</HeaderCell>
                 <HeaderCell colWidth={100}>Last Transaction</HeaderCell>
+                <HeaderCell colWidth={100}>Email</HeaderCell>
             </HeaderRow>
         )
     }
@@ -39,12 +40,19 @@ export class DataGrid extends PureComponent {
         return dataRows;
     }
 
+    _handleSelectPlayer = (event, custId) => {
+        event.preventDefault();
+        this.props.setSelectedPlayer(custId)
+    }
+
     _buildDataRow(dataItem, index) {
         return (
             <Row key={index}>
                 <Cell className="center-align"><input type="checkbox" defaultChecked={false} /></Cell>
                 <Cell className="center-align">{dataItem.Status}</Cell>
-                <Cell className="center-align">{dataItem.UserName}</Cell>
+                <Cell className="center-align">
+                    <a href="javascript:;" onClick={(e) => this._handleSelectPlayer(e, dataItem.CustId)}>{dataItem.UserName}</a>
+                </Cell>
                 <Cell className="center-align">{dataItem.SystemId}</Cell>
                 <Cell className="center-align">{dataItem.Currency}</Cell>
                 <Cell className="center-align">{dataItem.CurrentBalance}</Cell>
@@ -53,6 +61,7 @@ export class DataGrid extends PureComponent {
                 <Cell className="center-align"><input type="checkbox" defaultChecked={dataItem.BaStatus} /></Cell>
                 <Cell className="center-align">{dataItem.SpecialLevel}</Cell>
                 <Cell className="center-align">{dataItem.LastTransaction}</Cell>
+                <Cell className="center-align">{dataItem.Email}</Cell>
             </Row>
         )
     }
@@ -75,8 +84,8 @@ export class DataGrid extends PureComponent {
 }
 
 function mapDispatchToProps(dispatch) {
-    const { searchPlayer } = ActionCreators;
-    return bindActionCreators({ searchPlayer }, dispatch);
+    const { setSelectedPlayer } = ActionCreators;
+    return bindActionCreators({ setSelectedPlayer }, dispatch);
 }
 
 function mapStateToProps(state) {

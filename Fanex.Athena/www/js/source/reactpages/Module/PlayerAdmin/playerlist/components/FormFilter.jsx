@@ -10,12 +10,7 @@ export class FormFilter extends PureComponent {
         this.state = {
             Username: ''
         }
-    }
-
-    componentDidMount() {
-        this.props.searchPlayer({ userName: this.state.Username });
-    }
-    
+    }    
 
     handleSubmit = (event) => {
         event.preventDefault();
