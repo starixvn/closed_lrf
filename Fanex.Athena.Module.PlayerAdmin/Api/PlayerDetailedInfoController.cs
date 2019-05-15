@@ -1,15 +1,11 @@
 ﻿using System.Web.Http;
-using System.Web.Http.Cors;
-using Fanex.Athena.Api.Base.Attributes;
+using Fanex.Athena.Api.Base;
 
 namespace Fanex.Athena.Module.PlayerAdmin.Api
 {
-    [AllowAnonymous]
-    [ApiOneAuthorization]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PlayerDetailedInfoController : ApiController
+    public class PlayerDetailedInfoController : ExternalApiBaseController
     {
-        //[HttpGet]
+        [HttpPost]
         public dynamic GetAccountProfile()
         {
             return new
@@ -23,6 +19,19 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
                 SpecialLevelBy = "admin",
                 LastUpdatedSpecialLevel = "03/05/2019"
             };
+        }
+
+        [HttpPost]
+        public dynamic GetCustomerBettingStatus()
+        {
+            return Json(new
+            {
+                VoidRejectCancel = 20000m,
+                Win = 80000m,
+                Loss = 40000m,
+                Turnover = 50000m,
+                Margin = 2
+            });
         }
     }
 }

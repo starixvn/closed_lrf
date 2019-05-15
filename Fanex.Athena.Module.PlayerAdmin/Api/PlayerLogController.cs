@@ -1,5 +1,4 @@
-﻿using System.Web.Http;
-using Fanex.Athena.Api.Base;
+﻿using Fanex.Athena.Api.Base;
 
 namespace Fanex.Athena.Module.PlayerAdmin.Api
 {
@@ -10,20 +9,5 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
          * Get logs of player
          * 
          */
-        [HttpPost]
-        public dynamic GetAccountProfile()
-        {
-            return new
-            {
-                CreatedDate = "02/06/2013",
-                LastLogin = "01/20/2017",
-                LastTxn = "04/20/2018",
-                RegistrationDate = "04/20/2018",
-                BaUpdatedBy = "admin",
-                LastUpdatedBA = "09/14/2018",
-                SpecialLevelBy = "admin",
-                LastUpdatedSpecialLevel = "03/05/2019"
-            };
-        }
     }
 }

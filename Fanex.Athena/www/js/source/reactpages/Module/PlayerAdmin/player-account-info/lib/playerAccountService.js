@@ -2,8 +2,9 @@ import FactoryCommonService from '../../../lib/factoryCommonService';
 import { systemType } from '../../../constants/configInfo';
 
 const apiInfo = {
-    accountProfile: { action: 'api/PlayerLog/GetAccountProfile', type: systemType.lrf },
-    custBettingStatus: { action: 'PlayerAccountInfo/GetCustomerBettingStatus', type: systemType.newAdmin }
+    lrfAccountProfile: { action: 'api/PlayerDetailedInfo/GetAccountProfile', type: systemType.lrf },
+    custBettingStatus: { action: 'api/PlayerDetailedInfo/GetCustomerBettingStatus', type: systemType.lrf },
+    lapAccountProfile: { action: 'PlayerAccountInfo/GetAccountProfile', type: systemType.newAdmin }
 }
 
 export default class PlayerAccountService {
@@ -12,10 +13,20 @@ export default class PlayerAccountService {
     }
 
     getAccountInfo(param) {
-        const { accountProfile } = apiInfo;
+        const { lrfAccountProfile, lapAccountProfile } = apiInfo;
         const params = {...param };
 
-        return this.commonService.fetchData(accountProfile.type, accountProfile.action, params);
+        const lrfPromise = this.commonService.fetchData(lrfAccountProfile.type, lrfAccountProfile.action, params);
+
+        const ajaxConfig = { method: 'get' };
+        const lapPromise = this.commonService.fetchData(lapAccountProfile.type, lapAccountProfile.action, params, ajaxConfig);
+
+        return this.commonService.fetchMultiple([lrfPromise, lapPromise], (lrfResponse, lapResponse) => {
+            const lrfAccountInfo = lrfResponse.data;
+            const lapAccountInfo = lapResponse.data;
+
+            return {...lrfAccountInfo, ...lapAccountInfo };
+        });
     }
 
     getCustomerBettingStatus(param) {

@@ -31,7 +31,7 @@ export class CustomerBettingStatus extends PureComponent {
         const { data } = this.state;
         return data && (
             <div>
-                <h4>Customer Betting Status (Call From LAP)</h4>
+                <h4>Customer Betting Status (Call From LRF)</h4>
                 <ul>
                     <li>Win: {data.Win}</li>
                     <li>Loss: {data.Loss}</li>

@@ -92,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\PlayerDetailedInfoController.cs" />
     <Compile Include="Api\PlayerExtController.cs" />
     <Compile Include="Api\PlayerLogController.cs" />
     <Compile Include="Api\PlayerMainController.cs" />

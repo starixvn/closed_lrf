@@ -19,8 +19,8 @@ export class AccountProfile extends PureComponent {
     _fetchData() {
         const params = {};
         this.props.getAccountInfo(params)
-            .then(response => {
-                this.setState({ data: response.data });
+            .then(result => {
+                this.setState({ data: result });
             })
             .catch(err => {
                 console.log(err);
@@ -31,11 +31,14 @@ export class AccountProfile extends PureComponent {
         const { data } = this.state;
         return data && (
             <div>
-                <h4>Account Profile (Call From LRF)</h4>
+                <h4>Account Profile (Call From LRF & LAP)</h4>
                 <ul>
                     <li>Created Date: {data.CreatedDate}</li>
                     <li>Last Login: {data.LastLogin}</li>
                     <li>Last Txn: {data.LastTxn}</li>
+                    <li>Email (LAP): {data.Email}</li>
+                    <li>LapInfo1 (LAP): {data.LapInfo1}</li>
+                    <li>LapInfo2 (LAP): {data.LapInfo2}</li>
                 </ul>
             </div>
         );
