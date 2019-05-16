@@ -8,6 +8,16 @@ import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid
 export class DataGrid extends PureComponent {
     constructor(props) {
         super(props);
+
+        this.state = {
+            clientWidth: document.body.clientWidth
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.state.clientWidth !== document.body.clientWidth) {
+            this.setState({ clientWidth: document.body.clientWidth });
+        }
     }
 
     _renderHeader() {
@@ -68,16 +78,20 @@ export class DataGrid extends PureComponent {
 
     render() {
         const { playerList } = this.props;
+        const { clientWidth } = this.state;
 
         return playerList && (
             <div className="result-content">
                 <Table minWidth={650}
-                    autoWidth={true}
+                    autoWidth={false}
+                    width={clientWidth}
                     autoHeight={false}
                     bodyHeight={300}
                     adjustedHeight={32}
                     header={this._renderHeader()}
-                    body={this._renderDataSection(playerList)} />
+                    body={this._renderDataSection(playerList)}
+                    containerPadding={30}
+                />
             </div>
         );
     }
@@ -89,8 +103,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    const { playerList } = state;
-    return Object.assign({}, { playerList });
+    const { playerList, selectedPlayer } = state;
+    return Object.assign({}, { playerList, selectedPlayer });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataGrid);

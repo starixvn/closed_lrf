@@ -254,5 +254,11 @@
           font-weight: bold;
           border-bottom: 3px solid #f05b1f; }
 
+#app-container {
+  max-width: 1660px; }
+
+#paDetailFrame {
+  width: 100%; }
+
 
 /*# sourceMappingURL=index.css.map*/

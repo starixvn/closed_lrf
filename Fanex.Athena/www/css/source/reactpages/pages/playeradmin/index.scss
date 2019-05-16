@@ -1,2 +1,10 @@
 ﻿@import "../../components/react-grid";
 @import "../../components/tab.scss";
+
+#app-container{
+    max-width: 1660px;
+}
+
+#paDetailFrame {
+    width: 100%;
+}
