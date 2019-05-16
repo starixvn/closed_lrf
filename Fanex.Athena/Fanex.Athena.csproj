@@ -949,6 +949,7 @@
     <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\filterHandlerAction.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\index.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\types.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\lib\service.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\reducers\filterHandlerReducer.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\reducers\index.js" />
     <Content Include="www\js\source\reactpages\pages\subsidiaryperformance\components\__tests__\AppContainer.redux.test.js" />
@@ -2494,10 +2495,13 @@
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\index.jsx" />
     <Content Include="www\js\source\reactpages\pages\casinoturnover\components\DataGrid.jsx" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\components\index.jsx" />
-    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\FormFilter.jsx" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\components\AppContainer.jsx" />
     <Content Include="www\css\source\reactpages\pages\detailedbilling\index.scss" />
     <Content Include="www\js\build\dev\reactpages\report\detailedbilling.chunk.js.map" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\FormFilter.jsx" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\DataGrid.jsx" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\MainDataGrid.jsx" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\components\ExchangeDataGrid.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteConfig\WebConfigTransforms\SIT.config">
@@ -5510,7 +5514,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logs\" />
-    <Folder Include="www\js\source\reactpages\pages\detailedbilling\libs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\js\source\reactpages\pages\subsidiaryperformance\components\index.jsx" />

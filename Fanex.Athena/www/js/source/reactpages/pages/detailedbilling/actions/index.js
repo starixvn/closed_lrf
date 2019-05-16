@@ -2,7 +2,6 @@
 import * as loaderAction from '@jsroot/actions/loaderAction'
 import * as filterHandlerAction from './filterHandlerAction'
 import * as userGuideAction from '@jsroot/actions/userGuideAction'
-import * as reportTitleAction from  '@jsroot/actions/reportTitleAction'
 import * as requestParamAction from  '@jsroot/actions/requestParamAction'
 
 export const ActionCreators = Object.assign({},

@@ -1,2 +1,10 @@
-﻿@import "../../components/react-grid";
-@import "../../components/month-picker";
+﻿@import '../../components/react-grid';
+@import '../../components/month-picker';
+
+.result-content {
+    display: inline-block;
+}
+
+.exchange-table {
+    float: right;
+}

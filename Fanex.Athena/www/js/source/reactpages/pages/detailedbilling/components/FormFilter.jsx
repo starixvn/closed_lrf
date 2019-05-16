@@ -21,20 +21,20 @@ export class FormFilter extends Component {
             return;
         }
 
-        this.props.setParams(params);
+        this.props.setRequestParam(params);
     }
 
     exportExcel = (event) => {
         event.preventDefault();
     }
 
-    _getParam = () => {
+    _getParams = () => {
         const { fromDate, toDate } = this.props.dateRange;
 
         return {
             FromDate: Site.convertDateToString(fromDate),
             ToDate: Site.convertDateToString(toDate),
-            BaseCurrency: this.props.selectedCurrency.baseCurrency,
+            BaseCurrency: this.props.selectedBaseCurrency.value,
             Timestamp : new Date().getTime()
         }
     }
@@ -120,7 +120,7 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
 function mapStateToProps(state) {
-    const { reportTitle, isLoading, ...rest } = state;
+    const { isLoading, ...rest } = state;
     return Object.assign({}, rest);
 };
 
