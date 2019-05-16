@@ -29,7 +29,7 @@ class LapCommonService extends BaseCommonService {
     }
 
     getLink(sysType, action) {
-        return sysType === systemType.newAdmin ? action :
+        return sysType === systemType.newAdmin ? this._baseUrl + action :
             `${this._applyLinkTokenUrl}?${this._buildApplyTokenQueryString(sysType, action)}`;
     }
 

@@ -886,7 +886,7 @@ function (_BaseCommonService) {
   }, {
     key: "getLink",
     value: function getLink(sysType, action) {
-      return sysType === _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].newAdmin ? action : "".concat(this._applyLinkTokenUrl, "?").concat(this._buildApplyTokenQueryString(sysType, action));
+      return sysType === _constants_configInfo__WEBPACK_IMPORTED_MODULE_1__["systemType"].newAdmin ? this._baseUrl + action : "".concat(this._applyLinkTokenUrl, "?").concat(this._buildApplyTokenQueryString(sysType, action));
     }
   }, {
     key: "_buildCommonAjaxConfig",
