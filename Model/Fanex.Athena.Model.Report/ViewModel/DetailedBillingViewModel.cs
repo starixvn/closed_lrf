@@ -14,6 +14,6 @@
 
         public ReportSetting ReportSetting { get; set; }
 
-        public IEnumerable<string> BaseCurrencyList { get; set; }
+        public IList<string> BaseCurrencyList { get; set; }
     }
 }

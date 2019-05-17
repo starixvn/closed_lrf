@@ -123,6 +123,8 @@
     <Compile Include="Constants\ResultVendorProductTypes.cs" />
     <Compile Include="DTO\CashOutWinLoss.cs" />
     <Compile Include="DTO\CasinoTurnover.cs" />
+    <Compile Include="DTO\SummaryDetailedBilling.cs" />
+    <Compile Include="DTO\DetailedBilling.cs" />
     <Compile Include="DTO\ExchangeWinLoss.cs" />
     <Compile Include="DTO\ActiveCustomer.cs" />
     <Compile Include="DTO\AgCasinoBalance.cs" />
@@ -160,6 +162,7 @@
     <Compile Include="DTO\TurnoverDTO.cs" />
     <Compile Include="DTO\WinLossByProduct.cs" />
     <Compile Include="MetaModel\BaseDrilldownReportMetaModel.cs" />
+    <Compile Include="MetaModel\DetailedBillingMetaModel.cs" />
     <Compile Include="MetaModel\CasinoTurnoverMetaModel.cs" />
     <Compile Include="MetaModel\ExchangeWinLossMetaModel.cs" />
     <Compile Include="MetaModel\BaseReportMetaModel.cs" />
@@ -193,6 +196,7 @@
     <Compile Include="PromotionPrize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultModel\ActiveCustomerSummaryResultModel.cs" />
+    <Compile Include="ResultModel\DetailedBillingResultModel.cs" />
     <Compile Include="ResultModel\LiveReportDetailResultModel.cs" />
     <Compile Include="ResultModel\WeeklyLiveMatchResultModel.cs" />
     <Compile Include="ResultModel\WinLossByProductResultModel.cs" />

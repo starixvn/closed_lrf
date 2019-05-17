@@ -27,7 +27,8 @@ namespace Fanex.Athena.Resources {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Menu() {
         }
         
@@ -605,6 +606,15 @@ namespace Fanex.Athena.Resources {
         public static string Menu_80 {
             get {
                 return ResourceManager.GetString("Menu_80", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detailed Billing.
+        /// </summary>
+        public static string Menu_81 {
+            get {
+                return ResourceManager.GetString("Menu_81", resourceCulture);
             }
         }
         

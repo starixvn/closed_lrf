@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CashOutWinLossReportController.cs" />
+    <Compile Include="DetailedBillingReportController.cs" />
     <Compile Include="CustomerPendingFundsReportController.cs" />
     <Compile Include="CustomerWinLossReportController.cs" />
     <Compile Include="CustomerBalanceReportController.cs" />

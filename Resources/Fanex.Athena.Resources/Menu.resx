@@ -315,4 +315,8 @@
     <value>Casino Turnover</value>
     <comment>95178</comment>
   </data>
+  <data name="Menu_81" xml:space="preserve">
+    <value>Detailed Billing</value>
+    <comment>112173</comment>
+  </data>
 </root>
