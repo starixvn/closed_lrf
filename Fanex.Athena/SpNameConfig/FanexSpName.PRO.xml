@@ -101,6 +101,7 @@
     <Setting Key="Lrf_Rpt_ExchangeWinloss_Mem" SpName="Lrf_Rpt_ExchangeWinloss_Mem" DbName="DBEXT.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_Rpt_CasinoTurnover" SpName="Lrf_Rpt_CasinoTurnover" DbName="DBEXT.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_Rpt_PP_PromotionPrize" SpName="Lrf_Rpt_PP_PromotionPrize" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+    <Setting Key="Lrf_LicenseeBaseCurrencySel" SpName="Lrf_LicenseeBaseCurrencySel" DbName="DBLIC.bodb_Licensee.bodbLicenseeNet" />
   </Function>
 
   <Function Name="CustomerInformation">
