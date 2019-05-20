@@ -158,24 +158,17 @@
 /*!****************************************************************************************!*\
   !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/commonAction.js ***!
   \****************************************************************************************/
-/*! exports provided: setSelectedPlayer, setTabList */
+/*! exports provided: setSelectedPlayer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setSelectedPlayer", function() { return setSelectedPlayer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTabList", function() { return setTabList; });
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js");
 
 var setSelectedPlayer = function setSelectedPlayer(data) {
   return {
     type: _types__WEBPACK_IMPORTED_MODULE_0__["SET_SELECTED_PLAYER"],
-    data: data
-  };
-};
-var setTabList = function setTabList(data) {
-  return {
-    type: _types__WEBPACK_IMPORTED_MODULE_0__["SET_TAB_LIST"],
     data: data
   };
 };
@@ -203,12 +196,12 @@ var searchPlayer = function searchPlayer(param) {
   return function (dispatch) {
     var service = new _lib_playerListService__WEBPACK_IMPORTED_MODULE_1__["default"]();
     service.getPlayerList(param).then(function (result) {
-      var playerList = result.playerList,
-          tabList = result.tabList;
+      var playerList = result.playerList;
       dispatch(setPlayerList(playerList));
-      dispatch(Object(_commonAction__WEBPACK_IMPORTED_MODULE_2__["setTabList"])(tabList));
 
-      if (playerList.length === 1) {
+      if (playerList.length === 0) {
+        dispatch(Object(_commonAction__WEBPACK_IMPORTED_MODULE_2__["setSelectedPlayer"])(null));
+      } else if (playerList.length === 1) {
         dispatch(Object(_commonAction__WEBPACK_IMPORTED_MODULE_2__["setSelectedPlayer"])(playerList[0].CustId));
       }
     });
@@ -257,18 +250,25 @@ var ActionCreators = Object.assign({}, _actions_loaderAction__WEBPACK_IMPORTED_M
 /*!*****************************************************************************************************!*\
   !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/playerDetailHandlerAction.js ***!
   \*****************************************************************************************************/
-/*! exports provided: getLink */
+/*! exports provided: getLink, getTabList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLink", function() { return getLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTabList", function() { return getTabList; });
 /* harmony import */ var _lib_playerListService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../lib/playerListService */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/lib/playerListService.js");
 
 var getLink = function getLink(systemType, action) {
   return function () {
     var service = new _lib_playerListService__WEBPACK_IMPORTED_MODULE_0__["default"]();
     return service.getLink(systemType, action);
+  };
+};
+var getTabList = function getTabList() {
+  return function () {
+    var service = new _lib_playerListService__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    return service.getTabList();
   };
 };
 
@@ -278,7 +278,7 @@ var getLink = function getLink(systemType, action) {
 /*!*********************************************************************************!*\
   !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js ***!
   \*********************************************************************************/
-/*! exports provided: SET_PARAM, SET_PLAYER_LIST, SET_SELECTED_PLAYER, SET_TAB_LIST */
+/*! exports provided: SET_PARAM, SET_PLAYER_LIST, SET_SELECTED_PLAYER */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -286,11 +286,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PARAM", function() { return SET_PARAM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_PLAYER_LIST", function() { return SET_PLAYER_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_SELECTED_PLAYER", function() { return SET_SELECTED_PLAYER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TAB_LIST", function() { return SET_TAB_LIST; });
 var SET_PARAM = 'PLAYER_ADMIN/SET_PARAM';
 var SET_PLAYER_LIST = 'PLAYER_ADMIN/SET_PLAYER_LIST';
 var SET_SELECTED_PLAYER = 'PLAYER_ADMIN/SET_SELECTED_PLAYER';
-var SET_TAB_LIST = 'PLAYER_ADMIN/SET_TAB_LIST';
 
 /***/ }),
 
@@ -391,6 +389,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var MAX_WIDTH_PAGE = 1920;
 var DataGrid =
 /*#__PURE__*/
 function (_PureComponent) {
@@ -410,7 +409,7 @@ function (_PureComponent) {
     });
 
     _this.state = {
-      clientWidth: document.body.clientWidth
+      clientWidth: Math.min(document.body.clientWidth, MAX_WIDTH_PAGE)
     };
     return _this;
   }
@@ -418,7 +417,9 @@ function (_PureComponent) {
   _createClass(DataGrid, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      if (this.state.clientWidth !== document.body.clientWidth) {
+      var maxWidth = Math.min(document.body.clientWidth, MAX_WIDTH_PAGE);
+
+      if (this.state.clientWidth !== maxWidth) {
         this.setState({
           clientWidth: document.body.clientWidth
         });
@@ -756,6 +757,7 @@ function (_PureComponent) {
       selectedTabIndex: 0,
       targetUrl: ''
     };
+    _this._tabList = _this.props.getTabList();
     return _this;
   }
 
@@ -769,11 +771,11 @@ function (_PureComponent) {
     }
   }, {
     key: "_renderTabList",
-    value: function _renderTabList(renderingMenuList) {
+    value: function _renderTabList(tabList) {
       var _this2 = this;
 
       var selectedTabIndex = this.state.selectedTabIndex;
-      return renderingMenuList.map(function (item, index) {
+      return tabList.map(function (item, index) {
         var actionUrl = _this2._buildActionUrl(item.SystemType, item.Action);
 
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -792,15 +794,17 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       var targetUrl = this.state.targetUrl;
-      var _this$props = this.props,
-          menuList = _this$props.menuList,
-          selectedPlayer = _this$props.selectedPlayer;
+      var selectedPlayer = this.props.selectedPlayer;
 
-      if (!selectedPlayer || !menuList || menuList.length === 0) {
+      if (!selectedPlayer) {
         return null;
       }
 
-      var src = targetUrl || this._buildActionUrl(menuList[0].SystemType, menuList[0].Action);
+      if (this._tabList.length === 0) {
+        return null;
+      }
+
+      var src = targetUrl || this._buildActionUrl(this._tabList[0].SystemType, this._tabList[0].Action);
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pa-detail-container"
@@ -812,7 +816,7 @@ function (_PureComponent) {
         className: "content-tab"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "tabs"
-      }, this._renderTabList(menuList)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this._renderTabList(this._tabList)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tab-panel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pa-frame-container"
@@ -832,17 +836,17 @@ function (_PureComponent) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["PureComponent"]);
 
 function mapDispatchToProps(dispatch) {
-  var getLink = _actions__WEBPACK_IMPORTED_MODULE_3__["ActionCreators"].getLink;
+  var getLink = _actions__WEBPACK_IMPORTED_MODULE_3__["ActionCreators"].getLink,
+      getTabList = _actions__WEBPACK_IMPORTED_MODULE_3__["ActionCreators"].getTabList;
   return Object(redux__WEBPACK_IMPORTED_MODULE_2__["bindActionCreators"])({
-    getLink: getLink
+    getLink: getLink,
+    getTabList: getTabList
   }, dispatch);
 }
 
 function mapStateToProps(state) {
-  var menuList = state.menuList,
-      selectedPlayer = state.selectedPlayer;
+  var selectedPlayer = state.selectedPlayer;
   return Object.assign({}, {
-    menuList: menuList,
     selectedPlayer: selectedPlayer
   });
 }
@@ -937,6 +941,11 @@ function () {
   }
 
   _createClass(PlayerListService, [{
+    key: "getTabList",
+    value: function getTabList() {
+      return this.commonService.getTabList();
+    }
+  }, {
     key: "_mergePlayerList",
     value: function _mergePlayerList(lrfList, lapList) {
       var result = [];
@@ -1002,14 +1011,13 @@ function () {
 /*!*************************************************************************************************!*\
   !*** ./www/js/source/reactpages/Module/PlayerAdmin/playerlist/reducers/filterHandlerReducer.js ***!
   \*************************************************************************************************/
-/*! exports provided: param, playerList, menuList */
+/*! exports provided: param, playerList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "param", function() { return param; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "playerList", function() { return playerList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "menuList", function() { return menuList; });
 /* harmony import */ var _lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../lib/createReducer.js */ "./www/js/source/reactpages/lib/createReducer.js");
 /* harmony import */ var _actions_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/types.js */ "./www/js/source/reactpages/Module/PlayerAdmin/playerlist/actions/types.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -1030,9 +1038,6 @@ var param = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"]
   return _objectSpread({}, action.data);
 }));
 var playerList = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(null, _defineProperty({}, _actions_types_js__WEBPACK_IMPORTED_MODULE_1__["SET_PLAYER_LIST"], function (preState, action) {
-  return _toConsumableArray(action.data);
-}));
-var menuList = Object(_lib_createReducer_js__WEBPACK_IMPORTED_MODULE_0__["default"])([], _defineProperty({}, _actions_types_js__WEBPACK_IMPORTED_MODULE_1__["SET_TAB_LIST"], function (preState, action) {
   return _toConsumableArray(action.data);
 }));
 
@@ -1130,6 +1135,11 @@ function () {
   }
 
   _createClass(BaseCommonService, [{
+    key: "getTabList",
+    value: function getTabList() {
+      throw new Error("Method 'getTabList()' must be implemented.");
+    }
+  }, {
     key: "getLink",
     value: function getLink(sysType, action) {
       throw new Error("Method 'getTabLink()' must be implemented.");
@@ -1189,7 +1199,8 @@ function () {
         throw new Error("Missing _pConfig in window");
       }
 
-      var applyApiTokenUrl = pageConfig.applyApiTokenUrl;
+      var applyApiTokenUrl = pageConfig.applyApiTokenUrl,
+          tabList = pageConfig.tabList;
 
       if (!applyApiTokenUrl) {
         throw new Error("Missing applyApiTokenUrl in window._pConfig");
@@ -1211,11 +1222,13 @@ function () {
         throw new Error("Missing Identity.ApplyTokenUrl");
       }
 
-      return new _lapCommonService__WEBPACK_IMPORTED_MODULE_0__["default"]({
+      var initialConfig = {
+        tabList: tabList,
         baseUrl: RootUrl,
         applyApiTokenUrl: applyApiTokenUrl,
         applyLinkTokenUrl: Identity.ApplyTokenUrl
-      });
+      };
+      return new _lapCommonService__WEBPACK_IMPORTED_MODULE_0__["default"](initialConfig);
     }
   }]);
 
@@ -1246,6 +1259,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1291,14 +1312,21 @@ function (_BaseCommonService) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LapCommonService).call(this));
     var baseUrl = initialConfig.baseUrl,
         applyLinkTokenUrl = initialConfig.applyLinkTokenUrl,
-        applyApiTokenUrl = initialConfig.applyApiTokenUrl;
+        applyApiTokenUrl = initialConfig.applyApiTokenUrl,
+        tabList = initialConfig.tabList;
     _this._applyLinkTokenUrl = applyLinkTokenUrl;
     _this._applyApiTokenUrl = applyApiTokenUrl;
     _this._baseUrl = baseUrl;
+    _this._tabList = tabList || [];
     return _this;
   }
 
   _createClass(LapCommonService, [{
+    key: "getTabList",
+    value: function getTabList() {
+      return _toConsumableArray(this._tabList);
+    }
+  }, {
     key: "_buildApplyTokenQueryString",
     value: function _buildApplyTokenQueryString(sysType, action) {
       return "ActionLink=".concat(encodeURIComponent(action), "&Type=").concat(sysType);

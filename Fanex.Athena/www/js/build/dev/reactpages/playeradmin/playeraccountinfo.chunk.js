@@ -252,7 +252,9 @@ function (_PureComponent) {
     value: function _fetchData() {
       var _this2 = this;
 
-      var params = {};
+      var params = {
+        ibcCustId: 1
+      };
       this.props.getAccountInfo(params).then(function (result) {
         _this2.setState({
           data: result
@@ -710,6 +712,11 @@ function () {
   }
 
   _createClass(BaseCommonService, [{
+    key: "getTabList",
+    value: function getTabList() {
+      throw new Error("Method 'getTabList()' must be implemented.");
+    }
+  }, {
     key: "getLink",
     value: function getLink(sysType, action) {
       throw new Error("Method 'getTabLink()' must be implemented.");
@@ -769,7 +776,8 @@ function () {
         throw new Error("Missing _pConfig in window");
       }
 
-      var applyApiTokenUrl = pageConfig.applyApiTokenUrl;
+      var applyApiTokenUrl = pageConfig.applyApiTokenUrl,
+          tabList = pageConfig.tabList;
 
       if (!applyApiTokenUrl) {
         throw new Error("Missing applyApiTokenUrl in window._pConfig");
@@ -791,11 +799,13 @@ function () {
         throw new Error("Missing Identity.ApplyTokenUrl");
       }
 
-      return new _lapCommonService__WEBPACK_IMPORTED_MODULE_0__["default"]({
+      var initialConfig = {
+        tabList: tabList,
         baseUrl: RootUrl,
         applyApiTokenUrl: applyApiTokenUrl,
         applyLinkTokenUrl: Identity.ApplyTokenUrl
-      });
+      };
+      return new _lapCommonService__WEBPACK_IMPORTED_MODULE_0__["default"](initialConfig);
     }
   }]);
 
@@ -826,6 +836,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -871,14 +889,21 @@ function (_BaseCommonService) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LapCommonService).call(this));
     var baseUrl = initialConfig.baseUrl,
         applyLinkTokenUrl = initialConfig.applyLinkTokenUrl,
-        applyApiTokenUrl = initialConfig.applyApiTokenUrl;
+        applyApiTokenUrl = initialConfig.applyApiTokenUrl,
+        tabList = initialConfig.tabList;
     _this._applyLinkTokenUrl = applyLinkTokenUrl;
     _this._applyApiTokenUrl = applyApiTokenUrl;
     _this._baseUrl = baseUrl;
+    _this._tabList = tabList || [];
     return _this;
   }
 
   _createClass(LapCommonService, [{
+    key: "getTabList",
+    value: function getTabList() {
+      return _toConsumableArray(this._tabList);
+    }
+  }, {
     key: "_buildApplyTokenQueryString",
     value: function _buildApplyTokenQueryString(sysType, action) {
       return "ActionLink=".concat(encodeURIComponent(action), "&Type=").concat(sysType);
