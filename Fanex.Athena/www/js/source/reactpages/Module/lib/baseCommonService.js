@@ -5,6 +5,10 @@ class BaseCommonService {
         }
     }
 
+    getTabList() {
+        throw new Error("Method 'getTabList()' must be implemented.");
+    }
+
     getLink(sysType, action) {
         throw new Error("Method 'getTabLink()' must be implemented.");
     }

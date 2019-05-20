@@ -11,6 +11,10 @@ export default class PlayerListService {
         this.commonService = FactoryCommonService.createInstance();
     }
 
+    getTabList() {
+        return this.commonService.getTabList();
+    }
+
     _mergePlayerList(lrfList, lapList) {
         const result = [];
 

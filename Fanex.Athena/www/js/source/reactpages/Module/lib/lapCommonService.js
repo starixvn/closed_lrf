@@ -18,10 +18,15 @@ class LapCommonService extends BaseCommonService {
     constructor(initialConfig) {
         super();
 
-        const { baseUrl, applyLinkTokenUrl, applyApiTokenUrl } = initialConfig;
+        const { baseUrl, applyLinkTokenUrl, applyApiTokenUrl, tabList } = initialConfig;
         this._applyLinkTokenUrl = applyLinkTokenUrl;
         this._applyApiTokenUrl = applyApiTokenUrl;
         this._baseUrl = baseUrl;
+        this._tabList = tabList || [];
+    }
+
+    getTabList() {
+        return [...this._tabList];
     }
 
     _buildApplyTokenQueryString(sysType, action) {

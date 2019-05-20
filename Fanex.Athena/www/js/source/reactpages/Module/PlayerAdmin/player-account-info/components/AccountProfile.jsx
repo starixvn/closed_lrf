@@ -17,7 +17,7 @@ export class AccountProfile extends PureComponent {
     }
 
     _fetchData() {
-        const params = {};
+        const params = { ibcCustId: 1 };
         this.props.getAccountInfo(params)
             .then(result => {
                 this.setState({ data: result });

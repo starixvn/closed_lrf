@@ -5,17 +5,20 @@ import { bindActionCreators } from 'redux'
 
 import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid'
 
+const MAX_WIDTH_PAGE = 1920;
+
 export class DataGrid extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
-            clientWidth: document.body.clientWidth
+            clientWidth: Math.min(document.body.clientWidth, MAX_WIDTH_PAGE)
         }
     }
 
     componentDidUpdate() {
-        if (this.state.clientWidth !== document.body.clientWidth) {
+        const maxWidth = Math.min(document.body.clientWidth, MAX_WIDTH_PAGE);
+        if (this.state.clientWidth !== maxWidth) {
             this.setState({ clientWidth: document.body.clientWidth });
         }
     }

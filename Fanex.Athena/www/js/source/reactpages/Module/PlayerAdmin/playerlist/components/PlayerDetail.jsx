@@ -11,6 +11,8 @@ export class PlayerDetail extends PureComponent {
             selectedTabIndex: 0,
             targetUrl: ''
         }
+
+        this._tabList = this.props.getTabList();
     }
 
     handleClickMenu = (event, actionLink, tabIndex) => {
@@ -30,11 +32,11 @@ export class PlayerDetail extends PureComponent {
         return this.props.getLink(systemType, urlByPlayer);
     }
 
-    _renderTabList(renderingMenuList) {
+    _renderTabList(tabList) {
         const { selectedTabIndex } = this.state;
 
         return (
-            renderingMenuList.map((item, index) => {
+            tabList.map((item, index) => {
                 const actionUrl = this._buildActionUrl(item.SystemType, item.Action);
 
                 return (
@@ -51,13 +53,17 @@ export class PlayerDetail extends PureComponent {
 
     render() {
         const { targetUrl } = this.state;
-        const { menuList, selectedPlayer } = this.props;
+        const { selectedPlayer } = this.props;
 
-        if(!selectedPlayer || !menuList || menuList.length === 0){
+        if (!selectedPlayer) {
             return null;
         }
 
-        const src = targetUrl || this._buildActionUrl(menuList[0].SystemType, menuList[0].Action);
+        if (this._tabList.length === 0) {
+            return null;
+        }
+
+        const src = targetUrl || this._buildActionUrl(this._tabList[0].SystemType, this._tabList[0].Action);
 
         return (
             <div className="pa-detail-container">
@@ -65,13 +71,13 @@ export class PlayerDetail extends PureComponent {
                     <div className="header-tab">
                         <div className="content-tab">
                             <ul className="tabs">
-                                {this._renderTabList(menuList)}
+                                {this._renderTabList(this._tabList)}
                             </ul>
                         </div>
                     </div>
                     <div className="tab-panel">
                         <div className="pa-frame-container">
-                            <iframe id="paDetailFrame" style={{height: window.innerHeight - 340}} name="paDetailFrame" frameBorder="0" src={src}></iframe>
+                            <iframe id="paDetailFrame" style={{ height: window.innerHeight - 340 }} name="paDetailFrame" frameBorder="0" src={src}></iframe>
                         </div>
                     </div>
                 </div>
@@ -81,13 +87,13 @@ export class PlayerDetail extends PureComponent {
 }
 
 function mapDispatchToProps(dispatch) {
-    const { getLink } = ActionCreators;
-    return bindActionCreators({ getLink }, dispatch);
+    const { getLink, getTabList } = ActionCreators;
+    return bindActionCreators({ getLink, getTabList }, dispatch);
 }
 
 function mapStateToProps(state) {
-    const { menuList, selectedPlayer } = state;
-    return Object.assign({}, { menuList, selectedPlayer });
+    const { selectedPlayer } = state;
+    return Object.assign({}, { selectedPlayer });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerDetail);
