@@ -1,5 +1,11 @@
-﻿@import "../../components/react-grid";
+﻿@import "../../abstracts/variables";
+@import "../../components/react-grid";
 @import "../../components/tab.scss";
+@import "../../components/react-multiselect";
+@import "../../components/paging";
+@import "../../components/custom3rd/select";
+@import "../../components/forms/checkbox";
+@import "../../components/forms/input-text";
 
 #app-container{
     max-width: 1920px;

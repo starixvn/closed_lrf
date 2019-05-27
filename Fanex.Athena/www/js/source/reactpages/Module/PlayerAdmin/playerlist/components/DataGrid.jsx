@@ -11,17 +11,9 @@ export class DataGrid extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.state = {
-            clientWidth: Math.min(document.body.clientWidth, MAX_WIDTH_PAGE)
-        }
+        this.maxWidth = Math.min(document.body.clientWidth, MAX_WIDTH_PAGE);
     }
-
-    componentDidUpdate() {
-        const maxWidth = Math.min(document.body.clientWidth, MAX_WIDTH_PAGE);
-        if (this.state.clientWidth !== maxWidth) {
-            this.setState({ clientWidth: document.body.clientWidth });
-        }
-    }
+    
 
     _renderHeader() {
         return (
@@ -81,13 +73,12 @@ export class DataGrid extends PureComponent {
 
     render() {
         const { playerList } = this.props;
-        const { clientWidth } = this.state;
 
         return playerList && (
             <div className="result-content">
                 <Table minWidth={650}
-                    autoWidth={false}
-                    width={clientWidth}
+                    autoWidth={true}
+                    maxWidth={this.maxWidth}
                     autoHeight={false}
                     bodyHeight={300}
                     adjustedHeight={32}
