@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 namespace Fanex.Athena.Module.PlayerAdmin.Controllers
 {
     /// <summary>
-    /// Iframe function
+    /// Iframe function support both single & batch
     /// </summary>
-    public class ProductAndBetLimitController : CultureBaseController
+    public class BetLimitController : CultureBaseController
     {
-        public ProductAndBetLimitController(ILanguageService languageService,
+        public BetLimitController(ILanguageService languageService,
            ISessionService sessionService,
             IAppSettings appSetting
            )

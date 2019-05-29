@@ -10,9 +10,10 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
     public class PlayerExtController: ExternalApiBaseController
     {
         /* * On/Off BA
-         * Change groups
+         * Change odd groups
          * Change level
          * Betting status
+         * 
          */
     }
 }

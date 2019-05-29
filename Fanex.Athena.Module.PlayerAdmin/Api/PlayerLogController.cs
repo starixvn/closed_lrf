@@ -6,7 +6,7 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
     public class PlayerLogController : ExternalApiBaseController
     {
         /*
-         * Get logs of player
+         * API to get logs of player
          * 
          */
     }

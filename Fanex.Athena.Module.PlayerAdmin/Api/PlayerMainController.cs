@@ -8,7 +8,6 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
 
         /**
          * search player list
-         * get player detailed infor (use for account info tab)
          */
         [HttpPost]
         public dynamic Search(string userName = "")

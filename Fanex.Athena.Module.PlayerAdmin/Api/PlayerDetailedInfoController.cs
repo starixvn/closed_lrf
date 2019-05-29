@@ -5,6 +5,8 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
 {
     public class PlayerDetailedInfoController : ExternalApiBaseController
     {
+      /*get player detailed infor(use for account info tab)*/
+
         [HttpPost]
         public dynamic GetAccountProfile()
         {

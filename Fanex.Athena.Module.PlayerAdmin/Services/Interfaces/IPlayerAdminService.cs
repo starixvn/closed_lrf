@@ -8,5 +8,6 @@ namespace Fanex.Athena.Module.PlayerAdmin.Services.Interfaces
 {
     interface IPlayerAdminService
     {
+
     }
 }
