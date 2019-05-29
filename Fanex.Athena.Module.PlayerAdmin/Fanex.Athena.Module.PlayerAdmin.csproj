@@ -98,7 +98,7 @@
     <Compile Include="Api\PlayerMainController.cs" />
     <Compile Include="Controllers\PlayerRunningBetlistController.cs" />
     <Compile Include="Controllers\PlayerStatementController.cs" />
-    <Compile Include="Controllers\ProductAndBetLimitController.cs" />
+    <Compile Include="Controllers\BetLimitController.cs" />
     <Compile Include="DTO\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Interfaces\IPlayerAdminService.cs" />
