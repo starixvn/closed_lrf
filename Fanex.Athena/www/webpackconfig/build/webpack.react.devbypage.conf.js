@@ -9,14 +9,18 @@ var environment = "dev";
 var jsPath = `${pathConfig.scriptPaths.build}/${environment}/reactpages`;
 var cssPath = `${pathConfig.cssPaths.build}/${environment}/reactpages`;
 const entry = {
+    [`${cssPath}/vendor`]: pathConfig.cssPaths.layout,
     [`${jsPath}/playeradmin/playerlist`]: pathConfig.scriptPaths.playerlist,
     [`${cssPath}/playeradmin/index`]: pathConfig.cssPaths.playeradmin,
     [`${jsPath}/playeradmin/playeraccountinfo`]: pathConfig.scriptPaths.playeraccountinfo,
 }
 
-const devByPageConfig = {...devConfig, entry, plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].css", chunkFilename: '[id].css'})
-]};
+const devByPageConfig = {...devConfig,
+    entry,
+    plugins: [
+        new MiniCssExtractPlugin({ filename: "[name].css", chunkFilename: '[id].css' })
+    ]
+};
 console.log(devByPageConfig.entry);
 
 module.exports = devByPageConfig;

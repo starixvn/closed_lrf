@@ -10,7 +10,7 @@ class BaseCommonService {
     }
 
     getLink(sysType, action) {
-        throw new Error("Method 'getTabLink()' must be implemented.");
+        throw new Error("Method 'getLink()' must be implemented.");
     }
 
     fetchData(sType, action, params, configOption = {}) {
