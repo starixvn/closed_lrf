@@ -31,24 +31,29 @@ describe('lapCommonService', () => {
         },
         withCredentials: false,
         responseType: 'json',
-        cancelToken: new axios.CancelToken(function(cancel) {})
+        cancelToken: new axios.CancelToken(() => {})
     }
+
+    afterEach(() => {
+        axios.mockReset();
+    })
 
     it('constructor - initial values should be correct', () => {
         const runTestConstructor = (tabList) => {
             const initialConfig = {...defaultConfig,
-                tabList: tabList ? [...tabList] : []
+                tabList: tabList
             }
 
             const instance = new LapCommonService(initialConfig);
 
+            const expectedTabList = initialConfig.tabList || [];
             expect(instance._applyLinkTokenUrl).toBe(initialConfig.applyLinkTokenUrl);
             expect(instance._applyApiTokenUrl).toBe(initialConfig.applyApiTokenUrl);
             expect(instance._baseUrl).toBe(initialConfig.baseUrl);
-            expect(instance._tabList).toEqual(initialConfig.tabList);
+            expect(instance._tabList).toEqual(expectedTabList);
         }
 
-        runTestConstructor(defaultTabList);
+        runTestConstructor([...defaultTabList]);
         runTestConstructor();
     })
 
@@ -137,29 +142,131 @@ describe('lapCommonService', () => {
         testcaseList.forEach(item => runTestByMethod(item.method, item.expectedResult));
     })
 
-    xit('_fetchDataWithToken - should pass config correctly', (done) => {
+    it('_fetchDataWithToken - should pass config correctly', (done) => {
         const getTokenResponse = {
             Token: 'abc',
             ApiUrl: 'http://localhost'
         }
-        axios.get.mockResolvedValue(getTokenResponse);
+        axios.get = jest.fn(() => Promise.resolve({ data: getTokenResponse }));
 
         axios.mockImplementation((axiosConfig) => {
             return Promise.resolve(axiosConfig);
         });
 
         const expectedResult = {
-            ...defaultAjaxConfig,
+            method: 'post',
+            url: 'http://localhost/playeradmin/getdata',
             headers: {...defaultAjaxConfig.headers, 'X-Auth-Token': getTokenResponse.Token }
         }
 
         const instance = getDefaultInstance();
+        instance._buildApplyTokenQueryString = jest.fn(() => 'action=test&type=1');
+        instance._buildCommonAjaxConfig = jest.fn(() => {
+            return { method: 'post', url: 'http://localhost/playeradmin/getdata' }
+        });
 
-        instance._fetchDataWithToken(systemType.lrf, 'playeradmin/getdata', {...defaultAjaxConfig })
-            .then(response => {
-                console.log(response);
-                expect(response).toEqual(expectedResult);
+        const action = 'playeradmin/getdata';
+        const params = { username: 'test' };
+        const configOption = {...defaultAjaxConfig };
+
+        instance._fetchDataWithToken(systemType.lrf, action, params, configOption)
+            .then(result => {
+                expect(result).toEqual(expectedResult);
                 done();
             });
+    })
+
+    describe('fetchData', () => {
+        const action = 'playeradmin/getdata';
+        const params = {
+            username: 'test'
+        }
+        const configOption = {...defaultAjaxConfig }
+
+        it('system type is new admin - should call axios with correct parameter', (done) => {
+            const instance = getDefaultInstance();
+            instance._buildCommonAjaxConfig = jest.fn((config, relativeUrl, params) => {
+                return {
+                    ...config,
+                    url: relativeUrl,
+                    params
+                }
+            })
+
+            axios.mockImplementation((axiosConfig) => {
+                return Promise.resolve(axiosConfig);
+            });
+
+            const expectedResult = {
+                ...configOption,
+                url: '/' + action,
+                params
+            }
+
+            instance.fetchData(systemType.newAdmin, action, params, configOption)
+                .then(result => {
+                    expect(result).toEqual(expectedResult);
+                    done();
+                });
+        })
+
+        it('system type is not new admin - should call _fetchDataWithToken with correct parameter', () => {
+            const instance = getDefaultInstance();
+            instance._fetchDataWithToken = jest.fn((sysType, action, params, config) => {
+                return {
+                    sysType,
+                    action,
+                    params,
+                    config
+                }
+            })
+
+            const expectedResult = {
+                action,
+                params,
+                sysType: systemType.lrf,
+                config: {...defaultAjaxConfig }
+            }
+
+            const result = instance.fetchData(systemType.lrf, action, params);
+
+            expect(result.action).toBe(expectedResult.action);
+            expect(result.params).toEqual(expectedResult.params);
+            expect(result.sysType).toBe(expectedResult.sysType);
+            expect(result.config.method).toBe(expectedResult.config.method);
+        })
+    })
+
+    it('fetchMultiple - has request list - return correct result', (done) => {
+        const firstResult = { username: 'test', currency: 'usd' };
+        const firstRequest = Promise.resolve({ data: firstResult });
+
+        const secondResult = { status: 'active', email: 'test@gmail.com' };
+        const secondRequest = Promise.resolve({ data: secondResult });
+
+        axios.all = jest.fn(() => {
+            return Promise.resolve();
+        });
+        axios.spread = jest.fn();
+        const callback = jest.fn();
+
+        const instance = getDefaultInstance();
+
+        instance.fetchMultiple([firstRequest, secondRequest], callback)
+            .then(response => {
+                expect(axios.spread).toHaveBeenCalledWith(callback);
+                done();
+            });
+    })
+
+    it('fetchMultiple - promiseList is empty - do nothing', () => {
+        const promiseList = [];
+        axios.all = jest.fn();
+
+        const callback = jest.fn();
+        const instance = getDefaultInstance();
+        instance.fetchMultiple(promiseList, callback);
+
+        expect(axios.all).not.toHaveBeenCalled();
     })
 })
