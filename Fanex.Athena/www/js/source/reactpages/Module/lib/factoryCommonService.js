@@ -13,11 +13,11 @@ export default class FactoryCommonService {
             throw new Error("Missing applyApiTokenUrl in window._pConfig");
         }
 
-        if (!Identity) {
+        if (!window.Identity) {
             throw new Error("Missing Identity object");
         }
 
-        const { RootUrl, ApplyTokenUrl } = Identity;
+        const { RootUrl, ApplyTokenUrl } = window.Identity;
         if (!RootUrl) {
             throw new Error("Missing Identity.RootUrl");
         }
@@ -30,7 +30,7 @@ export default class FactoryCommonService {
             tabList,
             baseUrl: RootUrl,
             applyApiTokenUrl,
-            applyLinkTokenUrl: Identity.ApplyTokenUrl
+            applyLinkTokenUrl: ApplyTokenUrl
         }
         return new LapCommonService(initialConfig);
     }

@@ -72,9 +72,9 @@
     "build-react-dev": "webpack --config www/webpackconfig/build/webpack.react.dev.conf.js",
     "build-react-pro": "webpack --config www/webpackconfig/build/webpack.react.pro.conf.js",
     "build-react-both": "webpack --config www/webpackconfig/build/webpack.react.pro.conf.js && webpack --config www/webpackconfig/build/webpack.react.dev.conf.js",
-    "test-react": "jest --coverage --setupTestFrameworkScriptFile=raf/polyfill",
-    "test-react-one": "jest \".*1\\.test\\.js\" --watch --u  --setupTestFrameworkScriptFile=raf/polyfill",
-    "test-react-watch": "jest --watch --setupTestFrameworkScriptFile=raf/polyfill",
+    "test-react": "jest --coverage",
+    "test-react-one": "jest \".*1\\.test\\.js\" --watch --u",
+    "test-react-watch": "jest --watch",
     "jest-install": "npm install jest-cli -g",
     "jest-uss": "jest --updateSnapshot",
     "lint": "eslint ./www/js/source/reactpages",
@@ -115,6 +115,9 @@
     ],
     "moduleNameMapper": {
       "@jsroot(.*)$": "<rootDir>/www/js/source/reactpages/$1"
-    }
+    },
+    "setupFilesAfterEnv": [
+      "raf/polyfill"
+    ]
   }
 }
