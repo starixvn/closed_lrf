@@ -11,7 +11,7 @@ export const searchPlayer = (param) => (dispatch) => {
         if (playerList.length === 0) {
             dispatch(setSelectedPlayer(null));
         } else if (playerList.length === 1) {
-            dispatch(setSelectedPlayer(playerList[0].CustId));
+            dispatch(setSelectedPlayer(playerList[0]));
         }
     })
 }

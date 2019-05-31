@@ -3,14 +3,34 @@
 @import "../../components/tab.scss";
 @import "../../components/react-multiselect";
 @import "../../components/paging";
-@import "../../components/custom3rd/select";
 @import "../../components/forms/checkbox";
-@import "../../components/forms/input-text";
 
-#app-container{
+#app-container {
     max-width: 1920px;
 }
 
 #paDetailFrame {
     width: 100%;
+}
+
+.caret-block {
+    bottom: 0;
+
+    .icon-excel-wrapper {
+        margin-left: 10px;
+        background: $white;
+        text-align: center;
+        width: 24px;
+        height: 22px;
+    }
+}
+
+.header-tab {
+    margin-top: 0;
+
+    .tabs .tab a {
+        &.active {
+            color: #f05b1f;
+        }
+    }
 }

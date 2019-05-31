@@ -17,6 +17,7 @@ export class FormFilter extends PureComponent {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.props.setSelectedPlayer(null);
         this.props.searchPlayer({ userName: this.state.Username });
     }
 
@@ -40,6 +41,8 @@ export class FormFilter extends PureComponent {
                         </div>
                     </div>
 
+                    {isShowAdvancedSearch && <AdvancedSearch />}
+
                     <div className="col-12 col-md-2 col-sm-2 col-lg-1 col-xl-1">
                         <div className="form-group">
                             <div className="button-group">
@@ -56,16 +59,14 @@ export class FormFilter extends PureComponent {
                                 label="Advanced Search" />
                         </div>
                     </div>
-
-                    {isShowAdvancedSearch && <AdvancedSearch />}
                 </div>
             </div>
         );
     }
 }
 function mapDispatchToProps(dispatch) {
-    const { searchPlayer } = ActionCreators;
-    return bindActionCreators({ searchPlayer }, dispatch);
+    const { searchPlayer, setSelectedPlayer } = ActionCreators;
+    return bindActionCreators({ searchPlayer, setSelectedPlayer }, dispatch);
 }
 function mapStateToProps(state) {
     const { isLoading, ...rest } = state;

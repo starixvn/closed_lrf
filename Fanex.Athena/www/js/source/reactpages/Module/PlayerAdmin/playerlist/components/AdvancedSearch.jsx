@@ -11,7 +11,7 @@ export class AdvancedSearch extends PureComponent {
 
         this.state = {
             currency: '',
-            basedCurrency: '',
+            basedCurrency: 'usd',
             oddsGroup: '',
             commissionGroup: '',
             subsidiary: '',
@@ -20,7 +20,7 @@ export class AdvancedSearch extends PureComponent {
         }
 
         this.currencyList = [{Id: 'eur', Value: 'EUR', Status: true}, {Id: 'usd', Value: 'usd', Status: false}];
-        this.baseCurrencyList = [{Id: 'eur', Value: 'EUR', Status: true}, {Id: 'usd', Value: 'usd', Status: false}];
+        this.baseCurrencyList = [{value: 'eur', label: 'EUR'}, {value: 'usd', label: 'USD'}];
         this.oddsGroupList = [{Id: 'A', Value: 'A', Status: true}, {Id: 'B', Value: 'B', Status: false}, {Id: 'C', Value: 'C', Status: true}];
         this.subsidiaryList = [{Id: 's1', Value: 'S1', Status: true}, {Id: 's2', Value: 'S2', Status: true}];
         this.specialLevelList = [{Id: '1', Value: '1', Status: true}, {Id: '2', Value: '2', Status: true}];

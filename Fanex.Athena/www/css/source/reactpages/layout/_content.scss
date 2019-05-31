@@ -3,9 +3,19 @@
     padding: 4px 15px;
     color: $white;
     font-size: 12px;
+    position: relative;
 
     .report-title {
         margin: 0;
+
+        .link{
+            color: $white;
+
+            &:hover{
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
     }
 }
 

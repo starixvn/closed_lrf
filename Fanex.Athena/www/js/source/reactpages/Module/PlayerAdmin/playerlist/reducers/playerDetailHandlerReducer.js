@@ -3,6 +3,6 @@ import { SET_SELECTED_PLAYER } from '../actions/types.js'
 
 export const selectedPlayer = createReducer(null, {
     [SET_SELECTED_PLAYER](preState, action) {
-        return action.data;
+        return action.data && {...action.data };
     }
 })

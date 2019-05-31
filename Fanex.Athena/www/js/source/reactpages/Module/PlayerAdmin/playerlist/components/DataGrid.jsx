@@ -1,9 +1,11 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { ActionCreators } from '../actions/index.js'
-import { bindActionCreators } from 'redux'
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { ActionCreators } from '../actions/index.js';
+import { bindActionCreators } from 'redux';
 
-import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid'
+import { Table, HeaderRow, HeaderCell, Row, Cell, Pager } from '@9softstudio/react-grid';
+import ReportTitle from '../../../../components/ReportTitle';
+import LangHelper from '../../../../lib/langHelper';
 
 const MAX_WIDTH_PAGE = 1920;
 
@@ -12,8 +14,18 @@ export class DataGrid extends PureComponent {
         super(props);
 
         this.maxWidth = Math.min(document.body.clientWidth, MAX_WIDTH_PAGE);
+
+        this.state = {
+            selectedPlayerIdList: [],
+            pagingOption: {
+                PageIndex: 1,
+                PageSize: 50,
+                PageList: [50, 100, 200, 500],
+                TotalItem: 1000
+            }
+        }
     }
-    
+
 
     _renderHeader() {
         return (
@@ -39,24 +51,41 @@ export class DataGrid extends PureComponent {
 
         for (let i = 0; i < dataList.length; i++) {
             const dataItem = dataList[i];
-            dataRows.push(this._buildDataRow(dataItem, i));
+            const isChecked = this.state.selectedPlayerIdList.includes(dataItem.CustId);
+            dataRows.push(this._buildDataRow(dataItem, isChecked));
         }
 
         return dataRows;
     }
 
-    _handleSelectPlayer = (event, custId) => {
+    _handleSelectPlayer = (event, playerInfo) => {
         event.preventDefault();
-        this.props.setSelectedPlayer(custId)
+        const player = {
+            custId: playerInfo.CustId,
+            userName: playerInfo.UserName,
+            currency: playerInfo.Currency
+        };
+        this.props.setSelectedPlayer(player);
     }
 
-    _buildDataRow(dataItem, index) {
+    _handleCheckPlayer = (custId) => {
+        const { selectedPlayerIdList } = this.state;
+
+        const newIdList = selectedPlayerIdList.includes(custId) ?
+            selectedPlayerIdList.filter(item => item !== custId) : [...selectedPlayerIdList, custId];
+
+        this.setState({ selectedPlayerIdList: newIdList });
+    }
+
+    _buildDataRow(dataItem, isChecked) {
         return (
-            <Row key={index}>
-                <Cell className="center-align"><input type="checkbox" defaultChecked={false} /></Cell>
+            <Row key={dataItem.CustId}>
+                <Cell className="center-align">
+                    <input type="checkbox" checked={isChecked} onChange={() => this._handleCheckPlayer(dataItem.CustId)} />
+                </Cell>
                 <Cell className="center-align">{dataItem.Status}</Cell>
                 <Cell className="center-align">
-                    <a href="javascript:;" onClick={(e) => this._handleSelectPlayer(e, dataItem.CustId)}>{dataItem.UserName}</a>
+                    <a href="javascript:;" onClick={(e) => this._handleSelectPlayer(e, dataItem)}>{dataItem.UserName}</a>
                 </Cell>
                 <Cell className="center-align">{dataItem.SystemId}</Cell>
                 <Cell className="center-align">{dataItem.Currency}</Cell>
@@ -71,11 +100,53 @@ export class DataGrid extends PureComponent {
         )
     }
 
+    _buildReportTitleContent() {
+        const { selectedPlayer } = this.props;
+        const { selectedPlayerIdList } = this.state;
+        const titleContentList = [];
+        if (selectedPlayer) {
+            titleContentList.push(
+                <>
+                    <span className="link" onClick={() => this.props.setSelectedPlayer(null)}>Previous search result</span>
+                    <span> <strong>></strong> Player: {selectedPlayer.userName} ({selectedPlayer.currency})</span>
+                </>
+            )
+        }
+        else if (selectedPlayerIdList.length > 0) {
+            titleContentList.push(
+                <>
+                    <button>BATCH UPDATE</button>
+                    <button>{selectedPlayerIdList.length} Player(s) Selected</button>
+                </>
+            )
+        }
+        else {
+            const { playerList } = this.props;
+            titleContentList.push(<span>{`Search Result: ${playerList.length} Player(s)`}</span>);
+        }
+
+        titleContentList.push(
+            (
+                <div className="caret-block">
+                    <button>Select column</button>
+                    <span className="icon-excel-wrapper"><i className="icon-excel" title={LangHelper.getSingleResource('ExportToExcel')}></i></span>
+                </div>
+            )
+        );
+
+        return titleContentList;
+    }
+
     render() {
-        const { playerList } = this.props;
+        const { playerList, selectedPlayer } = this.props;
+        const { pagingOption } = this.state;
+
+        const dataList = selectedPlayer ? [playerList.find(item => item.CustId === selectedPlayer.custId)] : playerList;
 
         return playerList && (
             <div className="result-content">
+                <Pager pageOption={pagingOption} />
+                <ReportTitle content={this._buildReportTitleContent()} />
                 <Table minWidth={650}
                     autoWidth={true}
                     maxWidth={this.maxWidth}
@@ -83,7 +154,7 @@ export class DataGrid extends PureComponent {
                     bodyHeight={300}
                     adjustedHeight={32}
                     header={this._renderHeader()}
-                    body={this._renderDataSection(playerList)}
+                    body={this._renderDataSection(dataList)}
                     containerPadding={30}
                 />
             </div>
