@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Table, HeaderRow, HeaderCell, Row, Cell, Pager } from '@9softstudio/react-grid';
 import ReportTitle from '../../../../components/ReportTitle';
 import LangHelper from '../../../../lib/langHelper';
+import Switcher from '../../../../components/Switcher';
 
 const MAX_WIDTH_PAGE = 1920;
 
@@ -77,6 +78,10 @@ export class DataGrid extends PureComponent {
         this.setState({ selectedPlayerIdList: newIdList });
     }
 
+    _handleChangeBaStatus = (e) => {
+        console.log(e.target)
+    }
+
     _buildDataRow(dataItem, isChecked) {
         return (
             <Row key={dataItem.CustId}>
@@ -92,7 +97,7 @@ export class DataGrid extends PureComponent {
                 <Cell className="center-align">{dataItem.CurrentBalance}</Cell>
                 <Cell className="center-align">{dataItem.OutstandingBalance}</Cell>
                 <Cell className="center-align">{dataItem.OddsGroup}</Cell>
-                <Cell className="center-align"><input type="checkbox" defaultChecked={dataItem.BaStatus} /></Cell>
+                <Cell className="center-align"><Switcher checked={dataItem.BaStatus} onChange={this._handleChangeBaStatus} /></Cell>
                 <Cell className="center-align">{dataItem.SpecialLevel}</Cell>
                 <Cell className="center-align">{dataItem.LastTransaction}</Cell>
                 <Cell className="center-align">{dataItem.Email}</Cell>
@@ -106,28 +111,28 @@ export class DataGrid extends PureComponent {
         const titleContentList = [];
         if (selectedPlayer) {
             titleContentList.push(
-                <>
+                <React.Fragment key="selectedPlayer">
                     <span className="link" onClick={() => this.props.setSelectedPlayer(null)}>Previous search result</span>
                     <span> <strong>></strong> Player: {selectedPlayer.userName} ({selectedPlayer.currency})</span>
-                </>
+                </React.Fragment>
             )
         }
         else if (selectedPlayerIdList.length > 0) {
             titleContentList.push(
-                <>
+                <React.Fragment key="batchUpdate">
                     <button>BATCH UPDATE</button>
                     <button>{selectedPlayerIdList.length} Player(s) Selected</button>
-                </>
+                </React.Fragment>
             )
         }
         else {
             const { playerList } = this.props;
-            titleContentList.push(<span>{`Search Result: ${playerList.length} Player(s)`}</span>);
+            titleContentList.push(<span key="searchResult">{`Search Result: ${playerList.length} Player(s)`}</span>);
         }
 
         titleContentList.push(
             (
-                <div className="caret-block">
+                <div key="caretBlock" className="caret-block">
                     <button>Select column</button>
                     <span className="icon-excel-wrapper"><i className="icon-excel" title={LangHelper.getSingleResource('ExportToExcel')}></i></span>
                 </div>

@@ -35,7 +35,7 @@ namespace Fanex.Athena.Module.PlayerAdmin.Api
                     CurrentBalance = 75.60m,
                     OutstandingBalance = 0m,
                     OddsGroup = "A",
-                    BaStatus = true,
+                    BaStatus = false,
                     SpecialLevel = "None",
                     LastTransaction = "2/9/2019 8:49:00 AM"
                 }
