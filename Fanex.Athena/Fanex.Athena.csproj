@@ -949,6 +949,7 @@
     <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\filterHandlerAction.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\index.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\actions\types.js" />
+    <Content Include="www\js\source\reactpages\pages\detailedbilling\lib\reportExcel.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\lib\service.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\reducers\filterHandlerReducer.js" />
     <Content Include="www\js\source\reactpages\pages\detailedbilling\reducers\index.js" />

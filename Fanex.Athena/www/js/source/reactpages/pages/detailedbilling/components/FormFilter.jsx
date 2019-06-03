@@ -1,12 +1,15 @@
-﻿import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { ActionCreators } from '../actions/index.js'
-import { bindActionCreators } from 'redux'
-import Select from 'react-select'
-import LangHelper from '@jsroot/lib/langHelper'
-import Site from '@jsroot/lib/site'
-import MonthPicker from '@jsroot/components/month-picker/index'
-import AppData from '@jsroot/lib/AppData'
+﻿import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { ActionCreators } from '../actions/index.js';
+import { bindActionCreators } from 'redux';
+import Select from 'react-select';
+import LangHelper from '@jsroot/lib/langHelper';
+import Site from '@jsroot/lib/site';
+import MonthPicker from '@jsroot/components/month-picker/index';
+import AppData from '@jsroot/lib/AppData';
+import DataService from '@jsroot/lib/DataService.js';
+import { Service, URL } from '../lib/service';
+import ReportExcel from '../lib/reportExcel';
 
 export class FormFilter extends Component {
     constructor(props) {
@@ -26,6 +29,29 @@ export class FormFilter extends Component {
 
     exportExcel = (event) => {
         event.preventDefault();
+    }
+
+    exportExcel = () => {
+        const params = this._getParams();
+
+        this.props.toggleLoader(true);
+        DataService.postData(URL, params)
+            .then(response => {
+                if(response.data.Data.length === 0)
+                {
+                    alert(LangHelper.getSingleResource("NoInfo"));
+                    this.props.toggleLoader(false);
+                    return;
+                }
+
+                const title = Service.getReportTitle(params.FromDate, params.ToDate, params.BaseCurrency);
+                const exchangeTitle = Service.getExchangeTitle(params.ToDate);
+                const excel = new ReportExcel(response.data, title, exchangeTitle, params.BaseCurrency);
+                excel.export(() =>{
+                    this.props.toggleLoader(false);
+                });
+            })
+            .catch(() => Service.showErrorMsg());
     }
 
     _getParams = () => {
