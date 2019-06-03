@@ -27,7 +27,7 @@ namespace Fanex.Athena.Resources {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal ViewResources() {
         }
@@ -2028,6 +2028,24 @@ namespace Fanex.Athena.Resources {
         public static string DecimalOdds {
             get {
                 return ResourceManager.GetString("DecimalOdds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deduct Prepayment - AG.
+        /// </summary>
+        public static string DeductAGP {
+            get {
+                return ResourceManager.GetString("DeductAGP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deduct Advance Minimum Fee.
+        /// </summary>
+        public static string DeductAMF {
+            get {
+                return ResourceManager.GetString("DeductAMF", resourceCulture);
             }
         }
         
@@ -4035,6 +4053,15 @@ namespace Fanex.Athena.Resources {
         public static string League {
             get {
                 return ResourceManager.GetString("League", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Less: Discount for {0}.
+        /// </summary>
+        public static string LessDiscountForProduct {
+            get {
+                return ResourceManager.GetString("LessDiscountForProduct", resourceCulture);
             }
         }
         
@@ -7077,6 +7104,15 @@ namespace Fanex.Athena.Resources {
         public static string SubsidiaryWL {
             get {
                 return ResourceManager.GetString("SubsidiaryWL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub Total.
+        /// </summary>
+        public static string SubTotal {
+            get {
+                return ResourceManager.GetString("SubTotal", resourceCulture);
             }
         }
         

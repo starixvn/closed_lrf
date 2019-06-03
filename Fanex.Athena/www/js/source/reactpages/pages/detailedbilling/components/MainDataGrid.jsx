@@ -1,8 +1,7 @@
-﻿import React, { Component } from 'react'
-import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid'
-import NumberFormat from '@jsroot/lib/numberFormat'
-import { HeaderText, TotalText } from '../lib/service'
-import ReportTitle from '../../../components/ReportTitle'
+﻿import React, { Component } from 'react';
+import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid';
+import NumberFormat from '@jsroot/lib/numberFormat';
+import { HeaderText } from '../lib/service';
 
 export default class MainDataGrid extends Component {
     constructor(props) {
@@ -12,11 +11,11 @@ export default class MainDataGrid extends Component {
     _buildHeader(width) {
         return (
             <HeaderRow style={{ height: 32 }}>
-                <HeaderCell colWidth={width/5} title={HeaderText.Product}>{HeaderText.Product}</HeaderCell>
-                <HeaderCell colWidth={width/5} title={HeaderText.Turnover}>{HeaderText.Turnover}</HeaderCell>
-                <HeaderCell colWidth={width/5} title={HeaderText.CustomerWL}>{HeaderText.CustomerWL}</HeaderCell>
-                <HeaderCell colWidth={width/5} title={HeaderText.LicenseeNetWL}>{HeaderText.LicenseeNetWL}</HeaderCell>
-                <HeaderCell colWidth={width/5} title={HeaderText.AmountDue}>{HeaderText.AmountDue}</HeaderCell>
+                <HeaderCell colWidth={width/5}>{HeaderText.Product}</HeaderCell>
+                <HeaderCell colWidth={width/5}>{HeaderText.Turnover}</HeaderCell>
+                <HeaderCell colWidth={width/5}>{HeaderText.CustomerWL}</HeaderCell>
+                <HeaderCell colWidth={width/5}>{HeaderText.LicenseeNetWL}</HeaderCell>
+                <HeaderCell colWidth={width/5}>{HeaderText.AmountDue}</HeaderCell>
             </HeaderRow>
         )
     }
@@ -25,7 +24,7 @@ export default class MainDataGrid extends Component {
         let rows = [];
         for (let i = 0; i < data.length; i++) {
             const item = data[i];
-            const turnover = NumberFormat.format(item.Turnover),
+            const turnover = NumberFormat.formatDecimal(item.Turnover),
                     customerWL = NumberFormat.formatDecimal(item.CustomerWL),
                     licenseeNetWL= NumberFormat.formatDecimal(item.LicenseeNetWL),
                     amountDue = NumberFormat.formatDecimal(item.AmountDue);
@@ -39,77 +38,45 @@ export default class MainDataGrid extends Component {
                     <Cell title={amountDue} className='right-align'>{amountDue}</Cell>
                 </Row>
             );
-        }
+    }
 
         return rows;
     }
 
-    _buildFooter(subTotal, total, summary) {
+    _buildFooter(summary) {
         let rows = [];
 
-        const subTotalText = NumberFormat.format(subTotal),
-            totalText = NumberFormat.formatDecimal(total);
-
-        rows.push(
-            <Row className='text-bold' key='SubTotal'>
-                    <Cell className='left-align' colSpan='4'>{TotalText.SubTotal}</Cell>
-                    <Cell className='right-align' title={subTotalText}>{subTotalText}</Cell>
-            </Row>
-        );
-
         if (summary) {
-            const discount = NumberFormat.formatDecimal(summary.Discount),
-                deductAMF= NumberFormat.formatDecimal(summary.DeductAMF),
-                deductPrepayment = NumberFormat.formatDecimal(summary.DeductPrepayment);
+            for (let i = 0; i < summary.length; i++) {
+                const item = summary[i];
+                const amount = NumberFormat.formatDecimal(item.Amount);
 
-            rows.push(
-                <Row className='text-bold' key='Discount'>
-                    <Cell className='left-align' colSpan='4'>{'Less'}</Cell>
-                    <Cell className='right-align' title={discount}>{discount}</Cell>
-                </Row>,
-                <Row className='text-bold' key='DeductAMF'>
-                    <Cell className='left-align' colSpan='4'>{TotalText.DeductAMF}</Cell>
-                    <Cell className='right-align' title={deductAMF}>{deductAMF}</Cell>
-                </Row>,
-                <Row className='text-bold' key='DeductPrepayment'>
-                    <Cell className='left-align' colSpan='4'>{TotalText.DeductPrepayment}</Cell>
-                    <Cell className='right-align' title={deductPrepayment}>{deductPrepayment}</Cell>
-                </Row>
-            );
+                rows.push(
+                    <Row className='text-bold' key={`summary-${i}`}>
+                        <Cell className='left-align' colSpan='4'>{item.Description}</Cell>
+                        <Cell className='right-align' title={amount}>{amount}</Cell>
+                    </Row>
+                );
+            }
         }
-
-        rows.push(
-            <Row className='text-bold' key='Total'>
-                <Cell className='left-align' colSpan='4'>{TotalText.Total}</Cell>
-                <Cell className='right-align' title={totalText}>{totalText}</Cell>
-            </Row>
-        );
 
         return rows;
     }
 
     render() {
-        const { data, summary, total, subTotal } = this.props;
-        
-        if (!data) {
-            return null;
-        }
-
-        const { width, minWidth, title } = this.props;
+        const { data, summary, width, containerPadding } = this.props;
 
         return (
-            <div className='result-content'>
-                <ReportTitle content={title} />
-                <Table
-                    width={width}
-                    minWidth={minWidth}
-                    autoWidth={false}
-                    bodyHeight={300}
-                    header={this._buildHeader(width)}
-                    body={this._buildBody(data)}
-                    footer={this._buildFooter(subTotal, total, null)}
-                />
-            </div>
+            <Table
+                width={width}
+                minWidth={650}
+                autoWidth={false}
+                bodyHeight={300}
+                containerPadding={containerPadding}
+                header={this._buildHeader(width)}
+                body={this._buildBody(data)}
+                footer={this._buildFooter(summary)}
+            />
         );
     }
 }

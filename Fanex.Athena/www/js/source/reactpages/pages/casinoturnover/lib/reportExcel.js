@@ -1,8 +1,7 @@
-import NumberFormat from '../../../lib/numberFormat'
 import moment from 'moment'
 import Excel from '../../../lib/excel'
 import LangHelper from '../../../lib/langHelper'
-import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle, grandTotalCellStyle } from '../../../constants/excelStyle'
+import { titleCellStyle, headerCellStyle, bodyCellStyle, grandTotalCellStyle } from '../../../constants/excelStyle'
 import { HeaderText, Service } from '../lib/service'
 
 const TITLE_ROW_INDEX = 0;
@@ -22,7 +21,6 @@ const CUSTOMERWL_COLUMN_INDEX = 8;
 const COLUMN_COUNT = 9;
 
 const MAIN_SECTION_STYLE = "mainSectionStyle";
-const TOTAL_SECTION_STYLE = "totalSectionStyle";
 const GRAND_TOTAL_SECTION_STYLE = "grandTotalSectionStyle";
 
 const fields = {

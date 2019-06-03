@@ -1,4 +1,7 @@
-﻿import LangHelper from '../../../lib/langHelper'
+﻿import LangHelper from '@jsroot/lib/langHelper';
+import Site from '@jsroot/lib/site';
+
+export const URL = Site.resolveClientUrl('api/DetailedBillingReport/GetData');
 
 export const HeaderText = {
     Product: LangHelper.getSingleResource('Product'),
@@ -12,8 +15,6 @@ export const HeaderText = {
 
 export const TotalText = {
     SubTotal: LangHelper.getSingleResource('SubTotal'),
-    DeductAMF: LangHelper.getSingleResource('DeductAMF'),
-    DeductPrepayment: LangHelper.getSingleResource('DeductPrepayment'),
     Total: LangHelper.getSingleResource('Total')
 }
 

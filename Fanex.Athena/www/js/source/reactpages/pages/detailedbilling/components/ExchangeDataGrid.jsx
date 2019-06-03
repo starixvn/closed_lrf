@@ -1,7 +1,6 @@
-﻿import React, { Component } from 'react'
-import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid'
-import { HeaderText } from '../lib/service'
-import ReportTitle from '../../../components/ReportTitle'
+﻿import React, { Component } from 'react';
+import { Table, HeaderRow, HeaderCell, Row, Cell } from '@9softstudio/react-grid';
+import { HeaderText } from '../lib/service';
 
 export default class ExchangeDataGrid extends Component {
     constructor(props) {
@@ -21,12 +20,13 @@ export default class ExchangeDataGrid extends Component {
         let rows = [];
         const baseCurrencyList = Object.keys(data);
         for (let i = 0; i < baseCurrencyList.length; i++) {
-            const currrency = baseCurrencyList[i];
+            const currency = baseCurrencyList[i];
+            const rate = data[currency];
 
             rows.push(
-                <Row key={currrency}>
-                    <Cell title={currrency} className='center-align'>{currrency}</Cell>
-                    <Cell title={data[currrency]} className='center-align'>{data[currrency]}</Cell>
+                <Row key={currency}>
+                    <Cell className='center-align'>{currency}</Cell>
+                    <Cell title={rate} className='center-align'>{rate}</Cell>
                 </Row>
             );
         }
@@ -34,26 +34,18 @@ export default class ExchangeDataGrid extends Component {
     }
 
     render() {
-        const { data } = this.props;
-        
-        if (!data) {
-            return null;
-        }
-
-        const { width, minWidth, title, baseCurrency } = this.props;
+        const { data, width, baseCurrency, containerPadding } = this.props;
 
         return (
-            <div className='result-content exchange-table'>
-                <ReportTitle content={title} />
-                <Table
-                    minWidth={minWidth}
-                    width={width}
-                    autoWidth={false}
-                    bodyHeight={300}
-                    header={this._buildHeader(baseCurrency, width)}
-                    body={this._buildBody(data)}
-                    />
-            </div>
+            <Table
+                width={width}
+                minWidth={240}
+                autoWidth={false}
+                bodyHeight={300}
+                containerPadding={containerPadding}
+                header={this._buildHeader(baseCurrency, width)}
+                body={this._buildBody(data)}
+            />
         );
     }
 }

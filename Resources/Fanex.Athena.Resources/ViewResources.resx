@@ -3111,4 +3111,20 @@
     <value>To check Invoice of last month, Please generate the report after 5th</value>
     <comment>112173</comment>
   </data>
+  <data name="DeductAGP" xml:space="preserve">
+    <value>Deduct Prepayment - AG</value>
+    <comment>112173</comment>
+  </data>
+  <data name="DeductAMF" xml:space="preserve">
+    <value>Deduct Advance Minimum Fee</value>
+    <comment>112173</comment>
+  </data>
+  <data name="LessDiscountForProduct" xml:space="preserve">
+    <value>Less: Discount for {0}</value>
+    <comment>112173</comment>
+  </data>
+  <data name="SubTotal" xml:space="preserve">
+    <value>Sub Total</value>
+    <comment>112173</comment>
+  </data>
 </root>

@@ -2,9 +2,20 @@
 @import '../../components/month-picker';
 
 .result-content {
-    display: inline-block;
-}
+    .exchange-table {
+        float: right;
 
-.exchange-table {
-    float: right;
+        .report-title {
+            text-align: center;
+        }
+    }
+
+    .main-table {
+        float: left;
+    }
+
+    .main-table, .exchange-table {
+        display: inline-block;
+        padding-bottom: 15px;
+    }
 }

@@ -1,11 +1,11 @@
 ﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
-import { ActionCreators } from '../actions/index'
-import FormFilter from './FormFilter'
-import DataGrid from './DataGrid'
-import Loader from '../../../components/Loader'
-import AppLayout from '../../../layouts/AppLayout'
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../actions/index';
+import FormFilter from './FormFilter';
+import DataGrid from './DataGrid';
+import Loader from '../../../components/Loader';
+import AppLayout from '../../../layouts/AppLayout';
 
 export class AppContainer extends Component {
   constructor(props) {
