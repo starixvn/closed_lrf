@@ -8,5 +8,5 @@
   <SpNameConfig Environment="BACKUPMNL" SpName="Lrf_CheckIn" EnvironmentText="_mnl"></SpNameConfig>
   <!--Do not delete this-->
 
-  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_LicenseeBaseCurrencySel" EnvironmentText="_xpre"></SpNameConfig>
+  <SpNameConfig Environment="DEV,LOCAL,SIT,UAT" SpName="Lrf_Rpt_DetailedBilling" EnvironmentText="_xpre"></SpNameConfig>
 </Root>
