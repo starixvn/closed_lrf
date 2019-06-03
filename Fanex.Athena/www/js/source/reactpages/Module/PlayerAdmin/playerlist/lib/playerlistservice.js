@@ -23,7 +23,7 @@ export default class PlayerListService {
             const lapItem = lapList.find(x => x.CustId === lrfItem.CustId);
 
             if (lrfItem && lapItem) {
-                result.push({...lrfItem, ...lapItem });
+                result.push({...lapItem, ...lrfItem });
             }
         }
 

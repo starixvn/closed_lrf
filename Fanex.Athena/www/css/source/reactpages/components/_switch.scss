@@ -14,7 +14,7 @@ $bgButtonOff: #919191;
             margin: 0;
 
             &:before {
-                content: "OFF";
+                content: "";
                 position: absolute;
                 right: 3px;
                 font-size: 11px;
@@ -38,7 +38,7 @@ $bgButtonOff: #919191;
                     background-color: $bgOn;
 
                     &:before {
-                        content: "ON";
+                        content: "";
                         right: 20px;
                         color: $bgButtonOn;
                     }

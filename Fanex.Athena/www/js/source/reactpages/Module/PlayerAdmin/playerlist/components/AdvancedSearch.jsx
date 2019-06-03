@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { ActionCreators } from '../actions/index.js'
-import { bindActionCreators } from 'redux'
-import Select from 'react-select'
-import MultipleSelect from '@9softstudio/react-multiselect'
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { ActionCreators } from '../actions/index.js';
+import { bindActionCreators } from 'redux';
+import Select from 'react-select';
+import MultipleSelect from '@9softstudio/react-multiselect';
 
 export class AdvancedSearch extends PureComponent {
     constructor(props) {
@@ -19,12 +19,12 @@ export class AdvancedSearch extends PureComponent {
             ba: ''
         }
 
-        this.currencyList = [{Id: 'eur', Value: 'EUR', Status: true}, {Id: 'usd', Value: 'usd', Status: false}];
-        this.baseCurrencyList = [{value: 'eur', label: 'EUR'}, {value: 'usd', label: 'USD'}];
-        this.oddsGroupList = [{Id: 'A', Value: 'A', Status: true}, {Id: 'B', Value: 'B', Status: false}, {Id: 'C', Value: 'C', Status: true}];
-        this.subsidiaryList = [{Id: 's1', Value: 'S1', Status: true}, {Id: 's2', Value: 'S2', Status: true}];
-        this.specialLevelList = [{Id: '1', Value: '1', Status: true}, {Id: '2', Value: '2', Status: true}];
-        this.baStatusList = [{Id: 'On', Value: 'On', Status: true}, {Id: 'Off', Value: 'Off', Status: true}];
+        this.currencyList = [{ Id: 'eur', Value: 'EUR', Status: true }, { Id: 'usd', Value: 'usd', Status: false }];
+        this.baseCurrencyList = [{ value: 'eur', label: 'EUR' }, { value: 'usd', label: 'USD' }];
+        this.oddsGroupList = [{ Id: 'A', Value: 'A', Status: true }, { Id: 'B', Value: 'B', Status: false }, { Id: 'C', Value: 'C', Status: true }];
+        this.subsidiaryList = [{ Id: 's1', Value: 'S1', Status: true }, { Id: 's2', Value: 'S2', Status: true }];
+        this.specialLevelList = [{ Id: '1', Value: '1', Status: true }, { Id: '2', Value: '2', Status: true }];
+        this.baStatusList = [{ Id: 'On', Value: 'On', Status: true }, { Id: 'Off', Value: 'Off', Status: true }];
     }
 
     handleSubmit = (event) => {
@@ -39,6 +39,7 @@ export class AdvancedSearch extends PureComponent {
 
     render() {
         const { basedCurrency } = this.state;
+        console.log(this.specialLevelList);
 
         return (
             <React.Fragment>

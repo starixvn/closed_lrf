@@ -7,6 +7,8 @@ import { Table, HeaderRow, HeaderCell, Row, Cell, Pager } from '@9softstudio/rea
 import ReportTitle from '../../../../components/ReportTitle';
 import LangHelper from '../../../../lib/langHelper';
 import Switcher from '../../../../components/Switcher';
+import { specialLevelListWithColor, oddsGroupListWithStyle, columnList } from '../lib/constants';
+import MultipleSelect from '@9softstudio/react-multiselect';
 
 const MAX_WIDTH_PAGE = 1920;
 
@@ -25,6 +27,21 @@ export class DataGrid extends PureComponent {
                 TotalItem: 1000
             }
         }
+
+        this.specialLevelList = Object.keys(specialLevelListWithColor).map(item => {
+            return {
+                value: item,
+                label: item === '0' ? 'None' : item
+            }
+        })
+
+        this.columnList = columnList.map(item => {
+            return {
+                id: item,
+                value: item,
+                status: true
+            }
+        })
     }
 
 
@@ -38,12 +55,24 @@ export class DataGrid extends PureComponent {
                 <HeaderCell colWidth={60}>Currency</HeaderCell>
                 <HeaderCell colWidth={80}>Current Balance</HeaderCell>
                 <HeaderCell colWidth={80}>Outstanding Balance</HeaderCell>
-                <HeaderCell colWidth={70}>Odds Group</HeaderCell>
-                <HeaderCell colWidth={70}>BA Status</HeaderCell>
-                <HeaderCell colWidth={70}>Special Level</HeaderCell>
+                <HeaderCell colWidth={50}>Odds Group</HeaderCell>
+                <HeaderCell colWidth={50}>BA Status</HeaderCell>
+                <HeaderCell colWidth={50}>Special Level</HeaderCell>
                 <HeaderCell colWidth={100}>Last Transaction</HeaderCell>
                 <HeaderCell colWidth={100}>Email</HeaderCell>
             </HeaderRow>
+        )
+    }
+
+    _renderDropdownColumn(){
+        console.log(this.columnList);
+        return (
+            <MultipleSelect id="columnList" className="selection-column"
+                        dataSource={this.columnList}
+                        keyField={"id"}
+                        valueField={"value"}
+                        statusField={"status"}
+                        onChange={(currentItem, selectedItemsKey) => console.log(selectedItemsKey)} />
         )
     }
 
@@ -96,9 +125,28 @@ export class DataGrid extends PureComponent {
                 <Cell className="center-align">{dataItem.Currency}</Cell>
                 <Cell className="center-align">{dataItem.CurrentBalance}</Cell>
                 <Cell className="center-align">{dataItem.OutstandingBalance}</Cell>
-                <Cell className="center-align">{dataItem.OddsGroup}</Cell>
+                <Cell className="center-align">
+                    <select className="select-default select-oddsgroup" value={dataItem.OddsGroup} onChange={(e) => console.log(e)}>
+                        {
+                            Object.keys(oddsGroupListWithStyle).map(item => {
+                                return(
+                                    <option key={item} style={oddsGroupListWithStyle[item]}>{item}</option>
+                                )
+                            })
+                        }
+                    </select>
+                </Cell>
                 <Cell className="center-align"><Switcher checked={dataItem.BaStatus} onChange={this._handleChangeBaStatus} /></Cell>
-                <Cell className="center-align">{dataItem.SpecialLevel}</Cell>
+                <Cell className="center-align">
+                    <select className="select-default select-special-level" value={dataItem.SpecialLevel} onChange={(e) => console.log(e)}>
+                        {this.specialLevelList.map(item => {
+                            const style = {backgroundColor: specialLevelListWithColor[item.value]};
+                            return(
+                                <option key={item.value} style={style}>{item.label}</option>
+                            )
+                        })}
+                    </select>
+                </Cell>
                 <Cell className="center-align">{dataItem.LastTransaction}</Cell>
                 <Cell className="center-align">{dataItem.Email}</Cell>
             </Row>
@@ -132,10 +180,11 @@ export class DataGrid extends PureComponent {
 
         titleContentList.push(
             (
-                <div key="caretBlock" className="caret-block">
-                    <button>Select column</button>
+                <span key="caretBlock" className="caret-block">
+                    {/* <button>Select column</button> */}
+                    {this._renderDropdownColumn()}
                     <span className="icon-excel-wrapper"><i className="icon-excel" title={LangHelper.getSingleResource('ExportToExcel')}></i></span>
-                </div>
+                </span>
             )
         );
 
