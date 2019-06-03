@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataDomain\BetType.cs" />
+    <Compile Include="DataDomain\InvoiceItemType.cs" />
     <Compile Include="DataDomain\ProductTypes.cs" />
     <Compile Include="DataDomain\SportType.cs" />
     <Compile Include="DataDomain\UserLevelType.cs" />

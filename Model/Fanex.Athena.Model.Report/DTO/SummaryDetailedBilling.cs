@@ -2,10 +2,10 @@
 {
     public class SummaryDetailedBilling
     {
-        public decimal Discount { get; set; }
+        public int InvoiceItemTypeId { get; set; }
 
-        public decimal DeductAMF { get; set; }
+        public string Product { get; set; }
 
-        public decimal DeductPrepayment { get; set; }
+        public decimal Amount { get; set; }
     }
 }

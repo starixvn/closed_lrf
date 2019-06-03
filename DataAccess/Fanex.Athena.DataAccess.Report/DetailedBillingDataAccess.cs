@@ -1,8 +1,13 @@
 ﻿namespace Fanex.Athena.DataAccess.Report
 {
     using System.Collections.Generic;
+    using System.Data;
     using System.Linq;
+    using System.Threading.Tasks;
+    using Common.Extensions;
     using Core;
+    using Extension.Helper;
+    using Extension.Utility;
     using Interfaces;
     using Model.Report.DTO;
     using Model.Report.MetaModel;
@@ -10,24 +15,30 @@
 
     public class DetailedBillingDataAccess : BaseDataAccess, IDetailedBillingDataAccess
     {
-        public string GetLicenseeBaseCurrency(int licenseeId)
+        public async Task<DetailedBillingResultModel> GetData(DetailedBillingMetaModel metaModel, IDictionary<int, string> currencyList)
         {
-            const string UspName = "Lrf_LicenseeBaseCurrencySel";
+            var result = new DetailedBillingResultModel();
+
+            const string UspName = "Lrf_Rpt_DetailedBilling";
             using (var db = GetObjectDb(UspName))
             {
-                db.SetParameterValue("LicenseeId", licenseeId);
-                return db.QueryEntity<string>();
-            }
-        }
+                db.SetParameterValue("LicenseeId", metaModel.LicenseeId);
+                db.SetParameterValue("FromDate", metaModel.FromDate);
+                db.SetParameterValue("ToDate", metaModel.ToDate);
+                db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
+                db.SetParameterValue("Environment", metaModel.Environment);
 
-        public DetailedBillingResultModel GetData(DetailedBillingMetaModel metaModel)
-        {
-            var result = new DetailedBillingResultModel
-            {
-                Data = BindData(),
-                Summary = BindSummary(),
-                Exchange = BindExchange()
-            };
+                using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                {
+                    result.Data = BindData(reader);
+
+                    reader.NextResult();
+                    result.Exchange = BindExchange(reader, currencyList);
+
+                    reader.NextResult();
+                    result.Summary = BindSummary(reader);
+                }
+            }
 
             CalculateTotal(result);
 
@@ -39,38 +50,63 @@
             result.SubTotal = result.Data.Sum(x => x.AmountDue);
 
             result.Total = result.Summary != null
-                ? result.SubTotal - (result.Summary.Discount + result.Summary.DeductAMF + result.Summary.DeductPrepayment)
+                ? result.SubTotal - result.Summary.Sum(x => x.Amount)
                 : result.SubTotal;
         }
 
-        private IList<DetailedBilling> BindData()
+        private static IDictionary<string, float> BindExchange(IDataReader reader, IDictionary<int, string> currencyList)
         {
-            return new List<DetailedBilling>
+            var exchange = new Dictionary<string, float>();
+
+            while (reader.Read())
             {
-                new DetailedBilling { Product = "SB", Turnover = 0, CustomerWL = 0, AmountDue = 0, LicenseeNetWL = 0 },
-                new DetailedBilling { Product = "SB", Turnover = 0, CustomerWL = 0, AmountDue = 0, LicenseeNetWL = 0 },
-                new DetailedBilling { Product = "SB", Turnover = 0, CustomerWL = 0, AmountDue = 0, LicenseeNetWL = 0 }
-            };
+                var currencyId = reader.ToInt("CurrencyId");
+                var currencyCode = currencyList?.GetValueOrDefault(currencyId, string.Empty);
+
+                if (!string.IsNullOrEmpty(currencyCode))
+                {
+                    exchange.Add(currencyCode, reader.ToFloat("Rate"));
+                }
+            }
+
+            return exchange;
         }
 
-        private SummaryDetailedBilling BindSummary()
+        private IList<DetailedBilling> BindData(IDataReader reader)
         {
-            return new SummaryDetailedBilling
+            var data = new List<DetailedBilling>();
+
+            while (reader.Read())
             {
-                Discount = 0,
-                DeductAMF = 0,
-                DeductPrepayment = 0
-            };
+                data.Add(new DetailedBilling
+                {
+                    Product = DataHelper.GetProductName(reader.ToString("ProductCode")),
+                    Turnover = reader.ToDecimal("Turnover"),
+                    CustomerWL = reader.ToDecimal("CustomerWL"),
+                    LicenseeNetWL = reader.ToDecimal("LicenseeNetWL"),
+                    AmountDue = reader.ToDecimal("AmountDue")
+                });
+            }
+
+            return data;
         }
 
-        private IDictionary<string, float> BindExchange()
+        private IList<SummaryDetailedBilling> BindSummary(IDataReader reader)
         {
-            return new Dictionary<string, float>
+            var summary = new List<SummaryDetailedBilling>();
+
+            while (reader.Read())
             {
-                { "EUR", 0 },
-                { "USD", 0 },
-                { "GBP", 0 }
-            };
+                var productCode = reader.ToString("ProductCode");
+                summary.Add(new SummaryDetailedBilling
+                {
+                    Product = !string.IsNullOrEmpty(productCode) ? DataHelper.GetProductName(productCode) : string.Empty,
+                    InvoiceItemTypeId = reader.ToInt("TypeId"),
+                    Amount = reader.ToDecimal("Amount")
+                });
+            }
+
+            return summary;
         }
     }
 }

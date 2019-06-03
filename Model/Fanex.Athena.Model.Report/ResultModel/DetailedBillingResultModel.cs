@@ -7,7 +7,7 @@
     {
         public IList<DetailedBilling> Data { get; set; }
 
-        public SummaryDetailedBilling Summary { get; set; }
+        public IList<SummaryDetailedBilling> Summary { get; set; }
 
         public IDictionary<string, float> Exchange { get; set; }
 

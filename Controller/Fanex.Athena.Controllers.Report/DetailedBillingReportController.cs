@@ -1,8 +1,6 @@
 ﻿namespace Fanex.Athena.Controllers.Report
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using DataAccess.Report.Interfaces;
@@ -15,22 +13,17 @@
     using Web.ActionFilter;
 
     [FunctionAuthorization(PermissionKeys.ReportDetailedBilling)]
-    public class DetailedBillingReportController : ReportBaseController
+    public class DetailedBillingReportController : CultureBaseController
     {
-        private readonly IDetailedBillingDataAccess _dataAccess;
-
         private readonly IReportSettingService _reportSettingService;
 
         public DetailedBillingReportController(
             ILanguageService languageService,
             ISessionService sessionService,
             IAppSettings appSetting,
-            IProductService productService,
-            IDetailedBillingDataAccess dataAccess,
             IReportSettingService reportSettingService)
-            : base(languageService, sessionService, appSetting, productService)
+            : base(languageService, sessionService, appSetting)
         {
-            _dataAccess = dataAccess;
             _reportSettingService = reportSettingService;
         }
 
@@ -38,31 +31,17 @@
         public ActionResult Index()
         {
             var today = DateTime.Today;
-            var baseCurrency = _dataAccess.GetLicenseeBaseCurrency(SessionService.LicenseeSession.LicenseeId);
-            var baseCurrencyList = GetBaseCurrencyList(baseCurrency);
+            var baseCurrencyList = SystemConstants.NewBaseCurrencyList;
             var viewModel = new DetailedBillingViewModel
             {
                 FromDate = new DateTime(today.Year, today.Month, 1),
                 ToDate = today,
-                BaseCurrencyList = baseCurrencyList,
-                BaseCurrency = string.IsNullOrEmpty(baseCurrency) ? baseCurrency : baseCurrencyList.FirstOrDefault(),
+                BaseCurrencyList = SystemConstants.NewBaseCurrencyList,
+                BaseCurrency = baseCurrencyList.FirstOrDefault(),
                 ReportSetting = _reportSettingService.GetSetting(PermissionKeys.ReportDetailedBilling)
             };
 
             return View("~/Views/Desktop/Report/DetailedBilling/Main.cshtml", viewModel);
-        }
-
-        private static IList<string> GetBaseCurrencyList(string baseCurrency)
-        {
-            if (string.IsNullOrEmpty(baseCurrency) && !SystemConstants.NewBaseCurrencyList.Any(x=>x == baseCurrency))
-            {
-                var baseCurrencyList = new List<string> { baseCurrency };
-                baseCurrencyList.AddRange(SystemConstants.NewBaseCurrencyList);
-
-                return baseCurrencyList;
-            }
-
-            return SystemConstants.NewBaseCurrencyList;
         }
     }
 }
