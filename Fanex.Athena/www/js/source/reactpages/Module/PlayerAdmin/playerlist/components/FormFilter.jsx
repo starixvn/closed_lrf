@@ -4,21 +4,23 @@ import { ActionCreators } from '../actions/index.js'
 import { bindActionCreators } from 'redux'
 import CheckBox from '@jsroot/components/CheckBox'
 import AdvancedSearch from './AdvancedSearch';
+import { DropdownButton, DropdownItem } from '../../../../components/dropdown';
 
 export class FormFilter extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
-            Username: '',
-            isShowAdvancedSearch: false
+            userName: '',
+            isShowAdvancedSearch: false,
+            isOpenDropdown: false
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.setSelectedPlayer(null);
-        this.props.searchPlayer({ userName: this.state.Username });
+        this.props.searchPlayer({ userName: this.state.userName });
     }
 
     handleChange = (event) => {
@@ -27,19 +29,40 @@ export class FormFilter extends PureComponent {
         this.setState({ [name]: value });
     }
 
+    handleToggleDropdown = () => {
+        const isOpen = !this.state.isOpenDropdown;
+        this.setState({
+            isOpenDropdown: isOpen
+        });
+    }
+
+    handleClose = () => {
+        this.setState({
+            isOpenDropdown: false
+        });
+    }
+
     render() {
-        const { Username, isShowAdvancedSearch } = this.state;
+        const { userName, isShowAdvancedSearch, isOpenDropdown } = this.state;
 
         return (
             <div className="page-filter">
                 <div className="row">
                     <div className="col-12 col-md-4 col-sm-4 col-lg-3 col-xl-2">
                         <div className="form-group">
-                            <label className="label-text">Username *</label>
-                            <input className="input-text" id="Username" name="Username" type="text" value={Username}
+                            <label className="label-text">UserName *</label>
+                            <input className="input-text" id="userName" name="userName" type="text" value={userName}
                                 onChange={this.handleChange} />
                         </div>
                     </div>
+
+                    <DropdownButton isOpen={isOpenDropdown}
+                        onToggle={this.handleToggleDropdown}
+                        buttonLabel={'Dropdown Button'}
+                        onClose={this.handleClose}>
+                        <DropdownItem>Item1</DropdownItem>
+                        <DropdownItem>Item2</DropdownItem>
+                    </DropdownButton>
 
                     {isShowAdvancedSearch && <AdvancedSearch />}
 
