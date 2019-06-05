@@ -74,8 +74,7 @@ namespace Fanex.Athena.Controllers.Report.Result
                 var data = await _betListApiClient.PostAsyncString(
                     "/ResultReport/Index",
                     metaModel,
-                    SessionService.UserSession.Language
-                    ).ConfigureAwait(false);
+                    SessionService.UserSession.Language).ConfigureAwait(false);
 
                 return this.Content(data, "text/html");
             }
@@ -94,11 +93,12 @@ namespace Fanex.Athena.Controllers.Report.Result
 
             const string FileName = "LRF-Result.xls";
             metaModel.LicenseeId = SessionService.LicenseeSession.LicenseeId;
+
             var stream = await _betListApiClient.PostAsyncStream(
                 "/ResultReport/ResultExcel",
                 metaModel,
-                SessionService.UserSession.Language
-                ).ConfigureAwait(false);
+                SessionService.UserSession.Language).ConfigureAwait(false);
+
             return File(stream, "application/vnd.ms-excel", FileName);
         }
 
@@ -119,8 +119,7 @@ namespace Fanex.Athena.Controllers.Report.Result
                 var result = await _betListApiClient.PostAsyncString(
                     "/ResultReport/GetSports",
                     metaModel,
-                    language
-                    ).ConfigureAwait(false);
+                    language).ConfigureAwait(false);
 
                 return this.Content(result, "application/json");
             }
@@ -140,8 +139,7 @@ namespace Fanex.Athena.Controllers.Report.Result
                 var result = await _betListApiClient.PostAsyncString(
                     "/ResultReport/ResultPopup",
                     metaModel,
-                    SessionService.UserSession.Language
-                    ).ConfigureAwait(false);
+                    SessionService.UserSession.Language).ConfigureAwait(false);
 
                 ViewBag.Data = result;
                 return View("~/Views/Desktop/Report/Result/Popup/Main.cshtml");
@@ -157,9 +155,7 @@ namespace Fanex.Athena.Controllers.Report.Result
             var result = await _betListApiClient.PostAsyncString(
                 "/ResultReport/ShowRngCasinoSingleWalletResult",
                 new { refNo },
-                SessionService.UserSession.Language
-                )
-                .ConfigureAwait(false);
+                SessionService.UserSession.Language).ConfigureAwait(false);
 
             return this.Content(result, "application/json");
         }
@@ -174,8 +170,10 @@ namespace Fanex.Athena.Controllers.Report.Result
                 gamePlayId,
                 languageCode = language
             };
-            return await _betListApiClient.PostAsyncString("/VoidbridgeResultPopup/Index",
-                model, language).ConfigureAwait(false);
+            return await _betListApiClient.PostAsyncString(
+                "/VoidbridgeResultPopup/Index",
+                model,
+                language).ConfigureAwait(false);
         }
 
         [HttpGet]
@@ -202,8 +200,10 @@ namespace Fanex.Athena.Controllers.Report.Result
                 custId,
                 gameId
             };
-            return await _betListApiClient.PostAsyncString("/GlobalGamingResultPopup/Index",
-                model, SessionService.UserSession.Language).ConfigureAwait(false);
+            return await _betListApiClient.PostAsyncString(
+                "/GlobalGamingResultPopup/Index",
+                model,
+                SessionService.UserSession.Language).ConfigureAwait(false);
         }
 
         /// <summary>

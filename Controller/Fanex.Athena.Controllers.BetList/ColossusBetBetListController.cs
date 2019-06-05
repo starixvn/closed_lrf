@@ -50,10 +50,10 @@ namespace Fanex.Athena.Controllers.BetList
             metaModel.AgentListXml = SessionService.GenerateAgentListXml();
             metaModel.UserId = userSession.UserId;
 
-            var viewModel = await BetListApiClient.PostAsync<ColossusBetDetailViewModel>("/ColossusBetBetList/Detail",
+            var viewModel = await BetListApiClient.PostAsync<ColossusBetDetailViewModel>(
+                "/ColossusBetBetList/Detail",
                 metaModel,
-                userSession.Language
-                ).ConfigureAwait(false);
+                userSession.Language).ConfigureAwait(false);
 
             return this.View("~/Views/Desktop/BetList/ColossusBetDetail/Main.cshtml", viewModel);
         }

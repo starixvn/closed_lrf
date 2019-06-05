@@ -73,8 +73,10 @@
 
         private void StubGetBetListData(CashOutBetListDetailViewModel cashOutBetListDetail)
         {
-            BetListApiClient.PostAsync<CashOutBetListDetailViewModel>("/CashOutBetList/Detail",
-                Arg.Any<object>(), SessionService.UserSession.Language).Returns(Task.FromResult(cashOutBetListDetail));
+            BetListApiClient.PostAsync<CashOutBetListDetailViewModel>(
+                "/CashOutBetList/Detail",
+                Arg.Any<object>(),
+                SessionService.UserSession.Language).Returns(Task.FromResult(cashOutBetListDetail));
         }
 
         private CashOutBetListController CreateController()

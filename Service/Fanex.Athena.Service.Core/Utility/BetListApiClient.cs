@@ -55,6 +55,7 @@
                                 message.Append("\n Request timed out");
                             }
                         }
+
                         message.Append($"\n ErrMsg={ex.Message}");
                         message.Append($"\n InnerExceptionMsg={ex.InnerException?.Message}");
                         throw new ServiceException(message.ToString(), "BetListApiClient");

@@ -30,6 +30,7 @@
             _cache = null;
             _memoryCacheService = null;
         }
+
         [TestCase(true)]
         [TestCase(false)]
         public void Contains_WhenCall_ReturnFromCacheMethod(bool expectedResult)

@@ -62,8 +62,10 @@
 
         private void StubGetData(ColossusBetDetailViewModel data)
         {
-            BetListApiClient.PostAsync<ColossusBetDetailViewModel>("/ColossusBetBetList/Detail",
-                Arg.Any<object>(), SessionService.UserSession.Language).Returns(Task.FromResult(data));
+            BetListApiClient.PostAsync<ColossusBetDetailViewModel>(
+                "/ColossusBetBetList/Detail",
+                Arg.Any<object>(),
+                SessionService.UserSession.Language).Returns(Task.FromResult(data));
         }
 
         private ColossusBetBetListController CreateController()

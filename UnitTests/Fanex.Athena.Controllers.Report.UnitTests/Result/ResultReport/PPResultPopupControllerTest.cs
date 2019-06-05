@@ -40,7 +40,8 @@
                         Arg.Is<object>(
                             x => (string)x.GetValue("custId") == CustId &&
                                 (string)x.GetValue("gamePlayId") == GamePlayId &&
-                                (string)x.GetValue("languageCode") == Language), Language);
+                                (string)x.GetValue("languageCode") == Language),
+                        Language);
                     Assert.That(result, Is.EqualTo(ExpectedResult));
                 });
             }

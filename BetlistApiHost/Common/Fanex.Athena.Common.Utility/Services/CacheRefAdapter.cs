@@ -8,11 +8,13 @@ namespace Fanex.Athena.Common.Utility.Services
     public class CacheRefAdapter : ICacheRefAdapter
     {
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
+
         public CacheRefAdapter(IRemotingRefService remotingRefService)
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
         {
             RemotingRefService = remotingRefService;
         }
+
         [CLSCompliant(false)]
         public IRemotingRefService RemotingRefService { get; }
 
@@ -36,11 +38,14 @@ namespace Fanex.Athena.Common.Utility.Services
             return RemotingRefService.GetLeagueName(leagueId.ToString(), GetCurrentIBCLanguageCode(), string.Empty);
         }
 
-        public string[] GetCombinationTypeCombo(string betTeam, string betCheck, decimal handicap1, 
-            decimal handicap2)
+        public string[] GetCombinationTypeCombo(string betTeam, string betCheck, decimal handicap1, decimal handicap2)
         {
-            return RemotingRefService.GetCombinationTypeCombo(betTeam, betCheck,
-                Convert.ToInt32(handicap1), Convert.ToInt32(handicap2), GetCurrentIBCLanguageCode());
+            return RemotingRefService.GetCombinationTypeCombo(
+                betTeam,
+                betCheck,
+                Convert.ToInt32(handicap1),
+                Convert.ToInt32(handicap2),
+                GetCurrentIBCLanguageCode());
         }
 
         public string[] GetBetBuilderSelectionNames(int[] selectionIds)

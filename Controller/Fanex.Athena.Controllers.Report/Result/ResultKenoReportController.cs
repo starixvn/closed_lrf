@@ -40,8 +40,10 @@
                 vendorProductId,
                 UserId = userSession.UserId.ToString()
             };
-            var kenoUrl = await _betListApiClient.PostAsyncString("/ResultKenoReport/GetKenoResultUrl",
-                model, userSession.Language).ConfigureAwait(false);
+            var kenoUrl = await _betListApiClient.PostAsyncString(
+                "/ResultKenoReport/GetKenoResultUrl",
+                model,
+                userSession.Language).ConfigureAwait(false);
 
             return Json(
                 new
@@ -71,8 +73,10 @@
                 UserId = userId
             };
 
-            var result = await _betListApiClient.PostAsync<KenoExtendedToken>("/ResultKenoReport/KeepSession",
-                model, userSession.Language).ConfigureAwait(false);
+            var result = await _betListApiClient.PostAsync<KenoExtendedToken>(
+                "/ResultKenoReport/KeepSession",
+                model,
+                userSession.Language).ConfigureAwait(false);
 
             if (result.ErrorCode > 0)
             {

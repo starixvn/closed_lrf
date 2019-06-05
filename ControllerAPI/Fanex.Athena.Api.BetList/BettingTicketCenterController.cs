@@ -43,10 +43,10 @@
             metaModel.UserCurrencyList = userSession.CurrencyList;
             metaModel.AgentListXml = SessionService.GenerateAgentListXml();
 
-            return await _betListApiClient.PostAsync("/BettingTicketCenter/GetBySingleCustomer",
+            return await _betListApiClient.PostAsync(
+                "/BettingTicketCenter/GetBySingleCustomer",
                 metaModel,
-                userSession.Language
-                ).ConfigureAwait(false);
+                userSession.Language).ConfigureAwait(false);
         }
 
         [HttpPost]
@@ -56,15 +56,16 @@
             {
                 throw new ArgumentException(ViewResources.InvalidRequestMsg);
             }
+
             var userSession = SessionService.UserSession;
             metaModel.AgentListXml = SessionService.GenerateAgentListXml();
             metaModel.HasPlayerCom = SessionService.LicenseeSession.IsAllowedCustomerComm;
             metaModel.UserCurrencyList = userSession.CurrencyList;
 
-            return await _betListApiClient.PostAsync("/BettingTicketCenter/GetByRefno",
+            return await _betListApiClient.PostAsync(
+                "/BettingTicketCenter/GetByRefno",
                 metaModel,
-                userSession.Language
-                ).ConfigureAwait(false);
+                userSession.Language).ConfigureAwait(false);
         }
 
         [HttpPost]
@@ -82,10 +83,10 @@
             metaModel.HasPlayerCom = SessionService.LicenseeSession.IsAllowedCustomerComm;
             metaModel.UserCurrencyList = userSession.CurrencyList;
 
-            return await _betListApiClient.PostAsync("/BettingTicketCenter/GetByRunning",
+            return await _betListApiClient.PostAsync(
+                "/BettingTicketCenter/GetByRunning",
                 metaModel,
-                userSession.Language
-                ).ConfigureAwait(false);
+                userSession.Language).ConfigureAwait(false);
         }
     }
 }

@@ -82,8 +82,7 @@
                             && x.BaseCurrency == expectedBaseCurrency
                             && x.SortBy == SortBy
                             && x.SortOrder == SortOrder),
-                        SessionLanguage
-                        );
+                        SessionLanguage);
                 });
             }
         }

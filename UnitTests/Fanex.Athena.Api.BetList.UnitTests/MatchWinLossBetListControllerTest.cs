@@ -107,8 +107,10 @@
                 {
                     Assert.That(expect, Is.EqualTo(actual));
                     Assert.That(metaModel.UspKey, Is.EqualTo(MatchBetTypeUspKey));
-                    BetListApiClient.Received().PostAsync(PageApiPath,
-                        Arg.Is<BetListMetaModel>(x => x.PageIndex == page && x.PageSize == row), SessionLanguage);
+                    BetListApiClient.Received().PostAsync(
+                        PageApiPath,
+                        Arg.Is<BetListMetaModel>(x => x.PageIndex == page && x.PageSize == row),
+                        SessionLanguage);
                 });
             }
         }
@@ -134,8 +136,10 @@
                 {
                     Assert.That(expect, Is.EqualTo(actual));
                     Assert.That(metaModel.UspKey, Is.EqualTo(OutrightUspKey));
-                    BetListApiClient.Received().PostAsync(ApiPath,
-                        Arg.Is<BetListMetaModel>(x => x.IsServerPaging), SessionLanguage);
+                    BetListApiClient.Received().PostAsync(
+                        ApiPath,
+                        Arg.Is<BetListMetaModel>(x => x.IsServerPaging),
+                        SessionLanguage);
                 });
             }
         }
@@ -172,8 +176,7 @@
                     BetListApiClient.Received().PostAsync(
                         PageApiPath,
                         Arg.Is<BetListMetaModel>(x => x.UspKey == MixParlayUspKey && x.BaseCurrency == expectedBaseCurrency),
-                        SessionService.UserSession.Language
-                        );
+                        SessionService.UserSession.Language);
                 });
             }
         }

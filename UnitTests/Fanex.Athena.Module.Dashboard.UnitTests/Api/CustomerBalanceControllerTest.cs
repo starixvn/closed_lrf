@@ -7,6 +7,7 @@
     using Fanex.Athena.Module.Dashboard.MetaModel;
     using NSubstitute;
     using NUnit.Framework;
+    using UnitTest.Common.Helpers;
 
     [TestFixture]
     public class CustomerBalanceControllerTest
@@ -44,8 +45,8 @@
             }
         }
 
-        [TestCase(1_570_000)]
-        public async Task GetData_WhenCall_ReturnCorrectData(decimal expected)
+        [Test]
+        public async Task GetData_WhenCall_ReturnCorrectData()
         {
             // Arrange
             var metaModel = new DashboardBaseModel
@@ -53,6 +54,7 @@
                 BaseCurrency = "EUR"
             };
 
+            var expected = FakeHelper.Create<decimal>();
             _dataAccess.GetCustomerBalance(metaModel).Returns(expected);
 
             using (var controller = CreateController())

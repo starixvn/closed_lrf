@@ -166,8 +166,10 @@
                 Assert.Multiple(() =>
                 {
                     Assert.That(expect, Is.EqualTo(actual));
-                    _betListApiClient.Received().PostAsync(MainApiPath,
-                        Arg.Is<ExchangeBetListMetaModel>(x => x == metaModel && x.BaseCurrency == expectedBaseCurrency), SessionLanguage);
+                    _betListApiClient.Received().PostAsync(
+                        MainApiPath,
+                        Arg.Is<ExchangeBetListMetaModel>(x => x == metaModel && x.BaseCurrency == expectedBaseCurrency),
+                        SessionLanguage);
                 });
             }
         }

@@ -101,10 +101,10 @@ namespace Fanex.Athena.Api.BetList
             metaModel.HasPlayerCom = licenseeSession.IsAllowedCustomerComm;
             metaModel.CurrencyList = userSession.CurrencyList;
             metaModel.UspKey = uspKey;
-            return await BridgeClientService.PostAsync(apiPath ?? "/BetList/GetBetListPaging",
+            return await BridgeClientService.PostAsync(
+                apiPath ?? "/BetList/GetBetListPaging",
                 metaModel,
-                userSession.Language
-                ).ConfigureAwait(false);
+                userSession.Language).ConfigureAwait(false);
         }
 
         protected bool IsValidCurrencyId(int currencyId)

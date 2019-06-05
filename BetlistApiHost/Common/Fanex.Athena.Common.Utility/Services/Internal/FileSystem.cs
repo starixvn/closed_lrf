@@ -40,6 +40,5 @@ namespace Fanex.Athena.Common.Utility.Services.Internal
                 }
             }
         }
-
     }
 }

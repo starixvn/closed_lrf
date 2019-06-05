@@ -40,10 +40,10 @@
                 Assert.Multiple(() =>
                 {
                     Assert.That(expect, Is.EqualTo(actual));
-                    BetListApiClient.Received().PostAsync(MixParlayApiPath,
+                    BetListApiClient.Received().PostAsync(
+                        MixParlayApiPath,
                         Arg.Is<MixParlayDetailMetaModel>(x => x.CustId == custId && x.TransId == transId),
-                        SessionLanguage
-                        );
+                        SessionLanguage);
                 });
             }
         }

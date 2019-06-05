@@ -49,8 +49,10 @@ namespace Fanex.Athena.Api.BetList
             metaModel.HasPlayerCom = licenseeSession.IsAllowedCustomerComm;
             if (_authorizationService.HasPermissionOnData(metaModel.LicenseeId, metaModel.CustId, metaModel.TransId))
             {
-                return await _betListApiClient.PostAsync("/OutstandingDailyStatementBetList/GetData",
-                    metaModel, userSession.Language).ConfigureAwait(false);
+                return await _betListApiClient.PostAsync(
+                    "/OutstandingDailyStatementBetList/GetData",
+                    metaModel,
+                    userSession.Language).ConfigureAwait(false);
             }
 
             return new List<DailyStatement>();

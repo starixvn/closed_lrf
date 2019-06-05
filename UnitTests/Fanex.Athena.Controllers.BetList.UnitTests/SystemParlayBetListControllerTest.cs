@@ -6,6 +6,7 @@
     using Model.BetList.ViewModel;
     using NSubstitute;
     using NUnit.Framework;
+    using UnitTest.Common.Helpers;
 
     internal class SystemParlayBetListControllerTest : BetListBaseControllerHelperTest
     {
@@ -25,7 +26,9 @@
                 // Arrang
                 var metaModel = new SystemParlayDetailMetaModel();
 
-                BetListApiClient.PostAsyncString("/SystemParlayBetList/Detail", metaModel,
+                BetListApiClient.PostAsyncString(
+                    "/SystemParlayBetList/Detail",
+                    metaModel,
                     SessionService.UserSession.Language).Returns(Task.FromResult(string.Empty));
 
                 // Action
@@ -44,8 +47,10 @@
                 // Arrang
                 var metaModel = new SystemParlayDetailMetaModel();
 
-                var systemParlayText = "sdfsdl;fklskhflskdhlfkjshdlfkjhslkdjfhlskjdhf|";
-                BetListApiClient.PostAsyncString("/SystemParlayBetList/Detail", metaModel,
+                var systemParlayText = FakeHelper.Create<string>();
+                BetListApiClient.PostAsyncString(
+                    "/SystemParlayBetList/Detail",
+                    metaModel,
                     SessionService.UserSession.Language).Returns(Task.FromResult(systemParlayText));
 
                 // Action
