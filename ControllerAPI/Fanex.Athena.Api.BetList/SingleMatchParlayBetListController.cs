@@ -35,7 +35,7 @@
                 Status = status
             };
 
-            return await BridgeClientService.PostAsync("/SingleMatchParlayBetList/Detail", metaModel).ConfigureAwait(false);
+            return await BridgeClientService.PostAsync("/SingleMatchParlayBetList/Detail", metaModel, SessionService.UserSession.Language).ConfigureAwait(false);
         }
     }
 }

@@ -39,7 +39,10 @@
                 Assert.Multiple(() =>
                 {
                     Assert.That(expect, Is.EqualTo(actual));
-                    BetListApiClient.Received().PostAsync(ApiPath, Arg.Is<SingleMatchParlayDetailMetaModel>(x => x.CustId == custId && x.TransId == transId && x.Status == status));
+                    BetListApiClient.Received().PostAsync(
+                        ApiPath, 
+                        Arg.Is<SingleMatchParlayDetailMetaModel>(x => x.CustId == custId && x.TransId == transId && x.Status == status),
+                        SessionLanguage);
                 });
             }
         }
